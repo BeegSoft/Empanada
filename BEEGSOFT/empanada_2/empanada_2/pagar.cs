@@ -189,11 +189,8 @@ namespace empanada_2
         }
 
         private void button2_Click(object sender, EventArgs e)
-<<<<<<< HEAD
         {            
-=======
-        {
->>>>>>> 7e68de1f1ba3c61a67e94b92a14c4a74d9b0cdca
+
             this.Close();
         }
 

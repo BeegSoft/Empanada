@@ -73,6 +73,16 @@ namespace empanada_2.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap _facebook_1460120255793 {
+            get {
+                object obj = ResourceManager.GetObject("_facebook_1460120255793", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap chile {
             get {
                 object obj = ResourceManager.GetObject("chile", resourceCulture);
@@ -126,6 +136,16 @@ namespace empanada_2.Properties {
         internal static System.Drawing.Bitmap jamaica {
             get {
                 object obj = ResourceManager.GetObject("jamaica", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap otros1 {
+            get {
+                object obj = ResourceManager.GetObject("otros1", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
