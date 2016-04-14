@@ -75,7 +75,7 @@ namespace empanada_2
                 int id = Convert.ToInt32(lista.Text);
 
 
-                DialogResult resultado = MessageBox.Show("Esta seguro de borrarlo del menu?", "ADVERTENCIA", MessageBoxButtons.YesNo);
+                DialogResult resultado = MessageBox.Show("Esta seguro de borrarlo del menu?", "ADVERTENCIA", MessageBoxButtons.YesNo,MessageBoxIcon.Warning);
                 if (resultado == DialogResult.Yes)
                 {
                     try
@@ -94,11 +94,11 @@ namespace empanada_2
                     }
                     catch (DBConcurrencyException ex)
                     {
-                        MessageBox.Show("Error de concurrencia:\n" + ex.Message);
+                        MessageBox.Show("Error de concurrencia:\n" + ex.Message, "MENSAJE", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
                     catch (Exception ex)
                     {
-                        MessageBox.Show(ex.Message);
+                        MessageBox.Show(ex.Message, "MENSAJE", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
                     lista.Remove();
                 }

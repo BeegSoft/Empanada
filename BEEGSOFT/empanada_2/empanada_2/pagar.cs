@@ -89,7 +89,7 @@ namespace empanada_2
                 }
                 else
                 {
-                    MessageBox.Show("No se pudo");
+                    MessageBox.Show("No se pudo", "MENSAJE", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
                 reader.Close();
 
@@ -98,7 +98,7 @@ namespace empanada_2
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Error orden" + ex);
+                MessageBox.Show("Error orden" + ex, "MENSAJE", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
 
             conexion.Close();
@@ -209,7 +209,7 @@ namespace empanada_2
 
             cmd3.ExecuteNonQuery();
 
-            MessageBox.Show("Pago con exito");
+            MessageBox.Show("Pago con exito", "MENSAJE", MessageBoxButtons.OK, MessageBoxIcon.Information);
             conexion4.Close();
 
             CrearTicket ticket = new CrearTicket();
@@ -253,7 +253,7 @@ namespace empanada_2
                 }
                 else
                 {
-                    MessageBox.Show("No se pudo");
+                    MessageBox.Show("No se pudo", "MENSAJE", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
                 reader.Close();
 
@@ -262,7 +262,7 @@ namespace empanada_2
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Error orden" + ex);
+                MessageBox.Show("Error orden" + ex, "MENSAJE", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             conexion.Close();
 

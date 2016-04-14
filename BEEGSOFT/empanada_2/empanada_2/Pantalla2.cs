@@ -141,7 +141,7 @@ namespace empanada_2
 
                             else
                             {
-                                MessageBox.Show("Todos las comandas estan llenas ! ! ");
+                                MessageBox.Show("Todos las comandas estan llenas ! ! ", "MENSAJE", MessageBoxButtons.OK, MessageBoxIcon.Stop);
                             }
                         }
                     }
