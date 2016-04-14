@@ -174,6 +174,36 @@ namespace empanada_2
         {
 
         }
+        
+        private void button1_Click(object sender, EventArgs e)
+        {
+            listView_platillos.Items.Clear();
+            TextBox1.Text = "";
+        }
+
+        private void button2_Click_1(object sender, EventArgs e)
+        {
+            listView1.Items.Clear();
+            TextBox1.Text = "";
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            listView2.Items.Clear();
+            TextBox1.Text = "";
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            listView3.Items.Clear();
+            TextBox1.Text = "";
+        }
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+            listView4.Items.Clear();
+            TextBox1.Text = "";
+        }
 
         private void button2_Click(object sender, EventArgs e)
         {

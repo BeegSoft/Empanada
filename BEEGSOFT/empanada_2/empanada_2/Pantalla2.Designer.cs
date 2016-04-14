@@ -64,6 +64,7 @@
             this.button1.TabIndex = 5;
             this.button1.Text = "Platillo Terminado";
             this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // listView_platillos
             // 
@@ -121,6 +122,7 @@
             this.button2.TabIndex = 9;
             this.button2.Text = "Platillo Terminado";
             this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click_1);
             // 
             // listView1
             // 
@@ -159,6 +161,7 @@
             this.button3.TabIndex = 12;
             this.button3.Text = "Platillo Terminado";
             this.button3.UseVisualStyleBackColor = true;
+            this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
             // listView2
             // 
@@ -197,6 +200,7 @@
             this.button4.TabIndex = 15;
             this.button4.Text = "Platillo Terminado";
             this.button4.UseVisualStyleBackColor = true;
+            this.button4.Click += new System.EventHandler(this.button4_Click);
             // 
             // listView3
             // 
@@ -235,6 +239,7 @@
             this.button5.TabIndex = 18;
             this.button5.Text = "Platillo Terminado";
             this.button5.UseVisualStyleBackColor = true;
+            this.button5.Click += new System.EventHandler(this.button5_Click);
             // 
             // listView4
             // 

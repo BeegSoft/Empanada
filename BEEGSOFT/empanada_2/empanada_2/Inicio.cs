@@ -37,19 +37,13 @@ namespace empanada_2
         {
             DateTime fechahoy = DateTime.Now;
             string fecha = fechahoy.ToString("d");
-            string consulta;
+            
             try
             {
                 OleDbConnection conexion = new OleDbConnection(ds);
 
                 conexion.Open();
-
-                string consultar = "SELECT fecha FROM FECHA WHERE fecha = '" + fecha + "'";
-                OleDbCommand con = new OleDbCommand(consultar, conexion);
-                consulta = (con.ExecuteScalar()).ToString();
-
-                if (consulta == null)
-                {
+               
                     string insertar = "INSERT INTO FECHA (fecha) VALUES (@fecha)";
                     OleDbCommand cmd = new OleDbCommand(insertar, conexion);
                     cmd.Parameters.AddWithValue("@fecha", fecha);
@@ -60,14 +54,7 @@ namespace empanada_2
 
                     Pantalla2 form = new Pantalla2(fecha, ds);
                     form.Show();
-                }
-                else
-                {
-                    MessageBox.Show("Ya iniciaste el dia de hoy! \n Vaya a la seccion CONTINUAR DIA para proseguir con su dia de hoy.");
-                }
             }
-                
-                
 
             catch (DBConcurrencyException ex)
             {
