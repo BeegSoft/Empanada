@@ -16,6 +16,7 @@ namespace empanada_2
         static void Main()
         {
             string ds = "Provider=Microsoft.Jet.OLEDB.4.0;Data Source=C:/Empanada/BEEGSOFT/empanada_2/empanada_2/baseEmpanadas.mdb";
+            //  h   ola
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new Inicio(ds));
