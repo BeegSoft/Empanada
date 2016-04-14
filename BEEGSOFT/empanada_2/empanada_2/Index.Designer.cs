@@ -124,6 +124,7 @@
             this.label16 = new System.Windows.Forms.Label();
             this.textBox_descripcion = new System.Windows.Forms.TextBox();
             this.label17 = new System.Windows.Forms.Label();
+            this.button23 = new System.Windows.Forms.Button();
             this.menuStrip1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
@@ -992,6 +993,7 @@
             // 
             // groupBox4
             // 
+            this.groupBox4.Controls.Add(this.button23);
             this.groupBox4.Controls.Add(this.button22);
             this.groupBox4.Controls.Add(this.textBox_otros);
             this.groupBox4.Controls.Add(this.comboBox_otros);
@@ -1016,7 +1018,7 @@
             this.textBox_otros.Enabled = false;
             this.textBox_otros.Location = new System.Drawing.Point(80, 69);
             this.textBox_otros.Name = "textBox_otros";
-            this.textBox_otros.Size = new System.Drawing.Size(53, 20);
+            this.textBox_otros.Size = new System.Drawing.Size(34, 20);
             this.textBox_otros.TabIndex = 1;
             this.textBox_otros.Text = "0";
             // 
@@ -1067,6 +1069,15 @@
             this.label17.Size = new System.Drawing.Size(95, 13);
             this.label17.TabIndex = 8;
             this.label17.Text = "Nombre del cliente";
+            // 
+            // button23
+            // 
+            this.button23.Location = new System.Drawing.Point(135, 69);
+            this.button23.Name = "button23";
+            this.button23.Size = new System.Drawing.Size(21, 20);
+            this.button23.TabIndex = 40;
+            this.button23.UseVisualStyleBackColor = true;
+            this.button23.Click += new System.EventHandler(this.button23_Click_2);
             // 
             // Form1
             // 
@@ -1202,6 +1213,7 @@
         private System.Windows.Forms.Label label17;
         private System.Windows.Forms.Button button18;
         private System.Windows.Forms.Button button22;
+        private System.Windows.Forms.Button button23;
     }
 }
 
