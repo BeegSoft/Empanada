@@ -233,7 +233,7 @@ namespace empanada_2
                         Insertar_datos(cantidad, platillo);
                     }
 
-                    MessageBox.Show("Datos Agregador Correctamente");
+                    MessageBox.Show("Datos Agregador Correctamente","MENSAJE",MessageBoxButtons.OK,MessageBoxIcon.Information);
 
                     //MOSTRAR EL TOTAL A PAGAR DEL PEDIDO
 
@@ -429,23 +429,20 @@ namespace empanada_2
         private void button2_Click(object sender, EventArgs e)
         {
             chinita = chinita + 1;
-            textBoxcochinita.Text = Convert.ToString(chinita);
-            textBoxcochinita.Enabled = false;
+            textBoxcochinita.Text = Convert.ToString(chinita);            
         }
 
         private void button3_Click(object sender, EventArgs e)
         {
             frijol = frijol + 1;
             textBoxfrijol.Text = Convert.ToString(frijol);
-            textBoxfrijol.Enabled = false;
       
         }
 
         private void button4_Click(object sender, EventArgs e)
         {
             rajas = rajas + 1;
-            textBoxrajas.Text = Convert.ToString(rajas);
-            textBoxrajas.Enabled = false;
+            textBoxrajas.Text = Convert.ToString(rajas);            
         }
 
         private void textBox14_TextChanged(object sender, EventArgs e)
@@ -481,15 +478,13 @@ namespace empanada_2
         private void buttonchicarronsv_Click(object sender, EventArgs e)
         {
             chicharronsv= chicharronsv + 1;
-            textBoxchicharronsv.Text = Convert.ToString(chicharronsv);
-            textBoxchicharronsv.Enabled = false;
+            textBoxchicharronsv.Text = Convert.ToString(chicharronsv);            
         }
 
         private void buttonchicharronsr_Click(object sender, EventArgs e)
         {
             chicharronsr = chicharronsr + 1;
-            textBoxchicharronsr.Text = Convert.ToString(chicharronsr);
-            textBoxchicharronsr.Enabled = false;
+            textBoxchicharronsr.Text = Convert.ToString(chicharronsr);            
         }
 
 
@@ -967,11 +962,19 @@ namespace empanada_2
             
         }
 
+        private void button23_Click_2(object sender, EventArgs e)
+        {
+            if (Convert.ToInt32(textBox_otros.Text) > 0)
+            {
+                otros = otros - 1;
+                textBox_otros.Text = Convert.ToString(otros);
+            }
+        }
+
         private void button22_Click(object sender, EventArgs e)
         {
             otros = otros + 1;
-            textBox_otros.Text = Convert.ToString(otros);
-            textBox_otros.Enabled = false;
+            textBox_otros.Text = Convert.ToString(otros);            
         }
 
         private void button13_KeyUp(object sender, KeyEventArgs e)
@@ -1013,52 +1016,48 @@ namespace empanada_2
 
         private void button21_Click(object sender, EventArgs e)
         {
-            soda = soda - 1;
-            textBoxsoda.Text = Convert.ToString(soda);
-            textBoxsoda.Enabled = false;
+            if (Convert.ToInt32(textBoxsoda.Text)>0)
+            {
+                soda = soda - 1;
+                textBoxsoda.Text = Convert.ToString(soda);
+            }                        
         }
 
         private void buttonnopal_Click(object sender, EventArgs e)
         {
             nopal = nopal + 1;
-            textBoxnopal.Text = Convert.ToString(nopal);
-            textBoxnopal.Enabled = false;
+            textBoxnopal.Text = Convert.ToString(nopal);            
         }
 
         private void buttontinga_Click(object sender, EventArgs e)
         {
             tinga = tinga + 1;
-            textBoxtinga.Text = Convert.ToString(tinga);
-            textBoxtinga.Enabled = false;
+            textBoxtinga.Text = Convert.ToString(tinga);            
         }
 
         private void buttonpicadillo_Click(object sender, EventArgs e)
         {
             dillo = dillo + 1;
-            textBoxpicadillo.Text = Convert.ToString(dillo);
-            textBoxpicadillo.Enabled = false;
+            textBoxpicadillo.Text = Convert.ToString(dillo);            
 
         }
 
         private void button10_Click(object sender, EventArgs e)
         {
             jamaica= jamaica + 1;
-            textBoxjamaica.Text = Convert.ToString(jamaica);
-            textBoxjamaica.Enabled = false;
+            textBoxjamaica.Text = Convert.ToString(jamaica);            
         }
 
         private void button11_Click(object sender, EventArgs e)
         {
             tamarindo = tamarindo + 1;
-            textBoxtamarindo.Text = Convert.ToString(tamarindo);
-            textBoxtamarindo.Enabled = false;
+            textBoxtamarindo.Text = Convert.ToString(tamarindo);            
         }
 
         private void button1_Click_1(object sender, EventArgs e)
         {
-           cafe = cafe + 1;
-            textBoxcafe.Text = Convert.ToString(cafe);
-            textBoxcafe.Enabled = false;
+            cafe = cafe + 1;
+            textBoxcafe.Text = Convert.ToString(cafe);            
         }
 
         private void groupBox3_Enter(object sender, EventArgs e)
@@ -1084,22 +1083,19 @@ namespace empanada_2
         private void buttonhorchata_Click(object sender, EventArgs e)
         {
             chata = chata + 1;
-            textBoxhorchata.Text = Convert.ToString(chata);
-            textBoxhorchata.Enabled = false;
+            textBoxhorchata.Text = Convert.ToString(chata);            
         }
 
         private void button12_Click(object sender, EventArgs e)
         {
             soda = soda + 1;
-            textBoxsoda.Text = Convert.ToString(soda);
-            textBoxsoda.Enabled = false;
+            textBoxsoda.Text = Convert.ToString(soda);            
         }
 
         private void buttoncebada_Click(object sender, EventArgs e)
         {
             cebada = cebada + 1;
-            textBoxcebada.Text = Convert.ToString(cebada);
-            textBoxcebada.Enabled = false;
+            textBoxcebada.Text = Convert.ToString(cebada);            
         }
 
         private void groupBox1_Enter(object sender, EventArgs e)
