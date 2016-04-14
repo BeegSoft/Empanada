@@ -50,7 +50,7 @@ namespace empanada_2
                 }
                 else
                 {
-                    MessageBox.Show("No se pudo");
+                    MessageBox.Show("No se pudo", "MENSAJE", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
                 reader.Close();
 
@@ -59,7 +59,7 @@ namespace empanada_2
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Error orden" + ex);
+                MessageBox.Show("Error orden" + ex, "MENSAJE", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
 
             textBox_nombre.Text = nombre_platillo;
@@ -76,11 +76,11 @@ namespace empanada_2
 
             catch (DBConcurrencyException ex)
             {
-                MessageBox.Show("Error de concurrencia:\n" + ex.Message);
+                MessageBox.Show("Error de concurrencia:\n" + ex.Message, "MENSAJE", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message);
+                MessageBox.Show(ex.Message, "MENSAJE", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
 
             Menu form = new Menu(ds);
@@ -101,7 +101,7 @@ namespace empanada_2
             cmd.Parameters.AddWithValue("@precio_platillo", textBox_precio.Text);
 
             cmd.ExecuteNonQuery();
-            MessageBox.Show("Datos modificados correctamente");
+            MessageBox.Show("Datos modificados correctamente", "MENSAJE", MessageBoxButtons.OK, MessageBoxIcon.Information);
             conexion.Close();
         }
 

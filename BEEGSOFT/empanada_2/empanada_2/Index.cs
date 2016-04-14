@@ -75,19 +75,19 @@ namespace empanada_2
                             }
                             else
                             {
-                                MessageBox.Show("No se puede continuar porque la orden no tiene nada que pagar");
+                                MessageBox.Show("No se puede continuar porque la orden no tiene nada que pagar","MENSAJE",MessageBoxButtons.OK,MessageBoxIcon.Stop);
                             }
                         }
                     }
                     else
                     {
-                        MessageBox.Show("No se pudo");
+                        MessageBox.Show("No se pudo","MENSAJE",MessageBoxButtons.OK,MessageBoxIcon.Error);
                     }
                     reader.Close();
                 }
                 catch (Exception ex)
                 {
-                    MessageBox.Show("Error orden" + ex);
+                    MessageBox.Show("Error orden" + ex, "MENSAJE", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
 
                 //.....
@@ -100,7 +100,7 @@ namespace empanada_2
         {
             if (id == 0)
             {
-                MessageBox.Show("No se has cargado ninguna orden");
+                MessageBox.Show("No se has cargado ninguna orden", "MENSAJE", MessageBoxButtons.OK, MessageBoxIcon.Stop);
             }
             else {
                 try
@@ -395,7 +395,7 @@ namespace empanada_2
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Error orden" + ex);
+                MessageBox.Show("Error orden" + ex, "MENSAJE", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
 
             total = precio_platillo * Convert.ToInt32(cantidad);
@@ -573,13 +573,13 @@ namespace empanada_2
                 }
                 else
                 {
-                    MessageBox.Show("No se pudo");
+                    MessageBox.Show("No se pudo", "MENSAJE", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
                 reader.Close();
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Error orden" + ex);
+                MessageBox.Show("Error orden" + ex, "MENSAJE", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
 
             //---------------------------------
@@ -603,17 +603,17 @@ namespace empanada_2
                 cmd.Parameters.AddWithValue("@checador", 1);
 
                 cmd.ExecuteNonQuery();
-                MessageBox.Show("Datos agregados correctamente");
+                MessageBox.Show("Datos agregados correctamente", "MENSAJE", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 conexion.Close();
             }
 
             catch (DBConcurrencyException ex)
             {
-                MessageBox.Show("Error de concurrencia:\n" + ex.Message);
+                MessageBox.Show("Error de concurrencia:\n" + ex.Message,"ERROR",MessageBoxButtons.OK,MessageBoxIcon.Error);
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message);
+                MessageBox.Show(ex.Message, "MENSAJE", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
 
 
@@ -646,7 +646,7 @@ namespace empanada_2
                 int id = Convert.ToInt32(lista.Text);
 
 
-                DialogResult resultado = MessageBox.Show("Esta seguro de borrar la orden?", "ADVERTENCIA", MessageBoxButtons.YesNo);
+                DialogResult resultado = MessageBox.Show("Esta seguro de borrar la orden?", "ADVERTENCIA", MessageBoxButtons.YesNo,MessageBoxIcon.Warning);
                 if (resultado == DialogResult.Yes)
                 {
                     try
@@ -662,11 +662,11 @@ namespace empanada_2
                     }
                     catch (DBConcurrencyException ex)
                     {
-                        MessageBox.Show("Error de concurrencia:\n" + ex.Message);
+                        MessageBox.Show("Error de concurrencia:\n" + ex.Message, "MENSAJE", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
                     catch (Exception ex)
                     {
-                        MessageBox.Show(ex.Message);
+                        MessageBox.Show(ex.Message, "MENSAJE", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
                     lista.Remove();
                 }
@@ -894,7 +894,7 @@ namespace empanada_2
             {
                 int id_platillo = Convert.ToInt32(lista.Text);
 
-                DialogResult resultado = MessageBox.Show("Esta seguro de borrar el platillo del cliente?", "ADVERTENCIA", MessageBoxButtons.YesNo);
+                DialogResult resultado = MessageBox.Show("Esta seguro de borrar el platillo del cliente?", "ADVERTENCIA", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
                 if (resultado == DialogResult.Yes)
                 {
                     try
@@ -941,11 +941,11 @@ namespace empanada_2
                     }
                     catch (DBConcurrencyException ex)
                     {
-                        MessageBox.Show("Error de concurrencia:\n" + ex.Message);
+                        MessageBox.Show("Error de concurrencia:\n" + ex.Message, "MENSAJE", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
                     catch (Exception ex)
                     {
-                        MessageBox.Show(ex.Message);
+                        MessageBox.Show(ex.Message, "MENSAJE", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
                     lista.Remove();
                 }

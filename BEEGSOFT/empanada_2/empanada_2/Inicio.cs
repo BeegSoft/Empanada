@@ -58,11 +58,11 @@ namespace empanada_2
 
             catch (DBConcurrencyException ex)
             {
-                MessageBox.Show("Error de concurrencia:\n" + ex.Message);
+                MessageBox.Show("Error de concurrencia:\n" + ex.Message, "MENSAJE", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Error " + ex.Message);
+                MessageBox.Show("Error " + ex.Message, "MENSAJE", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
 
             
