@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Menu_modificar));
             this.button_cancelar = new System.Windows.Forms.Button();
             this.button_aceptar = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
@@ -99,6 +100,7 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.textBox_precio);
             this.Controls.Add(this.textBox_nombre);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Menu_modificar";
             this.Text = "Menu_modificar";
             this.Load += new System.EventHandler(this.Menu_modificar_Load);

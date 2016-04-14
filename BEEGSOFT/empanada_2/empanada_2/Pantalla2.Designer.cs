@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Pantalla2));
             this.button1 = new System.Windows.Forms.Button();
             this.listView_platillos = new System.Windows.Forms.ListView();
             this.column_platillo = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
@@ -284,6 +285,7 @@
             this.Controls.Add(this.button1);
             this.Controls.Add(this.listView_platillos);
             this.Controls.Add(this.label1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Pantalla2";
             this.Text = "Pantalla2cs";
             this.Load += new System.EventHandler(this.Pantalla2cs_Load);

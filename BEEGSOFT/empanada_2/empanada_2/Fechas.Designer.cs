@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Fechas));
             this.listView_fechas = new System.Windows.Forms.ListView();
             this.columnHeader_fechas = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.button_elegir = new System.Windows.Forms.Button();
@@ -101,6 +102,7 @@
             this.Controls.Add(this.button_cancelar);
             this.Controls.Add(this.button_elegir);
             this.Controls.Add(this.listView_fechas);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Fechas";
             this.Text = "Fechas";
             this.Load += new System.EventHandler(this.Fechas_Load);
