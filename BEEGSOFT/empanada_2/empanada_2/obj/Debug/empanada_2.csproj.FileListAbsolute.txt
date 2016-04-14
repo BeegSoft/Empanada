@@ -77,6 +77,5 @@ C:\BEEGSOFT\empanada_2\empanada_2\obj\Debug\empanada_2.csproj.GenerateResource.C
 C:\BEEGSOFT\empanada_2\empanada_2\obj\Debug\empanada_2.exe
 C:\BEEGSOFT\empanada_2\empanada_2\obj\Debug\empanada_2.pdb
 C:\BEEGSOFT\empanada_2\empanada_2\obj\Debug\empanada_2.Form2.resources
+C:\Empanada\BEEGSOFT\empanada_2\empanada_2\obj\Debug\empanada_2.csprojResolveAssemblyReference.cache
 C:\Empanada\BEEGSOFT\empanada_2\empanada_2\bin\Debug\empanada_2.exe.config
-C:\Empanada\BEEGSOFT\empanada_2\empanada_2\obj\Debug\empanada_2.exe
-C:\Empanada\BEEGSOFT\empanada_2\empanada_2\obj\Debug\empanada_2.pdb
