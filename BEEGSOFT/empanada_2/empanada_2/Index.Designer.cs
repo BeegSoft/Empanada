@@ -82,6 +82,10 @@
             this.buttonnopal = new System.Windows.Forms.Button();
             this.buttonchicharronsr = new System.Windows.Forms.Button();
             this.buttonchicarronsv = new System.Windows.Forms.Button();
+            this.buttonrajas = new System.Windows.Forms.Button();
+            this.buttonfrijol = new System.Windows.Forms.Button();
+            this.buttoncochinita = new System.Windows.Forms.Button();
+            this.buttoncarneconchile = new System.Windows.Forms.Button();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.button21 = new System.Windows.Forms.Button();
             this.button20 = new System.Windows.Forms.Button();
@@ -103,28 +107,24 @@
             this.label11 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
+            this.button12 = new System.Windows.Forms.Button();
+            this.buttontamarindo = new System.Windows.Forms.Button();
+            this.buttonjamaica = new System.Windows.Forms.Button();
+            this.buttonhorchata = new System.Windows.Forms.Button();
             this.button_agregar = new System.Windows.Forms.Button();
             this.label13 = new System.Windows.Forms.Label();
             this.textBox_total = new System.Windows.Forms.TextBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.button18 = new System.Windows.Forms.Button();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
+            this.button23 = new System.Windows.Forms.Button();
+            this.button22 = new System.Windows.Forms.Button();
             this.textBox_otros = new System.Windows.Forms.TextBox();
             this.comboBox_otros = new System.Windows.Forms.ComboBox();
             this.checkBox_algo = new System.Windows.Forms.CheckBox();
             this.label16 = new System.Windows.Forms.Label();
             this.textBox_descripcion = new System.Windows.Forms.TextBox();
             this.label17 = new System.Windows.Forms.Label();
-            this.button23 = new System.Windows.Forms.Button();
-            this.button22 = new System.Windows.Forms.Button();
-            this.button12 = new System.Windows.Forms.Button();
-            this.buttontamarindo = new System.Windows.Forms.Button();
-            this.buttonjamaica = new System.Windows.Forms.Button();
-            this.buttonhorchata = new System.Windows.Forms.Button();
-            this.buttonrajas = new System.Windows.Forms.Button();
-            this.buttonfrijol = new System.Windows.Forms.Button();
-            this.buttoncochinita = new System.Windows.Forms.Button();
-            this.buttoncarneconchile = new System.Windows.Forms.Button();
             this.menuStrip1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
@@ -621,12 +621,58 @@
             // 
             // buttonchicarronsv
             // 
+            this.buttonchicarronsv.BackgroundImage = global::empanada_2.Properties.Resources.images;
+            this.buttonchicarronsv.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.buttonchicarronsv.Location = new System.Drawing.Point(6, 100);
             this.buttonchicarronsv.Name = "buttonchicarronsv";
             this.buttonchicarronsv.Size = new System.Drawing.Size(77, 41);
             this.buttonchicarronsv.TabIndex = 5;
             this.buttonchicarronsv.UseVisualStyleBackColor = true;
             this.buttonchicarronsv.Click += new System.EventHandler(this.buttonchicarronsv_Click);
+            // 
+            // buttonrajas
+            // 
+            this.buttonrajas.BackgroundImage = global::empanada_2.Properties.Resources.queso;
+            this.buttonrajas.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.buttonrajas.Location = new System.Drawing.Point(91, 19);
+            this.buttonrajas.Name = "buttonrajas";
+            this.buttonrajas.Size = new System.Drawing.Size(77, 41);
+            this.buttonrajas.TabIndex = 4;
+            this.buttonrajas.UseVisualStyleBackColor = true;
+            this.buttonrajas.Click += new System.EventHandler(this.button4_Click);
+            // 
+            // buttonfrijol
+            // 
+            this.buttonfrijol.BackgroundImage = global::empanada_2.Properties.Resources.frijol;
+            this.buttonfrijol.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.buttonfrijol.Location = new System.Drawing.Point(175, 19);
+            this.buttonfrijol.Name = "buttonfrijol";
+            this.buttonfrijol.Size = new System.Drawing.Size(77, 41);
+            this.buttonfrijol.TabIndex = 3;
+            this.buttonfrijol.UseVisualStyleBackColor = true;
+            this.buttonfrijol.Click += new System.EventHandler(this.button3_Click);
+            // 
+            // buttoncochinita
+            // 
+            this.buttoncochinita.BackgroundImage = global::empanada_2.Properties.Resources.cochinita;
+            this.buttoncochinita.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.buttoncochinita.Location = new System.Drawing.Point(259, 19);
+            this.buttoncochinita.Name = "buttoncochinita";
+            this.buttoncochinita.Size = new System.Drawing.Size(77, 41);
+            this.buttoncochinita.TabIndex = 2;
+            this.buttoncochinita.UseVisualStyleBackColor = true;
+            this.buttoncochinita.Click += new System.EventHandler(this.button2_Click);
+            // 
+            // buttoncarneconchile
+            // 
+            this.buttoncarneconchile.BackgroundImage = global::empanada_2.Properties.Resources.chile;
+            this.buttoncarneconchile.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.buttoncarneconchile.Location = new System.Drawing.Point(6, 19);
+            this.buttoncarneconchile.Name = "buttoncarneconchile";
+            this.buttoncarneconchile.Size = new System.Drawing.Size(77, 41);
+            this.buttoncarneconchile.TabIndex = 1;
+            this.buttoncarneconchile.UseVisualStyleBackColor = true;
+            this.buttoncarneconchile.Click += new System.EventHandler(this.button1_Click);
             // 
             // groupBox3
             // 
@@ -845,6 +891,50 @@
             this.label9.TabIndex = 17;
             this.label9.Text = "Horchata";
             // 
+            // button12
+            // 
+            this.button12.BackgroundImage = global::empanada_2.Properties.Resources.soda;
+            this.button12.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.button12.Location = new System.Drawing.Point(172, 102);
+            this.button12.Name = "button12";
+            this.button12.Size = new System.Drawing.Size(77, 41);
+            this.button12.TabIndex = 12;
+            this.button12.UseVisualStyleBackColor = true;
+            this.button12.Click += new System.EventHandler(this.button12_Click);
+            // 
+            // buttontamarindo
+            // 
+            this.buttontamarindo.BackgroundImage = global::empanada_2.Properties.Resources.tamarindo;
+            this.buttontamarindo.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.buttontamarindo.Location = new System.Drawing.Point(172, 19);
+            this.buttontamarindo.Name = "buttontamarindo";
+            this.buttontamarindo.Size = new System.Drawing.Size(77, 41);
+            this.buttontamarindo.TabIndex = 11;
+            this.buttontamarindo.UseVisualStyleBackColor = true;
+            this.buttontamarindo.Click += new System.EventHandler(this.button11_Click);
+            // 
+            // buttonjamaica
+            // 
+            this.buttonjamaica.BackgroundImage = global::empanada_2.Properties.Resources.jamaica;
+            this.buttonjamaica.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.buttonjamaica.Location = new System.Drawing.Point(89, 19);
+            this.buttonjamaica.Name = "buttonjamaica";
+            this.buttonjamaica.Size = new System.Drawing.Size(77, 41);
+            this.buttonjamaica.TabIndex = 10;
+            this.buttonjamaica.UseVisualStyleBackColor = true;
+            this.buttonjamaica.Click += new System.EventHandler(this.button10_Click);
+            // 
+            // buttonhorchata
+            // 
+            this.buttonhorchata.BackgroundImage = global::empanada_2.Properties.Resources.horchata;
+            this.buttonhorchata.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.buttonhorchata.Location = new System.Drawing.Point(6, 19);
+            this.buttonhorchata.Name = "buttonhorchata";
+            this.buttonhorchata.Size = new System.Drawing.Size(77, 41);
+            this.buttonhorchata.TabIndex = 9;
+            this.buttonhorchata.UseVisualStyleBackColor = true;
+            this.buttonhorchata.Click += new System.EventHandler(this.buttonhorchata_Click);
+            // 
             // button_agregar
             // 
             this.button_agregar.Location = new System.Drawing.Point(97, 443);
@@ -916,6 +1006,27 @@
             this.groupBox4.TabStop = false;
             this.groupBox4.Text = "Otros";
             // 
+            // button23
+            // 
+            this.button23.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.button23.Location = new System.Drawing.Point(108, 93);
+            this.button23.Name = "button23";
+            this.button23.Size = new System.Drawing.Size(21, 20);
+            this.button23.TabIndex = 40;
+            this.button23.UseVisualStyleBackColor = true;
+            this.button23.Click += new System.EventHandler(this.button23_Click_2);
+            // 
+            // button22
+            // 
+            this.button22.BackgroundImage = global::empanada_2.Properties.Resources.otros1;
+            this.button22.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.button22.Location = new System.Drawing.Point(12, 63);
+            this.button22.Name = "button22";
+            this.button22.Size = new System.Drawing.Size(77, 41);
+            this.button22.TabIndex = 34;
+            this.button22.UseVisualStyleBackColor = true;
+            this.button22.Click += new System.EventHandler(this.button22_Click);
+            // 
             // textBox_otros
             // 
             this.textBox_otros.Enabled = false;
@@ -972,106 +1083,6 @@
             this.label17.Size = new System.Drawing.Size(95, 13);
             this.label17.TabIndex = 8;
             this.label17.Text = "Nombre del cliente";
-            // 
-            // button23
-            // 
-            this.button23.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.button23.Location = new System.Drawing.Point(108, 93);
-            this.button23.Name = "button23";
-            this.button23.Size = new System.Drawing.Size(21, 20);
-            this.button23.TabIndex = 40;
-            this.button23.UseVisualStyleBackColor = true;
-            this.button23.Click += new System.EventHandler(this.button23_Click_2);
-            // 
-            // button22
-            // 
-            this.button22.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.button22.Location = new System.Drawing.Point(12, 63);
-            this.button22.Name = "button22";
-            this.button22.Size = new System.Drawing.Size(77, 41);
-            this.button22.TabIndex = 34;
-            this.button22.UseVisualStyleBackColor = true;
-            this.button22.Click += new System.EventHandler(this.button22_Click);
-            // 
-            // button12
-            // 
-            this.button12.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.button12.Location = new System.Drawing.Point(172, 102);
-            this.button12.Name = "button12";
-            this.button12.Size = new System.Drawing.Size(77, 41);
-            this.button12.TabIndex = 12;
-            this.button12.UseVisualStyleBackColor = true;
-            this.button12.Click += new System.EventHandler(this.button12_Click);
-            // 
-            // buttontamarindo
-            // 
-            this.buttontamarindo.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.buttontamarindo.Location = new System.Drawing.Point(172, 19);
-            this.buttontamarindo.Name = "buttontamarindo";
-            this.buttontamarindo.Size = new System.Drawing.Size(77, 41);
-            this.buttontamarindo.TabIndex = 11;
-            this.buttontamarindo.UseVisualStyleBackColor = true;
-            this.buttontamarindo.Click += new System.EventHandler(this.button11_Click);
-            // 
-            // buttonjamaica
-            // 
-            this.buttonjamaica.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.buttonjamaica.Location = new System.Drawing.Point(89, 19);
-            this.buttonjamaica.Name = "buttonjamaica";
-            this.buttonjamaica.Size = new System.Drawing.Size(77, 41);
-            this.buttonjamaica.TabIndex = 10;
-            this.buttonjamaica.UseVisualStyleBackColor = true;
-            this.buttonjamaica.Click += new System.EventHandler(this.button10_Click);
-            // 
-            // buttonhorchata
-            // 
-            this.buttonhorchata.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.buttonhorchata.Location = new System.Drawing.Point(6, 19);
-            this.buttonhorchata.Name = "buttonhorchata";
-            this.buttonhorchata.Size = new System.Drawing.Size(77, 41);
-            this.buttonhorchata.TabIndex = 9;
-            this.buttonhorchata.UseVisualStyleBackColor = true;
-            this.buttonhorchata.Click += new System.EventHandler(this.buttonhorchata_Click);
-            // 
-            // buttonrajas
-            // 
-            this.buttonrajas.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.buttonrajas.Location = new System.Drawing.Point(91, 19);
-            this.buttonrajas.Name = "buttonrajas";
-            this.buttonrajas.Size = new System.Drawing.Size(77, 41);
-            this.buttonrajas.TabIndex = 4;
-            this.buttonrajas.UseVisualStyleBackColor = true;
-            this.buttonrajas.Click += new System.EventHandler(this.button4_Click);
-            // 
-            // buttonfrijol
-            // 
-            this.buttonfrijol.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.buttonfrijol.Location = new System.Drawing.Point(175, 19);
-            this.buttonfrijol.Name = "buttonfrijol";
-            this.buttonfrijol.Size = new System.Drawing.Size(77, 41);
-            this.buttonfrijol.TabIndex = 3;
-            this.buttonfrijol.UseVisualStyleBackColor = true;
-            this.buttonfrijol.Click += new System.EventHandler(this.button3_Click);
-            // 
-            // buttoncochinita
-            // 
-            this.buttoncochinita.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.buttoncochinita.Location = new System.Drawing.Point(259, 19);
-            this.buttoncochinita.Name = "buttoncochinita";
-            this.buttoncochinita.Size = new System.Drawing.Size(77, 41);
-            this.buttoncochinita.TabIndex = 2;
-            this.buttoncochinita.UseVisualStyleBackColor = true;
-            this.buttoncochinita.Click += new System.EventHandler(this.button2_Click);
-            // 
-            // buttoncarneconchile
-            // 
-            this.buttoncarneconchile.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.buttoncarneconchile.Location = new System.Drawing.Point(6, 19);
-            this.buttoncarneconchile.Name = "buttoncarneconchile";
-            this.buttoncarneconchile.Size = new System.Drawing.Size(77, 41);
-            this.buttoncarneconchile.TabIndex = 1;
-            this.buttoncarneconchile.UseVisualStyleBackColor = true;
-            this.buttoncarneconchile.Click += new System.EventHandler(this.button1_Click);
             // 
             // Form1
             // 
