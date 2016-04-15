@@ -284,6 +284,8 @@ namespace empanada_2
                     textBox_otros.Focus();
                 }
 
+                INSERTAR_VISU();
+
                 IForm formInterface = this.Owner as IForm;
 
                 if (formInterface != null)
@@ -291,6 +293,33 @@ namespace empanada_2
             }
         }
         
+
+        private void INSERTAR_VISU(string platillo, int canditdad)
+        {
+            OleDbConnection conexion = new OleDbConnection(ds);
+
+            conexion.Open();
+            
+            try
+            {
+                string insertar = "INSERT INTO VISUALIZADO (platillo, cantidad) VALUES (@platillo, @cantidad)";
+                OleDbCommand cmd2 = new OleDbCommand(insertar, conexion);
+                cmd2.Parameters.AddWithValue("@platillo", platillo);
+                cmd2.Parameters.AddWithValue("@cantidad", cantidad);
+
+                cmd2.ExecuteNonQuery();
+            }
+
+            catch (DBConcurrencyException ex)
+            {
+                MessageBox.Show("Error de concurrencia:\n" + ex.Message);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            conexion.Close();
+        }
         private void SELECT_PLATILLOS()
         {
             OleDbDataAdapter adaptador = new OleDbDataAdapter("SELECT id_platillo,nombre_platillo,cantidad,pagar FROM PLATILLO WHERE id_orden = " + id, ds);
