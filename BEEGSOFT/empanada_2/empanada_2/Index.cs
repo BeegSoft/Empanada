@@ -111,6 +111,7 @@ namespace empanada_2
                         platillo = comboBox_otros.Text;
 
                         Insertar_datos(cantidad, platillo);
+                        INSERTAR_VISU(platillo, cantidad);
                     }
 
                     if (Convert.ToInt32(textBoxcarnec.Text) != 0)
@@ -119,6 +120,7 @@ namespace empanada_2
                         platillo = "carne con chile";
 
                         Insertar_datos(cantidad, platillo);
+                        INSERTAR_VISU(platillo, cantidad);
                     }
 
                     if (Convert.ToInt32(textBoxrajas.Text) != 0)
@@ -127,6 +129,7 @@ namespace empanada_2
                         platillo = "rajas con queso";
 
                         Insertar_datos(cantidad, platillo);
+                        INSERTAR_VISU(platillo, cantidad);
                     }
 
                     if (Convert.ToInt32(textBoxfrijol.Text) != 0)
@@ -135,6 +138,7 @@ namespace empanada_2
                         platillo = "frijol con queso";
 
                         Insertar_datos(cantidad, platillo);
+                        INSERTAR_VISU(platillo, cantidad);
                     }
 
                     if (Convert.ToInt32(textBoxcochinita.Text) != 0)
@@ -143,6 +147,7 @@ namespace empanada_2
                         platillo = "cochinita";
 
                         Insertar_datos(cantidad, platillo);
+                        INSERTAR_VISU(platillo, cantidad);
                     }
 
                     if (Convert.ToInt32(textBoxchicharronsv.Text) != 0)
@@ -151,6 +156,7 @@ namespace empanada_2
                         platillo = "chicharron salsa verde";
 
                         Insertar_datos(cantidad, platillo);
+                        INSERTAR_VISU(platillo, cantidad);
                     }
 
                     if (Convert.ToInt32(textBoxchicharronsr.Text) != 0)
@@ -159,6 +165,7 @@ namespace empanada_2
                         platillo = "chicharron salsa roja";
 
                         Insertar_datos(cantidad, platillo);
+                        INSERTAR_VISU(platillo, cantidad);
                     }
 
                     if (Convert.ToInt32(textBoxnopal.Text) != 0)
@@ -167,6 +174,7 @@ namespace empanada_2
                         platillo = "nopal";
 
                         Insertar_datos(cantidad, platillo);
+                        INSERTAR_VISU(platillo, cantidad);
                     }
 
                     if (Convert.ToInt32(textBoxtinga.Text) != 0)
@@ -175,6 +183,7 @@ namespace empanada_2
                         platillo = "tinga de pollo";
 
                         Insertar_datos(cantidad, platillo);
+                        INSERTAR_VISU(platillo, cantidad);
                     }
 
                     if (Convert.ToInt32(textBoxpicadillo.Text) != 0)
@@ -183,6 +192,7 @@ namespace empanada_2
                         platillo = "picadillo";
 
                         Insertar_datos(cantidad, platillo);
+                        INSERTAR_VISU(platillo, cantidad);
                     }
 
                     if (Convert.ToInt32(textBoxhorchata.Text) != 0)
@@ -191,6 +201,7 @@ namespace empanada_2
                         platillo = "horchata";
 
                         Insertar_datos(cantidad, platillo);
+                        INSERTAR_VISU(platillo, cantidad);
                     }
 
                     if (Convert.ToInt32(textBoxjamaica.Text) != 0)
@@ -199,6 +210,7 @@ namespace empanada_2
                         platillo = "jamaica";
 
                         Insertar_datos(cantidad, platillo);
+                        INSERTAR_VISU(platillo, cantidad);
                     }
 
                     if (Convert.ToInt32(textBoxtamarindo.Text) != 0)
@@ -207,6 +219,7 @@ namespace empanada_2
                         platillo = "tamarindo";
 
                         Insertar_datos(cantidad, platillo);
+                        INSERTAR_VISU(platillo, cantidad);
                     }
 
                     if (Convert.ToInt32(textBoxsoda.Text) != 0)
@@ -215,6 +228,7 @@ namespace empanada_2
                         platillo = "soda";
 
                         Insertar_datos(cantidad, platillo);
+                        INSERTAR_VISU(platillo, cantidad);
                     }
 
                     if (Convert.ToInt32(textBoxcafe.Text) != 0)
@@ -223,6 +237,7 @@ namespace empanada_2
                         platillo = "cafe";
 
                         Insertar_datos(cantidad, platillo);
+                        INSERTAR_VISU(platillo, cantidad);
                     }
 
                     if (Convert.ToInt32(textBoxcebada.Text) != 0)
@@ -231,6 +246,7 @@ namespace empanada_2
                         platillo = "cebada";
 
                         Insertar_datos(cantidad, platillo);
+                        INSERTAR_VISU(platillo, cantidad);
                     }
 
                     MessageBox.Show("Datos Agregador Correctamente","MENSAJE",MessageBoxButtons.OK,MessageBoxIcon.Information);
@@ -284,17 +300,18 @@ namespace empanada_2
                     textBox_otros.Focus();
                 }
 
-                INSERTAR_VISU();
+
+                string txt = textBox_descripcion.Text;
 
                 IForm formInterface = this.Owner as IForm;
 
                 if (formInterface != null)
-                    formInterface.ChangeTextBoxText(textBox_descripcion.Text ,id);
+                    formInterface.ChangeTextBoxText(txt, id);
             }
         }
         
 
-        private void INSERTAR_VISU(string platillo, int canditdad)
+        private void INSERTAR_VISU(string platillo, int cantidad)
         {
             OleDbConnection conexion = new OleDbConnection(ds);
 
@@ -302,8 +319,9 @@ namespace empanada_2
             
             try
             {
-                string insertar = "INSERT INTO VISUALIZADO (platillo, cantidad) VALUES (@platillo, @cantidad)";
+                string insertar = "INSERT INTO VISUALIZADO (id_orden, platillo, cantidad) VALUES (@id_orden, @platillo, @cantidad)";
                 OleDbCommand cmd2 = new OleDbCommand(insertar, conexion);
+                cmd2.Parameters.AddWithValue("@id_orden", id);
                 cmd2.Parameters.AddWithValue("@platillo", platillo);
                 cmd2.Parameters.AddWithValue("@cantidad", cantidad);
 
@@ -320,6 +338,7 @@ namespace empanada_2
             }
             conexion.Close();
         }
+
         private void SELECT_PLATILLOS()
         {
             OleDbDataAdapter adaptador = new OleDbDataAdapter("SELECT id_platillo,nombre_platillo,cantidad,pagar FROM PLATILLO WHERE id_orden = " + id, ds);
@@ -516,7 +535,6 @@ namespace empanada_2
             textBoxchicharronsr.Text = Convert.ToString(chicharronsr);            
         }
 
-
         #region IForm2 Members
 
         public void Relogear_ordenes()
@@ -525,9 +543,6 @@ namespace empanada_2
         }
 
         #endregion
-
-
-
 
         private void Form1_Load(object sender, EventArgs e)
         {
@@ -1000,6 +1015,16 @@ namespace empanada_2
             }
         }
 
+        private void button24_Click(object sender, EventArgs e)
+        {
+            string txt = textBox_descripcion.Text;
+
+            IForm formInterface = this.Owner as IForm;
+
+            if (formInterface != null)
+                formInterface.ChangeTextBoxText(txt, id);
+        }
+
         private void button22_Click(object sender, EventArgs e)
         {
             otros = otros + 1;
@@ -1019,22 +1044,37 @@ namespace empanada_2
         {
             if (e.KeyCode == Keys.F1)
             {
-                button13_Click(sender, e);
+                Terminar_orden formInterface = this.Owner as Terminar_orden;
+                if (formInterface != null)
+                    formInterface.orden1();
             }
 
             if (e.KeyCode == Keys.F2)
             {
-                button14_Click(sender, e);
+                Terminar_orden formInterface = this.Owner as Terminar_orden;
+                if (formInterface != null)
+                    formInterface.orden2();
             }
 
             if (e.KeyCode == Keys.F3)
             {
-                button15_Click(sender, e);
+                Terminar_orden formInterface = this.Owner as Terminar_orden;
+                if (formInterface != null)
+                    formInterface.orden3();
             }
 
             if (e.KeyCode == Keys.F4)
             {
-                button16_Click(sender, e);
+                Terminar_orden formInterface = this.Owner as Terminar_orden;
+                if (formInterface != null)
+                    formInterface.orden4();
+            }
+
+            if(e.KeyCode == Keys.F5)
+            {
+                Terminar_orden formInterface = this.Owner as Terminar_orden;
+                if (formInterface != null)
+                    formInterface.orden5();
             }
         }
 

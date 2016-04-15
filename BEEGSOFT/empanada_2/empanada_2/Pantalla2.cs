@@ -11,7 +11,7 @@ using System.Data.OleDb;
 
 namespace empanada_2
 {
-    public partial class Pantalla2 : Form, IForm
+    public partial class Pantalla2 : Form, IForm, Terminar_orden
     {
         public Pantalla2(string fecha, string ds)
         {
@@ -21,15 +21,16 @@ namespace empanada_2
         }
         
         string ds, fecha;
+        int id_orden;
         #region IForm Members
 
         public void ChangeTextBoxText(string text, int id)
         {
             if (Convert.ToInt32(listView_platillos.Items.Count) == 0)
             {
-                TextBox1.Text = text;
+                textBox1.Text = text;
 
-                OleDbDataAdapter adaptador = new OleDbDataAdapter("SELECT nombre_platillo,cantidad FROM PLATILLO WHERE id_orden = " + id, ds);
+                OleDbDataAdapter adaptador = new OleDbDataAdapter("SELECT id_orden, Platillo, Cantidad FROM VISUALIZADO WHERE id_orden = " + id, ds);
 
                 DataSet dataset = new DataSet();
                 DataTable tabla = new DataTable();
@@ -40,8 +41,9 @@ namespace empanada_2
                 for (int i = 0; i < tabla.Rows.Count; i++)
                 {
                     DataRow filas = tabla.Rows[i];
-                    ListViewItem elemntos = new ListViewItem(filas["nombre_platillo"].ToString());
-                    elemntos.SubItems.Add(filas["cantidad"].ToString());
+                    ListViewItem elemntos = new ListViewItem(filas["id_orden"].ToString());
+                    elemntos.SubItems.Add(filas["Platillo"].ToString());
+                    elemntos.SubItems.Add(filas["Cantidad"].ToString());
 
                     listView_platillos.Items.Add(elemntos);
                 }
@@ -50,9 +52,9 @@ namespace empanada_2
             {
                 if (Convert.ToInt32(listView1.Items.Count) == 0)
                 {
-                    TextBox1.Text = text;
+                    textBox2.Text = text;
 
-                    OleDbDataAdapter adaptador = new OleDbDataAdapter("SELECT nombre_platillo,cantidad FROM PLATILLO WHERE id_orden = " + id, ds);
+                    OleDbDataAdapter adaptador = new OleDbDataAdapter("SELECT id_orden, Platillo, Cantidad FROM VISUALIZADO WHERE id_orden = " + id, ds);
 
                     DataSet dataset = new DataSet();
                     DataTable tabla = new DataTable();
@@ -63,8 +65,9 @@ namespace empanada_2
                     for (int i = 0; i < tabla.Rows.Count; i++)
                     {
                         DataRow filas = tabla.Rows[i];
-                        ListViewItem elemntos = new ListViewItem(filas["nombre_platillo"].ToString());
-                        elemntos.SubItems.Add(filas["cantidad"].ToString());
+                        ListViewItem elemntos = new ListViewItem(filas["id_orden"].ToString());
+                        elemntos.SubItems.Add(filas["Platillo"].ToString());
+                        elemntos.SubItems.Add(filas["Cantidad"].ToString());
 
                         listView1.Items.Add(elemntos);
                     }
@@ -73,9 +76,9 @@ namespace empanada_2
                 {
                     if (Convert.ToInt32(listView2.Items.Count) == 0)
                     {
-                        TextBox1.Text = text;
+                        textBox3.Text = text;
 
-                        OleDbDataAdapter adaptador = new OleDbDataAdapter("SELECT nombre_platillo,cantidad FROM PLATILLO WHERE id_orden = " + id, ds);
+                        OleDbDataAdapter adaptador = new OleDbDataAdapter("SELECT id_orden, Platillo, Cantidad FROM VISUALIZADO WHERE id_orden = " + id, ds);
 
                         DataSet dataset = new DataSet();
                         DataTable tabla = new DataTable();
@@ -86,8 +89,9 @@ namespace empanada_2
                         for (int i = 0; i < tabla.Rows.Count; i++)
                         {
                             DataRow filas = tabla.Rows[i];
-                            ListViewItem elemntos = new ListViewItem(filas["nombre_platillo"].ToString());
-                            elemntos.SubItems.Add(filas["cantidad"].ToString());
+                            ListViewItem elemntos = new ListViewItem(filas["id_orden"].ToString());
+                            elemntos.SubItems.Add(filas["Platillo"].ToString());
+                            elemntos.SubItems.Add(filas["Cantidad"].ToString());
 
                             listView2.Items.Add(elemntos);
                         }
@@ -96,9 +100,9 @@ namespace empanada_2
                     {
                         if (Convert.ToInt32(listView3.Items.Count) == 0)
                         {
-                            TextBox1.Text = text;
+                            textBox4.Text = text;
 
-                            OleDbDataAdapter adaptador = new OleDbDataAdapter("SELECT nombre_platillo,cantidad FROM PLATILLO WHERE id_orden = " + id, ds);
+                            OleDbDataAdapter adaptador = new OleDbDataAdapter("SELECT id_orden, Platillo, Cantidad FROM VISUALIZADO WHERE id_orden = " + id, ds);
 
                             DataSet dataset = new DataSet();
                             DataTable tabla = new DataTable();
@@ -109,8 +113,9 @@ namespace empanada_2
                             for (int i = 0; i < tabla.Rows.Count; i++)
                             {
                                 DataRow filas = tabla.Rows[i];
-                                ListViewItem elemntos = new ListViewItem(filas["nombre_platillo"].ToString());
-                                elemntos.SubItems.Add(filas["cantidad"].ToString());
+                                ListViewItem elemntos = new ListViewItem(filas["id_orden"].ToString());
+                                elemntos.SubItems.Add(filas["Platillo"].ToString());
+                                elemntos.SubItems.Add(filas["Cantidad"].ToString());
 
                                 listView3.Items.Add(elemntos);
                             }
@@ -119,9 +124,9 @@ namespace empanada_2
                         {
                             if (Convert.ToInt32(listView4.Items.Count) == 0)
                             {
-                                TextBox1.Text = text;
+                                textBox5.Text = text;
 
-                                OleDbDataAdapter adaptador = new OleDbDataAdapter("SELECT nombre_platillo,cantidad FROM PLATILLO WHERE id_orden = " + id, ds);
+                                OleDbDataAdapter adaptador = new OleDbDataAdapter("SELECT id_orden, Platillo, Cantidad FROM VISUALIZADO WHERE id_orden = " + id, ds);
 
                                 DataSet dataset = new DataSet();
                                 DataTable tabla = new DataTable();
@@ -132,8 +137,9 @@ namespace empanada_2
                                 for (int i = 0; i < tabla.Rows.Count; i++)
                                 {
                                     DataRow filas = tabla.Rows[i];
-                                    ListViewItem elemntos = new ListViewItem(filas["nombre_platillo"].ToString());
-                                    elemntos.SubItems.Add(filas["cantidad"].ToString());
+                                    ListViewItem elemntos = new ListViewItem(filas["id_orden"].ToString());
+                                    elemntos.SubItems.Add(filas["Platillo"].ToString());
+                                    elemntos.SubItems.Add(filas["Cantidad"].ToString());
 
                                     listView4.Items.Add(elemntos);
                                 }
@@ -147,11 +153,101 @@ namespace empanada_2
                     }
                 }
             }
-
-
-            
         }
 
+        #endregion
+
+        #region Terminar_orden Members
+
+        public void orden1()
+        {
+            id_orden = Convert.ToInt32(listView_platillos.GetItemAt(0, 0));
+            MessageBox.Show(id_orden.ToString());
+            listView_platillos.Items.Clear();
+            textBox1.Text = "";
+
+            OleDbConnection conexion = new OleDbConnection(ds);
+            
+            conexion.Open();
+            string insertar = "DELETE FROM VISUALIZADO WHERE id_orden = " + id_orden;
+            OleDbCommand cmd = new OleDbCommand(insertar, conexion);
+
+            cmd.ExecuteNonQuery();
+            conexion.Close();
+        }
+
+        public void orden2()
+        {
+            listView1.Items.Clear();
+            textBox2.Text = "";
+
+            id_orden = Convert.ToInt32(this.listView1.Items[0]);
+
+            OleDbConnection conexion = new OleDbConnection(ds);
+
+            conexion.Open();
+
+            string insertar = "DELETE FROM VISUALIZADO WHERE id_orden = " + id_orden;
+            OleDbCommand cmd = new OleDbCommand(insertar, conexion);
+
+            cmd.ExecuteNonQuery();
+            conexion.Close();
+        }
+
+        public void orden3()
+        {
+            listView2.Items.Clear();
+            textBox3.Text = "";
+
+            id_orden = Convert.ToInt32(this.listView2.Items[0]);
+
+            OleDbConnection conexion = new OleDbConnection(ds);
+
+            conexion.Open();
+
+            string insertar = "DELETE FROM VISUALIZADO WHERE id_orden = " + id_orden;
+            OleDbCommand cmd = new OleDbCommand(insertar, conexion);
+
+            cmd.ExecuteNonQuery();
+            conexion.Close();
+        }
+
+        public void orden4()
+        {
+            listView3.Items.Clear();
+            textBox4.Text = "";
+
+            id_orden = Convert.ToInt32(this.listView3.Items[0]);
+
+            OleDbConnection conexion = new OleDbConnection(ds);
+
+            conexion.Open();
+
+            string insertar = "DELETE FROM VISUALIZADO WHERE id_orden = " + id_orden;
+            OleDbCommand cmd = new OleDbCommand(insertar, conexion);
+
+            cmd.ExecuteNonQuery();
+            conexion.Close();
+        }
+
+        public void orden5()
+        {
+            listView4.Items.Clear();
+            textBox5.Text = "";
+
+            id_orden = Convert.ToInt32(this.listView4.Items[0]);
+
+            OleDbConnection conexion = new OleDbConnection(ds);
+
+            conexion.Open();
+
+            string insertar = "DELETE FROM VISUALIZADO WHERE id_orden = " + id_orden;
+            OleDbCommand cmd = new OleDbCommand(insertar, conexion);
+
+            cmd.ExecuteNonQuery();
+            conexion.Close();
+        }
+        
         #endregion
 
         private void Pantalla2cs_Load(object sender, EventArgs e)
@@ -177,32 +273,32 @@ namespace empanada_2
         
         private void button1_Click(object sender, EventArgs e)
         {
-            listView_platillos.Items.Clear();
-            TextBox1.Text = "";
+            orden1();
         }
 
         private void button2_Click_1(object sender, EventArgs e)
         {
-            listView1.Items.Clear();
-            TextBox1.Text = "";
+            orden2();
         }
 
         private void button3_Click(object sender, EventArgs e)
         {
-            listView2.Items.Clear();
-            TextBox1.Text = "";
+            orden3();
         }
 
         private void button4_Click(object sender, EventArgs e)
         {
-            listView3.Items.Clear();
-            TextBox1.Text = "";
+            orden4();
         }
 
         private void button5_Click(object sender, EventArgs e)
         {
-            listView4.Items.Clear();
-            TextBox1.Text = "";
+            orden5();
+        }
+
+        private void listView3_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
         }
 
         private void button2_Click(object sender, EventArgs e)
