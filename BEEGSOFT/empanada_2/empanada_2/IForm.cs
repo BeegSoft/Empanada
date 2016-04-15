@@ -15,4 +15,13 @@ namespace empanada_2
     {
         void Relogear_ordenes();
     }
+
+    public interface Terminar_orden
+    {
+        void orden1();
+        void orden2();
+        void orden3();
+        void orden4();
+        void orden5();
+    }
 }

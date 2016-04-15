@@ -56,24 +56,44 @@ namespace empanada_2
                     form.Show();
             }
 
-            catch (DBConcurrencyException ex)
+            catch (Exception)
             {
-                MessageBox.Show("Error de concurrencia:\n" + ex.Message, "MENSAJE", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Ya existe un historial del dia de hoy\n\n      Vaya a CONTINUAR DIA", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Error " + ex.Message, "MENSAJE", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-
-            
-                       
-
         }
 
         private void button2_Click(object sender, EventArgs e)
         {
-            Fechas form = new Fechas(ds);
-            form.Show();
+            DateTime fechahoy = DateTime.Now;
+            string fecha = fechahoy.ToString("d");
+
+            OleDbConnection conexion = new OleDbConnection(ds);
+
+            conexion.Open();
+
+            string select = "SELECT COUNT(fecha) FROM FECHA WHERE fecha='" + fecha + "'";
+            OleDbCommand cmd = new OleDbCommand(select, conexion);
+            try
+            {
+
+                string compro = (cmd.ExecuteScalar()).ToString();
+
+                if (Convert.ToInt32(compro) != 0)
+                {
+                    Form1 form = new Form1(fecha, ds);
+                    form.Show();
+                }
+                else
+                {
+                    MessageBox.Show("No hay un dia en el historial", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error orden" + ex, "MENSAJE", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+
+
             
         }
 
@@ -92,6 +112,12 @@ namespace empanada_2
         private void label1_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            Historial form = new Historial(ds);
+            form.Show();
         }
     }
 }

@@ -34,7 +34,7 @@
             this.column_platillo = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.column_cantidad = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.label1 = new System.Windows.Forms.Label();
-            this.TextBox1 = new System.Windows.Forms.TextBox();
+            this.textBox1 = new System.Windows.Forms.TextBox();
             this.textBox2 = new System.Windows.Forms.TextBox();
             this.button2 = new System.Windows.Forms.Button();
             this.listView1 = new System.Windows.Forms.ListView();
@@ -55,11 +55,16 @@
             this.listView4 = new System.Windows.Forms.ListView();
             this.columnHeader7 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader8 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.ID = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader10 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader11 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader12 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader13 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.SuspendLayout();
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(69, 336);
+            this.button1.Location = new System.Drawing.Point(68, 359);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(100, 31);
             this.button1.TabIndex = 5;
@@ -70,11 +75,13 @@
             // listView_platillos
             // 
             this.listView_platillos.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.ID,
             this.column_platillo,
             this.column_cantidad});
-            this.listView_platillos.Location = new System.Drawing.Point(51, 93);
+            this.listView_platillos.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.listView_platillos.Location = new System.Drawing.Point(31, 116);
             this.listView_platillos.Name = "listView_platillos";
-            this.listView_platillos.Size = new System.Drawing.Size(140, 225);
+            this.listView_platillos.Size = new System.Drawing.Size(224, 225);
             this.listView_platillos.TabIndex = 4;
             this.listView_platillos.UseCompatibleStateImageBehavior = false;
             this.listView_platillos.View = System.Windows.Forms.View.Details;
@@ -83,12 +90,12 @@
             // column_platillo
             // 
             this.column_platillo.Text = "Platillo";
-            this.column_platillo.Width = 74;
+            this.column_platillo.Width = 131;
             // 
             // column_cantidad
             // 
             this.column_cantidad.Text = "Cantidad";
-            this.column_cantidad.Width = 56;
+            this.column_cantidad.Width = 86;
             // 
             // label1
             // 
@@ -100,24 +107,26 @@
             this.label1.TabIndex = 3;
             this.label1.Text = "Pedidos Pendientes Por Realizar ";
             // 
-            // TextBox1
+            // textBox1
             // 
-            this.TextBox1.Location = new System.Drawing.Point(69, 58);
-            this.TextBox1.Name = "TextBox1";
-            this.TextBox1.Size = new System.Drawing.Size(100, 20);
-            this.TextBox1.TabIndex = 7;
-            this.TextBox1.TextChanged += new System.EventHandler(this.TextBox1_TextChanged_1);
+            this.textBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox1.Location = new System.Drawing.Point(68, 81);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(100, 26);
+            this.textBox1.TabIndex = 7;
+            this.textBox1.TextChanged += new System.EventHandler(this.TextBox1_TextChanged_1);
             // 
             // textBox2
             // 
-            this.textBox2.Location = new System.Drawing.Point(253, 58);
+            this.textBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox2.Location = new System.Drawing.Point(279, 81);
             this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(100, 20);
+            this.textBox2.Size = new System.Drawing.Size(100, 26);
             this.textBox2.TabIndex = 10;
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(253, 336);
+            this.button2.Location = new System.Drawing.Point(279, 359);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(100, 31);
             this.button2.TabIndex = 9;
@@ -128,11 +137,13 @@
             // listView1
             // 
             this.listView1.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.columnHeader10,
             this.columnHeader1,
             this.columnHeader2});
-            this.listView1.Location = new System.Drawing.Point(235, 93);
+            this.listView1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.listView1.Location = new System.Drawing.Point(261, 116);
             this.listView1.Name = "listView1";
-            this.listView1.Size = new System.Drawing.Size(140, 225);
+            this.listView1.Size = new System.Drawing.Size(174, 225);
             this.listView1.TabIndex = 8;
             this.listView1.UseCompatibleStateImageBehavior = false;
             this.listView1.View = System.Windows.Forms.View.Details;
@@ -140,7 +151,7 @@
             // columnHeader1
             // 
             this.columnHeader1.Text = "Platillo";
-            this.columnHeader1.Width = 74;
+            this.columnHeader1.Width = 97;
             // 
             // columnHeader2
             // 
@@ -149,14 +160,15 @@
             // 
             // textBox3
             // 
-            this.textBox3.Location = new System.Drawing.Point(426, 58);
+            this.textBox3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox3.Location = new System.Drawing.Point(471, 81);
             this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(100, 20);
+            this.textBox3.Size = new System.Drawing.Size(100, 26);
             this.textBox3.TabIndex = 13;
             // 
             // button3
             // 
-            this.button3.Location = new System.Drawing.Point(426, 336);
+            this.button3.Location = new System.Drawing.Point(425, 359);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(100, 31);
             this.button3.TabIndex = 12;
@@ -167,9 +179,11 @@
             // listView2
             // 
             this.listView2.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.columnHeader11,
             this.columnHeader3,
             this.columnHeader4});
-            this.listView2.Location = new System.Drawing.Point(408, 93);
+            this.listView2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.listView2.Location = new System.Drawing.Point(453, 116);
             this.listView2.Name = "listView2";
             this.listView2.Size = new System.Drawing.Size(140, 225);
             this.listView2.TabIndex = 11;
@@ -188,14 +202,15 @@
             // 
             // textBox4
             // 
-            this.textBox4.Location = new System.Drawing.Point(600, 58);
+            this.textBox4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox4.Location = new System.Drawing.Point(645, 81);
             this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(100, 20);
+            this.textBox4.Size = new System.Drawing.Size(100, 26);
             this.textBox4.TabIndex = 16;
             // 
             // button4
             // 
-            this.button4.Location = new System.Drawing.Point(600, 336);
+            this.button4.Location = new System.Drawing.Point(599, 359);
             this.button4.Name = "button4";
             this.button4.Size = new System.Drawing.Size(100, 31);
             this.button4.TabIndex = 15;
@@ -206,14 +221,17 @@
             // listView3
             // 
             this.listView3.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.columnHeader12,
             this.columnHeader5,
             this.columnHeader6});
-            this.listView3.Location = new System.Drawing.Point(582, 93);
+            this.listView3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.listView3.Location = new System.Drawing.Point(627, 116);
             this.listView3.Name = "listView3";
             this.listView3.Size = new System.Drawing.Size(140, 225);
             this.listView3.TabIndex = 14;
             this.listView3.UseCompatibleStateImageBehavior = false;
             this.listView3.View = System.Windows.Forms.View.Details;
+            this.listView3.SelectedIndexChanged += new System.EventHandler(this.listView3_SelectedIndexChanged);
             // 
             // columnHeader5
             // 
@@ -227,14 +245,15 @@
             // 
             // textBox5
             // 
-            this.textBox5.Location = new System.Drawing.Point(774, 58);
+            this.textBox5.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox5.Location = new System.Drawing.Point(819, 81);
             this.textBox5.Name = "textBox5";
-            this.textBox5.Size = new System.Drawing.Size(100, 20);
+            this.textBox5.Size = new System.Drawing.Size(100, 26);
             this.textBox5.TabIndex = 19;
             // 
             // button5
             // 
-            this.button5.Location = new System.Drawing.Point(774, 336);
+            this.button5.Location = new System.Drawing.Point(773, 359);
             this.button5.Name = "button5";
             this.button5.Size = new System.Drawing.Size(100, 31);
             this.button5.TabIndex = 18;
@@ -245,9 +264,11 @@
             // listView4
             // 
             this.listView4.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.columnHeader13,
             this.columnHeader7,
             this.columnHeader8});
-            this.listView4.Location = new System.Drawing.Point(756, 93);
+            this.listView4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.listView4.Location = new System.Drawing.Point(801, 116);
             this.listView4.Name = "listView4";
             this.listView4.Size = new System.Drawing.Size(140, 225);
             this.listView4.TabIndex = 17;
@@ -264,11 +285,31 @@
             this.columnHeader8.Text = "Cantidad";
             this.columnHeader8.Width = 56;
             // 
+            // ID
+            // 
+            this.ID.Text = "ID";
+            // 
+            // columnHeader10
+            // 
+            this.columnHeader10.Text = "ID";
+            // 
+            // columnHeader11
+            // 
+            this.columnHeader11.Text = "ID";
+            // 
+            // columnHeader12
+            // 
+            this.columnHeader12.Text = "ID";
+            // 
+            // columnHeader13
+            // 
+            this.columnHeader13.Text = "ID";
+            // 
             // Pantalla2
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(935, 375);
+            this.ClientSize = new System.Drawing.Size(935, 399);
             this.Controls.Add(this.textBox5);
             this.Controls.Add(this.button5);
             this.Controls.Add(this.listView4);
@@ -281,7 +322,7 @@
             this.Controls.Add(this.textBox2);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.listView1);
-            this.Controls.Add(this.TextBox1);
+            this.Controls.Add(this.textBox1);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.listView_platillos);
             this.Controls.Add(this.label1);
@@ -301,7 +342,7 @@
         private System.Windows.Forms.ColumnHeader column_platillo;
         private System.Windows.Forms.ColumnHeader column_cantidad;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox TextBox1;
+        private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.TextBox textBox2;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.ListView listView1;
@@ -322,5 +363,10 @@
         private System.Windows.Forms.ListView listView4;
         private System.Windows.Forms.ColumnHeader columnHeader7;
         private System.Windows.Forms.ColumnHeader columnHeader8;
+        private System.Windows.Forms.ColumnHeader ID;
+        private System.Windows.Forms.ColumnHeader columnHeader10;
+        private System.Windows.Forms.ColumnHeader columnHeader11;
+        private System.Windows.Forms.ColumnHeader columnHeader12;
+        private System.Windows.Forms.ColumnHeader columnHeader13;
     }
 }

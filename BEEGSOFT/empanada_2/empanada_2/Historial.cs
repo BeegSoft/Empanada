@@ -13,10 +13,9 @@ namespace empanada_2
 {
     public partial class Historial : Form
     {
-        public Historial(string fecha, string ds)
+        public Historial(string ds)
         {
             InitializeComponent();
-            this.fecha = fecha;
             this.ds = ds;
         }
 
@@ -81,46 +80,6 @@ namespace empanada_2
                 listView1.Items.Add(elemntos);
 
             }
-
-            OleDbDataAdapter adaptador2 = new OleDbDataAdapter("SELECT id_orden, descripcion, total_pagar FROM ORDEN WHERE fecha = '" + fecha + "'", ds);
-
-
-            DataSet dataset2 = new DataSet();
-            DataTable tabla2 = new DataTable();
-
-            adaptador2.Fill(dataset2);
-            tabla = dataset2.Tables[0];
-            this.listView_ordenes.Items.Clear();
-            
-            for (int i = 0; i < tabla.Rows.Count; i++)
-            {
-                DataRow filas = tabla.Rows[i];
-                ListViewItem elemntos2 = new ListViewItem(filas["id_orden"].ToString());
-                elemntos2.SubItems.Add(filas["descripcion"].ToString());
-                elemntos2.SubItems.Add(filas["total_pagar"].ToString());
-                listView_ordenes.Items.Add(elemntos2);
-                
-
-            }
-
-            //HACER LA SUMA DEL TOTAL A PAGAR
-            OleDbConnection conexion2 = new OleDbConnection(ds);
-
-            conexion2.Open();
-
-            string sql = "select SUM(total_pagar) from ORDEN WHERE fecha= '" + fecha + "'";
-            string sql2 = "select COUNT(descripcion) from ORDEN WHERE fecha= '" + fecha + "'";
-            OleDbCommand cmd = new OleDbCommand(sql2, conexion2);
-
-            total_cliente = (cmd.ExecuteScalar()).ToString();
-            textBox3.Text = total_cliente;
-
-
-            OleDbCommand cmd2 = new OleDbCommand(sql, conexion2);
-
-            total_pagar = (cmd2.ExecuteScalar()).ToString();
-            textBox2.Text = total_pagar;
-            conexion2.Close();
         }
 
         private void SELECT_ORDEN()

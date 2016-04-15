@@ -71,7 +71,7 @@ namespace empanada_2
             {
                 string fecha = lista.Text;
                 this.Hide();
-                Historial form2 = new Historial(fecha, ds);
+                Historial form2 = new Historial(ds);
                 form2.Show();
                 this.Hide();
             }

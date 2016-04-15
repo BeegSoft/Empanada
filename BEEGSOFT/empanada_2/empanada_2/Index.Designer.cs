@@ -125,6 +125,13 @@
             this.label16 = new System.Windows.Forms.Label();
             this.textBox_descripcion = new System.Windows.Forms.TextBox();
             this.label17 = new System.Windows.Forms.Label();
+            this.terminarOrdenesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.orden1ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.orden2ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.orden3ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.orden4ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.orden5ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.button24 = new System.Windows.Forms.Button();
             this.menuStrip1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
@@ -166,6 +173,7 @@
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.nuevaOrdenToolStripMenuItem,
             this.modificarToolStripMenuItem,
+            this.terminarOrdenesToolStripMenuItem,
             this.estadisticasToolStripMenuItem,
             this.almacenToolStripMenuItem,
             this.probabilidadesToolStripMenuItem,
@@ -965,6 +973,7 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.button24);
             this.groupBox1.Controls.Add(this.button18);
             this.groupBox1.Controls.Add(this.groupBox4);
             this.groupBox1.Controls.Add(this.checkBox_algo);
@@ -1083,6 +1092,58 @@
             this.label17.Size = new System.Drawing.Size(95, 13);
             this.label17.TabIndex = 8;
             this.label17.Text = "Nombre del cliente";
+            // 
+            // terminarOrdenesToolStripMenuItem
+            // 
+            this.terminarOrdenesToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.orden1ToolStripMenuItem,
+            this.orden2ToolStripMenuItem,
+            this.orden3ToolStripMenuItem,
+            this.orden4ToolStripMenuItem,
+            this.orden5ToolStripMenuItem});
+            this.terminarOrdenesToolStripMenuItem.Name = "terminarOrdenesToolStripMenuItem";
+            this.terminarOrdenesToolStripMenuItem.Size = new System.Drawing.Size(111, 20);
+            this.terminarOrdenesToolStripMenuItem.Text = "Terminar ordenes";
+            // 
+            // orden1ToolStripMenuItem
+            // 
+            this.orden1ToolStripMenuItem.Name = "orden1ToolStripMenuItem";
+            this.orden1ToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.orden1ToolStripMenuItem.Text = "Orden 1";
+            // 
+            // orden2ToolStripMenuItem
+            // 
+            this.orden2ToolStripMenuItem.Name = "orden2ToolStripMenuItem";
+            this.orden2ToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.orden2ToolStripMenuItem.Text = "Orden 2";
+            // 
+            // orden3ToolStripMenuItem
+            // 
+            this.orden3ToolStripMenuItem.Name = "orden3ToolStripMenuItem";
+            this.orden3ToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.orden3ToolStripMenuItem.Text = "Orden 3";
+            // 
+            // orden4ToolStripMenuItem
+            // 
+            this.orden4ToolStripMenuItem.Name = "orden4ToolStripMenuItem";
+            this.orden4ToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.orden4ToolStripMenuItem.Text = "Orden 4";
+            // 
+            // orden5ToolStripMenuItem
+            // 
+            this.orden5ToolStripMenuItem.Name = "orden5ToolStripMenuItem";
+            this.orden5ToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.orden5ToolStripMenuItem.Text = "Orden 5";
+            // 
+            // button24
+            // 
+            this.button24.Location = new System.Drawing.Point(386, 443);
+            this.button24.Name = "button24";
+            this.button24.Size = new System.Drawing.Size(67, 23);
+            this.button24.TabIndex = 38;
+            this.button24.Text = "Comanda";
+            this.button24.UseVisualStyleBackColor = true;
+            this.button24.Click += new System.EventHandler(this.button24_Click);
             // 
             // Form1
             // 
@@ -1219,6 +1280,13 @@
         private System.Windows.Forms.Button button18;
         private System.Windows.Forms.Button button22;
         private System.Windows.Forms.Button button23;
+        private System.Windows.Forms.ToolStripMenuItem terminarOrdenesToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem orden1ToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem orden2ToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem orden3ToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem orden4ToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem orden5ToolStripMenuItem;
+        private System.Windows.Forms.Button button24;
     }
 }
 
