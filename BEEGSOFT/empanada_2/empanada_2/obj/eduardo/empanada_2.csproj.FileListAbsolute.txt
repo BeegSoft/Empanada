@@ -15,4 +15,3 @@ C:\Empanada\BEEGSOFT\empanada_2\empanada_2\obj\eduardo\empanada_2.Properties.Res
 C:\Empanada\BEEGSOFT\empanada_2\empanada_2\obj\eduardo\empanada_2.csproj.GenerateResource.Cache
 C:\Empanada\BEEGSOFT\empanada_2\empanada_2\obj\eduardo\empanada_2.exe
 C:\Empanada\BEEGSOFT\empanada_2\empanada_2\obj\eduardo\empanada_2.pdb
-C:\Empanada\BEEGSOFT\empanada_2\empanada_2\obj\eduardo\empanada_2.csprojResolveAssemblyReference.cache
