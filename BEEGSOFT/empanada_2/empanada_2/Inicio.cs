@@ -43,22 +43,26 @@ namespace empanada_2
                 OleDbConnection conexion = new OleDbConnection(ds);
 
                 conexion.Open();
-               
-                    string insertar = "INSERT INTO FECHA (fecha) VALUES (@fecha)";
-                    OleDbCommand cmd = new OleDbCommand(insertar, conexion);
-                    cmd.Parameters.AddWithValue("@fecha", fecha);
+                string insertar = "INSERT INTO FECHA (fecha) VALUES (@fecha)";
+                OleDbCommand cmd = new OleDbCommand(insertar, conexion);
+                cmd.Parameters.AddWithValue("@fecha", fecha);
 
-                    cmd.ExecuteNonQuery();
+                cmd.ExecuteNonQuery();
 
-                    conexion.Close();
+                conexion.Close();
 
-                    Pantalla2 form = new Pantalla2(fecha, ds);
-                    form.Show();
+                Pantalla2 form = new Pantalla2(fecha, ds);
+                form.Show();
             }
 
             catch (Exception)
             {
-                MessageBox.Show("Ya existe un historial del dia de hoy\n\n      Vaya a CONTINUAR DIA", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                DialogResult resultado = MessageBox.Show("Ya existe un historial del dia de hoy\n\n      Desea continuar el dia de hoy?", "ADVERTENCIA", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+                if (resultado == DialogResult.Yes)
+                {
+                    Pantalla2 form = new Pantalla2(fecha, ds);
+                    form.Show();
+                }
             }
         }
 
@@ -80,7 +84,7 @@ namespace empanada_2
 
                 if (Convert.ToInt32(compro) != 0)
                 {
-                    Form1 form = new Form1(fecha, ds);
+                    Pantalla2 form = new Pantalla2(fecha, ds);
                     form.Show();
                 }
                 else
@@ -91,10 +95,7 @@ namespace empanada_2
             catch (Exception ex)
             {
                 MessageBox.Show("Error orden" + ex, "MENSAJE", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-
-
-            
+            }            
         }
 
         private void button4_Click(object sender, EventArgs e)
