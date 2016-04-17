@@ -58,6 +58,7 @@ namespace empanada_2
             total_pagar = (cmd2.ExecuteScalar()).ToString();
             textBox2.Text = total_pagar;
             conexion2.Close();
+            
         }
 
         private void Historial_Load(object sender, EventArgs e)
@@ -80,6 +81,21 @@ namespace empanada_2
                 listView1.Items.Add(elemntos);
 
             }
+
+            //separacion del contenido del calendario
+            string var1 = dateTimePicker1.Text;
+            var1 = var1.Substring(0, 2);
+
+            string var2 = dateTimePicker1.Text;
+            var2 = var2.Substring(3, 2);
+
+            string var3 = dateTimePicker1.Text;
+            var3 = var3.Substring(6, 4);
+
+            //juntando las cadenas
+            string var4 = string.Concat(var1, var2, var3);
+            //--------------------           
+            //---------------------------------
         }
 
         private void SELECT_ORDEN()
