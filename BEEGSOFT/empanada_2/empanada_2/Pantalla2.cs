@@ -21,7 +21,7 @@ namespace empanada_2
         }
         
         string ds, fecha;
-        int id_orden;
+        int id_orden, orden_1, orden_2, orden_3, orden_4, orden_5;
         #region IForm Members
 
         public void ChangeTextBoxText(string text, int id)
@@ -29,7 +29,7 @@ namespace empanada_2
             if (Convert.ToInt32(listView_platillos.Items.Count) == 0)
             {
                 textBox1.Text = text;
-
+                orden_1 = id;
                 OleDbDataAdapter adaptador = new OleDbDataAdapter("SELECT id_orden, Platillo, Cantidad FROM VISUALIZADO WHERE id_orden = " + id, ds);
 
                 DataSet dataset = new DataSet();
@@ -53,7 +53,7 @@ namespace empanada_2
                 if (Convert.ToInt32(listView1.Items.Count) == 0)
                 {
                     textBox2.Text = text;
-
+                    orden_2 = id;
                     OleDbDataAdapter adaptador = new OleDbDataAdapter("SELECT id_orden, Platillo, Cantidad FROM VISUALIZADO WHERE id_orden = " + id, ds);
 
                     DataSet dataset = new DataSet();
@@ -77,7 +77,7 @@ namespace empanada_2
                     if (Convert.ToInt32(listView2.Items.Count) == 0)
                     {
                         textBox3.Text = text;
-
+                        orden_3 = id;
                         OleDbDataAdapter adaptador = new OleDbDataAdapter("SELECT id_orden, Platillo, Cantidad FROM VISUALIZADO WHERE id_orden = " + id, ds);
 
                         DataSet dataset = new DataSet();
@@ -101,7 +101,7 @@ namespace empanada_2
                         if (Convert.ToInt32(listView3.Items.Count) == 0)
                         {
                             textBox4.Text = text;
-
+                            orden_4 = id;
                             OleDbDataAdapter adaptador = new OleDbDataAdapter("SELECT id_orden, Platillo, Cantidad FROM VISUALIZADO WHERE id_orden = " + id, ds);
 
                             DataSet dataset = new DataSet();
@@ -125,7 +125,7 @@ namespace empanada_2
                             if (Convert.ToInt32(listView4.Items.Count) == 0)
                             {
                                 textBox5.Text = text;
-
+                                orden_5 = id;
                                 OleDbDataAdapter adaptador = new OleDbDataAdapter("SELECT id_orden, Platillo, Cantidad FROM VISUALIZADO WHERE id_orden = " + id, ds);
 
                                 DataSet dataset = new DataSet();
@@ -161,15 +161,13 @@ namespace empanada_2
 
         public void orden1()
         {
-            id_orden = Convert.ToInt32(listView_platillos.GetItemAt(0, 0));
-            MessageBox.Show(id_orden.ToString());
             listView_platillos.Items.Clear();
             textBox1.Text = "";
 
             OleDbConnection conexion = new OleDbConnection(ds);
             
             conexion.Open();
-            string insertar = "DELETE FROM VISUALIZADO WHERE id_orden = " + id_orden;
+            string insertar = "DELETE FROM VISUALIZADO WHERE id_orden = " + orden_1;
             OleDbCommand cmd = new OleDbCommand(insertar, conexion);
 
             cmd.ExecuteNonQuery();
@@ -187,7 +185,7 @@ namespace empanada_2
 
             conexion.Open();
 
-            string insertar = "DELETE FROM VISUALIZADO WHERE id_orden = " + id_orden;
+            string insertar = "DELETE FROM VISUALIZADO WHERE id_orden = " + orden_2;
             OleDbCommand cmd = new OleDbCommand(insertar, conexion);
 
             cmd.ExecuteNonQuery();
@@ -205,7 +203,7 @@ namespace empanada_2
 
             conexion.Open();
 
-            string insertar = "DELETE FROM VISUALIZADO WHERE id_orden = " + id_orden;
+            string insertar = "DELETE FROM VISUALIZADO WHERE id_orden = " + orden_3;
             OleDbCommand cmd = new OleDbCommand(insertar, conexion);
 
             cmd.ExecuteNonQuery();
@@ -223,7 +221,7 @@ namespace empanada_2
 
             conexion.Open();
 
-            string insertar = "DELETE FROM VISUALIZADO WHERE id_orden = " + id_orden;
+            string insertar = "DELETE FROM VISUALIZADO WHERE id_orden = " + orden_4;
             OleDbCommand cmd = new OleDbCommand(insertar, conexion);
 
             cmd.ExecuteNonQuery();
@@ -241,7 +239,7 @@ namespace empanada_2
 
             conexion.Open();
 
-            string insertar = "DELETE FROM VISUALIZADO WHERE id_orden = " + id_orden;
+            string insertar = "DELETE FROM VISUALIZADO WHERE id_orden = " + orden_5;   
             OleDbCommand cmd = new OleDbCommand(insertar, conexion);
 
             cmd.ExecuteNonQuery();
