@@ -37,15 +37,28 @@ namespace empanada_2
         {
             DateTime fechahoy = DateTime.Now;
             string fecha = fechahoy.ToString("d");
-            
+
+            string var1 = fecha;
+            var1 = var1.Substring(0, 2);
+
+            string var2 = fecha;
+            var2 = var2.Substring(3, 2);
+
+            string var3 = fecha;
+            var3 = var3.Substring(6, 4);
+
+            //juntando las cadenas
+            string fechacompleta = string.Concat(var3, var2, var1);
+            int fechanum = Convert.ToInt32(fechacompleta);
             try
             {
                 OleDbConnection conexion = new OleDbConnection(ds);
 
                 conexion.Open();
-                string insertar = "INSERT INTO FECHA (fecha) VALUES (@fecha)";
+                string insertar = "INSERT INTO FECHA (fecha, id) VALUES (@fecha, @id)";
                 OleDbCommand cmd = new OleDbCommand(insertar, conexion);
                 cmd.Parameters.AddWithValue("@fecha", fecha);
+                cmd.Parameters.AddWithValue("@id", fechanum);
 
                 cmd.ExecuteNonQuery();
 

@@ -28,114 +28,154 @@ namespace empanada_2
 
         }
 
+        private void comboBox_platillos_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            //Primera fecha
+            string var1 = fechaA.Text;
+            var1 = var1.Substring(0, 2);
+
+            string var2 = fechaA.Text;
+            var2 = var2.Substring(3, 2);
+
+            string var3 = fechaA.Text;
+            var3 = var3.Substring(6, 4);
+
+            //juntando las cadenas
+            string FECHAA = string.Concat(var3, var2, var1);
+            int fechaa = Convert.ToInt32(FECHAA);
+            //----------------
+
+            //Segunda fecha
+            var1 = fechaB.Text;
+            var1 = var1.Substring(0, 2);
+
+            var2 = fechaB.Text;
+            var2 = var2.Substring(3, 2);
+
+            var3 = fechaB.Text;
+            var3 = var3.Substring(6, 4);
+
+            //juntando las cadenas
+            string FECHAB = string.Concat(var3, var2, var1);
+            int fechab = Convert.ToInt32(FECHAB);
+            //----------------
+
+            //SUMAR LAS VENTAS DE LOS PLATILLOS SELECCIONADOS
+            OleDbConnection conexion = new OleDbConnection(ds);
+
+            conexion.Open();
+
+            string select = "SELECT SUM(PLATILLO.pagar) FROM(FECHA INNER JOIN ORDEN ON FECHA.fecha = ORDEN.fecha) INNER JOIN PLATILLO ON ORDEN.id_orden = PLATILLO.id_orden WHERE PLATILLO.nombre_platillo = '" + comboBox_platillos.Text + "'" + "AND FECHA.id >= " + fechaa + "AND FECHA.id <= " + fechab;
+
+            OleDbCommand cmd2 = new OleDbCommand(select, conexion); //Conexion es tu objeto conexion                                
+
+            textBox_venta_platillo.Text = (cmd2.ExecuteScalar()).ToString();
+
+            //...................................
+
+            //CONTAR TODOS LOS PLATILLOS QUE SE VENDIERON
+            string select2 = "SELECT SUM(PLATILLO.cantidad) FROM(FECHA INNER JOIN ORDEN ON FECHA.fecha = ORDEN.fecha) INNER JOIN PLATILLO ON ORDEN.id_orden = PLATILLO.id_orden WHERE PLATILLO.nombre_platillo = '" + comboBox_platillos.Text + "'" + "AND FECHA.id >= " + fechaa + "AND FECHA.id <= " + fechab;
+
+            OleDbCommand cmd3 = new OleDbCommand(select2, conexion); //Conexion es tu objeto conexion                                
+
+            textBox_platillos_vendidos.Text = (cmd3.ExecuteScalar()).ToString();
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            //Primera fecha
+            string var1 = fechaA.Text;
+            var1 = var1.Substring(0, 2);
+
+            string var2 = fechaA.Text;
+            var2 = var2.Substring(3, 2);
+
+            string var3 = fechaA.Text;
+            var3 = var3.Substring(6, 4);
+
+            //juntando las cadenas
+            string FECHAA = string.Concat(var3, var2, var1);
+            int fechaa = Convert.ToInt32(FECHAA);
+            //----------------
+
+            //Segunda fecha
+            var1 = fechaB.Text;
+            var1 = var1.Substring(0, 2);
+
+            var2 = fechaB.Text;
+            var2 = var2.Substring(3, 2);
+
+            var3 = fechaB.Text;
+            var3 = var3.Substring(6, 4);
+
+            //juntando las cadenas
+            string FECHAB = string.Concat(var3, var2, var1);
+            int fechab = Convert.ToInt32(FECHAB);
+            //----------------
+
+            //SUMAR LAS VENTAS DE LOS PLATILLOS SELECCIONADOS
+            OleDbConnection conexion = new OleDbConnection(ds);
+
+            conexion.Open();
+
+            string select = "SELECT SUM(ORDEN.total_pagar) FROM FECHA INNER JOIN ORDEN ON FECHA.fecha = ORDEN.fecha WHERE FECHA.id >= " + fechaa + "AND FECHA.id <= " + fechab;
+
+            OleDbCommand cmd2 = new OleDbCommand(select, conexion); //Conexion es tu objeto conexion                                
+
+            textBox_ganancias.Text = (cmd2.ExecuteScalar()).ToString();
+
+            //...................................
+
+            //SUMAR LAS VENTAS DE LOS PLATILLOS SELECCIONADOS
+            
+            string select2 = "SELECT COUNT(ORDEN.total_pagar) FROM FECHA INNER JOIN ORDEN ON FECHA.fecha = ORDEN.fecha WHERE FECHA.id >= " + fechaa + "AND FECHA.id <= " + fechab;
+
+            OleDbCommand cmd3 = new OleDbCommand(select2, conexion); //Conexion es tu objeto conexion                                
+
+            textBox_clientes.Text = (cmd3.ExecuteScalar()).ToString();
+
+            //...................................
+        }
+
         private void button1_Click(object sender, EventArgs e)
         {
-            foreach (ListViewItem lista in listView1.SelectedItems)
-            {
-                fecha = Convert.ToString(lista.Text);
-            }
-
-            textBox1.Text = fecha;
-
-            SELECT_FECHA();
-
-            SELECT_ORDEN();
-
-            //HACER LA SUMA DEL TOTAL A PAGAR
-            OleDbConnection conexion2 = new OleDbConnection(ds);
-            conexion2.Open();
-
-            string sql = "select SUM(total_pagar) from ORDEN WHERE fecha= '" + fecha + "'";
-            string sql2 = "select COUNT(descripcion) from ORDEN WHERE fecha= '" + fecha + "'";
-            OleDbCommand cmd = new OleDbCommand(sql2, conexion2);
-
-            total_cliente = (cmd.ExecuteScalar()).ToString();
-            textBox3.Text = total_cliente;
-
-
-            OleDbCommand cmd2 = new OleDbCommand(sql, conexion2);
-
-            total_pagar = (cmd2.ExecuteScalar()).ToString();
-            textBox2.Text = total_pagar;
-            conexion2.Close();
+            
             
         }
 
         private void Historial_Load(object sender, EventArgs e)
         {
-            textBox1.Text = fecha;
-
-            OleDbDataAdapter adaptador = new OleDbDataAdapter("SELECT fecha FROM FECHA", ds);
-
-            DataSet dataset = new DataSet();
-            DataTable tabla = new DataTable();
-
-            adaptador.Fill(dataset);
-            tabla = dataset.Tables[0];
-            this.listView1.Items.Clear();
-            for (int i = 0; i < tabla.Rows.Count; i++)
-            {
-                DataRow filas = tabla.Rows[i];
-                ListViewItem elemntos = new ListViewItem(filas["fecha"].ToString());
-
-                listView1.Items.Add(elemntos);
-
-            }
+            
 
             //separacion del contenido del calendario
-            string var1 = dateTimePicker1.Text;
+            DateTime fechahoy = DateTime.Now;
+            string fechas = fechahoy.ToString("d");
+
+            string var1 = fechas;
             var1 = var1.Substring(0, 2);
 
-            string var2 = dateTimePicker1.Text;
+            string var2 = fechas;
             var2 = var2.Substring(3, 2);
 
-            string var3 = dateTimePicker1.Text;
+            string var3 = fechas;
             var3 = var3.Substring(6, 4);
 
             //juntando las cadenas
-            string var4 = string.Concat(var1, var2, var3);
+            string var4 = string.Concat(var3, var2 ,var1);
+            MessageBox.Show(var4);
             //--------------------           
             //---------------------------------
+
+            DataSet dss = new DataSet();
+            //indicamos la consulta en SQL
+            OleDbDataAdapter da = new OleDbDataAdapter("SELECT nombre_platillo FROM MENU", ds);
+            //se indica el nombre de la tabla
+            da.Fill(dss, "Nombre_platillo");
+            comboBox_platillos.DataSource = dss.Tables[0].DefaultView;
+            //se especifica el campo de la tabla
+            comboBox_platillos.ValueMember = "nombre_platillo";
         }
 
-        private void SELECT_ORDEN()
-        {
-            OleDbDataAdapter adaptador2 = new OleDbDataAdapter("SELECT id_orden, descripcion, total_pagar FROM ORDEN WHERE fecha = '" + fecha + "'", ds);
-
-            DataSet dataset2 = new DataSet();
-            DataTable tabla2 = new DataTable();
-
-            adaptador2.Fill(dataset2);
-            tabla2 = dataset2.Tables[0];
-            this.listView_ordenes.Items.Clear();
-
-            for (int i = 0; i < tabla2.Rows.Count; i++)
-            {
-                DataRow filas = tabla2.Rows[i];
-                ListViewItem elemntos2 = new ListViewItem(filas["id_orden"].ToString());
-                elemntos2.SubItems.Add(filas["descripcion"].ToString());
-                elemntos2.SubItems.Add(filas["total_pagar"].ToString());
-                listView_ordenes.Items.Add(elemntos2);
-            }
-        }
-
-        private void SELECT_FECHA()
-        {
-            OleDbDataAdapter adaptador = new OleDbDataAdapter("SELECT fecha FROM FECHA", ds);
-
-            DataSet dataset = new DataSet();
-            DataTable tabla = new DataTable();
-
-            adaptador.Fill(dataset);
-            tabla = dataset.Tables[0];
-            this.listView1.Items.Clear();
-            for (int i = 0; i < tabla.Rows.Count; i++)
-            {
-                DataRow filas = tabla.Rows[i];
-                ListViewItem elemntos = new ListViewItem(filas["fecha"].ToString());
-
-                listView1.Items.Add(elemntos);
-            }
-        }
+        
     }
 }
