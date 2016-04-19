@@ -52,6 +52,7 @@
             this.label7 = new System.Windows.Forms.Label();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.grafica = new System.Windows.Forms.DataVisualization.Charting.Chart();
+            this.label2 = new System.Windows.Forms.Label();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.grafica)).BeginInit();
@@ -243,21 +244,31 @@
             this.grafica.ChartAreas.Add(chartArea1);
             legend1.Name = "Legend1";
             this.grafica.Legends.Add(legend1);
-            this.grafica.Location = new System.Drawing.Point(430, 109);
+            this.grafica.Location = new System.Drawing.Point(460, 63);
             this.grafica.Name = "grafica";
             series1.ChartArea = "ChartArea1";
             series1.Legend = "Legend1";
-            series1.Name = "Series1";
+            series1.Name = "Ventas";
             this.grafica.Series.Add(series1);
-            this.grafica.Size = new System.Drawing.Size(470, 361);
+            this.grafica.Size = new System.Drawing.Size(594, 385);
             this.grafica.TabIndex = 20;
             this.grafica.Text = "chart1";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(507, 47);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(107, 13);
+            this.label2.TabIndex = 22;
+            this.label2.Text = "Grafica de las ventas";
             // 
             // Historial
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1088, 482);
+            this.Controls.Add(this.label2);
             this.Controls.Add(this.grafica);
             this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.button2);
@@ -304,5 +315,6 @@
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.GroupBox groupBox3;
         private System.Windows.Forms.DataVisualization.Charting.Chart grafica;
+        private System.Windows.Forms.Label label2;
     }
 }

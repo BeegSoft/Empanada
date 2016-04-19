@@ -8,7 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Data.OleDb;
-//hola
+
 namespace empanada_2
 {
     public partial class Historial : Form
@@ -22,44 +22,15 @@ namespace empanada_2
         string fecha, total_pagar, total_cliente;
         //CONEXIONES
         String ds;
+        int fechaa, fechab;
 
         private void groupBox2_Enter(object sender, EventArgs e)
         {
 
         }
-
+        
         private void comboBox_platillos_SelectedIndexChanged(object sender, EventArgs e)
         {
-            //Primera fecha
-            string var1 = fechaA.Text;
-            var1 = var1.Substring(0, 2);
-
-            string var2 = fechaA.Text;
-            var2 = var2.Substring(3, 2);
-
-            string var3 = fechaA.Text;
-            var3 = var3.Substring(6, 4);
-
-            //juntando las cadenas
-            string FECHAA = string.Concat(var3, var2, var1);
-            int fechaa = Convert.ToInt32(FECHAA);
-            //----------------
-
-            //Segunda fecha
-            var1 = fechaB.Text;
-            var1 = var1.Substring(0, 2);
-
-            var2 = fechaB.Text;
-            var2 = var2.Substring(3, 2);
-
-            var3 = fechaB.Text;
-            var3 = var3.Substring(6, 4);
-
-            //juntando las cadenas
-            string FECHAB = string.Concat(var3, var2, var1);
-            int fechab = Convert.ToInt32(FECHAB);
-            //----------------
-
             //SUMAR LAS VENTAS DE LOS PLATILLOS SELECCIONADOS
             OleDbConnection conexion = new OleDbConnection(ds);
 
@@ -80,7 +51,10 @@ namespace empanada_2
 
             textBox_platillos_vendidos.Text = (cmd3.ExecuteScalar()).ToString();
         }
+        string cochi, raja, carn, chihV, chicR, nop, ting, frij, pic, horc, ceb, jam, tam, coca, cafe;
 
+
+        
         private void button2_Click(object sender, EventArgs e)
         {
             //Primera fecha
@@ -95,7 +69,7 @@ namespace empanada_2
 
             //juntando las cadenas
             string FECHAA = string.Concat(var3, var2, var1);
-            int fechaa = Convert.ToInt32(FECHAA);
+            fechaa = Convert.ToInt32(FECHAA);
             //----------------
 
             //Segunda fecha
@@ -110,31 +84,94 @@ namespace empanada_2
 
             //juntando las cadenas
             string FECHAB = string.Concat(var3, var2, var1);
-            int fechab = Convert.ToInt32(FECHAB);
+            fechab = Convert.ToInt32(FECHAB);
             //----------------
 
             //SUMAR LAS VENTAS DE LOS PLATILLOS SELECCIONADOS
             OleDbConnection conexion = new OleDbConnection(ds);
 
             conexion.Open();
+            try {
+                string select = "SELECT SUM(ORDEN.total_pagar) FROM FECHA INNER JOIN ORDEN ON FECHA.fecha = ORDEN.fecha WHERE FECHA.id >= " + fechaa + "AND FECHA.id <= " + fechab;
 
-            string select = "SELECT SUM(ORDEN.total_pagar) FROM FECHA INNER JOIN ORDEN ON FECHA.fecha = ORDEN.fecha WHERE FECHA.id >= " + fechaa + "AND FECHA.id <= " + fechab;
+                OleDbCommand cmd2 = new OleDbCommand(select, conexion); //Conexion es tu objeto conexion                                
 
-            OleDbCommand cmd2 = new OleDbCommand(select, conexion); //Conexion es tu objeto conexion                                
+                textBox_ganancias.Text = (cmd2.ExecuteScalar()).ToString();
 
-            textBox_ganancias.Text = (cmd2.ExecuteScalar()).ToString();
+                //...................................
 
+                //SUMAR LAS VENTAS DE LOS PLATILLOS SELECCIONADOS
+
+                string select2 = "SELECT COUNT(ORDEN.total_pagar) FROM FECHA INNER JOIN ORDEN ON FECHA.fecha = ORDEN.fecha WHERE FECHA.id >= " + fechaa + "AND FECHA.id <= " + fechab;
+
+                OleDbCommand cmd3 = new OleDbCommand(select2, conexion); //Conexion es tu objeto conexion                                
+
+                textBox_clientes.Text = (cmd3.ExecuteScalar()).ToString();
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("Ha ocurrido un error con la base de datos!", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
             //...................................
 
-            //SUMAR LAS VENTAS DE LOS PLATILLOS SELECCIONADOS
-            
-            string select2 = "SELECT COUNT(ORDEN.total_pagar) FROM FECHA INNER JOIN ORDEN ON FECHA.fecha = ORDEN.fecha WHERE FECHA.id >= " + fechaa + "AND FECHA.id <= " + fechab;
 
-            OleDbCommand cmd3 = new OleDbCommand(select2, conexion); //Conexion es tu objeto conexion                                
+            //LLENAR LA GRAFICA
+            foreach (var series in grafica.Series)
+            {
+                series.Points.Clear();
+            }
 
-            textBox_clientes.Text = (cmd3.ExecuteScalar()).ToString();
+            string select3 = "SELECT * FROM FECHA WHERE id >= " + fechaa + "AND id <= " + fechab;
+            OleDbCommand cmd = new OleDbCommand(select3, conexion);
+            try
+            {
+                OleDbDataReader reader = cmd.ExecuteReader();
 
-            //...................................
+
+                while (reader.Read())
+                {
+                    grafica.Series["Ventas"].Points.AddXY(reader["fecha"].ToString(), reader["Venta_total"].ToString());
+                }
+
+                reader.Close();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error orden" + ex, "MENSAJE", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+
+
+            //.........................
+
+            //SACAR CUANTAS EMPANADAS DE CADA TIPO SE VENDIERON
+
+            foreach (var series in grafica_empanadas.Series)
+            {
+                series.Points.Clear();
+            }
+
+            string select4 = "SELECT * FROM(FECHA INNER JOIN ORDEN ON FECHA.fecha = ORDEN.fecha) INNER JOIN PLATILLO ON ORDEN.id_orden = PLATILLO.id_orden WHERE FECHA.id >=" + fechaa + "AND FECHA.id <= " + fechab;
+            OleDbCommand cmd4 = new OleDbCommand(select4, conexion);
+            try
+            {
+                OleDbDataReader reader = cmd4.ExecuteReader();
+
+                while (reader.Read())
+                {
+                    grafica_empanadas.Series["Empanadas"].Points.AddXY(reader["FECHA.fecha"].ToString(), reader["cantidad"].ToString());
+                }
+
+                reader.Close();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error orden" + ex, "MENSAJE", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            //---------------------
+
+            //LLENAR LA GRAFICA de empanadas
+
+            conexion.Close();
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -145,8 +182,6 @@ namespace empanada_2
 
         private void Historial_Load(object sender, EventArgs e)
         {
-            
-
             //separacion del contenido del calendario
             DateTime fechahoy = DateTime.Now;
             string fechas = fechahoy.ToString("d");
@@ -162,8 +197,6 @@ namespace empanada_2
 
             //juntando las cadenas
             string var4 = string.Concat(var3, var2 ,var1);
-            MessageBox.Show(var4);
-            //--------------------           
             //---------------------------------
 
             DataSet dss = new DataSet();
@@ -175,7 +208,5 @@ namespace empanada_2
             //se especifica el campo de la tabla
             comboBox_platillos.ValueMember = "nombre_platillo";
         }
-
-        
     }
 }
