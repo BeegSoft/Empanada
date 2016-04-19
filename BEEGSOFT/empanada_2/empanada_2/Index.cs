@@ -1025,6 +1025,11 @@ namespace empanada_2
                 formInterface.ChangeTextBoxText(txt, id);
         }
 
+        private void comboBox_otros_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
         private void button22_Click(object sender, EventArgs e)
         {
             otros = otros + 1;

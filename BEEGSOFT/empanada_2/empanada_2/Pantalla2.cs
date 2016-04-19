@@ -179,8 +179,6 @@ namespace empanada_2
             listView1.Items.Clear();
             textBox2.Text = "";
 
-            id_orden = Convert.ToInt32(this.listView1.Items[0]);
-
             OleDbConnection conexion = new OleDbConnection(ds);
 
             conexion.Open();
@@ -196,8 +194,6 @@ namespace empanada_2
         {
             listView2.Items.Clear();
             textBox3.Text = "";
-
-            id_orden = Convert.ToInt32(this.listView2.Items[0]);
 
             OleDbConnection conexion = new OleDbConnection(ds);
 
@@ -215,8 +211,6 @@ namespace empanada_2
             listView3.Items.Clear();
             textBox4.Text = "";
 
-            id_orden = Convert.ToInt32(this.listView3.Items[0]);
-
             OleDbConnection conexion = new OleDbConnection(ds);
 
             conexion.Open();
@@ -232,8 +226,6 @@ namespace empanada_2
         {
             listView4.Items.Clear();
             textBox5.Text = "";
-
-            id_orden = Convert.ToInt32(this.listView4.Items[0]);
 
             OleDbConnection conexion = new OleDbConnection(ds);
 
