@@ -34,7 +34,6 @@
             this.columnHeader_descripcion = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader_total = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
-            this.nuevaOrdenToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.modificarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.terminarOrdenesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.orden1ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -43,9 +42,6 @@
             this.orden4ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.orden5ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.estadisticasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.almacenToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.probabilidadesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.satToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.button13 = new System.Windows.Forms.Button();
             this.button14 = new System.Windows.Forms.Button();
             this.button15 = new System.Windows.Forms.Button();
@@ -171,25 +167,15 @@
             // 
             this.menuStrip1.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.nuevaOrdenToolStripMenuItem,
             this.modificarToolStripMenuItem,
             this.terminarOrdenesToolStripMenuItem,
-            this.estadisticasToolStripMenuItem,
-            this.almacenToolStripMenuItem,
-            this.probabilidadesToolStripMenuItem,
-            this.satToolStripMenuItem});
+            this.estadisticasToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Size = new System.Drawing.Size(959, 24);
             this.menuStrip1.TabIndex = 1;
             this.menuStrip1.Text = "menuStrip1";
             this.menuStrip1.ItemClicked += new System.Windows.Forms.ToolStripItemClickedEventHandler(this.menuStrip1_ItemClicked);
-            // 
-            // nuevaOrdenToolStripMenuItem
-            // 
-            this.nuevaOrdenToolStripMenuItem.Name = "nuevaOrdenToolStripMenuItem";
-            this.nuevaOrdenToolStripMenuItem.Size = new System.Drawing.Size(63, 20);
-            this.nuevaOrdenToolStripMenuItem.Text = "&Ordenes";
             // 
             // modificarToolStripMenuItem
             // 
@@ -213,56 +199,44 @@
             // orden1ToolStripMenuItem
             // 
             this.orden1ToolStripMenuItem.Name = "orden1ToolStripMenuItem";
-            this.orden1ToolStripMenuItem.Size = new System.Drawing.Size(116, 22);
+            this.orden1ToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.orden1ToolStripMenuItem.Text = "Orden 1";
+            this.orden1ToolStripMenuItem.Click += new System.EventHandler(this.orden1ToolStripMenuItem_Click);
             // 
             // orden2ToolStripMenuItem
             // 
             this.orden2ToolStripMenuItem.Name = "orden2ToolStripMenuItem";
-            this.orden2ToolStripMenuItem.Size = new System.Drawing.Size(116, 22);
+            this.orden2ToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.orden2ToolStripMenuItem.Text = "Orden 2";
+            this.orden2ToolStripMenuItem.Click += new System.EventHandler(this.orden2ToolStripMenuItem_Click);
             // 
             // orden3ToolStripMenuItem
             // 
             this.orden3ToolStripMenuItem.Name = "orden3ToolStripMenuItem";
-            this.orden3ToolStripMenuItem.Size = new System.Drawing.Size(116, 22);
+            this.orden3ToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.orden3ToolStripMenuItem.Text = "Orden 3";
+            this.orden3ToolStripMenuItem.Click += new System.EventHandler(this.orden3ToolStripMenuItem_Click);
             // 
             // orden4ToolStripMenuItem
             // 
             this.orden4ToolStripMenuItem.Name = "orden4ToolStripMenuItem";
-            this.orden4ToolStripMenuItem.Size = new System.Drawing.Size(116, 22);
+            this.orden4ToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.orden4ToolStripMenuItem.Text = "Orden 4";
+            this.orden4ToolStripMenuItem.Click += new System.EventHandler(this.orden4ToolStripMenuItem_Click);
             // 
             // orden5ToolStripMenuItem
             // 
             this.orden5ToolStripMenuItem.Name = "orden5ToolStripMenuItem";
-            this.orden5ToolStripMenuItem.Size = new System.Drawing.Size(116, 22);
+            this.orden5ToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.orden5ToolStripMenuItem.Text = "Orden 5";
+            this.orden5ToolStripMenuItem.Click += new System.EventHandler(this.orden5ToolStripMenuItem_Click);
             // 
             // estadisticasToolStripMenuItem
             // 
             this.estadisticasToolStripMenuItem.Name = "estadisticasToolStripMenuItem";
             this.estadisticasToolStripMenuItem.Size = new System.Drawing.Size(79, 20);
             this.estadisticasToolStripMenuItem.Text = "&Estadisticas";
-            // 
-            // almacenToolStripMenuItem
-            // 
-            this.almacenToolStripMenuItem.Name = "almacenToolStripMenuItem";
-            this.almacenToolStripMenuItem.Size = new System.Drawing.Size(66, 20);
-            this.almacenToolStripMenuItem.Text = "&Almacen";
-            // 
-            // probabilidadesToolStripMenuItem
-            // 
-            this.probabilidadesToolStripMenuItem.Name = "probabilidadesToolStripMenuItem";
-            this.probabilidadesToolStripMenuItem.Size = new System.Drawing.Size(97, 20);
-            this.probabilidadesToolStripMenuItem.Text = "&Probabilidades";
-            // 
-            // satToolStripMenuItem
-            // 
-            this.satToolStripMenuItem.Name = "satToolStripMenuItem";
-            this.satToolStripMenuItem.Size = new System.Drawing.Size(35, 20);
-            this.satToolStripMenuItem.Text = "&Sat";
+            this.estadisticasToolStripMenuItem.Click += new System.EventHandler(this.estadisticasToolStripMenuItem_Click);
             // 
             // button13
             // 
@@ -1188,12 +1162,8 @@
         private System.Windows.Forms.ListView listView_ordenes;
         private System.Windows.Forms.ColumnHeader column_ordenes;
         private System.Windows.Forms.MenuStrip menuStrip1;
-        private System.Windows.Forms.ToolStripMenuItem nuevaOrdenToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem modificarToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem estadisticasToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem almacenToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem probabilidadesToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem satToolStripMenuItem;
         private System.Windows.Forms.Button button13;
         private System.Windows.Forms.Button button14;
         private System.Windows.Forms.Button button15;

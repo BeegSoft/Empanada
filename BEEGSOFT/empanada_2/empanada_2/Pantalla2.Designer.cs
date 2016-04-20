@@ -31,6 +31,7 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Pantalla2));
             this.button1 = new System.Windows.Forms.Button();
             this.listView_platillos = new System.Windows.Forms.ListView();
+            this.ID = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.column_platillo = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.column_cantidad = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.label1 = new System.Windows.Forms.Label();
@@ -38,28 +39,27 @@
             this.textBox2 = new System.Windows.Forms.TextBox();
             this.button2 = new System.Windows.Forms.Button();
             this.listView1 = new System.Windows.Forms.ListView();
+            this.columnHeader10 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.textBox3 = new System.Windows.Forms.TextBox();
             this.button3 = new System.Windows.Forms.Button();
             this.listView2 = new System.Windows.Forms.ListView();
+            this.columnHeader11 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader3 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader4 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.textBox4 = new System.Windows.Forms.TextBox();
             this.button4 = new System.Windows.Forms.Button();
             this.listView3 = new System.Windows.Forms.ListView();
+            this.columnHeader12 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader5 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader6 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.textBox5 = new System.Windows.Forms.TextBox();
             this.button5 = new System.Windows.Forms.Button();
             this.listView4 = new System.Windows.Forms.ListView();
+            this.columnHeader13 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader7 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader8 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.ID = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.columnHeader10 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.columnHeader11 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.columnHeader12 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.columnHeader13 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.SuspendLayout();
             // 
             // button1
@@ -78,24 +78,29 @@
             this.ID,
             this.column_platillo,
             this.column_cantidad});
-            this.listView_platillos.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.listView_platillos.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.listView_platillos.Location = new System.Drawing.Point(31, 116);
             this.listView_platillos.Name = "listView_platillos";
-            this.listView_platillos.Size = new System.Drawing.Size(224, 225);
+            this.listView_platillos.Size = new System.Drawing.Size(176, 225);
             this.listView_platillos.TabIndex = 4;
             this.listView_platillos.UseCompatibleStateImageBehavior = false;
             this.listView_platillos.View = System.Windows.Forms.View.Details;
             this.listView_platillos.SelectedIndexChanged += new System.EventHandler(this.listView_platillos_SelectedIndexChanged);
             // 
+            // ID
+            // 
+            this.ID.Text = "ID";
+            this.ID.Width = 0;
+            // 
             // column_platillo
             // 
             this.column_platillo.Text = "Platillo";
-            this.column_platillo.Width = 131;
+            this.column_platillo.Width = 112;
             // 
             // column_cantidad
             // 
-            this.column_cantidad.Text = "Cantidad";
-            this.column_cantidad.Width = 86;
+            this.column_cantidad.Text = "Cant.";
+            this.column_cantidad.Width = 54;
             // 
             // label1
             // 
@@ -140,23 +145,28 @@
             this.columnHeader10,
             this.columnHeader1,
             this.columnHeader2});
-            this.listView1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.listView1.Location = new System.Drawing.Point(261, 116);
+            this.listView1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.listView1.Location = new System.Drawing.Point(241, 116);
             this.listView1.Name = "listView1";
             this.listView1.Size = new System.Drawing.Size(174, 225);
             this.listView1.TabIndex = 8;
             this.listView1.UseCompatibleStateImageBehavior = false;
             this.listView1.View = System.Windows.Forms.View.Details;
             // 
+            // columnHeader10
+            // 
+            this.columnHeader10.Text = "ID";
+            this.columnHeader10.Width = 0;
+            // 
             // columnHeader1
             // 
             this.columnHeader1.Text = "Platillo";
-            this.columnHeader1.Width = 97;
+            this.columnHeader1.Width = 125;
             // 
             // columnHeader2
             // 
-            this.columnHeader2.Text = "Cantidad";
-            this.columnHeader2.Width = 56;
+            this.columnHeader2.Text = "Cant.";
+            this.columnHeader2.Width = 45;
             // 
             // textBox3
             // 
@@ -168,7 +178,7 @@
             // 
             // button3
             // 
-            this.button3.Location = new System.Drawing.Point(425, 359);
+            this.button3.Location = new System.Drawing.Point(484, 359);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(100, 31);
             this.button3.TabIndex = 12;
@@ -182,35 +192,40 @@
             this.columnHeader11,
             this.columnHeader3,
             this.columnHeader4});
-            this.listView2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.listView2.Location = new System.Drawing.Point(453, 116);
+            this.listView2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.listView2.Location = new System.Drawing.Point(452, 116);
             this.listView2.Name = "listView2";
-            this.listView2.Size = new System.Drawing.Size(140, 225);
+            this.listView2.Size = new System.Drawing.Size(167, 225);
             this.listView2.TabIndex = 11;
             this.listView2.UseCompatibleStateImageBehavior = false;
             this.listView2.View = System.Windows.Forms.View.Details;
             // 
+            // columnHeader11
+            // 
+            this.columnHeader11.Text = "ID";
+            this.columnHeader11.Width = 0;
+            // 
             // columnHeader3
             // 
             this.columnHeader3.Text = "Platillo";
-            this.columnHeader3.Width = 74;
+            this.columnHeader3.Width = 118;
             // 
             // columnHeader4
             // 
-            this.columnHeader4.Text = "Cantidad";
-            this.columnHeader4.Width = 56;
+            this.columnHeader4.Text = "Cant.";
+            this.columnHeader4.Width = 42;
             // 
             // textBox4
             // 
             this.textBox4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox4.Location = new System.Drawing.Point(645, 81);
+            this.textBox4.Location = new System.Drawing.Point(680, 84);
             this.textBox4.Name = "textBox4";
             this.textBox4.Size = new System.Drawing.Size(100, 26);
             this.textBox4.TabIndex = 16;
             // 
             // button4
             // 
-            this.button4.Location = new System.Drawing.Point(599, 359);
+            this.button4.Location = new System.Drawing.Point(680, 359);
             this.button4.Name = "button4";
             this.button4.Size = new System.Drawing.Size(100, 31);
             this.button4.TabIndex = 15;
@@ -224,36 +239,41 @@
             this.columnHeader12,
             this.columnHeader5,
             this.columnHeader6});
-            this.listView3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.listView3.Location = new System.Drawing.Point(627, 116);
+            this.listView3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.listView3.Location = new System.Drawing.Point(636, 116);
             this.listView3.Name = "listView3";
-            this.listView3.Size = new System.Drawing.Size(140, 225);
+            this.listView3.Size = new System.Drawing.Size(169, 225);
             this.listView3.TabIndex = 14;
             this.listView3.UseCompatibleStateImageBehavior = false;
             this.listView3.View = System.Windows.Forms.View.Details;
             this.listView3.SelectedIndexChanged += new System.EventHandler(this.listView3_SelectedIndexChanged);
             // 
+            // columnHeader12
+            // 
+            this.columnHeader12.Text = "ID";
+            this.columnHeader12.Width = 0;
+            // 
             // columnHeader5
             // 
             this.columnHeader5.Text = "Platillo";
-            this.columnHeader5.Width = 74;
+            this.columnHeader5.Width = 121;
             // 
             // columnHeader6
             // 
-            this.columnHeader6.Text = "Cantidad";
-            this.columnHeader6.Width = 56;
+            this.columnHeader6.Text = "Cant.";
+            this.columnHeader6.Width = 44;
             // 
             // textBox5
             // 
             this.textBox5.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox5.Location = new System.Drawing.Point(819, 81);
+            this.textBox5.Location = new System.Drawing.Point(867, 81);
             this.textBox5.Name = "textBox5";
             this.textBox5.Size = new System.Drawing.Size(100, 26);
             this.textBox5.TabIndex = 19;
             // 
             // button5
             // 
-            this.button5.Location = new System.Drawing.Point(773, 359);
+            this.button5.Location = new System.Drawing.Point(867, 359);
             this.button5.Name = "button5";
             this.button5.Size = new System.Drawing.Size(100, 31);
             this.button5.TabIndex = 18;
@@ -267,49 +287,34 @@
             this.columnHeader13,
             this.columnHeader7,
             this.columnHeader8});
-            this.listView4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.listView4.Location = new System.Drawing.Point(801, 116);
+            this.listView4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.listView4.Location = new System.Drawing.Point(831, 116);
             this.listView4.Name = "listView4";
-            this.listView4.Size = new System.Drawing.Size(140, 225);
+            this.listView4.Size = new System.Drawing.Size(172, 225);
             this.listView4.TabIndex = 17;
             this.listView4.UseCompatibleStateImageBehavior = false;
             this.listView4.View = System.Windows.Forms.View.Details;
             // 
-            // columnHeader7
-            // 
-            this.columnHeader7.Text = "Platillo";
-            this.columnHeader7.Width = 74;
-            // 
-            // columnHeader8
-            // 
-            this.columnHeader8.Text = "Cantidad";
-            this.columnHeader8.Width = 56;
-            // 
-            // ID
-            // 
-            this.ID.Text = "ID";
-            // 
-            // columnHeader10
-            // 
-            this.columnHeader10.Text = "ID";
-            // 
-            // columnHeader11
-            // 
-            this.columnHeader11.Text = "ID";
-            // 
-            // columnHeader12
-            // 
-            this.columnHeader12.Text = "ID";
-            // 
             // columnHeader13
             // 
             this.columnHeader13.Text = "ID";
+            this.columnHeader13.Width = 0;
+            // 
+            // columnHeader7
+            // 
+            this.columnHeader7.Text = "Platillo";
+            this.columnHeader7.Width = 114;
+            // 
+            // columnHeader8
+            // 
+            this.columnHeader8.Text = "Cant.";
+            this.columnHeader8.Width = 43;
             // 
             // Pantalla2
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(935, 399);
+            this.ClientSize = new System.Drawing.Size(1015, 399);
             this.Controls.Add(this.textBox5);
             this.Controls.Add(this.button5);
             this.Controls.Add(this.listView4);

@@ -21,7 +21,7 @@ namespace empanada_2
         }
         
         string ds, fecha;
-        int id_orden, orden_1, orden_2, orden_3, orden_4, orden_5;
+        int orden_1, orden_2, orden_3, orden_4, orden_5;
         #region IForm Members
 
         public void ChangeTextBoxText(string text, int id)
