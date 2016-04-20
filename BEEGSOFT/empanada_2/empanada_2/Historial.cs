@@ -19,7 +19,6 @@ namespace empanada_2
             this.ds = ds;
         }
 
-        string fecha, total_pagar, total_cliente;
         //CONEXIONES
         String ds;
         int fechaa, fechab;
@@ -51,7 +50,6 @@ namespace empanada_2
 
             textBox_platillos_vendidos.Text = (cmd3.ExecuteScalar()).ToString();
         }
-        string cochi, raja, carn, chihV, chicR, nop, ting, frij, pic, horc, ceb, jam, tam, coca, cafe;
 
 
         
@@ -141,7 +139,13 @@ namespace empanada_2
             }
 
 
+<<<<<<< HEAD
             //.........................           
+=======
+            //.........................
+
+            
+>>>>>>> 35bc1942568e2ad581b2b12a7aa9ca8d7e859e78
 
             //LLENAR LA GRAFICA de empanadas
 

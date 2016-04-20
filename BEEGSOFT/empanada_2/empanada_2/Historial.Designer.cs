@@ -53,6 +53,9 @@
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.grafica = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.label2 = new System.Windows.Forms.Label();
+            this.label10 = new System.Windows.Forms.Label();
+            this.label11 = new System.Windows.Forms.Label();
+            this.label12 = new System.Windows.Forms.Label();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.grafica)).BeginInit();
@@ -60,6 +63,8 @@
             // 
             // groupBox2
             // 
+            this.groupBox2.Controls.Add(this.label11);
+            this.groupBox2.Controls.Add(this.label10);
             this.groupBox2.Controls.Add(this.textBox_clientes);
             this.groupBox2.Controls.Add(this.label4);
             this.groupBox2.Controls.Add(this.textBox_ganancias);
@@ -75,9 +80,9 @@
             // textBox_clientes
             // 
             this.textBox_clientes.Enabled = false;
-            this.textBox_clientes.Location = new System.Drawing.Point(121, 88);
+            this.textBox_clientes.Location = new System.Drawing.Point(137, 87);
             this.textBox_clientes.Name = "textBox_clientes";
-            this.textBox_clientes.Size = new System.Drawing.Size(100, 20);
+            this.textBox_clientes.Size = new System.Drawing.Size(51, 20);
             this.textBox_clientes.TabIndex = 7;
             // 
             // label4
@@ -92,9 +97,9 @@
             // textBox_ganancias
             // 
             this.textBox_ganancias.Enabled = false;
-            this.textBox_ganancias.Location = new System.Drawing.Point(121, 45);
+            this.textBox_ganancias.Location = new System.Drawing.Point(137, 44);
             this.textBox_ganancias.Name = "textBox_ganancias";
-            this.textBox_ganancias.Size = new System.Drawing.Size(100, 20);
+            this.textBox_ganancias.Size = new System.Drawing.Size(51, 20);
             this.textBox_ganancias.TabIndex = 5;
             // 
             // label3
@@ -187,7 +192,7 @@
             this.textBox_platillos_vendidos.Enabled = false;
             this.textBox_platillos_vendidos.Location = new System.Drawing.Point(194, 36);
             this.textBox_platillos_vendidos.Name = "textBox_platillos_vendidos";
-            this.textBox_platillos_vendidos.Size = new System.Drawing.Size(100, 20);
+            this.textBox_platillos_vendidos.Size = new System.Drawing.Size(62, 20);
             this.textBox_platillos_vendidos.TabIndex = 15;
             // 
             // label8
@@ -213,7 +218,7 @@
             this.textBox_venta_platillo.Enabled = false;
             this.textBox_venta_platillo.Location = new System.Drawing.Point(194, 88);
             this.textBox_venta_platillo.Name = "textBox_venta_platillo";
-            this.textBox_venta_platillo.Size = new System.Drawing.Size(100, 20);
+            this.textBox_venta_platillo.Size = new System.Drawing.Size(62, 20);
             this.textBox_venta_platillo.TabIndex = 18;
             // 
             // label7
@@ -227,6 +232,7 @@
             // 
             // groupBox3
             // 
+            this.groupBox3.Controls.Add(this.label12);
             this.groupBox3.Controls.Add(this.textBox_venta_platillo);
             this.groupBox3.Controls.Add(this.label9);
             this.groupBox3.Controls.Add(this.label8);
@@ -264,6 +270,33 @@
             this.label2.Size = new System.Drawing.Size(107, 13);
             this.label2.TabIndex = 22;
             this.label2.Text = "Grafica de las ventas";
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Location = new System.Drawing.Point(118, 47);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(13, 13);
+            this.label10.TabIndex = 8;
+            this.label10.Text = "$";
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Location = new System.Drawing.Point(118, 90);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(13, 13);
+            this.label11.TabIndex = 9;
+            this.label11.Text = "$";
+            // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Location = new System.Drawing.Point(175, 91);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(13, 13);
+            this.label12.TabIndex = 10;
+            this.label12.Text = "$";
             // 
             // Historial
             // 
@@ -318,5 +351,8 @@
         private System.Windows.Forms.GroupBox groupBox3;
         private System.Windows.Forms.DataVisualization.Charting.Chart grafica;
         private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.Label label12;
     }
 }
