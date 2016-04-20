@@ -141,43 +141,11 @@ namespace empanada_2
             }
 
 
-            //.........................
-
-            //SACAR CUANTAS EMPANADAS DE CADA TIPO SE VENDIERON
-
-            foreach (var series in grafica_empanadas.Series)
-            {
-                series.Points.Clear();
-            }
-
-            string select4 = "SELECT * FROM(FECHA INNER JOIN ORDEN ON FECHA.fecha = ORDEN.fecha) INNER JOIN PLATILLO ON ORDEN.id_orden = PLATILLO.id_orden WHERE FECHA.id >=" + fechaa + "AND FECHA.id <= " + fechab;
-            OleDbCommand cmd4 = new OleDbCommand(select4, conexion);
-            try
-            {
-                OleDbDataReader reader = cmd4.ExecuteReader();
-
-                while (reader.Read())
-                {
-                    grafica_empanadas.Series["Empanadas"].Points.AddXY(reader["FECHA.fecha"].ToString(), reader["cantidad"].ToString());
-                }
-
-                reader.Close();
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Error orden" + ex, "MENSAJE", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-            //---------------------
+            //.........................           
 
             //LLENAR LA GRAFICA de empanadas
 
             conexion.Close();
-        }
-
-        private void button1_Click(object sender, EventArgs e)
-        {
-            
-            
         }
 
         private void Historial_Load(object sender, EventArgs e)

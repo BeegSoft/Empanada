@@ -123,7 +123,7 @@
             this.fechaA.Name = "fechaA";
             this.fechaA.Size = new System.Drawing.Size(85, 20);
             this.fechaA.TabIndex = 6;
-            this.fechaA.Value = new System.DateTime(2016, 4, 18, 0, 0, 0, 0);
+            this.fechaA.Value = new System.DateTime(2016, 4, 10, 0, 0, 0, 0);
             // 
             // fechaB
             // 
@@ -184,6 +184,7 @@
             // 
             // textBox_platillos_vendidos
             // 
+            this.textBox_platillos_vendidos.Enabled = false;
             this.textBox_platillos_vendidos.Location = new System.Drawing.Point(194, 36);
             this.textBox_platillos_vendidos.Name = "textBox_platillos_vendidos";
             this.textBox_platillos_vendidos.Size = new System.Drawing.Size(100, 20);
@@ -209,6 +210,7 @@
             // 
             // textBox_venta_platillo
             // 
+            this.textBox_venta_platillo.Enabled = false;
             this.textBox_venta_platillo.Location = new System.Drawing.Point(194, 88);
             this.textBox_venta_platillo.Name = "textBox_venta_platillo";
             this.textBox_venta_platillo.Size = new System.Drawing.Size(100, 20);
