@@ -174,7 +174,6 @@ namespace empanada_2
             }
             //...................................
 
-
             //LLENAR LA GRAFICA
             foreach (var series in grafica.Series)
             {
@@ -199,9 +198,6 @@ namespace empanada_2
             {
                 MessageBox.Show("Error orden" + ex, "MENSAJE", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-
-
-            //LLENAR LA GRAFICA de empanadas
 
             conexion.Close();
         }
