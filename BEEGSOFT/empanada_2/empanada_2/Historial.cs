@@ -30,7 +30,7 @@ namespace empanada_2
 
         private void SELECT_FECHA()
         {
-            OleDbDataAdapter adaptador = new OleDbDataAdapter("SELECT fecha FROM FECHA", ds);
+            OleDbDataAdapter adaptador = new OleDbDataAdapter("SELECT FECHA.fecha FROM FECHA ORDER BY FECHA.fecha", ds);
 
             DataSet dataset = new DataSet();
             DataTable tabla = new DataTable();
@@ -181,7 +181,7 @@ namespace empanada_2
                 series.Points.Clear();
             }
 
-            string select4 = "SELECT * FROM FECHA WHERE id >= " + fechaa + "AND id <= " + fechab;
+            string select4 = "SELECT  * FROM FECHA WHERE FECHA.id >= " + fechaa + " AND FECHA.id <= " + fechab + " ORDER BY FECHA.id";
             OleDbCommand cmd = new OleDbCommand(select4, conexion);
             try
             {
