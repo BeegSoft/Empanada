@@ -37,12 +37,12 @@ namespace empanada_2
 
             adaptador.Fill(dataset);
             tabla = dataset.Tables[0];
-            this.listView1.Items.Clear();
+            this.listView_fechas.Items.Clear();
             for (int i = 0; i < tabla.Rows.Count; i++)
             {
                 DataRow filas = tabla.Rows[i];
                 ListViewItem elementos = new ListViewItem(filas["fecha"].ToString());
-                listView1.Items.Add(elementos);
+                listView_fechas.Items.Add(elementos);
             }
             
         }
@@ -200,6 +200,22 @@ namespace empanada_2
             }
 
             conexion.Close();
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            
+        }
+
+        private void excelToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Exportacion_excel form = new Exportacion_excel(ds);
+            form.ShowDialog();
+        }
+
+        private void listView_fechas_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
         }
 
         private void Historial_Load(object sender, EventArgs e)

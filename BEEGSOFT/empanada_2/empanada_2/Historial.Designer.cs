@@ -58,11 +58,15 @@
             this.label12 = new System.Windows.Forms.Label();
             this.grafica = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.label2 = new System.Windows.Forms.Label();
-            this.listView1 = new System.Windows.Forms.ListView();
+            this.listView_fechas = new System.Windows.Forms.ListView();
             this.column_fechas = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.menuStrip1 = new System.Windows.Forms.MenuStrip();
+            this.exportarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.excelToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.grafica)).BeginInit();
+            this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // groupBox2
@@ -321,30 +325,56 @@
             this.label2.TabIndex = 22;
             this.label2.Text = "Grafica de las ventas";
             // 
-            // listView1
+            // listView_fechas
             // 
-            this.listView1.BackColor = System.Drawing.Color.White;
-            this.listView1.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.listView_fechas.BackColor = System.Drawing.Color.White;
+            this.listView_fechas.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.column_fechas});
-            this.listView1.ForeColor = System.Drawing.SystemColors.WindowText;
-            this.listView1.Location = new System.Drawing.Point(23, 135);
-            this.listView1.Name = "listView1";
-            this.listView1.Size = new System.Drawing.Size(124, 138);
-            this.listView1.TabIndex = 23;
-            this.listView1.UseCompatibleStateImageBehavior = false;
-            this.listView1.View = System.Windows.Forms.View.Details;
+            this.listView_fechas.ForeColor = System.Drawing.SystemColors.WindowText;
+            this.listView_fechas.Location = new System.Drawing.Point(23, 135);
+            this.listView_fechas.Name = "listView_fechas";
+            this.listView_fechas.Size = new System.Drawing.Size(124, 138);
+            this.listView_fechas.TabIndex = 23;
+            this.listView_fechas.UseCompatibleStateImageBehavior = false;
+            this.listView_fechas.View = System.Windows.Forms.View.Details;
+            this.listView_fechas.SelectedIndexChanged += new System.EventHandler(this.listView_fechas_SelectedIndexChanged);
             // 
             // column_fechas
             // 
             this.column_fechas.Text = "Fechas Laboradas";
             this.column_fechas.Width = 120;
             // 
+            // menuStrip1
+            // 
+            this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.exportarToolStripMenuItem});
+            this.menuStrip1.Location = new System.Drawing.Point(0, 0);
+            this.menuStrip1.Name = "menuStrip1";
+            this.menuStrip1.Size = new System.Drawing.Size(1088, 24);
+            this.menuStrip1.TabIndex = 24;
+            this.menuStrip1.Text = "menuStrip1";
+            // 
+            // exportarToolStripMenuItem
+            // 
+            this.exportarToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.excelToolStripMenuItem});
+            this.exportarToolStripMenuItem.Name = "exportarToolStripMenuItem";
+            this.exportarToolStripMenuItem.Size = new System.Drawing.Size(62, 20);
+            this.exportarToolStripMenuItem.Text = "Exportar";
+            // 
+            // excelToolStripMenuItem
+            // 
+            this.excelToolStripMenuItem.Name = "excelToolStripMenuItem";
+            this.excelToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.excelToolStripMenuItem.Text = "Excel";
+            this.excelToolStripMenuItem.Click += new System.EventHandler(this.excelToolStripMenuItem_Click);
+            // 
             // Historial
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1088, 482);
-            this.Controls.Add(this.listView1);
+            this.Controls.Add(this.listView_fechas);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.grafica);
             this.Controls.Add(this.groupBox3);
@@ -356,7 +386,9 @@
             this.Controls.Add(this.fechaA);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.label1);
+            this.Controls.Add(this.menuStrip1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.MainMenuStrip = this.menuStrip1;
             this.Name = "Historial";
             this.Text = "Historial";
             this.Load += new System.EventHandler(this.Historial_Load);
@@ -365,6 +397,8 @@
             this.groupBox3.ResumeLayout(false);
             this.groupBox3.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.grafica)).EndInit();
+            this.menuStrip1.ResumeLayout(false);
+            this.menuStrip1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -398,7 +432,10 @@
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.TextBox textBox_empanadas;
         private System.Windows.Forms.Label label14;
-        private System.Windows.Forms.ListView listView1;
+        private System.Windows.Forms.ListView listView_fechas;
         private System.Windows.Forms.ColumnHeader column_fechas;
+        private System.Windows.Forms.MenuStrip menuStrip1;
+        private System.Windows.Forms.ToolStripMenuItem exportarToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem excelToolStripMenuItem;
     }
 }
