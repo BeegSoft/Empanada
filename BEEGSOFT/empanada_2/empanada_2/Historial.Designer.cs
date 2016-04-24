@@ -63,6 +63,7 @@
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.exportarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.excelToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.label13 = new System.Windows.Forms.Label();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.grafica)).BeginInit();
@@ -79,7 +80,7 @@
             this.groupBox2.Controls.Add(this.label4);
             this.groupBox2.Controls.Add(this.textBox_ganancias);
             this.groupBox2.Controls.Add(this.label3);
-            this.groupBox2.Location = new System.Drawing.Point(224, 159);
+            this.groupBox2.Location = new System.Drawing.Point(224, 172);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(221, 114);
             this.groupBox2.TabIndex = 5;
@@ -160,16 +161,17 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Times New Roman", 14.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(251, 14);
+            this.label1.Location = new System.Drawing.Point(251, 27);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(466, 22);
             this.label1.TabIndex = 3;
             this.label1.Text = "Historial de las Ventas Realizadas Por Fecha Establecida";
+            this.label1.Visible = false;
             // 
             // fechaA
             // 
             this.fechaA.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.fechaA.Location = new System.Drawing.Point(73, 90);
+            this.fechaA.Location = new System.Drawing.Point(73, 103);
             this.fechaA.Name = "fechaA";
             this.fechaA.Size = new System.Drawing.Size(85, 20);
             this.fechaA.TabIndex = 6;
@@ -178,7 +180,7 @@
             // fechaB
             // 
             this.fechaB.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.fechaB.Location = new System.Drawing.Point(224, 90);
+            this.fechaB.Location = new System.Drawing.Point(224, 103);
             this.fechaB.Name = "fechaB";
             this.fechaB.Size = new System.Drawing.Size(85, 20);
             this.fechaB.TabIndex = 7;
@@ -188,7 +190,7 @@
             // 
             this.a.AutoSize = true;
             this.a.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.a.Location = new System.Drawing.Point(174, 94);
+            this.a.Location = new System.Drawing.Point(174, 107);
             this.a.Name = "a";
             this.a.Size = new System.Drawing.Size(35, 13);
             this.a.TabIndex = 8;
@@ -197,7 +199,7 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(20, 63);
+            this.label5.Location = new System.Drawing.Point(20, 76);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(232, 13);
             this.label5.TabIndex = 9;
@@ -207,7 +209,7 @@
             // 
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(20, 94);
+            this.label6.Location = new System.Drawing.Point(20, 107);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(38, 13);
             this.label6.TabIndex = 10;
@@ -215,7 +217,7 @@
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(324, 87);
+            this.button2.Location = new System.Drawing.Point(324, 100);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(56, 23);
             this.button2.TabIndex = 11;
@@ -284,7 +286,7 @@
             this.groupBox3.Controls.Add(this.textBox_platillos_vendidos);
             this.groupBox3.Controls.Add(this.label7);
             this.groupBox3.Controls.Add(this.comboBox_platillos);
-            this.groupBox3.Location = new System.Drawing.Point(46, 292);
+            this.groupBox3.Location = new System.Drawing.Point(46, 305);
             this.groupBox3.Name = "groupBox3";
             this.groupBox3.Size = new System.Drawing.Size(340, 129);
             this.groupBox3.TabIndex = 19;
@@ -306,7 +308,7 @@
             this.grafica.ChartAreas.Add(chartArea1);
             legend1.Name = "Legend1";
             this.grafica.Legends.Add(legend1);
-            this.grafica.Location = new System.Drawing.Point(460, 63);
+            this.grafica.Location = new System.Drawing.Point(478, 76);
             this.grafica.Name = "grafica";
             series1.ChartArea = "ChartArea1";
             series1.Legend = "Legend1";
@@ -319,7 +321,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(507, 47);
+            this.label2.Location = new System.Drawing.Point(525, 60);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(107, 13);
             this.label2.TabIndex = 22;
@@ -331,7 +333,7 @@
             this.listView_fechas.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.column_fechas});
             this.listView_fechas.ForeColor = System.Drawing.SystemColors.WindowText;
-            this.listView_fechas.Location = new System.Drawing.Point(23, 135);
+            this.listView_fechas.Location = new System.Drawing.Point(23, 148);
             this.listView_fechas.Name = "listView_fechas";
             this.listView_fechas.Size = new System.Drawing.Size(124, 138);
             this.listView_fechas.TabIndex = 23;
@@ -350,7 +352,7 @@
             this.exportarToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(1088, 24);
+            this.menuStrip1.Size = new System.Drawing.Size(472, 24);
             this.menuStrip1.TabIndex = 24;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -365,15 +367,26 @@
             // excelToolStripMenuItem
             // 
             this.excelToolStripMenuItem.Name = "excelToolStripMenuItem";
-            this.excelToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.excelToolStripMenuItem.Size = new System.Drawing.Size(100, 22);
             this.excelToolStripMenuItem.Text = "Excel";
             this.excelToolStripMenuItem.Click += new System.EventHandler(this.excelToolStripMenuItem_Click);
+            // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.Font = new System.Drawing.Font("Times New Roman", 14.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label13.Location = new System.Drawing.Point(6, 28);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(466, 22);
+            this.label13.TabIndex = 25;
+            this.label13.Text = "Historial de las Ventas Realizadas Por Fecha Establecida";
             // 
             // Historial
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1088, 482);
+            this.ClientSize = new System.Drawing.Size(472, 482);
+            this.Controls.Add(this.label13);
             this.Controls.Add(this.listView_fechas);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.grafica);
@@ -437,5 +450,6 @@
         private System.Windows.Forms.MenuStrip menuStrip1;
         private System.Windows.Forms.ToolStripMenuItem exportarToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem excelToolStripMenuItem;
+        private System.Windows.Forms.Label label13;
     }
 }

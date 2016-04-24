@@ -33,11 +33,20 @@ namespace empanada_2
             Microsoft.Office.Interop.Excel.Workbook wb = xla.Workbooks.Add(Microsoft.Office.Interop.Excel.XlSheetType.xlWorksheet);
             Microsoft.Office.Interop.Excel.Worksheet ws = (Microsoft.Office.Interop.Excel.Worksheet)xla.ActiveSheet;
 
+            //ENCABEZADO
+            int a=1;
+            int b=1;
+            //------------------
             int i = 2;
             int j = 1;
 
             foreach (ListViewItem comp in listView_esta.Items)
             {
+                ws.Cells[a, b] = ("FECHA");
+                ws.Cells[a, b + 1] = ("ID");
+                ws.Cells[a, b + 2] = ("PLATILLO");
+                ws.Cells[a, b + 3] = ("CANTIDA");
+                ws.Cells[a, b + 4] = ("TOTAL");
                 ws.Cells[i, j] = comp.Text.ToString();
                 //MessageBox.Show(comp.Text.ToString());
                 foreach (ListViewItem.ListViewSubItem drv in comp.SubItems)

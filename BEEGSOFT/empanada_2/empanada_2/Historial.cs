@@ -89,6 +89,8 @@ namespace empanada_2
                 
         private void button2_Click(object sender, EventArgs e)
         {
+            
+            
             //Primera fecha
             string var1 = fechaA.Text;
             var1 = var1.Substring(0, 2);
@@ -200,6 +202,12 @@ namespace empanada_2
             }
 
             conexion.Close();
+
+            //cambio de tamaño de la forma            
+            label13.Visible = false;
+            label1.Visible = true;
+            this.Size = new Size(1104, 521);            
+            //---------------------------
         }
 
         private void button1_Click(object sender, EventArgs e)
