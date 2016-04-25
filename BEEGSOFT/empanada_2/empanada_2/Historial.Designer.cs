@@ -86,7 +86,6 @@
             this.groupBox2.TabIndex = 5;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Resumen Total del Periodo Seleccionado";
-            this.groupBox2.Enter += new System.EventHandler(this.groupBox2_Enter);
             // 
             // textBox_empanadas
             // 
@@ -339,7 +338,6 @@
             this.listView_fechas.TabIndex = 23;
             this.listView_fechas.UseCompatibleStateImageBehavior = false;
             this.listView_fechas.View = System.Windows.Forms.View.Details;
-            this.listView_fechas.SelectedIndexChanged += new System.EventHandler(this.listView_fechas_SelectedIndexChanged);
             // 
             // column_fechas
             // 
