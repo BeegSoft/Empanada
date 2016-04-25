@@ -142,11 +142,6 @@ namespace empanada_2
             }
         }
 
-        private void textBox1_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
         private void textBox1_TextChanged_1(object sender, EventArgs e)
         {
             double cambio, total, efectivo;
@@ -181,11 +176,6 @@ namespace empanada_2
                 textBox_efectivo.Text = "";
                 textBox_efectivo.Focus();
             }
-        }
-
-        private void textBox2_TextChanged(object sender, EventArgs e)
-        {
-            
         }
 
         private void button2_Click(object sender, EventArgs e)

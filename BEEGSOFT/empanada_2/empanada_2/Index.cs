@@ -518,36 +518,6 @@ namespace empanada_2
             textBoxrajas.Text = Convert.ToString(rajas);            
         }
 
-        private void textBox14_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void listView2_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void textBox4_TextChanged(object sender, EventArgs e)
-        {
-            
-        }
-
-        private void groupBox2_Enter(object sender, EventArgs e)
-        {
-
-        }
-
-        private void textBoxrajas_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void textBoxchiharronsv_TextChanged(object sender, EventArgs e)
-        {
-            
-        }
-
         private void buttonchicarronsv_Click(object sender, EventArgs e)
         {
             chicharronsv= chicharronsv + 1;
@@ -809,11 +779,6 @@ namespace empanada_2
             GANANCIAS();
         }
 
-        private void menuStrip1_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
-        {
-
-        }
-
         private void button1_Click_2(object sender, EventArgs e)
         {
             if (Convert.ToInt32(textBoxcarnec.Text) > 0)
@@ -947,29 +912,6 @@ namespace empanada_2
             }            
         }
 
-        private void radioButton1_CheckedChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void textBoxcarnec_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void radioButton2_CheckedChanged(object sender, EventArgs e)
-        {
-            
-        }
-
-        private void checkBox1_CheckedChanged(object sender, EventArgs e)
-        {
-        }
-
-        private void checkBox1_CheckStateChanged(object sender, EventArgs e)
-        {
-            
-        }
 
         private void checkBox1_Click(object sender, EventArgs e)
         {
@@ -1011,11 +953,6 @@ namespace empanada_2
                 textBoxtinga.Enabled = false;
                 textBox_otros.Enabled = false;
             }
-        }
-
-        private void textBoxfrijol_TextChanged(object sender, EventArgs e)
-        {
-
         }
 
         private void button18_Click(object sender, EventArgs e)
@@ -1113,16 +1050,6 @@ namespace empanada_2
             GANANCIAS();
         }
 
-        private void button23_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void button23_Click_1(object sender, EventArgs e)
-        {
-            
-        }
-
         private void button23_Click_2(object sender, EventArgs e)
         {
             if (Convert.ToInt32(textBox_otros.Text) > 0)
@@ -1140,11 +1067,6 @@ namespace empanada_2
 
             if (formInterface != null)
                 formInterface.ChangeTextBoxText(txt, id);
-        }
-
-        private void comboBox_otros_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
         }
 
         private void estadisticasToolStripMenuItem_Click(object sender, EventArgs e)
@@ -1200,10 +1122,6 @@ namespace empanada_2
             textBox_otros.Text = Convert.ToString(otros);            
         }
 
-        private void button13_KeyUp(object sender, KeyEventArgs e)
-        {
-        }
-
         private void Form1_KeyUp(object sender, KeyEventArgs e)
         {
             if (e.KeyCode == Keys.F1)
@@ -1240,11 +1158,6 @@ namespace empanada_2
                 if (formInterface != null)
                     formInterface.orden5();
             }
-        }
-
-        private void Form1_KeyDown(object sender, KeyEventArgs e)
-        {
-            
         }
 
         private void button21_Click(object sender, EventArgs e)
@@ -1293,26 +1206,6 @@ namespace empanada_2
             textBoxcafe.Text = Convert.ToString(cafe);            
         }
 
-        private void groupBox3_Enter(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label11_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void textBoxcafe_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void textBox1_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
         private void buttonhorchata_Click(object sender, EventArgs e)
         {
             chata = chata + 1;
@@ -1329,11 +1222,6 @@ namespace empanada_2
         {
             cebada = cebada + 1;
             textBoxcebada.Text = Convert.ToString(cebada);            
-        }
-
-        private void groupBox1_Enter(object sender, EventArgs e)
-        {
-
         }
     }
 }  

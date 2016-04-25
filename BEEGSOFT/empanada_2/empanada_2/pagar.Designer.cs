@@ -102,7 +102,6 @@
             this.textBox_descripcion.Name = "textBox_descripcion";
             this.textBox_descripcion.Size = new System.Drawing.Size(78, 20);
             this.textBox_descripcion.TabIndex = 3;
-            this.textBox_descripcion.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
             // 
             // button1
             // 
@@ -165,7 +164,6 @@
             this.textBox_cambio.Name = "textBox_cambio";
             this.textBox_cambio.Size = new System.Drawing.Size(72, 20);
             this.textBox_cambio.TabIndex = 11;
-            this.textBox_cambio.TextChanged += new System.EventHandler(this.textBox2_TextChanged);
             // 
             // label5
             // 

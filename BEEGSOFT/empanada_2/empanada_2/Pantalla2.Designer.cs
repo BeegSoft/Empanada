@@ -85,7 +85,6 @@
             this.listView_platillos.TabIndex = 4;
             this.listView_platillos.UseCompatibleStateImageBehavior = false;
             this.listView_platillos.View = System.Windows.Forms.View.Details;
-            this.listView_platillos.SelectedIndexChanged += new System.EventHandler(this.listView_platillos_SelectedIndexChanged);
             // 
             // ID
             // 
@@ -119,7 +118,6 @@
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(100, 26);
             this.textBox1.TabIndex = 7;
-            this.textBox1.TextChanged += new System.EventHandler(this.TextBox1_TextChanged_1);
             // 
             // textBox2
             // 
@@ -246,7 +244,6 @@
             this.listView3.TabIndex = 14;
             this.listView3.UseCompatibleStateImageBehavior = false;
             this.listView3.View = System.Windows.Forms.View.Details;
-            this.listView3.SelectedIndexChanged += new System.EventHandler(this.listView3_SelectedIndexChanged);
             // 
             // columnHeader12
             // 
