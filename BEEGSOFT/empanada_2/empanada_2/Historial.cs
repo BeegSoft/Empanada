@@ -23,11 +23,6 @@ namespace empanada_2
         String ds;
         int fechaa, fechab;
 
-        private void groupBox2_Enter(object sender, EventArgs e)
-        {
-
-        }
-
         private void SELECT_FECHA()
         {
             OleDbDataAdapter adaptador = new OleDbDataAdapter("SELECT FECHA.fecha FROM FECHA ORDER BY FECHA.fecha", ds);
@@ -88,7 +83,7 @@ namespace empanada_2
         }
                 
         private void button2_Click(object sender, EventArgs e)
-        {
+        {                        
             //Primera fecha
             string var1 = fechaA.Text;
             var1 = var1.Substring(0, 2);
@@ -200,22 +195,18 @@ namespace empanada_2
             }
 
             conexion.Close();
-        }
 
-        private void button1_Click(object sender, EventArgs e)
-        {
-            
+            //cambio de tamaño de la forma            
+            label13.Visible = false;            
+            this.Size = new Size(1104, 521);
+            label1.Visible = true;
+            //---------------------------
         }
 
         private void excelToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Exportacion_excel form = new Exportacion_excel(ds);
             form.ShowDialog();
-        }
-
-        private void listView_fechas_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
         }
 
         private void Historial_Load(object sender, EventArgs e)
