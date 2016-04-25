@@ -175,7 +175,6 @@
             this.menuStrip1.Size = new System.Drawing.Size(959, 24);
             this.menuStrip1.TabIndex = 1;
             this.menuStrip1.Text = "menuStrip1";
-            this.menuStrip1.ItemClicked += new System.Windows.Forms.ToolStripItemClickedEventHandler(this.menuStrip1_ItemClicked);
             // 
             // modificarToolStripMenuItem
             // 
@@ -199,35 +198,35 @@
             // orden1ToolStripMenuItem
             // 
             this.orden1ToolStripMenuItem.Name = "orden1ToolStripMenuItem";
-            this.orden1ToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.orden1ToolStripMenuItem.Size = new System.Drawing.Size(116, 22);
             this.orden1ToolStripMenuItem.Text = "Orden 1";
             this.orden1ToolStripMenuItem.Click += new System.EventHandler(this.orden1ToolStripMenuItem_Click);
             // 
             // orden2ToolStripMenuItem
             // 
             this.orden2ToolStripMenuItem.Name = "orden2ToolStripMenuItem";
-            this.orden2ToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.orden2ToolStripMenuItem.Size = new System.Drawing.Size(116, 22);
             this.orden2ToolStripMenuItem.Text = "Orden 2";
             this.orden2ToolStripMenuItem.Click += new System.EventHandler(this.orden2ToolStripMenuItem_Click);
             // 
             // orden3ToolStripMenuItem
             // 
             this.orden3ToolStripMenuItem.Name = "orden3ToolStripMenuItem";
-            this.orden3ToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.orden3ToolStripMenuItem.Size = new System.Drawing.Size(116, 22);
             this.orden3ToolStripMenuItem.Text = "Orden 3";
             this.orden3ToolStripMenuItem.Click += new System.EventHandler(this.orden3ToolStripMenuItem_Click);
             // 
             // orden4ToolStripMenuItem
             // 
             this.orden4ToolStripMenuItem.Name = "orden4ToolStripMenuItem";
-            this.orden4ToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.orden4ToolStripMenuItem.Size = new System.Drawing.Size(116, 22);
             this.orden4ToolStripMenuItem.Text = "Orden 4";
             this.orden4ToolStripMenuItem.Click += new System.EventHandler(this.orden4ToolStripMenuItem_Click);
             // 
             // orden5ToolStripMenuItem
             // 
             this.orden5ToolStripMenuItem.Name = "orden5ToolStripMenuItem";
-            this.orden5ToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.orden5ToolStripMenuItem.Size = new System.Drawing.Size(116, 22);
             this.orden5ToolStripMenuItem.Text = "Orden 5";
             this.orden5ToolStripMenuItem.Click += new System.EventHandler(this.orden5ToolStripMenuItem_Click);
             // 
@@ -247,7 +246,6 @@
             this.button13.Text = "Nueva Orden";
             this.button13.UseVisualStyleBackColor = true;
             this.button13.Click += new System.EventHandler(this.button13_Click);
-            this.button13.KeyUp += new System.Windows.Forms.KeyEventHandler(this.button13_KeyUp);
             // 
             // button14
             // 
@@ -447,7 +445,6 @@
             this.textBoxpicadillo.Size = new System.Drawing.Size(26, 20);
             this.textBoxpicadillo.TabIndex = 27;
             this.textBoxpicadillo.Text = "0";
-            this.textBoxpicadillo.TextChanged += new System.EventHandler(this.textBox14_TextChanged);
             // 
             // label14
             // 
@@ -502,7 +499,6 @@
             this.textBoxchicharronsv.Size = new System.Drawing.Size(26, 20);
             this.textBoxchicharronsv.TabIndex = 21;
             this.textBoxchicharronsv.Text = "0";
-            this.textBoxchicharronsv.TextChanged += new System.EventHandler(this.textBoxchiharronsv_TextChanged);
             // 
             // textBoxcochinita
             // 
@@ -512,7 +508,6 @@
             this.textBoxcochinita.Size = new System.Drawing.Size(26, 20);
             this.textBoxcochinita.TabIndex = 20;
             this.textBoxcochinita.Text = "0";
-            this.textBoxcochinita.TextChanged += new System.EventHandler(this.textBox4_TextChanged);
             // 
             // textBoxfrijol
             // 
@@ -522,7 +517,6 @@
             this.textBoxfrijol.Size = new System.Drawing.Size(26, 20);
             this.textBoxfrijol.TabIndex = 19;
             this.textBoxfrijol.Text = "0";
-            this.textBoxfrijol.TextChanged += new System.EventHandler(this.textBoxfrijol_TextChanged);
             // 
             // textBoxrajas
             // 
@@ -532,7 +526,6 @@
             this.textBoxrajas.Size = new System.Drawing.Size(26, 20);
             this.textBoxrajas.TabIndex = 18;
             this.textBoxrajas.Text = "0";
-            this.textBoxrajas.TextChanged += new System.EventHandler(this.textBoxrajas_TextChanged);
             // 
             // textBoxcarnec
             // 
@@ -542,7 +535,6 @@
             this.textBoxcarnec.Size = new System.Drawing.Size(26, 20);
             this.textBoxcarnec.TabIndex = 17;
             this.textBoxcarnec.Text = "0";
-            this.textBoxcarnec.TextChanged += new System.EventHandler(this.textBoxcarnec_TextChanged);
             // 
             // label8
             // 
@@ -730,7 +722,6 @@
             this.groupBox3.TabIndex = 2;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Bebidas";
-            this.groupBox3.Enter += new System.EventHandler(this.groupBox3_Enter);
             // 
             // button21
             // 
@@ -794,7 +785,6 @@
             this.textBoxcebada.Size = new System.Drawing.Size(26, 20);
             this.textBoxcebada.TabIndex = 33;
             this.textBoxcebada.Text = "0";
-            this.textBoxcebada.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
             // 
             // label15
             // 
@@ -822,7 +812,6 @@
             this.textBoxcafe.Size = new System.Drawing.Size(26, 20);
             this.textBoxcafe.TabIndex = 30;
             this.textBoxcafe.Text = "0";
-            this.textBoxcafe.TextChanged += new System.EventHandler(this.textBoxcafe_TextChanged);
             // 
             // v
             // 
@@ -895,7 +884,6 @@
             this.label11.Size = new System.Drawing.Size(57, 13);
             this.label11.TabIndex = 19;
             this.label11.Text = "Tamarindo";
-            this.label11.Click += new System.EventHandler(this.label11_Click);
             // 
             // label10
             // 
@@ -1006,7 +994,6 @@
             this.groupBox1.TabIndex = 2;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Pedido";
-            this.groupBox1.Enter += new System.EventHandler(this.groupBox1_Enter);
             // 
             // button24
             // 
@@ -1080,7 +1067,6 @@
             this.comboBox_otros.Name = "comboBox_otros";
             this.comboBox_otros.Size = new System.Drawing.Size(121, 21);
             this.comboBox_otros.TabIndex = 0;
-            this.comboBox_otros.SelectedIndexChanged += new System.EventHandler(this.comboBox_otros_SelectedIndexChanged);
             // 
             // checkBox_algo
             // 
@@ -1091,8 +1077,6 @@
             this.checkBox_algo.TabIndex = 36;
             this.checkBox_algo.Text = "Habilitar cantidades";
             this.checkBox_algo.UseVisualStyleBackColor = true;
-            this.checkBox_algo.CheckedChanged += new System.EventHandler(this.checkBox1_CheckedChanged);
-            this.checkBox_algo.CheckStateChanged += new System.EventHandler(this.checkBox1_CheckStateChanged);
             this.checkBox_algo.Click += new System.EventHandler(this.checkBox1_Click);
             // 
             // label16
@@ -1140,7 +1124,6 @@
             this.Name = "Form1";
             this.Text = "1";
             this.Load += new System.EventHandler(this.Form1_Load);
-            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Form1_KeyDown);
             this.KeyUp += new System.Windows.Forms.KeyEventHandler(this.Form1_KeyUp);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();

@@ -245,21 +245,6 @@ namespace empanada_2
             Form1 form = new Form1(fecha, ds);
             form.Show(this);
         }
-
-        private void textBox1_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void TextBox1_TextChanged_1(object sender, EventArgs e)
-        {
-
-        }
-
-        private void listView_platillos_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
         
         private void button1_Click(object sender, EventArgs e)
         {
@@ -286,14 +271,5 @@ namespace empanada_2
             orden5();
         }
 
-        private void listView3_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void button2_Click(object sender, EventArgs e)
-        {
-            
-        }
     }
 }
