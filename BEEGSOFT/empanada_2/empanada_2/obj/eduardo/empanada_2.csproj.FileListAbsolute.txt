@@ -18,3 +18,4 @@ C:\Empanada\BEEGSOFT\empanada_2\empanada_2\obj\eduardo\empanada_2.pdb
 C:\Empanada\BEEGSOFT\empanada_2\empanada_2\obj\eduardo\empanada_2.csprojResolveAssemblyReference.cache
 C:\Empanada\BEEGSOFT\empanada_2\empanada_2\obj\eduardo\empanada_2.csproj.ResolveComReference.cache
 C:\Empanada\BEEGSOFT\empanada_2\empanada_2\obj\eduardo\empanada_2.Exportacion_excel.resources
+C:\Empanada\BEEGSOFT\empanada_2\empanada_2\obj\eduardo\empanada_2.Gastos.resources

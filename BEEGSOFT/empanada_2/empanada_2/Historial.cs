@@ -112,95 +112,131 @@ namespace empanada_2
             //juntando las cadenas
             string FECHAB = string.Concat(var3, var2, var1);
             fechab = Convert.ToInt32(FECHAB);
-            //----------------
 
-            //PLATILLOS DEL COMBO
-            METODOCOMBO();
-            //----------------------
+            if (fechab < fechaa)
+            {
+                MessageBox.Show("Seleccione una fecha mayor a la primera fecha", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            {
+                //----------------
 
-            //SUMAR LAS VENTAS DE LOS PLATILLOS SELECCIONADOS
-            OleDbConnection conexion = new OleDbConnection(ds);
-
-            conexion.Open();
-            try {
-                string select = "SELECT SUM(ORDEN.total_pagar) FROM ORDEN INNER JOIN FECHA ON ORDEN.fecha = FECHA.fecha WHERE FECHA.id >= " + fechaa + "AND FECHA.id <= " + fechab;
-
-                OleDbCommand cmd2 = new OleDbCommand(select, conexion); //Conexion es tu objeto conexion                                
-
-                textBox_ganancias.Text = (cmd2.ExecuteScalar()).ToString();
-                if (textBox_ganancias.Text == "")
-                {
-                    textBox_ganancias.Text = "0";
-                }
-
-                //...................................
+                //PLATILLOS DEL COMBO
+                METODOCOMBO();
+                //----------------------
 
                 //SUMAR LAS VENTAS DE LOS PLATILLOS SELECCIONADOS
+                OleDbConnection conexion = new OleDbConnection(ds);
 
-                string select2 = "SELECT COUNT(ORDEN.total_pagar) FROM ORDEN INNER JOIN FECHA ON ORDEN.fecha = FECHA.fecha WHERE FECHA.id >= " + fechaa + "AND FECHA.id <= " + fechab;
-
-                OleDbCommand cmd3 = new OleDbCommand(select2, conexion); //Conexion es tu objeto conexion                                
-
-                textBox_clientes.Text = (cmd3.ExecuteScalar()).ToString();
-                if (textBox_clientes.Text == "")
+                conexion.Open();
+                try
                 {
-                    textBox_clientes.Text = "0";
+                    string select = "SELECT SUM(ORDEN.total_pagar) FROM ORDEN INNER JOIN FECHA ON ORDEN.fecha = FECHA.fecha WHERE FECHA.id >= " + fechaa + "AND FECHA.id <= " + fechab;
+
+                    OleDbCommand cmd2 = new OleDbCommand(select, conexion); //Conexion es tu objeto conexion                                
+
+                    textBox_ventas.Text = (cmd2.ExecuteScalar()).ToString();
+                    if (textBox_ventas.Text == "")
+                    {
+                        textBox_ventas.Text = "0";
+                    }
+
+                    //...................................
+
+                    //SUMA GASTOS
+                    string select5 = "SELECT SUM(Gastos) FROM FECHA WHERE FECHA.id >= " + fechaa + "AND FECHA.id <= " + fechab;
+
+                    OleDbCommand cmd5 = new OleDbCommand(select5, conexion); //Conexion es tu objeto conexion                                
+
+                    textBox_gastos.Text = (cmd5.ExecuteScalar()).ToString();
+                    if (textBox_gastos.Text == "")
+                    {
+                        textBox_gastos.Text = "0";
+                    }
+                    //--------------------------------
+
+                    //SUMA GANANCIAS
+                    string select6 = "SELECT SUM(Ganancia) FROM FECHA WHERE FECHA.id >= " + fechaa + "AND FECHA.id <= " + fechab;
+
+                    OleDbCommand cmd6 = new OleDbCommand(select6, conexion); //Conexion es tu objeto conexion                                
+
+                    textBox_ganancias.Text = (cmd6.ExecuteScalar()).ToString();
+                    if (textBox_ganancias.Text == "")
+                    {
+                        textBox_ganancias.Text = "0";
+                    }
+                    //--------------------------------
+
+                    //SUMAR LAS VENTAS DE LOS PLATILLOS SELECCIONADOS
+
+                    string select2 = "SELECT COUNT(ORDEN.total_pagar) FROM ORDEN INNER JOIN FECHA ON ORDEN.fecha = FECHA.fecha WHERE FECHA.id >= " + fechaa + "AND FECHA.id <= " + fechab;
+
+                    OleDbCommand cmd3 = new OleDbCommand(select2, conexion); //Conexion es tu objeto conexion                                
+
+                    textBox_clientes.Text = (cmd3.ExecuteScalar()).ToString();
+                    if (textBox_clientes.Text == "")
+                    {
+                        textBox_clientes.Text = "0";
+                    }
+
+                    //--------------------------------------------------------
+
+                    //TOTAL DE EMPANADAS VENDIDAS EN EL PERIODO SELECCIONADO
+
+                    string select3 = "SELECT SUM(PLATILLO.cantidad) FROM(FECHA INNER JOIN ORDEN ON FECHA.fecha = ORDEN.fecha) INNER JOIN PLATILLO ON ORDEN.id_orden = PLATILLO.id_orden WHERE FECHA.id >= " + fechaa + "AND FECHA.id <= " + fechab;
+
+                    OleDbCommand cmd4 = new OleDbCommand(select3, conexion); //Conexion es tu objeto conexion                                
+
+                    textBox_empanadas.Text = (cmd4.ExecuteScalar()).ToString();
+                    if (textBox_empanadas.Text == "")
+                    {
+                        textBox_empanadas.Text = "0";
+                    }
+
+                    //----------------------------------------------------------
+                }
+                catch (Exception)
+                {
+                    MessageBox.Show("Ha ocurrido un error con la base de datos!", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+                //...................................
+
+                //LLENAR LA GRAFICA CON VENTAS
+                foreach (var series in grafica.Series)
+                {
+                    series.Points.Clear();
                 }
 
-                //--------------------------------------------------------
-
-                //TOTAL DE EMPANADAS VENDIDAS EN EL PERIODO SELECCIONADO
-
-                string select3 = "SELECT SUM(PLATILLO.cantidad) FROM(FECHA INNER JOIN ORDEN ON FECHA.fecha = ORDEN.fecha) INNER JOIN PLATILLO ON ORDEN.id_orden = PLATILLO.id_orden WHERE FECHA.id >= " + fechaa + "AND FECHA.id <= " + fechab;
-
-                OleDbCommand cmd4 = new OleDbCommand(select3, conexion); //Conexion es tu objeto conexion                                
-
-                textBox_empanadas.Text = (cmd4.ExecuteScalar()).ToString();
-                if (textBox_empanadas.Text == "")
+                string select4 = "SELECT  * FROM FECHA WHERE FECHA.id >= " + fechaa + " AND FECHA.id <= " + fechab + " ORDER BY FECHA.id";
+                OleDbCommand cmd = new OleDbCommand(select4, conexion);
+                try
                 {
-                    textBox_empanadas.Text = "0";
+                    OleDbDataReader reader = cmd.ExecuteReader();
+
+
+                    while (reader.Read())
+                    {
+                        grafica.Series["Ventas"].Points.AddXY(reader["fecha"].ToString(), reader["Venta_total"].ToString());
+                        grafica.Series["Gastos"].Points.AddXY(reader["fecha"].ToString(), reader["Gastos"].ToString());
+                        grafica.Series["Ganancias"].Points.AddXY(reader["fecha"].ToString(), reader["Ganancia"].ToString());
+
+                    }
+
+                    reader.Close();
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Error orden" + ex, "MENSAJE", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
 
-                //----------------------------------------------------------
+
+                conexion.Close();
+
+                //cambio de tamaño de la forma            
+                label13.Visible = false;
+                this.Size = new Size(1104, 521);
+                label1.Visible = true;
+                //---------------------------
             }
-            catch (Exception)
-            {
-                MessageBox.Show("Ha ocurrido un error con la base de datos!", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-            //...................................
-
-            //LLENAR LA GRAFICA
-            foreach (var series in grafica.Series)
-            {
-                series.Points.Clear();
-            }
-
-            string select4 = "SELECT  * FROM FECHA WHERE FECHA.id >= " + fechaa + " AND FECHA.id <= " + fechab + " ORDER BY FECHA.id";
-            OleDbCommand cmd = new OleDbCommand(select4, conexion);
-            try
-            {
-                OleDbDataReader reader = cmd.ExecuteReader();
-
-
-                while (reader.Read())
-                {
-                    grafica.Series["Ventas"].Points.AddXY(reader["fecha"].ToString(), reader["Venta_total"].ToString());
-                }
-
-                reader.Close();
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Error orden" + ex, "MENSAJE", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-
-            conexion.Close();
-
-            //cambio de tamaño de la forma            
-            label13.Visible = false;            
-            this.Size = new Size(1104, 521);
-            label1.Visible = true;
-            //---------------------------
         }
 
         private void excelToolStripMenuItem_Click(object sender, EventArgs e)
@@ -213,7 +249,7 @@ namespace empanada_2
         {
             textBox_clientes.Text = "0";
             textBox_empanadas.Text = "0";
-            textBox_ganancias.Text = "0";
+            textBox_ventas.Text = "0";
             //-------------------------------
             SELECT_FECHA();
             //------------------------------

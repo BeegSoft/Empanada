@@ -332,6 +332,8 @@ namespace empanada_2
 
                 conexion5.Close();
             }
+
+            GANANCIAS();
         }
 
         private void INSERTAR_VISU(string platillo, int cantidad)
@@ -701,12 +703,51 @@ namespace empanada_2
 
         }
 
+        int ventas, gastos, ganancias;
+        private void GANANCIAS()
+        {
+            OleDbConnection conexion = new OleDbConnection(ds);
+
+            conexion.Open();
+
+            string select = "SELECT Venta_total, Gastos FROM FECHA WHERE fecha='" + fecha + "'";
+            OleDbCommand cmd = new OleDbCommand(select, conexion);
+            try
+            {
+                OleDbDataReader reader = cmd.ExecuteReader();
+
+                if (reader.HasRows)
+                {
+                    while (reader.Read())
+                    {
+                        ventas = reader.GetInt32(0);
+                        gastos = reader.GetInt32(1);
+
+                        ganancias = ventas - gastos;
+                    }
+                }
+                reader.Close();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error" + ex, "MENSAJE", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+
+            //ACTUALIZAR LAS GANANCIAS
+            string actualizar = "UPDATE FECHA SET Ganancia = @Ganancia WHERE fecha = '" + fecha + "'";
+            OleDbCommand cmd3 = new OleDbCommand(actualizar, conexion);
+            cmd3.Parameters.AddWithValue("@Ganancia", ganancias);
+
+            cmd3.ExecuteNonQuery();
+
+            conexion.Close();
+        }
+
         private void button15_Click(object sender, EventArgs e)
         {
             foreach (ListViewItem lista in listView_ordenes.SelectedItems)
             {
                 int id = Convert.ToInt32(lista.Text);
-
 
                 DialogResult resultado = MessageBox.Show("Esta seguro de borrar la orden?", "ADVERTENCIA", MessageBoxButtons.YesNo,MessageBoxIcon.Warning);
                 if (resultado == DialogResult.Yes)
@@ -738,6 +779,8 @@ namespace empanada_2
                 }
                 listView_platillos.Items.Clear();
                 textBox_total.Text = "0";
+
+                
             }
 
             //TOTAL DEL DIA
@@ -745,13 +788,12 @@ namespace empanada_2
             OleDbConnection conexion5 = new OleDbConnection(ds);
 
             conexion5.Open();
-
-            string sql5 = "SELECT SUM(ORDEN.total_pagar) FROM FECHA INNER JOIN ORDEN ON FECHA.fecha = ORDEN.fecha WHERE fecha = '" + fecha + "'";
+            
+            string sql5 = "SELECT SUM(ORDEN.total_pagar) FROM FECHA INNER JOIN ORDEN ON FECHA.fecha = ORDEN.fecha WHERE FECHA.fecha = '" + fecha + "'";
 
             OleDbCommand cmd7 = new OleDbCommand(sql5, conexion5); //Conexion es tu objeto conexion                                
 
             int total_dia = Convert.ToInt32(cmd7.ExecuteScalar());
-
             //-------------------
 
             //INSERTAR EL TOTAL EN LA TABLA ORDEN
@@ -763,6 +805,8 @@ namespace empanada_2
             cmd6.ExecuteNonQuery();
 
             conexion5.Close();
+
+            GANANCIAS();
         }
 
         private void menuStrip1_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
@@ -1039,7 +1083,7 @@ namespace empanada_2
                 {
 
                 }
-
+                
             }
 
             //TOTAL DEL DIA
@@ -1048,7 +1092,7 @@ namespace empanada_2
 
             conexion5.Open();
 
-            string sql5 = "SELECT SUM(ORDEN.total_pagar) FROM FECHA INNER JOIN ORDEN ON FECHA.fecha = ORDEN.fecha WHERE fecha = '" + fecha + "'";
+            string sql5 = "SELECT SUM(ORDEN.total_pagar) FROM FECHA INNER JOIN ORDEN ON FECHA.fecha = ORDEN.fecha WHERE FECHA.fecha = '" + fecha + "'";
 
             OleDbCommand cmd7 = new OleDbCommand(sql5, conexion5); //Conexion es tu objeto conexion                                
 
@@ -1065,6 +1109,8 @@ namespace empanada_2
             cmd6.ExecuteNonQuery();
 
             conexion5.Close();
+
+            GANANCIAS();
         }
 
         private void button23_Click(object sender, EventArgs e)
@@ -1140,6 +1186,12 @@ namespace empanada_2
             Terminar_orden formInterface = this.Owner as Terminar_orden;
             if (formInterface != null)
                 formInterface.orden5();
+        }
+
+        private void gastosToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Gastos form = new Gastos(ds);
+            form.ShowDialog();
         }
 
         private void button22_Click(object sender, EventArgs e)

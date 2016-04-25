@@ -128,6 +128,7 @@
             this.label16 = new System.Windows.Forms.Label();
             this.textBox_descripcion = new System.Windows.Forms.TextBox();
             this.label17 = new System.Windows.Forms.Label();
+            this.gastosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
@@ -169,7 +170,8 @@
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.modificarToolStripMenuItem,
             this.terminarOrdenesToolStripMenuItem,
-            this.estadisticasToolStripMenuItem});
+            this.estadisticasToolStripMenuItem,
+            this.gastosToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Size = new System.Drawing.Size(959, 24);
@@ -199,35 +201,35 @@
             // orden1ToolStripMenuItem
             // 
             this.orden1ToolStripMenuItem.Name = "orden1ToolStripMenuItem";
-            this.orden1ToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.orden1ToolStripMenuItem.Size = new System.Drawing.Size(116, 22);
             this.orden1ToolStripMenuItem.Text = "Orden 1";
             this.orden1ToolStripMenuItem.Click += new System.EventHandler(this.orden1ToolStripMenuItem_Click);
             // 
             // orden2ToolStripMenuItem
             // 
             this.orden2ToolStripMenuItem.Name = "orden2ToolStripMenuItem";
-            this.orden2ToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.orden2ToolStripMenuItem.Size = new System.Drawing.Size(116, 22);
             this.orden2ToolStripMenuItem.Text = "Orden 2";
             this.orden2ToolStripMenuItem.Click += new System.EventHandler(this.orden2ToolStripMenuItem_Click);
             // 
             // orden3ToolStripMenuItem
             // 
             this.orden3ToolStripMenuItem.Name = "orden3ToolStripMenuItem";
-            this.orden3ToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.orden3ToolStripMenuItem.Size = new System.Drawing.Size(116, 22);
             this.orden3ToolStripMenuItem.Text = "Orden 3";
             this.orden3ToolStripMenuItem.Click += new System.EventHandler(this.orden3ToolStripMenuItem_Click);
             // 
             // orden4ToolStripMenuItem
             // 
             this.orden4ToolStripMenuItem.Name = "orden4ToolStripMenuItem";
-            this.orden4ToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.orden4ToolStripMenuItem.Size = new System.Drawing.Size(116, 22);
             this.orden4ToolStripMenuItem.Text = "Orden 4";
             this.orden4ToolStripMenuItem.Click += new System.EventHandler(this.orden4ToolStripMenuItem_Click);
             // 
             // orden5ToolStripMenuItem
             // 
             this.orden5ToolStripMenuItem.Name = "orden5ToolStripMenuItem";
-            this.orden5ToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.orden5ToolStripMenuItem.Size = new System.Drawing.Size(116, 22);
             this.orden5ToolStripMenuItem.Text = "Orden 5";
             this.orden5ToolStripMenuItem.Click += new System.EventHandler(this.orden5ToolStripMenuItem_Click);
             // 
@@ -1120,6 +1122,13 @@
             this.label17.TabIndex = 8;
             this.label17.Text = "Nombre del cliente";
             // 
+            // gastosToolStripMenuItem
+            // 
+            this.gastosToolStripMenuItem.Name = "gastosToolStripMenuItem";
+            this.gastosToolStripMenuItem.Size = new System.Drawing.Size(54, 20);
+            this.gastosToolStripMenuItem.Text = "Gastos";
+            this.gastosToolStripMenuItem.Click += new System.EventHandler(this.gastosToolStripMenuItem_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1258,6 +1267,7 @@
         private System.Windows.Forms.ToolStripMenuItem orden4ToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem orden5ToolStripMenuItem;
         private System.Windows.Forms.Button button24;
+        private System.Windows.Forms.ToolStripMenuItem gastosToolStripMenuItem;
     }
 }
 
