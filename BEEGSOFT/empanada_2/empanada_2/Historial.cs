@@ -117,6 +117,7 @@ namespace empanada_2
             {
                 MessageBox.Show("Seleccione una fecha mayor a la primera fecha", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+            else
             {
                 //----------------
 

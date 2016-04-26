@@ -35,6 +35,12 @@
             System.Windows.Forms.DataVisualization.Charting.Series series3 = new System.Windows.Forms.DataVisualization.Charting.Series();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Historial));
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.label17 = new System.Windows.Forms.Label();
+            this.textBox_ganancias = new System.Windows.Forms.TextBox();
+            this.Ganancias = new System.Windows.Forms.Label();
+            this.label15 = new System.Windows.Forms.Label();
+            this.textBox_gastos = new System.Windows.Forms.TextBox();
+            this.label16 = new System.Windows.Forms.Label();
             this.textBox_empanadas = new System.Windows.Forms.TextBox();
             this.label14 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
@@ -65,12 +71,6 @@
             this.exportarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.excelToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.label13 = new System.Windows.Forms.Label();
-            this.label15 = new System.Windows.Forms.Label();
-            this.textBox_gastos = new System.Windows.Forms.TextBox();
-            this.label16 = new System.Windows.Forms.Label();
-            this.label17 = new System.Windows.Forms.Label();
-            this.textBox_ganancias = new System.Windows.Forms.TextBox();
-            this.Ganancias = new System.Windows.Forms.Label();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.grafica)).BeginInit();
@@ -98,6 +98,58 @@
             this.groupBox2.TabIndex = 5;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Resumen Total del Periodo Seleccionado";
+            // 
+            // label17
+            // 
+            this.label17.AutoSize = true;
+            this.label17.Location = new System.Drawing.Point(124, 85);
+            this.label17.Name = "label17";
+            this.label17.Size = new System.Drawing.Size(13, 13);
+            this.label17.TabIndex = 17;
+            this.label17.Text = "$";
+            // 
+            // textBox_ganancias
+            // 
+            this.textBox_ganancias.Enabled = false;
+            this.textBox_ganancias.Location = new System.Drawing.Point(137, 82);
+            this.textBox_ganancias.Name = "textBox_ganancias";
+            this.textBox_ganancias.Size = new System.Drawing.Size(51, 20);
+            this.textBox_ganancias.TabIndex = 16;
+            // 
+            // Ganancias
+            // 
+            this.Ganancias.AutoSize = true;
+            this.Ganancias.Location = new System.Drawing.Point(66, 85);
+            this.Ganancias.Name = "Ganancias";
+            this.Ganancias.Size = new System.Drawing.Size(61, 13);
+            this.Ganancias.TabIndex = 15;
+            this.Ganancias.Text = "Ganancias:";
+            // 
+            // label15
+            // 
+            this.label15.AutoSize = true;
+            this.label15.Location = new System.Drawing.Point(124, 59);
+            this.label15.Name = "label15";
+            this.label15.Size = new System.Drawing.Size(13, 13);
+            this.label15.TabIndex = 14;
+            this.label15.Text = "$";
+            // 
+            // textBox_gastos
+            // 
+            this.textBox_gastos.Enabled = false;
+            this.textBox_gastos.Location = new System.Drawing.Point(137, 56);
+            this.textBox_gastos.Name = "textBox_gastos";
+            this.textBox_gastos.Size = new System.Drawing.Size(51, 20);
+            this.textBox_gastos.TabIndex = 13;
+            // 
+            // label16
+            // 
+            this.label16.AutoSize = true;
+            this.label16.Location = new System.Drawing.Point(84, 59);
+            this.label16.Name = "label16";
+            this.label16.Size = new System.Drawing.Size(43, 13);
+            this.label16.TabIndex = 12;
+            this.label16.Text = "Gastos:";
             // 
             // textBox_empanadas
             // 
@@ -361,7 +413,7 @@
             this.exportarToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(1114, 24);
+            this.menuStrip1.Size = new System.Drawing.Size(468, 24);
             this.menuStrip1.TabIndex = 24;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -390,63 +442,11 @@
             this.label13.TabIndex = 25;
             this.label13.Text = "Historial de las Ventas Realizadas Por Fecha Establecida";
             // 
-            // label15
-            // 
-            this.label15.AutoSize = true;
-            this.label15.Location = new System.Drawing.Point(124, 59);
-            this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(13, 13);
-            this.label15.TabIndex = 14;
-            this.label15.Text = "$";
-            // 
-            // textBox_gastos
-            // 
-            this.textBox_gastos.Enabled = false;
-            this.textBox_gastos.Location = new System.Drawing.Point(137, 56);
-            this.textBox_gastos.Name = "textBox_gastos";
-            this.textBox_gastos.Size = new System.Drawing.Size(51, 20);
-            this.textBox_gastos.TabIndex = 13;
-            // 
-            // label16
-            // 
-            this.label16.AutoSize = true;
-            this.label16.Location = new System.Drawing.Point(84, 59);
-            this.label16.Name = "label16";
-            this.label16.Size = new System.Drawing.Size(43, 13);
-            this.label16.TabIndex = 12;
-            this.label16.Text = "Gastos:";
-            // 
-            // label17
-            // 
-            this.label17.AutoSize = true;
-            this.label17.Location = new System.Drawing.Point(124, 85);
-            this.label17.Name = "label17";
-            this.label17.Size = new System.Drawing.Size(13, 13);
-            this.label17.TabIndex = 17;
-            this.label17.Text = "$";
-            // 
-            // textBox_ganancias
-            // 
-            this.textBox_ganancias.Enabled = false;
-            this.textBox_ganancias.Location = new System.Drawing.Point(137, 82);
-            this.textBox_ganancias.Name = "textBox_ganancias";
-            this.textBox_ganancias.Size = new System.Drawing.Size(51, 20);
-            this.textBox_ganancias.TabIndex = 16;
-            // 
-            // Ganancias
-            // 
-            this.Ganancias.AutoSize = true;
-            this.Ganancias.Location = new System.Drawing.Point(66, 85);
-            this.Ganancias.Name = "Ganancias";
-            this.Ganancias.Size = new System.Drawing.Size(61, 13);
-            this.Ganancias.TabIndex = 15;
-            this.Ganancias.Text = "Ganancias:";
-            // 
             // Historial
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1114, 482);
+            this.ClientSize = new System.Drawing.Size(468, 482);
             this.Controls.Add(this.label13);
             this.Controls.Add(this.listView_fechas);
             this.Controls.Add(this.label2);
