@@ -41,12 +41,7 @@
             this.button1 = new System.Windows.Forms.Button();
             this.listView_fechas = new System.Windows.Forms.ListView();
             this.column_fechas = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.listView1 = new System.Windows.Forms.ListView();
-            this.columnHeader6 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.columnHeader7 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.columnHeader8 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.columnHeader9 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.columnHeader10 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.button2 = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // label6
@@ -96,13 +91,12 @@
             this.columnHeader5,
             this.columnHeader4});
             this.listView_esta.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.listView_esta.Location = new System.Drawing.Point(163, 58);
+            this.listView_esta.Location = new System.Drawing.Point(164, 58);
             this.listView_esta.Name = "listView_esta";
-            this.listView_esta.Size = new System.Drawing.Size(69, 49);
+            this.listView_esta.Size = new System.Drawing.Size(472, 247);
             this.listView_esta.TabIndex = 17;
             this.listView_esta.UseCompatibleStateImageBehavior = false;
             this.listView_esta.View = System.Windows.Forms.View.Details;
-            this.listView_esta.Visible = false;
             // 
             // columnHeader1
             // 
@@ -131,7 +125,7 @@
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(312, 20);
+            this.button1.Location = new System.Drawing.Point(442, 22);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(63, 23);
             this.button1.TabIndex = 18;
@@ -157,47 +151,22 @@
             this.column_fechas.Text = "Fechas Laboradas";
             this.column_fechas.Width = 120;
             // 
-            // listView1
+            // button2
             // 
-            this.listView1.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
-            this.columnHeader6,
-            this.columnHeader7,
-            this.columnHeader8,
-            this.columnHeader9,
-            this.columnHeader10});
-            this.listView1.Location = new System.Drawing.Point(164, 133);
-            this.listView1.Name = "listView1";
-            this.listView1.Size = new System.Drawing.Size(121, 97);
-            this.listView1.TabIndex = 25;
-            this.listView1.UseCompatibleStateImageBehavior = false;
-            this.listView1.Visible = false;
-            // 
-            // columnHeader6
-            // 
-            this.columnHeader6.Text = "fecha";
-            // 
-            // columnHeader7
-            // 
-            this.columnHeader7.Text = "id";
-            // 
-            // columnHeader8
-            // 
-            this.columnHeader8.Text = "Venta_total";
-            // 
-            // columnHeader9
-            // 
-            this.columnHeader9.Text = "Gastos";
-            // 
-            // columnHeader10
-            // 
-            this.columnHeader10.Text = "Ganancia";
+            this.button2.Location = new System.Drawing.Point(32, 254);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(63, 23);
+            this.button2.TabIndex = 25;
+            this.button2.Text = "Mostrar";
+            this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click_1);
             // 
             // Exportacion_excel
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(648, 317);
-            this.Controls.Add(this.listView1);
+            this.Controls.Add(this.button2);
             this.Controls.Add(this.listView_fechas);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.listView_esta);
@@ -227,11 +196,6 @@
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.ListView listView_fechas;
         private System.Windows.Forms.ColumnHeader column_fechas;
-        private System.Windows.Forms.ListView listView1;
-        private System.Windows.Forms.ColumnHeader columnHeader6;
-        private System.Windows.Forms.ColumnHeader columnHeader7;
-        private System.Windows.Forms.ColumnHeader columnHeader8;
-        private System.Windows.Forms.ColumnHeader columnHeader9;
-        private System.Windows.Forms.ColumnHeader columnHeader10;
+        private System.Windows.Forms.Button button2;
     }
 }

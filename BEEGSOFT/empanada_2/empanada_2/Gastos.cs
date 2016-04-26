@@ -26,6 +26,7 @@ namespace empanada_2
             fecha = fechahoy.ToString("d");
 
             label_fecha.Text = fecha;
+            textBox_descripcion.Focus();
 
             OleDbDataAdapter adaptador = new OleDbDataAdapter("SELECT FECHA.fecha FROM FECHA ORDER BY FECHA.fecha", ds);
 
@@ -41,11 +42,14 @@ namespace empanada_2
                 ListViewItem elementos = new ListViewItem(filas["fecha"].ToString());
                 listView_fechas.Items.Add(elementos);
             }
+            SELECT_GASTOS();
+            SUMA_GASTOS();
+            GANANCIAS();
         }
 
         private void SELECT_GASTOS()
         {
-            OleDbDataAdapter adaptador = new OleDbDataAdapter("SELECT Fecha, Descripcion, Gasto FROM GASTOS WHERE fecha = '" + fecha + "'", ds);
+            OleDbDataAdapter adaptador = new OleDbDataAdapter("SELECT id, Fecha, Descripcion, Gasto FROM GASTOS WHERE fecha = '" + fecha + "'", ds);
 
             DataSet dataset = new DataSet();
             DataTable tabla = new DataTable();
@@ -56,7 +60,8 @@ namespace empanada_2
             for (int i = 0; i < tabla.Rows.Count; i++)
             {
                 DataRow filas = tabla.Rows[i];
-                ListViewItem elementos = new ListViewItem(filas["Fecha"].ToString());
+                ListViewItem elementos = new ListViewItem(filas["id"].ToString());
+                elementos.SubItems.Add(filas["Fecha"].ToString());
                 elementos.SubItems.Add(filas["Descripcion"].ToString());
                 elementos.SubItems.Add(filas["Gasto"].ToString());
 
@@ -76,7 +81,7 @@ namespace empanada_2
             conexion.Open();
 
             string insertar = "INSERT INTO GASTOS (Fecha, Descripcion, Gasto) VALUES (@Fecha, @Descripcion, @Gasto)";
-            OleDbCommand cmd = new OleDbCommand(insertar, conexion);
+            OleDbCommand cmd = new OleDbCommand(insertar, conexion);            
             cmd.Parameters.AddWithValue("@Fecha", fecha);
             cmd.Parameters.AddWithValue("@Descripcion", textBox_descripcion.Text);
             cmd.Parameters.AddWithValue("@Gasto", Convert.ToInt32(textBox_gasto.Text));
@@ -90,10 +95,14 @@ namespace empanada_2
             SUMA_GASTOS();
 
             GANANCIAS();
+
+            textBox_descripcion.Clear();
+            textBox_gasto.Clear();
             
         }
 
         int ventas, gastos, ganancias;
+
         private void GANANCIAS()
         {
             OleDbConnection conexion = new OleDbConnection(ds);
@@ -129,6 +138,8 @@ namespace empanada_2
             cmd3.Parameters.AddWithValue("@Ganancia", ganancias);
 
             cmd3.ExecuteNonQuery();
+
+            conexion.Close();
         }
 
         private void SUMA_GASTOS()
@@ -136,14 +147,20 @@ namespace empanada_2
             OleDbConnection conexion = new OleDbConnection(ds);
 
             conexion.Open();
+            
+            
             //SUMAR TODOS LOS GASTOS
 
             string sql = "select SUM(Gasto) from GASTOS WHERE Fecha = '" + fecha + "'";
-            OleDbCommand cmd2 = new OleDbCommand(sql, conexion); //Conexion es tu objeto conexion                                
+            OleDbCommand cmd2 = new OleDbCommand(sql, conexion); //Conexion es tu objeto conexion                                            
 
-            int suma_gasto = Convert.ToInt32((cmd2.ExecuteScalar()).ToString());
-
+            string suma_gasto = ((cmd2.ExecuteScalar()).ToString());
+            if (suma_gasto == "")
+            {
+                suma_gasto = "0";
+            }            
             //-------------------
+            textBox_total.Text = suma_gasto;
 
             //ACTUALIZAR LOS GASTOS DE LA FECHA
 
@@ -194,8 +211,8 @@ namespace empanada_2
                 }
             }
 
+            SELECT_GASTOS();
             SUMA_GASTOS();
-
             GANANCIAS();
         }
 
@@ -204,11 +221,12 @@ namespace empanada_2
             foreach (ListViewItem lista in listView_fechas.SelectedItems)
             {
                 fecha = lista.Text;
-
                 label_fecha.Text = fecha;
             }
-
+            textBox_descripcion.Focus();
             SELECT_GASTOS();
+            SUMA_GASTOS();
+            GANANCIAS();
         }
     }
 }
