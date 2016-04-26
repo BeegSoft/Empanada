@@ -30,6 +30,7 @@ namespace empanada_2
             {
                 textBox1.Text = text;
                 orden_1 = id;
+                label2.Text = id.ToString();
                 OleDbDataAdapter adaptador = new OleDbDataAdapter("SELECT id_orden, Platillo, Cantidad FROM VISUALIZADO WHERE id_orden = " + id, ds);
 
                 DataSet dataset = new DataSet();
@@ -54,6 +55,7 @@ namespace empanada_2
                 {
                     textBox2.Text = text;
                     orden_2 = id;
+                    label3.Text = id.ToString();
                     OleDbDataAdapter adaptador = new OleDbDataAdapter("SELECT id_orden, Platillo, Cantidad FROM VISUALIZADO WHERE id_orden = " + id, ds);
 
                     DataSet dataset = new DataSet();
@@ -78,6 +80,7 @@ namespace empanada_2
                     {
                         textBox3.Text = text;
                         orden_3 = id;
+                        label4.Text = id.ToString();
                         OleDbDataAdapter adaptador = new OleDbDataAdapter("SELECT id_orden, Platillo, Cantidad FROM VISUALIZADO WHERE id_orden = " + id, ds);
 
                         DataSet dataset = new DataSet();
@@ -102,6 +105,7 @@ namespace empanada_2
                         {
                             textBox4.Text = text;
                             orden_4 = id;
+                            label5.Text = id.ToString();
                             OleDbDataAdapter adaptador = new OleDbDataAdapter("SELECT id_orden, Platillo, Cantidad FROM VISUALIZADO WHERE id_orden = " + id, ds);
 
                             DataSet dataset = new DataSet();
@@ -126,6 +130,7 @@ namespace empanada_2
                             {
                                 textBox5.Text = text;
                                 orden_5 = id;
+                                label6.Text = id.ToString();
                                 OleDbDataAdapter adaptador = new OleDbDataAdapter("SELECT id_orden, Platillo, Cantidad FROM VISUALIZADO WHERE id_orden = " + id, ds);
 
                                 DataSet dataset = new DataSet();
@@ -245,7 +250,12 @@ namespace empanada_2
             Form1 form = new Form1(fecha, ds);
             form.Show(this);
         }
-        
+
+        private void textBox1_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
         private void button1_Click(object sender, EventArgs e)
         {
             orden1();

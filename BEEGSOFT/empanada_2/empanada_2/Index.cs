@@ -91,8 +91,6 @@ namespace empanada_2
                 }
 
                 //.....
-
-                
             }
         }
 
@@ -249,7 +247,6 @@ namespace empanada_2
                         INSERTAR_VISU(platillo, cantidad);
                     }
 
-                    MessageBox.Show("Datos Agregador Correctamente","MENSAJE",MessageBoxButtons.OK,MessageBoxIcon.Information);
 
                     //MOSTRAR EL TOTAL A PAGAR DEL PEDIDO
 
@@ -266,20 +263,22 @@ namespace empanada_2
                     //-------------------
 
                     //INSERTAR EL TOTAL EN LA TABLA ORDEN
+                    try {
+                        string insertar = "UPDATE ORDEN SET total_pagar = @total_pagar WHERE id_orden=" + id;
+                        OleDbCommand cmd3 = new OleDbCommand(insertar, conexion4);
+                        cmd3.Parameters.AddWithValue("@total_pagar", textBox_total.Text);
 
-                    string insertar = "UPDATE ORDEN SET total_pagar = @total_pagar WHERE id_orden=" + id;
-                    OleDbCommand cmd3 = new OleDbCommand(insertar, conexion4);
-                    cmd3.Parameters.AddWithValue("@total_pagar", textBox_total.Text);
+                        cmd3.ExecuteNonQuery();
 
-                    cmd3.ExecuteNonQuery();
+                        // INSERTAR DESCRIPCION A LA TABLA ORDEN
 
-                    // INSERTAR DESCRIPCION A LA TABLA ORDEN
+                        string descripcion = "UPDATE ORDEN SET descripcion = @descripcion WHERE id_orden=" + id;
+                        OleDbCommand cmd5 = new OleDbCommand(descripcion, conexion4);
+                        cmd5.Parameters.AddWithValue("@descripcion", textBox_descripcion.Text);
 
-                    string descripcion = "UPDATE ORDEN SET descripcion = @descripcion WHERE id_orden=" + id;
-                    OleDbCommand cmd5 = new OleDbCommand(descripcion, conexion4);
-                    cmd5.Parameters.AddWithValue("@descripcion", textBox_descripcion.Text);
-
-                    cmd5.ExecuteNonQuery();
+                        cmd5.ExecuteNonQuery();
+                    }
+                    catch { }
                     conexion4.Close();
                     //-------------------
 
@@ -313,23 +312,27 @@ namespace empanada_2
                 OleDbConnection conexion5 = new OleDbConnection(ds);
 
                 conexion5.Open();
+                try {
+                    string sql5 = "SELECT SUM(ORDEN.total_pagar) FROM FECHA INNER JOIN ORDEN ON FECHA.fecha = ORDEN.fecha WHERE FECHA.fecha = '" + fecha + "'";
 
-                string sql5 = "SELECT SUM(ORDEN.total_pagar) FROM FECHA INNER JOIN ORDEN ON FECHA.fecha = ORDEN.fecha WHERE FECHA.fecha = '" + fecha + "'";
-                
-                OleDbCommand cmd7 = new OleDbCommand(sql5, conexion5); //Conexion es tu objeto conexion                                
+                    OleDbCommand cmd7 = new OleDbCommand(sql5, conexion5); //Conexion es tu objeto conexion                                
 
-                int total_dia = Convert.ToInt32(cmd7.ExecuteScalar());
+                    int total_dia = Convert.ToInt32(cmd7.ExecuteScalar());
 
-                //-------------------
+                    //-------------------
 
-                //INSERTAR EL TOTAL EN LA TABLA ORDEN
+                    //INSERTAR EL TOTAL EN LA TABLA ORDEN
 
-                string insertar6 = "UPDATE FECHA SET Venta_total = @Venta_total WHERE fecha = '" + fecha + "'";
-                OleDbCommand cmd6 = new OleDbCommand(insertar6, conexion5);
-                cmd6.Parameters.AddWithValue("@Venta_total", total_dia);
+                    string insertar6 = "UPDATE FECHA SET Venta_total = @Venta_total WHERE fecha = '" + fecha + "'";
+                    OleDbCommand cmd6 = new OleDbCommand(insertar6, conexion5);
+                    cmd6.Parameters.AddWithValue("@Venta_total", total_dia);
 
-                cmd6.ExecuteNonQuery();
+                    cmd6.ExecuteNonQuery();
+                }
+                catch
+                {
 
+                }
                 conexion5.Close();
             }
 
@@ -758,21 +761,26 @@ namespace empanada_2
             OleDbConnection conexion5 = new OleDbConnection(ds);
 
             conexion5.Open();
-            
-            string sql5 = "SELECT SUM(ORDEN.total_pagar) FROM FECHA INNER JOIN ORDEN ON FECHA.fecha = ORDEN.fecha WHERE FECHA.fecha = '" + fecha + "'";
+            try {
+                string sql5 = "SELECT SUM(ORDEN.total_pagar) FROM FECHA INNER JOIN ORDEN ON FECHA.fecha = ORDEN.fecha WHERE FECHA.fecha = '" + fecha + "'";
 
-            OleDbCommand cmd7 = new OleDbCommand(sql5, conexion5); //Conexion es tu objeto conexion                                
+                OleDbCommand cmd7 = new OleDbCommand(sql5, conexion5); //Conexion es tu objeto conexion                                
 
-            int total_dia = Convert.ToInt32(cmd7.ExecuteScalar());
-            //-------------------
+                int total_dia = Convert.ToInt32(cmd7.ExecuteScalar());
+                //-------------------
 
-            //INSERTAR EL TOTAL EN LA TABLA ORDEN
+                //INSERTAR EL TOTAL EN LA TABLA ORDEN
 
-            string insertar6 = "UPDATE FECHA SET Venta_total = @Venta_total WHERE fecha = '" + fecha + "'";
-            OleDbCommand cmd6 = new OleDbCommand(insertar6, conexion5);
-            cmd6.Parameters.AddWithValue("@Venta_total", total_dia);
+                string insertar6 = "UPDATE FECHA SET Venta_total = @Venta_total WHERE fecha = '" + fecha + "'";
+                OleDbCommand cmd6 = new OleDbCommand(insertar6, conexion5);
+                cmd6.Parameters.AddWithValue("@Venta_total", total_dia);
 
-            cmd6.ExecuteNonQuery();
+                cmd6.ExecuteNonQuery();
+            }
+            catch
+            {
+
+            }
 
             conexion5.Close();
 
