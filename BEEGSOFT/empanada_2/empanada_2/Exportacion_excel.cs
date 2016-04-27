@@ -28,35 +28,7 @@ namespace empanada_2
 
         private void button1_Click(object sender, EventArgs e)
         {
-            //Primera fecha
-            string var1 = fechaA.Text;
-            var1 = var1.Substring(0, 2);
-
-            string var2 = fechaA.Text;
-            var2 = var2.Substring(3, 2);
-
-            string var3 = fechaA.Text;
-            var3 = var3.Substring(6, 4);
-
-            //juntando las cadenas
-            string FECHAA = string.Concat(var3, var2, var1);
-            fechaa = Convert.ToInt32(FECHAA);
-            //----------------
-
-            //Segunda fecha
-            var1 = fechaB.Text;
-            var1 = var1.Substring(0, 2);
-
-            var2 = fechaB.Text;
-            var2 = var2.Substring(3, 2);
-
-            var3 = fechaB.Text;
-            var3 = var3.Substring(6, 4);
-
-            //juntando las cadenas
-            string FECHAB = string.Concat(var3, var2, var1);
-            fechab = Convert.ToInt32(FECHAB);
-
+            CARGAR();
             Microsoft.Office.Interop.Excel.Application xla = new Microsoft.Office.Interop.Excel.Application();
             xla.Visible = true;
             Microsoft.Office.Interop.Excel.Workbook wb = xla.Workbooks.Add(Microsoft.Office.Interop.Excel.XlSheetType.xlWorksheet);
@@ -105,6 +77,11 @@ namespace empanada_2
         }
 
         private void button2_Click_1(object sender, EventArgs e)
+        {           
+            CARGAR();
+        }
+
+        private void CARGAR()
         {
             //Primera fecha
             string var1 = fechaA.Text;
@@ -135,6 +112,7 @@ namespace empanada_2
             string FECHAB = string.Concat(var3, var2, var1);
             fechab = Convert.ToInt32(FECHAB);
 
+
             OleDbDataAdapter adaptador = new OleDbDataAdapter("SELECT FECHA.fecha, ORDEN.id_orden, PLATILLO.nombre_platillo, PLATILLO.cantidad, PLATILLO.pagar FROM(FECHA INNER JOIN ORDEN ON FECHA.fecha = ORDEN.fecha) INNER JOIN PLATILLO ON ORDEN.id_orden = PLATILLO.id_orden WHERE id >= " + fechaa + " AND id <= " + fechab, ds);
 
             DataSet dataset = new DataSet();
@@ -153,7 +131,7 @@ namespace empanada_2
                 elemntos.SubItems.Add(filas["pagar"].ToString());
 
                 listView_esta.Items.Add(elemntos);
-            }
+            }          
         }
     }
 }

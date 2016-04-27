@@ -73,6 +73,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Control_acceso.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Control_acceso.Designer.cs">
+      <DependentUpon>Control_acceso.cs</DependentUpon>
+    </Compile>
     <Compile Include="CrearTicket.cs" />
     <Compile Include="Exportacion_excel.cs">
       <SubType>Form</SubType>
@@ -149,6 +155,9 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="Control_acceso.resx">
+      <DependentUpon>Control_acceso.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Exportacion_excel.resx">
       <DependentUpon>Exportacion_excel.cs</DependentUpon>
     </EmbeddedResource>
@@ -284,6 +293,15 @@
       <Isolated>False</Isolated>
       <EmbedInteropTypes>True</EmbedInteropTypes>
     </COMReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\attach_image.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\image.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\key.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

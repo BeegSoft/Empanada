@@ -46,52 +46,63 @@ namespace empanada_2
         //carga el form para realizar el pago de cada pedido
         private void button16_Click(object sender, EventArgs e)
         {
-            
+            int id_orden = 0;
             foreach (ListViewItem lista in listView_ordenes.SelectedItems)
             {
-                int id_orden = Convert.ToInt32(lista.Text);
-                int pagare;
-                //.....
-                OleDbConnection conexion = new OleDbConnection(ds);
-
-                conexion.Open();
-
-                string select = "SELECT total_pagar FROM ORDEN WHERE id_orden=" + id_orden;
-                OleDbCommand cmd = new OleDbCommand(select, conexion);
-                try
+                id_orden = Convert.ToInt32(lista.Text);
+            }
+            if (id_orden == 0)
+            {
+                MessageBox.Show("No se encuentra seleccionada una orden", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            else
+            {
+                foreach (ListViewItem lista in listView_ordenes.SelectedItems)
                 {
-                    OleDbDataReader reader = cmd.ExecuteReader();
+                    id_orden = Convert.ToInt32(lista.Text);
+                    int pagare;
 
-                    if (reader.HasRows)
+                    //.....
+                    OleDbConnection conexion = new OleDbConnection(ds);
+
+                    conexion.Open();
+
+                    string select = "SELECT total_pagar FROM ORDEN WHERE id_orden=" + id_orden;
+                    OleDbCommand cmd = new OleDbCommand(select, conexion);
+                    try
                     {
-                        while (reader.Read())
-                        {
-                            pagare = reader.GetInt32(0);
+                        OleDbDataReader reader = cmd.ExecuteReader();
 
-                            if (pagare > 0)
+                        if (reader.HasRows)
+                        {
+                            while (reader.Read())
                             {
-                                pagar correr = new pagar(id_orden, fecha, ds);
-                                correr.ShowDialog(this);
-                            }
-                            else
-                            {
-                                MessageBox.Show("No se puede continuar porque la orden no tiene nada que pagar","MENSAJE",MessageBoxButtons.OK,MessageBoxIcon.Stop);
+                                pagare = reader.GetInt32(0);
+
+                                if (pagare > 0)
+                                {
+                                    pagar correr = new pagar(id_orden, fecha, ds);
+                                    correr.ShowDialog(this);
+                                }
+                                else
+                                {
+                                    MessageBox.Show("No se puede continuar porque la orden no tiene nada que pagar", "MENSAJE", MessageBoxButtons.OK, MessageBoxIcon.Stop);
+                                }
                             }
                         }
+                        else
+                        {
+                            MessageBox.Show("No se pudo", "MENSAJE", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        }
+                        reader.Close();
                     }
-                    else
+                    catch (Exception ex)
                     {
-                        MessageBox.Show("No se pudo","MENSAJE",MessageBoxButtons.OK,MessageBoxIcon.Error);
-                    }
-                    reader.Close();
+                        MessageBox.Show("Error orden" + ex, "MENSAJE", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }                 
                 }
-                catch (Exception ex)
-                {
-                    MessageBox.Show("Error orden" + ex, "MENSAJE", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
-
-                //.....
             }
+
         }
 
         private void button17_Click(object sender, EventArgs e)
@@ -100,7 +111,8 @@ namespace empanada_2
             {
                 MessageBox.Show("No se has cargado ninguna orden", "MENSAJE", MessageBoxButtons.OK, MessageBoxIcon.Stop);
             }
-            else {
+            else
+            {
                 try
                 {
                     if (Convert.ToInt32(textBox_otros.Text) != 0)
@@ -334,6 +346,7 @@ namespace empanada_2
 
                 }
                 conexion5.Close();
+                MessageBox.Show("Datos agregados","Orden", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
 
             GANANCIAS();
@@ -569,59 +582,65 @@ namespace empanada_2
         }
 
         private void button14_Click(object sender, EventArgs e)
-        {
-            foreach(ListViewItem lista in listView_ordenes.SelectedItems)
+        {            
+            foreach (ListViewItem lista in listView_ordenes.SelectedItems)
             {
                 id = Convert.ToInt32(lista.Text);
             }
 
-
-            SELECT_PLATILLOS();
-
-            //HACER LA SUMA DEL TOTAL A PAGAR
-            OleDbConnection conexion4 = new OleDbConnection(ds);
-
-            conexion4.Open();
-
-            string sql = "select SUM(pagar) from PLATILLO WHERE id_orden=" + id;
-            OleDbCommand cmd = new OleDbCommand(sql, conexion4); 
-
-            total_pagar = (cmd.ExecuteScalar()).ToString();
-
-            textBox_total.Text = total_pagar;
-
-
-            //PONER LA DESCRIPCION EN EL TEXTBOX
-
-            string select = "SELECT descripcion FROM ORDEN WHERE id_orden=" + id;
-            OleDbCommand cmd6 = new OleDbCommand(select, conexion4);
-            try
+            if (id == 0)
             {
-                OleDbDataReader reader = cmd6.ExecuteReader();
+                MessageBox.Show("No se encuentra seleccionada una orden", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            else
+            {
+                SELECT_PLATILLOS();
 
-                if (reader.HasRows)
+                //HACER LA SUMA DEL TOTAL A PAGAR
+                OleDbConnection conexion4 = new OleDbConnection(ds);
+
+                conexion4.Open();
+
+                string sql = "select SUM(pagar) from PLATILLO WHERE id_orden=" + id;
+                OleDbCommand cmd = new OleDbCommand(sql, conexion4);
+
+                total_pagar = (cmd.ExecuteScalar()).ToString();
+
+                textBox_total.Text = total_pagar;
+
+
+                //PONER LA DESCRIPCION EN EL TEXTBOX
+
+                string select = "SELECT descripcion FROM ORDEN WHERE id_orden=" + id;
+                OleDbCommand cmd6 = new OleDbCommand(select, conexion4);
+                try
                 {
-                    while (reader.Read())
+                    OleDbDataReader reader = cmd6.ExecuteReader();
+
+                    if (reader.HasRows)
                     {
-                        string descripcion = reader.GetString(0);
+                        while (reader.Read())
+                        {
+                            string descripcion = reader.GetString(0);
 
-                        textBox_descripcion.Text = descripcion;
+                            textBox_descripcion.Text = descripcion;
+                        }
                     }
+                    else
+                    {
+                        MessageBox.Show("No se pudo", "MENSAJE", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                    reader.Close();
                 }
-                else
+                catch (Exception ex)
                 {
-                    MessageBox.Show("No se pudo", "MENSAJE", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show("Error orden" + ex, "MENSAJE", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
-                reader.Close();
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Error orden" + ex, "MENSAJE", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
 
-            //---------------------------------
-            conexion4.Close();
-            resetear();
+                //---------------------------------
+                conexion4.Close();
+                resetear();
+            }            
         }
 
         private void button13_Click(object sender, EventArgs e)
@@ -717,74 +736,80 @@ namespace empanada_2
         }
 
         private void button15_Click(object sender, EventArgs e)
-        {
+        {            
             foreach (ListViewItem lista in listView_ordenes.SelectedItems)
             {
-                int id = Convert.ToInt32(lista.Text);
-
-                DialogResult resultado = MessageBox.Show("Esta seguro de borrar la orden?", "ADVERTENCIA", MessageBoxButtons.YesNo,MessageBoxIcon.Warning);
-                if (resultado == DialogResult.Yes)
-                {
-                    try
-                    {
-                        OleDbConnection conexion = new OleDbConnection(ds);
-
-                        conexion.Open();
-                        string insertar = "DELETE FROM ORDEN WHERE id_orden = " + id;
-                        OleDbCommand cmd = new OleDbCommand(insertar, conexion);
-
-                        cmd.ExecuteNonQuery();
-                        conexion.Close();
-                    }
-                    catch (DBConcurrencyException ex)
-                    {
-                        MessageBox.Show("Error de concurrencia:\n" + ex.Message, "MENSAJE", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    }
-                    catch (Exception ex)
-                    {
-                        MessageBox.Show(ex.Message, "MENSAJE", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    }
-                    lista.Remove();
-                }
-                else if (resultado == DialogResult.No)
-                {
-
-                }
-                listView_platillos.Items.Clear();
-                textBox_total.Text = "0";
-
-                
+                id = Convert.ToInt32(lista.Text);
             }
-
-            //TOTAL DEL DIA
-
-            OleDbConnection conexion5 = new OleDbConnection(ds);
-
-            conexion5.Open();
-            try {
-                string sql5 = "SELECT SUM(ORDEN.total_pagar) FROM FECHA INNER JOIN ORDEN ON FECHA.fecha = ORDEN.fecha WHERE FECHA.fecha = '" + fecha + "'";
-
-                OleDbCommand cmd7 = new OleDbCommand(sql5, conexion5); //Conexion es tu objeto conexion                                
-
-                int total_dia = Convert.ToInt32(cmd7.ExecuteScalar());
-                //-------------------
-
-                //INSERTAR EL TOTAL EN LA TABLA ORDEN
-
-                string insertar6 = "UPDATE FECHA SET Venta_total = @Venta_total WHERE fecha = '" + fecha + "'";
-                OleDbCommand cmd6 = new OleDbCommand(insertar6, conexion5);
-                cmd6.Parameters.AddWithValue("@Venta_total", total_dia);
-
-                cmd6.ExecuteNonQuery();
-            }
-            catch
+            if (id == 0)
             {
-
+                MessageBox.Show("No se encuentra seleccionada una orden", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+            else
+            {
+                foreach (ListViewItem lista in listView_ordenes.SelectedItems)
+                {
+                    id = Convert.ToInt32(lista.Text);
 
-            conexion5.Close();
+                    DialogResult resultado = MessageBox.Show("Esta seguro de borrar la orden?", "ADVERTENCIA", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+                    if (resultado == DialogResult.Yes)
+                    {
+                        try
+                        {
+                            OleDbConnection conexion = new OleDbConnection(ds);
 
-            GANANCIAS();
+                            conexion.Open();
+                            string insertar = "DELETE FROM ORDEN WHERE id_orden = " + id;
+                            OleDbCommand cmd = new OleDbCommand(insertar, conexion);
+
+                            cmd.ExecuteNonQuery();
+                            conexion.Close();
+                            listView_platillos.Items.Clear();
+                            textBox_total.Text = "0";
+                        }
+                        catch (DBConcurrencyException ex)
+                        {
+                            MessageBox.Show("Error de concurrencia:\n" + ex.Message, "MENSAJE", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        }
+                        catch (Exception ex)
+                        {
+                            MessageBox.Show(ex.Message, "MENSAJE", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        }
+                        lista.Remove();
+                    }
+                }
+
+                //TOTAL DEL DIA
+
+                OleDbConnection conexion5 = new OleDbConnection(ds);
+
+                conexion5.Open();
+                try
+                {
+                    string sql5 = "SELECT SUM(ORDEN.total_pagar) FROM FECHA INNER JOIN ORDEN ON FECHA.fecha = ORDEN.fecha WHERE FECHA.fecha = '" + fecha + "'";
+
+                    OleDbCommand cmd7 = new OleDbCommand(sql5, conexion5); //Conexion es tu objeto conexion                                
+
+                    int total_dia = Convert.ToInt32(cmd7.ExecuteScalar());
+                    //-------------------
+
+                    //INSERTAR EL TOTAL EN LA TABLA ORDEN
+
+                    string insertar6 = "UPDATE FECHA SET Venta_total = @Venta_total WHERE fecha = '" + fecha + "'";
+                    OleDbCommand cmd6 = new OleDbCommand(insertar6, conexion5);
+                    cmd6.Parameters.AddWithValue("@Venta_total", total_dia);
+
+                    cmd6.ExecuteNonQuery();
+                }
+                catch
+                {
+
+                }
+
+                conexion5.Close();
+
+                GANANCIAS();
+            }
         }
 
         private void button1_Click_2(object sender, EventArgs e)
@@ -1023,12 +1048,7 @@ namespace empanada_2
                         MessageBox.Show(ex.Message, "MENSAJE", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
                     lista.Remove();
-                }
-                else if (resultado == DialogResult.No)
-                {
-
-                }
-                
+                } 
             }
 
             //TOTAL DEL DIA

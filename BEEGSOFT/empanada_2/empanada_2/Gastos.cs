@@ -22,11 +22,12 @@ namespace empanada_2
         string ds, fecha;
         private void Gastos_Load(object sender, EventArgs e)
         {
+            textBox_descripcion.Focus();
             DateTime fechahoy = DateTime.Now;
             fecha = fechahoy.ToString("d");
 
             label_fecha.Text = fecha;
-            textBox_descripcion.Focus();
+            
 
             OleDbDataAdapter adaptador = new OleDbDataAdapter("SELECT FECHA.fecha FROM FECHA ORDER BY FECHA.fecha", ds);
 
@@ -79,26 +80,32 @@ namespace empanada_2
             OleDbConnection conexion = new OleDbConnection(ds);
 
             conexion.Open();
+            if ((textBox_descripcion.Text == "") || (textBox_gasto.Text == ""))
+            {
+                MessageBox.Show("No has introduccido la informacion necesaria", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                textBox_descripcion.Focus();
+            }
+            else
+            {
+                string insertar = "INSERT INTO GASTOS (Fecha, Descripcion, Gasto) VALUES (@Fecha, @Descripcion, @Gasto)";
+                OleDbCommand cmd = new OleDbCommand(insertar, conexion);
+                cmd.Parameters.AddWithValue("@Fecha", fecha);
+                cmd.Parameters.AddWithValue("@Descripcion", textBox_descripcion.Text);
+                cmd.Parameters.AddWithValue("@Gasto", Convert.ToInt32(textBox_gasto.Text));
 
-            string insertar = "INSERT INTO GASTOS (Fecha, Descripcion, Gasto) VALUES (@Fecha, @Descripcion, @Gasto)";
-            OleDbCommand cmd = new OleDbCommand(insertar, conexion);            
-            cmd.Parameters.AddWithValue("@Fecha", fecha);
-            cmd.Parameters.AddWithValue("@Descripcion", textBox_descripcion.Text);
-            cmd.Parameters.AddWithValue("@Gasto", Convert.ToInt32(textBox_gasto.Text));
+                cmd.ExecuteNonQuery();
+                MessageBox.Show("Datos agregados correctamente", "MENSAJE", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                conexion.Close();
 
-            cmd.ExecuteNonQuery();
-            MessageBox.Show("Datos agregados correctamente", "MENSAJE", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            conexion.Close();
+                SELECT_GASTOS();
 
-            SELECT_GASTOS();
+                SUMA_GASTOS();
 
-            SUMA_GASTOS();
+                GANANCIAS();
 
-            GANANCIAS();
-
-            textBox_descripcion.Clear();
-            textBox_gasto.Clear();
-            
+                textBox_descripcion.Clear();
+                textBox_gasto.Clear();
+            }                        
         }
 
         int ventas, gastos, ganancias;

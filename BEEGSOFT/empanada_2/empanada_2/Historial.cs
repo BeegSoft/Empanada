@@ -250,6 +250,8 @@ namespace empanada_2
         {
             textBox_clientes.Text = "0";
             textBox_empanadas.Text = "0";
+            textBox_gastos.Text = "0";
+            textBox_ganancias.Text = "0";
             textBox_ventas.Text = "0";
             //-------------------------------
             SELECT_FECHA();
@@ -257,20 +259,7 @@ namespace empanada_2
             
             //separacion del contenido del calendario
             DateTime fechahoy = DateTime.Now;
-            string fechas = fechahoy.ToString("d");
-
-            string var1 = fechas;
-            var1 = var1.Substring(0, 2);
-
-            string var2 = fechas;
-            var2 = var2.Substring(3, 2);
-
-            string var3 = fechas;
-            var3 = var3.Substring(6, 4);
-
-            //juntando las cadenas
-            string var4 = string.Concat(var3, var2 ,var1);
-            //---------------------------------
+            string fechas = fechahoy.ToString("d");            
 
             DataSet dss = new DataSet();
             //indicamos la consulta en SQL
