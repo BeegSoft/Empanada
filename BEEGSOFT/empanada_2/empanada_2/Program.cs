@@ -19,7 +19,7 @@ namespace empanada_2
             //  h   ola
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Inicio(ds));
+            Application.Run(new Control_acceso(ds));
             //Algo
         }
     }
