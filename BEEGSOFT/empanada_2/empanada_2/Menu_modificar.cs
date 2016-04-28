@@ -67,7 +67,23 @@ namespace empanada_2
             conexion.Close();
         }
 
-        private void button_aceptar_Click(object sender, EventArgs e)
+        private void UPDATE_MENU()
+        {
+            OleDbConnection conexion = new OleDbConnection(ds);
+
+            conexion.Open();
+
+            string insertar = "UPDATE MENU SET nombre_platillo= @nombre_platillo, precio_platillo = @precio_platillo WHERE id_platillo=" + id;
+            OleDbCommand cmd = new OleDbCommand(insertar, conexion);
+            cmd.Parameters.AddWithValue("@nombre_platillo", textBox_nombre.Text);
+            cmd.Parameters.AddWithValue("@precio_platillo", textBox_precio.Text);
+
+            cmd.ExecuteNonQuery();
+            MessageBox.Show("Datos modificados correctamente", "MENSAJE", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            conexion.Close();
+        }
+
+        private void button4_Click(object sender, EventArgs e)
         {
             try
             {
@@ -89,23 +105,7 @@ namespace empanada_2
             this.Hide();
         }
 
-        private void UPDATE_MENU()
-        {
-            OleDbConnection conexion = new OleDbConnection(ds);
-
-            conexion.Open();
-
-            string insertar = "UPDATE MENU SET nombre_platillo= @nombre_platillo, precio_platillo = @precio_platillo WHERE id_platillo=" + id;
-            OleDbCommand cmd = new OleDbCommand(insertar, conexion);
-            cmd.Parameters.AddWithValue("@nombre_platillo", textBox_nombre.Text);
-            cmd.Parameters.AddWithValue("@precio_platillo", textBox_precio.Text);
-
-            cmd.ExecuteNonQuery();
-            MessageBox.Show("Datos modificados correctamente", "MENSAJE", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            conexion.Close();
-        }
-
-        private void button_cancelar_Click(object sender, EventArgs e)
+        private void button2_Click(object sender, EventArgs e)
         {
             Menu form = new Menu(ds);
             form.Show();

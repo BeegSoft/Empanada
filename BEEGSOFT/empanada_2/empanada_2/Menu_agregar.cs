@@ -59,28 +59,6 @@ namespace empanada_2
             conexion.Close();
         }
 
-        private void button_aceptar_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                INSERT_MENU();                
-            }
-
-            catch (DBConcurrencyException ex)
-            {
-                MessageBox.Show("Error de concurrencia:\n" + ex.Message, "MENSAJE", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message, "MENSAJE", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-
-            Menu form = new Menu(ds);
-            form.Show();
-
-            this.Close();
-        }
-
         private void INSERT_MENU()
         {
             OleDbConnection conexion = new OleDbConnection(ds);
@@ -98,7 +76,29 @@ namespace empanada_2
             conexion.Close();
         }
 
-        private void button_cancelar_Click(object sender, EventArgs e)
+        private void button4_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                INSERT_MENU();
+            }
+
+            catch (DBConcurrencyException ex)
+            {
+                MessageBox.Show("Error de concurrencia:\n" + ex.Message, "MENSAJE", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "MENSAJE", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+
+            Menu form = new Menu(ds);
+            form.Show();
+
+            this.Close();
+        }
+
+        private void button2_Click(object sender, EventArgs e)
         {
             Menu form = new Menu(ds);
             form.Show();

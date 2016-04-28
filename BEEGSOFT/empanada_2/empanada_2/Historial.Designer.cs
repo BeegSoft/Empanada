@@ -54,7 +54,6 @@
             this.a = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
-            this.button2 = new System.Windows.Forms.Button();
             this.comboBox_platillos = new System.Windows.Forms.ComboBox();
             this.textBox_platillos_vendidos = new System.Windows.Forms.TextBox();
             this.label8 = new System.Windows.Forms.Label();
@@ -69,8 +68,8 @@
             this.column_fechas = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.exportarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.excelToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.label13 = new System.Windows.Forms.Label();
+            this.button3 = new System.Windows.Forms.Button();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.grafica)).BeginInit();
@@ -269,16 +268,6 @@
             this.label6.TabIndex = 10;
             this.label6.Text = "Desde";
             // 
-            // button2
-            // 
-            this.button2.Location = new System.Drawing.Point(324, 100);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(56, 23);
-            this.button2.TabIndex = 11;
-            this.button2.Text = "Mostrar";
-            this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
-            // 
             // comboBox_platillos
             // 
             this.comboBox_platillos.FormattingEnabled = true;
@@ -419,19 +408,11 @@
             // 
             // exportarToolStripMenuItem
             // 
-            this.exportarToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.excelToolStripMenuItem});
             this.exportarToolStripMenuItem.Image = global::empanada_2.Properties.Resources.descarga;
             this.exportarToolStripMenuItem.Name = "exportarToolStripMenuItem";
             this.exportarToolStripMenuItem.Size = new System.Drawing.Size(78, 20);
             this.exportarToolStripMenuItem.Text = "Exportar";
-            // 
-            // excelToolStripMenuItem
-            // 
-            this.excelToolStripMenuItem.Name = "excelToolStripMenuItem";
-            this.excelToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
-            this.excelToolStripMenuItem.Text = "Excel";
-            this.excelToolStripMenuItem.Click += new System.EventHandler(this.excelToolStripMenuItem_Click);
+            this.exportarToolStripMenuItem.Click += new System.EventHandler(this.exportarToolStripMenuItem_Click);
             // 
             // label13
             // 
@@ -443,17 +424,36 @@
             this.label13.TabIndex = 25;
             this.label13.Text = "Historial de las Ventas Realizadas Por Fecha Establecida";
             // 
+            // button3
+            // 
+            this.button3.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.button3.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.button3.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Yellow;
+            this.button3.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
+            this.button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button3.Font = new System.Drawing.Font("Lucida Sans", 7F);
+            this.button3.Image = global::empanada_2.Properties.Resources.mostrar1;
+            this.button3.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.button3.Location = new System.Drawing.Point(333, 77);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(92, 49);
+            this.button3.TabIndex = 76;
+            this.button3.Text = "Mostrar";
+            this.button3.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.button3.UseVisualStyleBackColor = false;
+            this.button3.Click += new System.EventHandler(this.button3_Click);
+            // 
             // Historial
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(468, 482);
+            this.Controls.Add(this.button3);
             this.Controls.Add(this.label13);
             this.Controls.Add(this.listView_fechas);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.grafica);
             this.Controls.Add(this.groupBox3);
-            this.Controls.Add(this.button2);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.a);
@@ -492,7 +492,6 @@
         private System.Windows.Forms.Label a;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.Button button2;
         private System.Windows.Forms.ComboBox comboBox_platillos;
         private System.Windows.Forms.TextBox textBox_platillos_vendidos;
         private System.Windows.Forms.Label label8;
@@ -510,7 +509,6 @@
         private System.Windows.Forms.ColumnHeader column_fechas;
         private System.Windows.Forms.MenuStrip menuStrip1;
         private System.Windows.Forms.ToolStripMenuItem exportarToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem excelToolStripMenuItem;
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.Label label17;
         private System.Windows.Forms.TextBox textBox_ganancias;
@@ -518,5 +516,6 @@
         private System.Windows.Forms.Label label15;
         private System.Windows.Forms.TextBox textBox_gastos;
         private System.Windows.Forms.Label label16;
+        private System.Windows.Forms.Button button3;
     }
 }

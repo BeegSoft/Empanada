@@ -46,12 +46,26 @@ namespace empanada_2
             }
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void button4_Click(object sender, EventArgs e)
         {
             Menu_agregar form = new Menu_agregar(ds);
             form.Show();
 
             this.Close();
+        }
+
+        private void button1_Click_1(object sender, EventArgs e)
+        {
+            foreach (ListViewItem lista in listView_menu.SelectedItems)
+            {
+                int id = Convert.ToInt32(lista.Text);
+
+                this.Hide();
+                Menu_modificar form = new Menu_modificar(id, ds);
+                form.Show();
+
+                this.Close();
+            }
         }
 
         private void button2_Click(object sender, EventArgs e)
@@ -60,27 +74,13 @@ namespace empanada_2
             {
                 int id = Convert.ToInt32(lista.Text);
 
-                this.Hide();
-                Menu_modificar form = new Menu_modificar(id,ds);
-                form.Show();
 
-                this.Close();
-            }
-        }
-
-        private void button3_Click(object sender, EventArgs e)
-        {
-            foreach (ListViewItem lista in listView_menu.SelectedItems)
-            {
-                int id = Convert.ToInt32(lista.Text);
-
-
-                DialogResult resultado = MessageBox.Show("Esta seguro de borrarlo del menu?", "ADVERTENCIA", MessageBoxButtons.YesNo,MessageBoxIcon.Warning);
+                DialogResult resultado = MessageBox.Show("Esta seguro de borrarlo del menu?", "ADVERTENCIA", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
                 if (resultado == DialogResult.Yes)
                 {
                     try
                     {
-                        
+
 
                         OleDbConnection conexion = new OleDbConnection(ds);
 

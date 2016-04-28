@@ -38,14 +38,14 @@
             this.columnHeader3 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader5 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader4 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.button1 = new System.Windows.Forms.Button();
             this.listView_fechas = new System.Windows.Forms.ListView();
             this.column_fechas = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.button2 = new System.Windows.Forms.Button();
             this.listView_gastos = new System.Windows.Forms.ListView();
             this.columnHeader6 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader7 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader8 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.button2 = new System.Windows.Forms.Button();
+            this.button3 = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // label6
@@ -95,7 +95,7 @@
             this.columnHeader5,
             this.columnHeader4});
             this.listView_esta.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.listView_esta.Location = new System.Drawing.Point(164, 58);
+            this.listView_esta.Location = new System.Drawing.Point(164, 72);
             this.listView_esta.Name = "listView_esta";
             this.listView_esta.Size = new System.Drawing.Size(472, 247);
             this.listView_esta.TabIndex = 17;
@@ -127,16 +127,6 @@
             this.columnHeader4.Text = "Total";
             this.columnHeader4.Width = 53;
             // 
-            // button1
-            // 
-            this.button1.Location = new System.Drawing.Point(404, 22);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(63, 23);
-            this.button1.TabIndex = 18;
-            this.button1.Text = "Exportar";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
-            // 
             // listView_fechas
             // 
             this.listView_fechas.BackColor = System.Drawing.Color.White;
@@ -154,16 +144,6 @@
             // 
             this.column_fechas.Text = "Fechas Laboradas";
             this.column_fechas.Width = 120;
-            // 
-            // button2
-            // 
-            this.button2.Location = new System.Drawing.Point(321, 22);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(63, 23);
-            this.button2.TabIndex = 25;
-            this.button2.Text = "Mostrar";
-            this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.button2_Click_1);
             // 
             // listView_gastos
             // 
@@ -191,15 +171,53 @@
             // 
             this.columnHeader8.Text = "Gasto";
             // 
+            // button2
+            // 
+            this.button2.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.button2.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.button2.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Yellow;
+            this.button2.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
+            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button2.Font = new System.Drawing.Font("Lucida Sans", 7F);
+            this.button2.Image = global::empanada_2.Properties.Resources.exportar;
+            this.button2.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.button2.Location = new System.Drawing.Point(427, 8);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(92, 55);
+            this.button2.TabIndex = 76;
+            this.button2.Text = "Exportar";
+            this.button2.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.button2.UseVisualStyleBackColor = false;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
+            // 
+            // button3
+            // 
+            this.button3.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.button3.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.button3.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Yellow;
+            this.button3.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
+            this.button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button3.Font = new System.Drawing.Font("Lucida Sans", 7F);
+            this.button3.Image = global::empanada_2.Properties.Resources.mostrar1;
+            this.button3.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.button3.Location = new System.Drawing.Point(310, 8);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(92, 55);
+            this.button3.TabIndex = 75;
+            this.button3.Text = "Mostrar";
+            this.button3.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.button3.UseVisualStyleBackColor = false;
+            this.button3.Click += new System.EventHandler(this.button3_Click);
+            // 
             // Exportacion_excel
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(683, 331);
-            this.Controls.Add(this.listView_gastos);
+            this.ClientSize = new System.Drawing.Size(683, 345);
             this.Controls.Add(this.button2);
+            this.Controls.Add(this.button3);
+            this.Controls.Add(this.listView_gastos);
             this.Controls.Add(this.listView_fechas);
-            this.Controls.Add(this.button1);
             this.Controls.Add(this.listView_esta);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.a);
@@ -224,13 +242,13 @@
         private System.Windows.Forms.ColumnHeader columnHeader3;
         private System.Windows.Forms.ColumnHeader columnHeader5;
         private System.Windows.Forms.ColumnHeader columnHeader4;
-        private System.Windows.Forms.Button button1;
         private System.Windows.Forms.ListView listView_fechas;
         private System.Windows.Forms.ColumnHeader column_fechas;
-        private System.Windows.Forms.Button button2;
         private System.Windows.Forms.ListView listView_gastos;
         private System.Windows.Forms.ColumnHeader columnHeader6;
         private System.Windows.Forms.ColumnHeader columnHeader7;
         private System.Windows.Forms.ColumnHeader columnHeader8;
+        private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.Button button2;
     }
 }

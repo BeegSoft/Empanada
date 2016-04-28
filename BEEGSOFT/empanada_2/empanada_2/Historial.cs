@@ -80,10 +80,10 @@ namespace empanada_2
         {
             //PLATILLOS DEL COMBO
             METODOCOMBO();                        
-        }
-                
-        private void button2_Click(object sender, EventArgs e)
-        {                        
+        }                
+
+        private void button3_Click(object sender, EventArgs e)
+        {
             //Primera fecha
             string var1 = fechaA.Text;
             var1 = var1.Substring(0, 2);
@@ -240,7 +240,7 @@ namespace empanada_2
             }
         }
 
-        private void excelToolStripMenuItem_Click(object sender, EventArgs e)
+        private void exportarToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Exportacion_excel form = new Exportacion_excel(ds);
             form.ShowDialog();

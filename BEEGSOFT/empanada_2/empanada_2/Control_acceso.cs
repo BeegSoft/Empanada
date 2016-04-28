@@ -116,7 +116,7 @@ namespace empanada_2
         private void registrarToolStripMenuItem_Click(object sender, EventArgs e)
         {
             band = 0;
-            if (this.textBox1.Text == "SELECCIONAR")
+            if (this.textBox1.Text == "")
             {
                 MessageBox.Show("Para Agregar un usuario tienes que identificarte", "Mensaje de Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 textBox1.Focus();
@@ -127,7 +127,7 @@ namespace empanada_2
                 MessageBox.Show("Para Agregar un usuario tienes que identificarte", "Mensaje de Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 textBox2.Focus();
             }
-            else if (comboBox1.Text == "")
+            else if (comboBox1.Text == "SELECCIONAR")
             {
                 MessageBox.Show("Para Agregar un usuario tienes que identificarte", "Mensaje de Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 comboBox1.Focus();
@@ -184,7 +184,7 @@ namespace empanada_2
         private void modificarToolStripMenuItem_Click(object sender, EventArgs e)
         {
             band = 1;
-            if (this.textBox1.Text == "SELECCIONAR")
+            if (this.textBox1.Text == "")
             {
                 MessageBox.Show("Para modificar un usuario tienes que identificarte", "Mensaje de Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 textBox1.Focus();
@@ -195,7 +195,7 @@ namespace empanada_2
                 MessageBox.Show("Para modificar un usuario tienes que identificarte", "Mensaje de Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 textBox2.Focus();
             }
-            else if (comboBox1.Text == "")
+            else if (comboBox1.Text == "SELECCIONAR")
             {
                 MessageBox.Show("Para modificar un usuario tienes que identificarte", "Mensaje de Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 comboBox1.Focus();
@@ -247,15 +247,14 @@ namespace empanada_2
             }
         }
 
-<<<<<<< HEAD
+
         private void cerrarToolStripMenuItem_Click(object sender, EventArgs e)
         {
             this.Close();
-=======
+        }
         private void Control_acceso_Load(object sender, EventArgs e)
         {
 
->>>>>>> c2bf6d83c4a7296fec5be7448545152ae2e525f5
         }
     }
 }

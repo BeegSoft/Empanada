@@ -42,10 +42,7 @@
             this.orden4ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.orden5ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.estadisticasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.button13 = new System.Windows.Forms.Button();
-            this.button14 = new System.Windows.Forms.Button();
-            this.button15 = new System.Windows.Forms.Button();
-            this.button16 = new System.Windows.Forms.Button();
+            this.gastosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.listView_platillos = new System.Windows.Forms.ListView();
             this.columnHeader_id = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.column_platillo = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
@@ -83,11 +80,6 @@
             this.buttontinga = new System.Windows.Forms.Button();
             this.buttonnopal = new System.Windows.Forms.Button();
             this.buttonchicharronsr = new System.Windows.Forms.Button();
-            this.buttonchicarronsv = new System.Windows.Forms.Button();
-            this.buttonrajas = new System.Windows.Forms.Button();
-            this.buttonfrijol = new System.Windows.Forms.Button();
-            this.buttoncochinita = new System.Windows.Forms.Button();
-            this.buttoncarneconchile = new System.Windows.Forms.Button();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.button21 = new System.Windows.Forms.Button();
             this.button20 = new System.Windows.Forms.Button();
@@ -109,26 +101,34 @@
             this.label11 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
-            this.button12 = new System.Windows.Forms.Button();
-            this.buttontamarindo = new System.Windows.Forms.Button();
-            this.buttonjamaica = new System.Windows.Forms.Button();
-            this.buttonhorchata = new System.Windows.Forms.Button();
-            this.button_agregar = new System.Windows.Forms.Button();
             this.label13 = new System.Windows.Forms.Label();
             this.textBox_total = new System.Windows.Forms.TextBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.button24 = new System.Windows.Forms.Button();
-            this.button18 = new System.Windows.Forms.Button();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
             this.button23 = new System.Windows.Forms.Button();
-            this.button22 = new System.Windows.Forms.Button();
             this.textBox_otros = new System.Windows.Forms.TextBox();
             this.comboBox_otros = new System.Windows.Forms.ComboBox();
             this.checkBox_algo = new System.Windows.Forms.CheckBox();
             this.label16 = new System.Windows.Forms.Label();
             this.textBox_descripcion = new System.Windows.Forms.TextBox();
             this.label17 = new System.Windows.Forms.Label();
-            this.gastosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.button26 = new System.Windows.Forms.Button();
+            this.button13 = new System.Windows.Forms.Button();
+            this.button15 = new System.Windows.Forms.Button();
+            this.button18 = new System.Windows.Forms.Button();
+            this.button25 = new System.Windows.Forms.Button();
+            this.button22 = new System.Windows.Forms.Button();
+            this.button12 = new System.Windows.Forms.Button();
+            this.buttontamarindo = new System.Windows.Forms.Button();
+            this.buttonjamaica = new System.Windows.Forms.Button();
+            this.buttonhorchata = new System.Windows.Forms.Button();
+            this.buttonchicarronsv = new System.Windows.Forms.Button();
+            this.buttonrajas = new System.Windows.Forms.Button();
+            this.buttonfrijol = new System.Windows.Forms.Button();
+            this.buttoncochinita = new System.Windows.Forms.Button();
+            this.buttoncarneconchile = new System.Windows.Forms.Button();
+            this.button14 = new System.Windows.Forms.Button();
+            this.button16 = new System.Windows.Forms.Button();
             this.menuStrip1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
@@ -142,7 +142,7 @@
             this.column_ordenes,
             this.columnHeader_descripcion,
             this.columnHeader_total});
-            this.listView_ordenes.Location = new System.Drawing.Point(12, 72);
+            this.listView_ordenes.Location = new System.Drawing.Point(12, 91);
             this.listView_ordenes.Name = "listView_ordenes";
             this.listView_ordenes.Size = new System.Drawing.Size(173, 319);
             this.listView_ordenes.TabIndex = 0;
@@ -174,7 +174,7 @@
             this.gastosToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(959, 24);
+            this.menuStrip1.Size = new System.Drawing.Size(1005, 24);
             this.menuStrip1.TabIndex = 1;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -239,45 +239,15 @@
             this.estadisticasToolStripMenuItem.Text = "&Estadisticas";
             this.estadisticasToolStripMenuItem.Click += new System.EventHandler(this.estadisticasToolStripMenuItem_Click);
             // 
-            // button13
+            // gastosToolStripMenuItem
             // 
-            this.button13.Location = new System.Drawing.Point(32, 43);
-            this.button13.Name = "button13";
-            this.button13.Size = new System.Drawing.Size(90, 23);
-            this.button13.TabIndex = 3;
-            this.button13.Text = "Nueva Orden";
-            this.button13.UseVisualStyleBackColor = true;
-            this.button13.Click += new System.EventHandler(this.button13_Click);
-            // 
-            // button14
-            // 
-            this.button14.Location = new System.Drawing.Point(129, 43);
-            this.button14.Name = "button14";
-            this.button14.Size = new System.Drawing.Size(75, 23);
-            this.button14.TabIndex = 4;
-            this.button14.Text = "Modificar";
-            this.button14.UseVisualStyleBackColor = true;
-            this.button14.Click += new System.EventHandler(this.button14_Click);
-            // 
-            // button15
-            // 
-            this.button15.Location = new System.Drawing.Point(209, 43);
-            this.button15.Name = "button15";
-            this.button15.Size = new System.Drawing.Size(75, 23);
-            this.button15.TabIndex = 5;
-            this.button15.Text = "Eliminar";
-            this.button15.UseVisualStyleBackColor = true;
-            this.button15.Click += new System.EventHandler(this.button15_Click);
-            // 
-            // button16
-            // 
-            this.button16.Location = new System.Drawing.Point(290, 43);
-            this.button16.Name = "button16";
-            this.button16.Size = new System.Drawing.Size(75, 23);
-            this.button16.TabIndex = 6;
-            this.button16.Text = "Pagar";
-            this.button16.UseVisualStyleBackColor = true;
-            this.button16.Click += new System.EventHandler(this.button16_Click);
+            this.gastosToolStripMenuItem.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+            this.gastosToolStripMenuItem.ImageTransparentColor = System.Drawing.SystemColors.ActiveCaption;
+            this.gastosToolStripMenuItem.Name = "gastosToolStripMenuItem";
+            this.gastosToolStripMenuItem.Size = new System.Drawing.Size(54, 20);
+            this.gastosToolStripMenuItem.Text = "Gastos";
+            this.gastosToolStripMenuItem.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.gastosToolStripMenuItem.Click += new System.EventHandler(this.gastosToolStripMenuItem_Click);
             // 
             // listView_platillos
             // 
@@ -637,61 +607,6 @@
             this.buttonchicharronsr.UseVisualStyleBackColor = true;
             this.buttonchicharronsr.Click += new System.EventHandler(this.buttonchicharronsr_Click);
             // 
-            // buttonchicarronsv
-            // 
-            this.buttonchicarronsv.BackgroundImage = global::empanada_2.Properties.Resources.images;
-            this.buttonchicarronsv.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.buttonchicarronsv.Location = new System.Drawing.Point(6, 100);
-            this.buttonchicarronsv.Name = "buttonchicarronsv";
-            this.buttonchicarronsv.Size = new System.Drawing.Size(77, 41);
-            this.buttonchicarronsv.TabIndex = 5;
-            this.buttonchicarronsv.UseVisualStyleBackColor = true;
-            this.buttonchicarronsv.Click += new System.EventHandler(this.buttonchicarronsv_Click);
-            // 
-            // buttonrajas
-            // 
-            this.buttonrajas.BackgroundImage = global::empanada_2.Properties.Resources.queso;
-            this.buttonrajas.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.buttonrajas.Location = new System.Drawing.Point(91, 19);
-            this.buttonrajas.Name = "buttonrajas";
-            this.buttonrajas.Size = new System.Drawing.Size(77, 41);
-            this.buttonrajas.TabIndex = 4;
-            this.buttonrajas.UseVisualStyleBackColor = true;
-            this.buttonrajas.Click += new System.EventHandler(this.button4_Click);
-            // 
-            // buttonfrijol
-            // 
-            this.buttonfrijol.BackgroundImage = global::empanada_2.Properties.Resources.frijol;
-            this.buttonfrijol.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.buttonfrijol.Location = new System.Drawing.Point(175, 19);
-            this.buttonfrijol.Name = "buttonfrijol";
-            this.buttonfrijol.Size = new System.Drawing.Size(77, 41);
-            this.buttonfrijol.TabIndex = 3;
-            this.buttonfrijol.UseVisualStyleBackColor = true;
-            this.buttonfrijol.Click += new System.EventHandler(this.button3_Click);
-            // 
-            // buttoncochinita
-            // 
-            this.buttoncochinita.BackgroundImage = global::empanada_2.Properties.Resources.cochinita;
-            this.buttoncochinita.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.buttoncochinita.Location = new System.Drawing.Point(259, 19);
-            this.buttoncochinita.Name = "buttoncochinita";
-            this.buttoncochinita.Size = new System.Drawing.Size(77, 41);
-            this.buttoncochinita.TabIndex = 2;
-            this.buttoncochinita.UseVisualStyleBackColor = true;
-            this.buttoncochinita.Click += new System.EventHandler(this.button2_Click);
-            // 
-            // buttoncarneconchile
-            // 
-            this.buttoncarneconchile.BackgroundImage = global::empanada_2.Properties.Resources.chile;
-            this.buttoncarneconchile.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.buttoncarneconchile.Location = new System.Drawing.Point(6, 19);
-            this.buttoncarneconchile.Name = "buttoncarneconchile";
-            this.buttoncarneconchile.Size = new System.Drawing.Size(77, 41);
-            this.buttoncarneconchile.TabIndex = 1;
-            this.buttoncarneconchile.UseVisualStyleBackColor = true;
-            this.buttoncarneconchile.Click += new System.EventHandler(this.button1_Click);
-            // 
             // groupBox3
             // 
             this.groupBox3.Controls.Add(this.button21);
@@ -905,6 +820,227 @@
             this.label9.TabIndex = 17;
             this.label9.Text = "Horchata";
             // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.Location = new System.Drawing.Point(569, 379);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(70, 13);
+            this.label13.TabIndex = 6;
+            this.label13.Text = "Total Pedido:";
+            // 
+            // textBox_total
+            // 
+            this.textBox_total.Enabled = false;
+            this.textBox_total.Location = new System.Drawing.Point(664, 376);
+            this.textBox_total.Name = "textBox_total";
+            this.textBox_total.Size = new System.Drawing.Size(43, 20);
+            this.textBox_total.TabIndex = 7;
+            this.textBox_total.Text = "0";
+            // 
+            // groupBox1
+            // 
+            this.groupBox1.Controls.Add(this.button16);
+            this.groupBox1.Controls.Add(this.button14);
+            this.groupBox1.Controls.Add(this.button25);
+            this.groupBox1.Controls.Add(this.groupBox4);
+            this.groupBox1.Controls.Add(this.checkBox_algo);
+            this.groupBox1.Controls.Add(this.label16);
+            this.groupBox1.Controls.Add(this.textBox_total);
+            this.groupBox1.Controls.Add(this.label13);
+            this.groupBox1.Controls.Add(this.groupBox3);
+            this.groupBox1.Controls.Add(this.groupBox2);
+            this.groupBox1.Controls.Add(this.listView_platillos);
+            this.groupBox1.Location = new System.Drawing.Point(202, 91);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(791, 521);
+            this.groupBox1.TabIndex = 2;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "Pedido";
+            // 
+            // groupBox4
+            // 
+            this.groupBox4.Controls.Add(this.button23);
+            this.groupBox4.Controls.Add(this.button22);
+            this.groupBox4.Controls.Add(this.textBox_otros);
+            this.groupBox4.Controls.Add(this.comboBox_otros);
+            this.groupBox4.Location = new System.Drawing.Point(291, 256);
+            this.groupBox4.Name = "groupBox4";
+            this.groupBox4.Size = new System.Drawing.Size(162, 185);
+            this.groupBox4.TabIndex = 37;
+            this.groupBox4.TabStop = false;
+            this.groupBox4.Text = "Otros";
+            // 
+            // button23
+            // 
+            this.button23.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.button23.Location = new System.Drawing.Point(108, 93);
+            this.button23.Name = "button23";
+            this.button23.Size = new System.Drawing.Size(21, 20);
+            this.button23.TabIndex = 40;
+            this.button23.UseVisualStyleBackColor = true;
+            this.button23.Click += new System.EventHandler(this.button23_Click_2);
+            // 
+            // textBox_otros
+            // 
+            this.textBox_otros.Enabled = false;
+            this.textBox_otros.Location = new System.Drawing.Point(95, 66);
+            this.textBox_otros.Name = "textBox_otros";
+            this.textBox_otros.Size = new System.Drawing.Size(34, 20);
+            this.textBox_otros.TabIndex = 1;
+            this.textBox_otros.Text = "0";
+            // 
+            // comboBox_otros
+            // 
+            this.comboBox_otros.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
+            this.comboBox_otros.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
+            this.comboBox_otros.FormattingEnabled = true;
+            this.comboBox_otros.Location = new System.Drawing.Point(12, 32);
+            this.comboBox_otros.Name = "comboBox_otros";
+            this.comboBox_otros.Size = new System.Drawing.Size(121, 21);
+            this.comboBox_otros.TabIndex = 0;
+            // 
+            // checkBox_algo
+            // 
+            this.checkBox_algo.AutoSize = true;
+            this.checkBox_algo.Location = new System.Drawing.Point(313, 19);
+            this.checkBox_algo.Name = "checkBox_algo";
+            this.checkBox_algo.Size = new System.Drawing.Size(119, 17);
+            this.checkBox_algo.TabIndex = 36;
+            this.checkBox_algo.Text = "Habilitar cantidades";
+            this.checkBox_algo.UseVisualStyleBackColor = true;
+            this.checkBox_algo.Click += new System.EventHandler(this.checkBox1_Click);
+            // 
+            // label16
+            // 
+            this.label16.AutoSize = true;
+            this.label16.Location = new System.Drawing.Point(645, 379);
+            this.label16.Name = "label16";
+            this.label16.Size = new System.Drawing.Size(13, 13);
+            this.label16.TabIndex = 8;
+            this.label16.Text = "$";
+            // 
+            // textBox_descripcion
+            // 
+            this.textBox_descripcion.Location = new System.Drawing.Point(487, 64);
+            this.textBox_descripcion.Name = "textBox_descripcion";
+            this.textBox_descripcion.Size = new System.Drawing.Size(118, 20);
+            this.textBox_descripcion.TabIndex = 7;
+            // 
+            // label17
+            // 
+            this.label17.AutoSize = true;
+            this.label17.Location = new System.Drawing.Point(390, 67);
+            this.label17.Name = "label17";
+            this.label17.Size = new System.Drawing.Size(95, 13);
+            this.label17.TabIndex = 8;
+            this.label17.Text = "Nombre del cliente";
+            // 
+            // button26
+            // 
+            this.button26.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.button26.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.button26.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Yellow;
+            this.button26.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
+            this.button26.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button26.Font = new System.Drawing.Font("Lucida Sans", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button26.Image = global::empanada_2.Properties.Resources.dinero;
+            this.button26.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.button26.Location = new System.Drawing.Point(277, 30);
+            this.button26.Name = "button26";
+            this.button26.Size = new System.Drawing.Size(74, 56);
+            this.button26.TabIndex = 80;
+            this.button26.Text = "Pagar";
+            this.button26.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.button26.UseVisualStyleBackColor = false;
+            this.button26.Click += new System.EventHandler(this.button26_Click);
+            // 
+            // button13
+            // 
+            this.button13.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.button13.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.button13.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Yellow;
+            this.button13.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
+            this.button13.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button13.Font = new System.Drawing.Font("Lucida Sans", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button13.Image = global::empanada_2.Properties.Resources.modificar;
+            this.button13.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.button13.Location = new System.Drawing.Point(117, 30);
+            this.button13.Name = "button13";
+            this.button13.Size = new System.Drawing.Size(74, 56);
+            this.button13.TabIndex = 79;
+            this.button13.Text = "Modificar";
+            this.button13.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.button13.UseVisualStyleBackColor = false;
+            this.button13.Click += new System.EventHandler(this.button13_Click);
+            // 
+            // button15
+            // 
+            this.button15.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.button15.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.button15.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Yellow;
+            this.button15.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
+            this.button15.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button15.Font = new System.Drawing.Font("Lucida Sans", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button15.Image = global::empanada_2.Properties.Resources.agregar;
+            this.button15.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.button15.Location = new System.Drawing.Point(14, 30);
+            this.button15.Name = "button15";
+            this.button15.Size = new System.Drawing.Size(97, 56);
+            this.button15.TabIndex = 78;
+            this.button15.Text = "Nueva orden";
+            this.button15.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.button15.UseVisualStyleBackColor = false;
+            this.button15.Click += new System.EventHandler(this.button15_Click);
+            // 
+            // button18
+            // 
+            this.button18.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.button18.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.button18.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Yellow;
+            this.button18.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
+            this.button18.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button18.Font = new System.Drawing.Font("Lucida Sans", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button18.Image = global::empanada_2.Properties.Resources.delete;
+            this.button18.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.button18.Location = new System.Drawing.Point(197, 30);
+            this.button18.Name = "button18";
+            this.button18.Size = new System.Drawing.Size(74, 56);
+            this.button18.TabIndex = 77;
+            this.button18.Text = "Eliminar";
+            this.button18.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.button18.UseVisualStyleBackColor = false;
+            this.button18.Click += new System.EventHandler(this.button18_Click);
+            // 
+            // button25
+            // 
+            this.button25.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.button25.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.button25.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Yellow;
+            this.button25.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
+            this.button25.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button25.Font = new System.Drawing.Font("Lucida Sans", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button25.Image = global::empanada_2.Properties.Resources.delete;
+            this.button25.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.button25.Location = new System.Drawing.Point(721, 31);
+            this.button25.Name = "button25";
+            this.button25.Size = new System.Drawing.Size(42, 43);
+            this.button25.TabIndex = 76;
+            this.button25.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.button25.UseVisualStyleBackColor = false;
+            this.button25.Click += new System.EventHandler(this.button25_Click);
+            // 
+            // button22
+            // 
+            this.button22.BackgroundImage = global::empanada_2.Properties.Resources.otros1;
+            this.button22.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.button22.Location = new System.Drawing.Point(12, 63);
+            this.button22.Name = "button22";
+            this.button22.Size = new System.Drawing.Size(77, 41);
+            this.button22.TabIndex = 34;
+            this.button22.UseVisualStyleBackColor = true;
+            this.button22.Click += new System.EventHandler(this.button22_Click);
+            // 
             // button12
             // 
             this.button12.BackgroundImage = global::empanada_2.Properties.Resources.soda;
@@ -949,181 +1085,110 @@
             this.buttonhorchata.UseVisualStyleBackColor = true;
             this.buttonhorchata.Click += new System.EventHandler(this.buttonhorchata_Click);
             // 
-            // button_agregar
+            // buttonchicarronsv
             // 
-            this.button_agregar.Location = new System.Drawing.Point(97, 443);
-            this.button_agregar.Name = "button_agregar";
-            this.button_agregar.Size = new System.Drawing.Size(75, 23);
-            this.button_agregar.TabIndex = 3;
-            this.button_agregar.Text = "Agregar";
-            this.button_agregar.UseVisualStyleBackColor = true;
-            this.button_agregar.Click += new System.EventHandler(this.button17_Click);
+            this.buttonchicarronsv.BackgroundImage = global::empanada_2.Properties.Resources.images;
+            this.buttonchicarronsv.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.buttonchicarronsv.Location = new System.Drawing.Point(6, 100);
+            this.buttonchicarronsv.Name = "buttonchicarronsv";
+            this.buttonchicarronsv.Size = new System.Drawing.Size(77, 41);
+            this.buttonchicarronsv.TabIndex = 5;
+            this.buttonchicarronsv.UseVisualStyleBackColor = true;
+            this.buttonchicarronsv.Click += new System.EventHandler(this.buttonchicarronsv_Click);
             // 
-            // label13
+            // buttonrajas
             // 
-            this.label13.AutoSize = true;
-            this.label13.Location = new System.Drawing.Point(569, 379);
-            this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(70, 13);
-            this.label13.TabIndex = 6;
-            this.label13.Text = "Total Pedido:";
+            this.buttonrajas.BackgroundImage = global::empanada_2.Properties.Resources.queso;
+            this.buttonrajas.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.buttonrajas.Location = new System.Drawing.Point(91, 19);
+            this.buttonrajas.Name = "buttonrajas";
+            this.buttonrajas.Size = new System.Drawing.Size(77, 41);
+            this.buttonrajas.TabIndex = 4;
+            this.buttonrajas.UseVisualStyleBackColor = true;
+            this.buttonrajas.Click += new System.EventHandler(this.button4_Click);
             // 
-            // textBox_total
+            // buttonfrijol
             // 
-            this.textBox_total.Enabled = false;
-            this.textBox_total.Location = new System.Drawing.Point(664, 376);
-            this.textBox_total.Name = "textBox_total";
-            this.textBox_total.Size = new System.Drawing.Size(43, 20);
-            this.textBox_total.TabIndex = 7;
-            this.textBox_total.Text = "0";
+            this.buttonfrijol.BackgroundImage = global::empanada_2.Properties.Resources.frijol;
+            this.buttonfrijol.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.buttonfrijol.Location = new System.Drawing.Point(175, 19);
+            this.buttonfrijol.Name = "buttonfrijol";
+            this.buttonfrijol.Size = new System.Drawing.Size(77, 41);
+            this.buttonfrijol.TabIndex = 3;
+            this.buttonfrijol.UseVisualStyleBackColor = true;
+            this.buttonfrijol.Click += new System.EventHandler(this.button3_Click);
             // 
-            // groupBox1
+            // buttoncochinita
             // 
-            this.groupBox1.Controls.Add(this.button24);
-            this.groupBox1.Controls.Add(this.button18);
-            this.groupBox1.Controls.Add(this.groupBox4);
-            this.groupBox1.Controls.Add(this.checkBox_algo);
-            this.groupBox1.Controls.Add(this.label16);
-            this.groupBox1.Controls.Add(this.textBox_total);
-            this.groupBox1.Controls.Add(this.label13);
-            this.groupBox1.Controls.Add(this.button_agregar);
-            this.groupBox1.Controls.Add(this.groupBox3);
-            this.groupBox1.Controls.Add(this.groupBox2);
-            this.groupBox1.Controls.Add(this.listView_platillos);
-            this.groupBox1.Location = new System.Drawing.Point(202, 72);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(745, 483);
-            this.groupBox1.TabIndex = 2;
-            this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Pedido";
+            this.buttoncochinita.BackgroundImage = global::empanada_2.Properties.Resources.cochinita;
+            this.buttoncochinita.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.buttoncochinita.Location = new System.Drawing.Point(259, 19);
+            this.buttoncochinita.Name = "buttoncochinita";
+            this.buttoncochinita.Size = new System.Drawing.Size(77, 41);
+            this.buttoncochinita.TabIndex = 2;
+            this.buttoncochinita.UseVisualStyleBackColor = true;
+            this.buttoncochinita.Click += new System.EventHandler(this.button2_Click);
             // 
-            // button24
+            // buttoncarneconchile
             // 
-            this.button24.Location = new System.Drawing.Point(386, 443);
-            this.button24.Name = "button24";
-            this.button24.Size = new System.Drawing.Size(67, 23);
-            this.button24.TabIndex = 38;
-            this.button24.Text = "Comanda";
-            this.button24.UseVisualStyleBackColor = true;
-            this.button24.Click += new System.EventHandler(this.button24_Click);
+            this.buttoncarneconchile.BackgroundImage = global::empanada_2.Properties.Resources.chile;
+            this.buttoncarneconchile.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.buttoncarneconchile.Location = new System.Drawing.Point(6, 19);
+            this.buttoncarneconchile.Name = "buttoncarneconchile";
+            this.buttoncarneconchile.Size = new System.Drawing.Size(77, 41);
+            this.buttoncarneconchile.TabIndex = 1;
+            this.buttoncarneconchile.UseVisualStyleBackColor = true;
+            this.buttoncarneconchile.Click += new System.EventHandler(this.button1_Click);
             // 
-            // button18
+            // button14
             // 
-            this.button18.Location = new System.Drawing.Point(721, 20);
-            this.button18.Name = "button18";
-            this.button18.Size = new System.Drawing.Size(23, 23);
-            this.button18.TabIndex = 9;
-            this.button18.Text = "X";
-            this.button18.UseVisualStyleBackColor = true;
-            this.button18.Click += new System.EventHandler(this.button18_Click);
+            this.button14.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.button14.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.button14.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Yellow;
+            this.button14.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
+            this.button14.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button14.Font = new System.Drawing.Font("Lucida Sans", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button14.Image = global::empanada_2.Properties.Resources.agregar;
+            this.button14.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.button14.Location = new System.Drawing.Point(104, 447);
+            this.button14.Name = "button14";
+            this.button14.Size = new System.Drawing.Size(97, 56);
+            this.button14.TabIndex = 79;
+            this.button14.Text = "Agregar";
+            this.button14.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.button14.UseVisualStyleBackColor = false;
+            this.button14.Click += new System.EventHandler(this.button14_Click_1);
             // 
-            // groupBox4
+            // button16
             // 
-            this.groupBox4.Controls.Add(this.button23);
-            this.groupBox4.Controls.Add(this.button22);
-            this.groupBox4.Controls.Add(this.textBox_otros);
-            this.groupBox4.Controls.Add(this.comboBox_otros);
-            this.groupBox4.Location = new System.Drawing.Point(291, 256);
-            this.groupBox4.Name = "groupBox4";
-            this.groupBox4.Size = new System.Drawing.Size(162, 185);
-            this.groupBox4.TabIndex = 37;
-            this.groupBox4.TabStop = false;
-            this.groupBox4.Text = "Otros";
-            // 
-            // button23
-            // 
-            this.button23.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.button23.Location = new System.Drawing.Point(108, 93);
-            this.button23.Name = "button23";
-            this.button23.Size = new System.Drawing.Size(21, 20);
-            this.button23.TabIndex = 40;
-            this.button23.UseVisualStyleBackColor = true;
-            this.button23.Click += new System.EventHandler(this.button23_Click_2);
-            // 
-            // button22
-            // 
-            this.button22.BackgroundImage = global::empanada_2.Properties.Resources.otros1;
-            this.button22.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.button22.Location = new System.Drawing.Point(12, 63);
-            this.button22.Name = "button22";
-            this.button22.Size = new System.Drawing.Size(77, 41);
-            this.button22.TabIndex = 34;
-            this.button22.UseVisualStyleBackColor = true;
-            this.button22.Click += new System.EventHandler(this.button22_Click);
-            // 
-            // textBox_otros
-            // 
-            this.textBox_otros.Enabled = false;
-            this.textBox_otros.Location = new System.Drawing.Point(95, 66);
-            this.textBox_otros.Name = "textBox_otros";
-            this.textBox_otros.Size = new System.Drawing.Size(34, 20);
-            this.textBox_otros.TabIndex = 1;
-            this.textBox_otros.Text = "0";
-            // 
-            // comboBox_otros
-            // 
-            this.comboBox_otros.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
-            this.comboBox_otros.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
-            this.comboBox_otros.FormattingEnabled = true;
-            this.comboBox_otros.Location = new System.Drawing.Point(12, 32);
-            this.comboBox_otros.Name = "comboBox_otros";
-            this.comboBox_otros.Size = new System.Drawing.Size(121, 21);
-            this.comboBox_otros.TabIndex = 0;
-            // 
-            // checkBox_algo
-            // 
-            this.checkBox_algo.AutoSize = true;
-            this.checkBox_algo.Location = new System.Drawing.Point(313, 19);
-            this.checkBox_algo.Name = "checkBox_algo";
-            this.checkBox_algo.Size = new System.Drawing.Size(119, 17);
-            this.checkBox_algo.TabIndex = 36;
-            this.checkBox_algo.Text = "Habilitar cantidades";
-            this.checkBox_algo.UseVisualStyleBackColor = true;
-            this.checkBox_algo.Click += new System.EventHandler(this.checkBox1_Click);
-            // 
-            // label16
-            // 
-            this.label16.AutoSize = true;
-            this.label16.Location = new System.Drawing.Point(645, 379);
-            this.label16.Name = "label16";
-            this.label16.Size = new System.Drawing.Size(13, 13);
-            this.label16.TabIndex = 8;
-            this.label16.Text = "$";
-            // 
-            // textBox_descripcion
-            // 
-            this.textBox_descripcion.Location = new System.Drawing.Point(487, 45);
-            this.textBox_descripcion.Name = "textBox_descripcion";
-            this.textBox_descripcion.Size = new System.Drawing.Size(118, 20);
-            this.textBox_descripcion.TabIndex = 7;
-            // 
-            // label17
-            // 
-            this.label17.AutoSize = true;
-            this.label17.Location = new System.Drawing.Point(390, 48);
-            this.label17.Name = "label17";
-            this.label17.Size = new System.Drawing.Size(95, 13);
-            this.label17.TabIndex = 8;
-            this.label17.Text = "Nombre del cliente";
-            // 
-            // gastosToolStripMenuItem
-            // 
-            this.gastosToolStripMenuItem.Name = "gastosToolStripMenuItem";
-            this.gastosToolStripMenuItem.Size = new System.Drawing.Size(54, 20);
-            this.gastosToolStripMenuItem.Text = "Gastos";
-            this.gastosToolStripMenuItem.Click += new System.EventHandler(this.gastosToolStripMenuItem_Click);
+            this.button16.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.button16.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.button16.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Yellow;
+            this.button16.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
+            this.button16.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button16.Font = new System.Drawing.Font("Lucida Sans", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button16.Image = global::empanada_2.Properties.Resources.comanda;
+            this.button16.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.button16.Location = new System.Drawing.Point(474, 408);
+            this.button16.Name = "button16";
+            this.button16.Size = new System.Drawing.Size(97, 56);
+            this.button16.TabIndex = 80;
+            this.button16.Text = "Comanda";
+            this.button16.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.button16.UseVisualStyleBackColor = false;
+            this.button16.Click += new System.EventHandler(this.button16_Click);
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(959, 581);
+            this.ClientSize = new System.Drawing.Size(1005, 624);
+            this.Controls.Add(this.button26);
+            this.Controls.Add(this.button13);
+            this.Controls.Add(this.button15);
+            this.Controls.Add(this.button18);
             this.Controls.Add(this.label17);
             this.Controls.Add(this.textBox_descripcion);
-            this.Controls.Add(this.button16);
-            this.Controls.Add(this.button15);
-            this.Controls.Add(this.button14);
-            this.Controls.Add(this.button13);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.listView_ordenes);
             this.Controls.Add(this.menuStrip1);
@@ -1156,10 +1221,6 @@
         private System.Windows.Forms.MenuStrip menuStrip1;
         private System.Windows.Forms.ToolStripMenuItem modificarToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem estadisticasToolStripMenuItem;
-        private System.Windows.Forms.Button button13;
-        private System.Windows.Forms.Button button14;
-        private System.Windows.Forms.Button button15;
-        private System.Windows.Forms.Button button16;
         private System.Windows.Forms.ListView listView_platillos;
         private System.Windows.Forms.ColumnHeader column_platillo;
         private System.Windows.Forms.ColumnHeader column_cantidad;
@@ -1202,7 +1263,6 @@
         private System.Windows.Forms.Button buttontamarindo;
         private System.Windows.Forms.Button buttonjamaica;
         private System.Windows.Forms.Button buttonhorchata;
-        private System.Windows.Forms.Button button_agregar;
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.TextBox textBox_total;
         private System.Windows.Forms.GroupBox groupBox1;
@@ -1240,7 +1300,6 @@
         private System.Windows.Forms.TextBox textBox_otros;
         private System.Windows.Forms.ComboBox comboBox_otros;
         private System.Windows.Forms.Label label17;
-        private System.Windows.Forms.Button button18;
         private System.Windows.Forms.Button button22;
         private System.Windows.Forms.Button button23;
         private System.Windows.Forms.ToolStripMenuItem terminarOrdenesToolStripMenuItem;
@@ -1249,8 +1308,14 @@
         private System.Windows.Forms.ToolStripMenuItem orden3ToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem orden4ToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem orden5ToolStripMenuItem;
-        private System.Windows.Forms.Button button24;
         private System.Windows.Forms.ToolStripMenuItem gastosToolStripMenuItem;
+        private System.Windows.Forms.Button button25;
+        private System.Windows.Forms.Button button18;
+        private System.Windows.Forms.Button button15;
+        private System.Windows.Forms.Button button13;
+        private System.Windows.Forms.Button button26;
+        private System.Windows.Forms.Button button14;
+        private System.Windows.Forms.Button button16;
     }
 }
 
