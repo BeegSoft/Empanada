@@ -63,9 +63,12 @@ namespace empanada_2
                 cmd.ExecuteNonQuery();
 
                 conexion.Close();
-
+                /*
                 Pantalla2 form = new Pantalla2(fecha, ds);
                 form.Show();
+                */
+                Control_acceso correr = new Control_acceso(fecha, ds);
+                correr.Show();
             }
 
             catch (Exception)
@@ -73,8 +76,12 @@ namespace empanada_2
                 DialogResult resultado = MessageBox.Show("Ya existe un historial del dia de hoy\n\n      Desea continuar el dia de hoy?", "ADVERTENCIA", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
                 if (resultado == DialogResult.Yes)
                 {
-                    Pantalla2 form = new Pantalla2(fecha, ds);
-                    form.Show();
+                    /*
+                Pantalla2 form = new Pantalla2(fecha, ds);
+                form.Show();
+                */
+                    Control_acceso correr = new Control_acceso(fecha, ds);
+                    correr.Show();
                 }
             }
         }
@@ -97,8 +104,12 @@ namespace empanada_2
 
                 if (Convert.ToInt32(compro) != 0)
                 {
-                    Pantalla2 form = new Pantalla2(fecha, ds);
-                    form.Show();
+                    /*
+                Pantalla2 form = new Pantalla2(fecha, ds);
+                form.Show();
+                */
+                    Control_acceso correr = new Control_acceso(fecha, ds);
+                    correr.Show();
                 }
                 else
                 {

@@ -19,3 +19,9 @@ C:\Empanada\BEEGSOFT\empanada_2\empanada_2\obj\eduardo\empanada_2.csprojResolveA
 C:\Empanada\BEEGSOFT\empanada_2\empanada_2\obj\eduardo\empanada_2.csproj.ResolveComReference.cache
 C:\Empanada\BEEGSOFT\empanada_2\empanada_2\obj\eduardo\empanada_2.Exportacion_excel.resources
 C:\Empanada\BEEGSOFT\empanada_2\empanada_2\obj\eduardo\empanada_2.Gastos.resources
+C:\Empanada\BEEGSOFT\empanada_2\empanada_2\obj\eduardo\empanada_2.Control_acceso.resources
+C:\Empanada\BEEGSOFT\empanada_2\empanada_2\obj\eduardo\empanada_2.Nuevo_usuario.resources
+C:\Users\EDUARDO\Desktop\Empanada\BEEGSOFT\empanada_2\empanada_2\bin\eduardo\empanada_2.exe.config
+C:\Users\EDUARDO\Desktop\Empanada\BEEGSOFT\empanada_2\empanada_2\obj\eduardo\empanada_2.csproj.ResolveComReference.cache
+C:\Users\EDUARDO\Desktop\Empanada\BEEGSOFT\empanada_2\empanada_2\obj\eduardo\empanada_2.exe
+C:\Users\EDUARDO\Desktop\Empanada\BEEGSOFT\empanada_2\empanada_2\obj\eduardo\empanada_2.pdb
