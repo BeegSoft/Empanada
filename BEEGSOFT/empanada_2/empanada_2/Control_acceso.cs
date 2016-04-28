@@ -8,16 +8,29 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Data.OleDb;
+using System.Threading;
 
 namespace empanada_2
 {
     public partial class Control_acceso : Form
     {
-        public Control_acceso(string fecha,string ds)
+        public Control_acceso(string ds)
         {
+            //---------
+            Thread t = new Thread(new ThreadStart(splashtart));
+            t.Start();
+            Thread.Sleep(5000);
             InitializeComponent();
+            t.Abort();
+            //---------
             this.ds = ds;
-            this.fecha = fecha;                       
+
+
+        }
+
+        private void splashtart()
+        {
+            Application.Run(new Form2(ds));
         }
 
         private void LIMPIAR()
@@ -28,7 +41,6 @@ namespace empanada_2
         }
         
         string ds;
-        string fecha;
 
         string texto;
         int band;              
@@ -73,10 +85,11 @@ namespace empanada_2
                     {
                         while (reader.Read())
                         {
-                            MessageBox.Show("Usuario Aceptado", "Empanada", MessageBoxButtons.OK, MessageBoxIcon.Information);                            
-                            Pantalla2 corre = new Pantalla2(fecha, ds);
+                            MessageBox.Show("Usuario Aceptado", "Empanada", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            Inicio form = new Inicio(ds);
                             LIMPIAR();
-                            corre.Show();
+                            form.Show();
+                            
                         }
                     }
                     else
@@ -234,9 +247,15 @@ namespace empanada_2
             }
         }
 
+<<<<<<< HEAD
         private void cerrarToolStripMenuItem_Click(object sender, EventArgs e)
         {
             this.Close();
+=======
+        private void Control_acceso_Load(object sender, EventArgs e)
+        {
+
+>>>>>>> c2bf6d83c4a7296fec5be7448545152ae2e525f5
         }
     }
 }

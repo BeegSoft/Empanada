@@ -251,6 +251,7 @@
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "Control_acceso";
             this.Text = "Control_acceso";
+            this.Load += new System.EventHandler(this.Control_acceso_Load);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();

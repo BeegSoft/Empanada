@@ -8,28 +8,19 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Data.OleDb;
-using System.Threading;
+
 
 namespace empanada_2
 {
     public partial class Inicio : Form
     {
         public Inicio(string ds)
-        {                        
-            //---------
-            Thread t = new Thread(new ThreadStart(splashtart));
-            t.Start();
-            Thread.Sleep(5000);
+        {
             InitializeComponent();
-            t.Abort();
-            //---------
             this.ds = ds;
         }
 
-        private void splashtart()
-        {
-            Application.Run(new Form2(ds));
-        }
+        
 
         //CONEXION
         string ds;
@@ -63,12 +54,11 @@ namespace empanada_2
                 cmd.ExecuteNonQuery();
 
                 conexion.Close();
-                /*
+                
                 Pantalla2 form = new Pantalla2(fecha, ds);
                 form.Show();
-                */
-                Control_acceso correr = new Control_acceso(fecha, ds);
-                correr.Show();
+                
+                
             }
 
             catch (Exception)
@@ -76,12 +66,11 @@ namespace empanada_2
                 DialogResult resultado = MessageBox.Show("Ya existe un historial del dia de hoy\n\n      Desea continuar el dia de hoy?", "ADVERTENCIA", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
                 if (resultado == DialogResult.Yes)
                 {
-                    /*
+                    
                 Pantalla2 form = new Pantalla2(fecha, ds);
                 form.Show();
-                */
-                    Control_acceso correr = new Control_acceso(fecha, ds);
-                    correr.Show();
+                
+                    
                 }
             }
         }
@@ -104,12 +93,11 @@ namespace empanada_2
 
                 if (Convert.ToInt32(compro) != 0)
                 {
-                    /*
+                    
                 Pantalla2 form = new Pantalla2(fecha, ds);
                 form.Show();
-                */
-                    Control_acceso correr = new Control_acceso(fecha, ds);
-                    correr.Show();
+                
+                    
                 }
                 else
                 {
@@ -133,6 +121,11 @@ namespace empanada_2
         {
             Historial form = new Historial(ds);
             form.Show();
+        }
+
+        private void Inicio_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

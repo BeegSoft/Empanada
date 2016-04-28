@@ -24,5 +24,10 @@ namespace empanada_2
             if (progressBar1.Value == 100)
                 timer1.Stop();
         }
+
+        private void Form2_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }
