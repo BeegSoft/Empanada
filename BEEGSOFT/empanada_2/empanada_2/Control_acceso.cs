@@ -121,9 +121,14 @@ namespace empanada_2
             }
             else
             {
+                //checamos la encriptacion
+                string var1;
+                var1 = Encriptado.Encriptar(textBox2.Text);
+                //-------- 
+                texto = textBox1.Text; 
                 OleDbConnection conexion = new OleDbConnection(ds);
                 conexion.Open();
-                string select = "SELECT * FROM USUARIOS where nombre='" + textBox1.Text + "'and clave='" + textBox2.Text + "'and tipo_usuario='" + comboBox1.Text + "'";
+                string select = "SELECT * FROM USUARIOS where nombre='" + textBox1.Text + "'and clave='" + var1 + "'and tipo_usuario='" + comboBox1.Text + "'";
                 OleDbCommand cmd6 = new OleDbCommand(select, conexion);
                 try
                 {
@@ -184,9 +189,16 @@ namespace empanada_2
             }
             else
             {
+                //checamos la encriptacion
+                string var1;
+                var1 = Encriptado.Encriptar(textBox2.Text);
+                //-------- 
+
+                texto = textBox1.Text;
+
                 OleDbConnection conexion = new OleDbConnection(ds);
                 conexion.Open();
-                string select = "SELECT * FROM USUARIOS where nombre='" + textBox1.Text + "'and clave='" + textBox2.Text + "'and tipo_usuario='" + comboBox1.Text + "'";
+                string select = "SELECT * FROM USUARIOS where nombre='" + textBox1.Text + "'and clave='" + var1 + "'and tipo_usuario='" + comboBox1.Text + "'";
                 OleDbCommand cmd6 = new OleDbCommand(select, conexion);
                 try
                 {
@@ -196,7 +208,7 @@ namespace empanada_2
                     {
                         while (reader.Read())
                         {
-                            texto = textBox1.Text;
+                            
                             Nuevo_usuario corre = new Nuevo_usuario(ds, texto, band);
                             LIMPIAR();
                             corre.Show();

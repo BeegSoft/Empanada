@@ -96,28 +96,30 @@ namespace empanada_2
                 }
                 else
                 {
-                    //realizar la conexion
+                    
                     OleDbConnection conexion = new OleDbConnection(ds);
                     conexion.Open();
                     try
                     {
+                        //ahora encriptamos                     
+                        string var1 = Encriptado.Encriptar(txtclave.Text);
+                        //----------------------------------
+                        //realizar la conexion
+
                         string insertar2 = "UPDATE USUARIOS SET nombre = @NOMBRE WHERE nombre = '" + texto + "'";
-                        OleDbCommand cmd2 = new OleDbCommand(insertar2, conexion);
-                        cmd2.Parameters.AddWithValue("@NOMBRE", txtnombre.Text);
-
-                        cmd2.ExecuteNonQuery();
-
-                        string insertar3 = "UPDATE USUARIOS SET clave = @CLAVE WHERE nombre = '" + texto + "'";
-                        OleDbCommand cmd3 = new OleDbCommand(insertar3, conexion);
-                        cmd3.Parameters.AddWithValue("@CLAVE", txtclave.Text);
-
+                        OleDbCommand cmd3 = new OleDbCommand(insertar2, conexion);
+                        cmd3.Parameters.AddWithValue("@NOMBRE", txtnombre.Text);
                         cmd3.ExecuteNonQuery();
 
-                        string insertar4 = "UPDATE USUARIOS SET tipo_usuario = @TIPO WHERE nombre = '" + texto + "'";
-                        OleDbCommand cmd4 = new OleDbCommand(insertar4, conexion);
-                        cmd4.Parameters.AddWithValue("@TIPO", cbotipo.Text);
-
+                        string insertar3 = "UPDATE USUARIOS SET clave = @CLAVE WHERE nombre = '" + texto + "'";
+                        OleDbCommand cmd4 = new OleDbCommand(insertar3, conexion);
+                        cmd4.Parameters.AddWithValue("@CLAVE", var1);
                         cmd4.ExecuteNonQuery();
+
+                        string insertar4 = "UPDATE USUARIOS SET tipo_usuario = @TIPO WHERE nombre = '" + texto + "'";
+                        OleDbCommand cmd5 = new OleDbCommand(insertar4, conexion);
+                        cmd5.Parameters.AddWithValue("@TIPO", cbotipo.Text);
+                        cmd5.ExecuteNonQuery();
 
                         MessageBox.Show("Usuario modificado", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     }
