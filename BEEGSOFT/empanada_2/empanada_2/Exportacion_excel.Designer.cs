@@ -42,6 +42,10 @@
             this.listView_fechas = new System.Windows.Forms.ListView();
             this.column_fechas = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.button2 = new System.Windows.Forms.Button();
+            this.listView_gastos = new System.Windows.Forms.ListView();
+            this.columnHeader6 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader7 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader8 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.SuspendLayout();
             // 
             // label6
@@ -125,7 +129,7 @@
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(42, 270);
+            this.button1.Location = new System.Drawing.Point(404, 22);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(63, 23);
             this.button1.TabIndex = 18;
@@ -161,11 +165,38 @@
             this.button2.UseVisualStyleBackColor = true;
             this.button2.Click += new System.EventHandler(this.button2_Click_1);
             // 
+            // listView_gastos
+            // 
+            this.listView_gastos.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.columnHeader6,
+            this.columnHeader7,
+            this.columnHeader8});
+            this.listView_gastos.Location = new System.Drawing.Point(175, 311);
+            this.listView_gastos.Name = "listView_gastos";
+            this.listView_gastos.Size = new System.Drawing.Size(121, 97);
+            this.listView_gastos.TabIndex = 26;
+            this.listView_gastos.UseCompatibleStateImageBehavior = false;
+            this.listView_gastos.View = System.Windows.Forms.View.Details;
+            this.listView_gastos.Visible = false;
+            // 
+            // columnHeader6
+            // 
+            this.columnHeader6.Text = "Fecha";
+            // 
+            // columnHeader7
+            // 
+            this.columnHeader7.Text = "Descripcion";
+            // 
+            // columnHeader8
+            // 
+            this.columnHeader8.Text = "Gasto";
+            // 
             // Exportacion_excel
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(648, 317);
+            this.ClientSize = new System.Drawing.Size(683, 331);
+            this.Controls.Add(this.listView_gastos);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.listView_fechas);
             this.Controls.Add(this.button1);
@@ -197,5 +228,9 @@
         private System.Windows.Forms.ListView listView_fechas;
         private System.Windows.Forms.ColumnHeader column_fechas;
         private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.ListView listView_gastos;
+        private System.Windows.Forms.ColumnHeader columnHeader6;
+        private System.Windows.Forms.ColumnHeader columnHeader7;
+        private System.Windows.Forms.ColumnHeader columnHeader8;
     }
 }

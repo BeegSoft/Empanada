@@ -55,6 +55,25 @@ namespace empanada_2
                 j = 1;
                 i++;
             }
+
+            foreach (ListViewItem comp in listView_gastos.Items)
+            {
+                i = 2;
+                j = 7;
+                ws.Cells[1, 7] = ("FECHA");
+                ws.Cells[1, 8] = ("DESCRIPCION");
+                ws.Cells[1, 9] = ("GASTO");
+
+                ws.Cells[i, j] = comp.Text.ToString();
+                //MessageBox.Show(comp.Text.ToString());
+                foreach (ListViewItem.ListViewSubItem drv in comp.SubItems)
+                {
+                    ws.Cells[i, j] = drv.Text.ToString();
+                    j++;
+                }
+                j = 1;
+                i++;
+            }
         }
 
         private void SELECT_FECHA()
@@ -131,7 +150,27 @@ namespace empanada_2
                 elemntos.SubItems.Add(filas["pagar"].ToString());
 
                 listView_esta.Items.Add(elemntos);
-            }          
+            }
+
+            //MOSTRAR LOS DATOS DE LOS GASTOS
+
+            OleDbDataAdapter adaptador2 = new OleDbDataAdapter("SELECT GASTOS.Fecha, GASTOS.Descripcion, GASTOS.Gasto FROM FECHA INNER JOIN GASTOS ON FECHA.fecha = GASTOS.Fecha WHERE id >= " + fechaa + " AND id <= " + fechab, ds);
+
+            DataSet dataset2 = new DataSet();
+            DataTable tabla2 = new DataTable();
+
+            adaptador2.Fill(dataset2);
+            tabla2 = dataset2.Tables[0];
+            this.listView_gastos.Items.Clear();
+            for (int i = 0; i < tabla2.Rows.Count; i++)
+            {
+                DataRow filas2 = tabla2.Rows[i];
+                ListViewItem elemntos2 = new ListViewItem(filas2["Fecha"].ToString());
+                elemntos2.SubItems.Add(filas2["Descripcion"].ToString());
+                elemntos2.SubItems.Add(filas2["Gasto"].ToString());
+
+                listView_gastos.Items.Add(elemntos2);
+            }
         }
     }
 }

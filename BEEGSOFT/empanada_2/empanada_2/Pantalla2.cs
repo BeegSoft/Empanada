@@ -168,6 +168,7 @@ namespace empanada_2
         {
             listView_platillos.Items.Clear();
             textBox1.Text = "";
+            label2.Text = "0";
 
             OleDbConnection conexion = new OleDbConnection(ds);
             
@@ -183,6 +184,7 @@ namespace empanada_2
         {
             listView1.Items.Clear();
             textBox2.Text = "";
+            label3.Text = "0";
 
             OleDbConnection conexion = new OleDbConnection(ds);
 
@@ -199,6 +201,7 @@ namespace empanada_2
         {
             listView2.Items.Clear();
             textBox3.Text = "";
+            label4.Text = "0";
 
             OleDbConnection conexion = new OleDbConnection(ds);
 
@@ -215,6 +218,8 @@ namespace empanada_2
         {
             listView3.Items.Clear();
             textBox4.Text = "";
+            label5.Text = "0";
+
 
             OleDbConnection conexion = new OleDbConnection(ds);
 
@@ -231,6 +236,7 @@ namespace empanada_2
         {
             listView4.Items.Clear();
             textBox5.Text = "";
+            label6.Text = "0";
 
             OleDbConnection conexion = new OleDbConnection(ds);
 

@@ -346,7 +346,6 @@ namespace empanada_2
 
                 }
                 conexion5.Close();
-                MessageBox.Show("Datos agregados","Orden", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
 
             GANANCIAS();
@@ -659,7 +658,7 @@ namespace empanada_2
                 cmd.Parameters.AddWithValue("@checador", 1);
 
                 cmd.ExecuteNonQuery();
-                MessageBox.Show("Datos agregados correctamente", "MENSAJE", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show("Orden creada Correctamente", "MENSAJE", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 conexion.Close();
             }
 
