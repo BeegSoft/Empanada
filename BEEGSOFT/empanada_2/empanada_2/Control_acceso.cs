@@ -103,21 +103,21 @@ namespace empanada_2
         private void registrarToolStripMenuItem_Click(object sender, EventArgs e)
         {
             band = 0;
-            if (this.comboBox1.Text == "SELECCIONAR")
-            {
-                MessageBox.Show("Para Agregar un usuario tienes que identificarte", "Mensaje de Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                comboBox1.Focus();
-            }            
-
-            if (textBox1.Text == "")
+            if (this.textBox1.Text == "SELECCIONAR")
             {
                 MessageBox.Show("Para Agregar un usuario tienes que identificarte", "Mensaje de Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 textBox1.Focus();
-            }
+            }            
+
             else if (textBox2.Text == "")
             {
                 MessageBox.Show("Para Agregar un usuario tienes que identificarte", "Mensaje de Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 textBox2.Focus();
+            }
+            else if (comboBox1.Text == "")
+            {
+                MessageBox.Show("Para Agregar un usuario tienes que identificarte", "Mensaje de Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                comboBox1.Focus();
             }
             else
             {
@@ -171,21 +171,21 @@ namespace empanada_2
         private void modificarToolStripMenuItem_Click(object sender, EventArgs e)
         {
             band = 1;
-            if (this.comboBox1.Text == "SELECCIONAR")
+            if (this.textBox1.Text == "SELECCIONAR")
             {
-                MessageBox.Show("Para Agregar un usuario tienes que identificarte", "Mensaje de Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                comboBox1.Focus();
-            }
-
-            else if (textBox1.Text == "")
-            {
-                MessageBox.Show("Para Agregar un usuario tienes que identificarte", "Mensaje de Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Para modificar un usuario tienes que identificarte", "Mensaje de Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 textBox1.Focus();
             }
+
             else if (textBox2.Text == "")
             {
-                MessageBox.Show("Para Agregar un usuario tienes que identificarte", "Mensaje de Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Para modificar un usuario tienes que identificarte", "Mensaje de Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 textBox2.Focus();
+            }
+            else if (comboBox1.Text == "")
+            {
+                MessageBox.Show("Para modificar un usuario tienes que identificarte", "Mensaje de Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                comboBox1.Focus();
             }
             else
             {
@@ -232,6 +232,11 @@ namespace empanada_2
                     this.Close();
                 }
             }
+        }
+
+        private void cerrarToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }
