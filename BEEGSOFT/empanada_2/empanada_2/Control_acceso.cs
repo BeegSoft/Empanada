@@ -31,8 +31,7 @@ namespace empanada_2
         string fecha;
 
         string texto;
-        int band;      
-        Encriptado encri = new Encriptado();
+        int band;              
 
         int veces = 0;
         private const int intentos = 2;
@@ -47,19 +46,24 @@ namespace empanada_2
 
             if (textBox1.Text == "")
             {
-                MessageBox.Show("Digite Usuario para Continuar", "CompuBinario", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                MessageBox.Show("Digite Usuario para Continuar", "conexion", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 textBox1.Focus();
             }
             else if (textBox2.Text == "")
             {
-                MessageBox.Show("Digite Clave para Continuar", "CompuBinario", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                MessageBox.Show("Digite Clave para Continuar", "conexion", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 textBox2.Focus();
             }            
             else
             {
+                //checamos la encriptacion
+                string var1;
+                var1 = Encriptado.Encriptar(textBox2.Text);
+                //--------               
+
                 OleDbConnection conexion = new OleDbConnection(ds);
                 conexion.Open();
-                string select="SELECT * FROM USUARIOS where USUARIOS.nombre='" + textBox1.Text + "'and USUARIOS.clave='" + textBox2.Text + "'and USUARIOS.tipo_usuario='" + comboBox1.Text + "'";
+                string select="SELECT * FROM USUARIOS where USUARIOS.nombre='" + textBox1.Text + "'and USUARIOS.clave='" + var1 + "'and USUARIOS.tipo_usuario='" + comboBox1.Text + "'";
                 OleDbCommand cmd6 = new OleDbCommand(select, conexion);
                 try
                 {
@@ -86,12 +90,12 @@ namespace empanada_2
                 catch (Exception ex)
                 {
                     MessageBox.Show("Error orden" + ex, "MENSAJE", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
-                if (veces == 2)
-                {
-                    MessageBox.Show("Has excedido el limite permitido ", "Coneccion", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    this.Close();                    
-                }
+                }                
+            }
+            if (veces == 2)
+            {
+                MessageBox.Show("Has excedido el limite permitido ", "conexion", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                this.Close();
             }
         }
 
@@ -136,7 +140,7 @@ namespace empanada_2
                     }
                     else
                     {
-                        MessageBox.Show("Su Usuario o Contraseña o Tipo NO Coinciden o son Erroneas \n \n                        Le Quedan " + (intentos - veces) + " Intento(s)", "CompuBinario", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        MessageBox.Show("Su Usuario o Contraseña o Tipo NO Coinciden o son Erroneas \n \n                        Le Quedan " + (intentos - veces) + " Intento(s)", "conexion", MessageBoxButtons.OK, MessageBoxIcon.Error);
                         LIMPIAR();
                         veces = veces + 1;
                     }
@@ -145,12 +149,12 @@ namespace empanada_2
                 catch (Exception ex)
                 {
                     MessageBox.Show("Error orden" + ex, "MENSAJE", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
-                if (veces == 2)
-                {
-                    MessageBox.Show("Has excedido el limite permitido ", "Coneccion", MessageBoxButtons.OK, MessageBoxIcon.Error);                    
-                    this.Close();
-                }
+                }                
+            }
+            if (veces == 2)
+            {
+                MessageBox.Show("Has excedido el limite permitido ", "conexion", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                this.Close();
             }
         }
 
@@ -168,7 +172,7 @@ namespace empanada_2
                 comboBox1.Focus();
             }
 
-            if (textBox1.Text == "")
+            else if (textBox1.Text == "")
             {
                 MessageBox.Show("Para Agregar un usuario tienes que identificarte", "Mensaje de Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 textBox1.Focus();
@@ -200,7 +204,7 @@ namespace empanada_2
                     }
                     else
                     {
-                        MessageBox.Show("Su Usuario o Contraseña o Tipo NO Coinciden o son Erroneas \n \n                        Le Quedan " + (intentos - veces) + " Intento(s)", "CompuBinario", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        MessageBox.Show("Su Usuario o Contraseña o Tipo NO Coinciden o son Erroneas \n \n                        Le Quedan " + (intentos - veces) + " Intento(s)", "conexion", MessageBoxButtons.OK, MessageBoxIcon.Error);
                         LIMPIAR();
                         veces = veces + 1;
                     }
@@ -212,7 +216,7 @@ namespace empanada_2
                 }
                 if (veces == 2)
                 {
-                    MessageBox.Show("Has excedido el limite permitido ", "Coneccion", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show("Has excedido el limite permitido ", "conexion", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     this.Close();
                 }
             }

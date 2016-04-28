@@ -21,7 +21,8 @@ namespace empanada_2
             this.band = band;
         }
         string ds,texto;
-        int band;         
+        int band;
+
         private void btngrabar_Click(object sender, EventArgs e)
         {
             if (band==0)
@@ -33,7 +34,7 @@ namespace empanada_2
                     return;
                 }
 
-                if (txtnombre.Text == "")
+                else if (txtnombre.Text == "")
                 {
                     MessageBox.Show("Falta Usuario", "Conexion", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                     txtnombre.Focus();
@@ -45,7 +46,11 @@ namespace empanada_2
                 }
                 else
                 {
-                    //realizar la conexion
+                    //ahora encriptamos 
+                    string var1;
+                    var1 = Encriptado.Encriptar(txtclave.Text);
+                    //----------------------------------
+                                       
                     OleDbConnection conexion = new OleDbConnection(ds);
                     conexion.Open();
                     try
@@ -53,7 +58,7 @@ namespace empanada_2
                         string insertar = "INSERT INTO USUARIOS (nombre, clave, tipo_usuario) VALUES (@NOMBRE, @CLAVE, @TIPO)";
                         OleDbCommand cmd2 = new OleDbCommand(insertar, conexion);
                         cmd2.Parameters.AddWithValue("@NOMBRE", txtnombre.Text);
-                        cmd2.Parameters.AddWithValue("@CLAVE", txtclave.Text);
+                        cmd2.Parameters.AddWithValue("@CLAVE", var1);
                         cmd2.Parameters.AddWithValue("@TIPO", cbotipo.Text);
 
                         cmd2.ExecuteNonQuery();
@@ -79,7 +84,7 @@ namespace empanada_2
                     return;
                 }
 
-                if (txtnombre.Text == "")
+                else if (txtnombre.Text == "")
                 {
                     MessageBox.Show("Falta Usuario", "Conexion", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                     txtnombre.Focus();
