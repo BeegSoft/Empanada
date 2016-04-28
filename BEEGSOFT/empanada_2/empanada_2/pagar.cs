@@ -184,6 +184,31 @@ namespace empanada_2
             this.Close();
         }
 
+        private void button3_Click(object sender, EventArgs e)
+        {
+            //QUITAR LA ORDEN DEL LISTVIEW QUE SIGNIFICA QUE YA HA PAGADO Y NO TIENE PORQUE APARECER AHI
+
+            OleDbConnection conexion4 = new OleDbConnection(ds);
+
+            conexion4.Open();
+
+            string insertar = "UPDATE ORDEN SET checador = @checador WHERE id_orden=" + id_orden;
+            OleDbCommand cmd3 = new OleDbCommand(insertar, conexion4);
+            cmd3.Parameters.AddWithValue("@checador", 0);
+
+            cmd3.ExecuteNonQuery();
+
+            MessageBox.Show("Pago con exito", "MENSAJE", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            conexion4.Close();
+
+            IForm2 formInterface = this.Owner as IForm2;
+            if (formInterface != null)
+                formInterface.Relogear_ordenes();
+
+
+            this.Close();
+        }
+
         private void button1_Click(object sender, EventArgs e)
         {
             //QUITAR LA ORDEN DEL LISTVIEW QUE SIGNIFICA QUE YA HA PAGADO Y NO TIENE PORQUE APARECER AHI
