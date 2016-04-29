@@ -89,6 +89,8 @@ namespace empanada_2
                             Inicio form = new Inicio(ds);
                             LIMPIAR();
                             form.Show();
+
+                            this.Close();
                             
                         }
                     }
