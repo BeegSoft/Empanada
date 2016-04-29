@@ -79,11 +79,11 @@ namespace empanada_2
                 j = 1;
                 i++;
             }
-
+            i = 2;
+            j = 7;
             foreach (ListViewItem comp in listView_gastos.Items)
             {
-                i = 2;
-                j = 7;
+                
                 ws.Cells[1, 7] = ("FECHA");
                 ws.Cells[1, 8] = ("DESCRIPCION");
                 ws.Cells[1, 9] = ("GASTO");
@@ -95,7 +95,7 @@ namespace empanada_2
                     ws.Cells[i, j] = drv.Text.ToString();
                     j++;
                 }
-                j = 1;
+                j = 7;
                 i++;
             }
         }
