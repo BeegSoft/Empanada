@@ -87,10 +87,11 @@ namespace empanada_2
                         {
                             MessageBox.Show("Usuario Aceptado", "Empanada", MessageBoxButtons.OK, MessageBoxIcon.Information);
                             Inicio form = new Inicio(ds);
+
                             LIMPIAR();
+                            
                             form.Show();
 
-                            this.Close();
                             
                         }
                     }
