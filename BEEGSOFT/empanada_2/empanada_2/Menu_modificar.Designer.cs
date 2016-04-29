@@ -29,33 +29,13 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Menu_modificar));
-            this.button_cancelar = new System.Windows.Forms.Button();
-            this.button_aceptar = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.textBox_precio = new System.Windows.Forms.TextBox();
             this.textBox_nombre = new System.Windows.Forms.TextBox();
+            this.button2 = new System.Windows.Forms.Button();
+            this.button4 = new System.Windows.Forms.Button();
             this.SuspendLayout();
-            // 
-            // button_cancelar
-            // 
-            this.button_cancelar.Location = new System.Drawing.Point(216, 99);
-            this.button_cancelar.Name = "button_cancelar";
-            this.button_cancelar.Size = new System.Drawing.Size(84, 34);
-            this.button_cancelar.TabIndex = 18;
-            this.button_cancelar.Text = "Cancelar";
-            this.button_cancelar.UseVisualStyleBackColor = true;
-            this.button_cancelar.Click += new System.EventHandler(this.button_cancelar_Click);
-            // 
-            // button_aceptar
-            // 
-            this.button_aceptar.Location = new System.Drawing.Point(216, 43);
-            this.button_aceptar.Name = "button_aceptar";
-            this.button_aceptar.Size = new System.Drawing.Size(84, 34);
-            this.button_aceptar.TabIndex = 17;
-            this.button_aceptar.Text = "Aceptar";
-            this.button_aceptar.UseVisualStyleBackColor = true;
-            this.button_aceptar.Click += new System.EventHandler(this.button_aceptar_Click);
             // 
             // label2
             // 
@@ -89,13 +69,51 @@
             this.textBox_nombre.Size = new System.Drawing.Size(142, 20);
             this.textBox_nombre.TabIndex = 13;
             // 
+            // button2
+            // 
+            this.button2.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.button2.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.button2.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Yellow;
+            this.button2.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
+            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button2.Font = new System.Drawing.Font("Lucida Sans", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button2.Image = global::empanada_2.Properties.Resources.delete;
+            this.button2.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.button2.Location = new System.Drawing.Point(221, 91);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(92, 56);
+            this.button2.TabIndex = 79;
+            this.button2.Text = "Cancelar";
+            this.button2.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.button2.UseVisualStyleBackColor = false;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
+            // 
+            // button4
+            // 
+            this.button4.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.button4.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.button4.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Yellow;
+            this.button4.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
+            this.button4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button4.Font = new System.Drawing.Font("Lucida Sans", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button4.Image = global::empanada_2.Properties.Resources.accept;
+            this.button4.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.button4.Location = new System.Drawing.Point(221, 23);
+            this.button4.Name = "button4";
+            this.button4.Size = new System.Drawing.Size(92, 56);
+            this.button4.TabIndex = 78;
+            this.button4.Text = "Agregar";
+            this.button4.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.button4.UseVisualStyleBackColor = false;
+            this.button4.Click += new System.EventHandler(this.button4_Click);
+            // 
             // Menu_modificar
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(325, 154);
-            this.Controls.Add(this.button_cancelar);
-            this.Controls.Add(this.button_aceptar);
+            this.Controls.Add(this.button2);
+            this.Controls.Add(this.button4);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.textBox_precio);
@@ -110,12 +128,11 @@
         }
 
         #endregion
-
-        private System.Windows.Forms.Button button_cancelar;
-        private System.Windows.Forms.Button button_aceptar;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox textBox_precio;
         private System.Windows.Forms.TextBox textBox_nombre;
+        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button button4;
     }
 }

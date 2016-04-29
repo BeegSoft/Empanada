@@ -22,11 +22,18 @@ namespace empanada_2
         }
         string ds,texto;
         int band;
+        
+        private void RESET()
+        {
+            txtclave.Clear();
+            txtnombre.Clear();
+            cbotipo.Text = "SELECCIONE TIPO";
+            txtnombre.Focus();
+        }
 
         private void btngrabar_Click(object sender, EventArgs e)
         {
             if (band==0)
-
             {
                 if (this.cbotipo.Text == "SELECCIONAR")
                 {
@@ -63,6 +70,7 @@ namespace empanada_2
 
                         cmd2.ExecuteNonQuery();
                         MessageBox.Show("Usuario Agregado", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        RESET();
                     }
 
                     catch (DBConcurrencyException ex)
@@ -106,22 +114,15 @@ namespace empanada_2
                         //----------------------------------
                         //realizar la conexion
 
-                        string insertar2 = "UPDATE USUARIOS SET nombre = @NOMBRE WHERE nombre = '" + texto + "'";
+                        string insertar2 = "UPDATE USUARIOS SET nombre = @NOMBRE, clave = @CLAVE,tipo_usuario = @TIPO WHERE nombre = '" + texto + "'";
                         OleDbCommand cmd3 = new OleDbCommand(insertar2, conexion);
-                        cmd3.Parameters.AddWithValue("@NOMBRE", txtnombre.Text);
+                        cmd3.Parameters.AddWithValue("@NOMBRE", txtnombre.Text);                        
+                        cmd3.Parameters.AddWithValue("@CLAVE", var1);                        ;
+                        cmd3.Parameters.AddWithValue("@TIPO", cbotipo.Text);
                         cmd3.ExecuteNonQuery();
 
-                        string insertar3 = "UPDATE USUARIOS SET clave = @CLAVE WHERE nombre = '" + texto + "'";
-                        OleDbCommand cmd4 = new OleDbCommand(insertar3, conexion);
-                        cmd4.Parameters.AddWithValue("@CLAVE", var1);
-                        cmd4.ExecuteNonQuery();
-
-                        string insertar4 = "UPDATE USUARIOS SET tipo_usuario = @TIPO WHERE nombre = '" + texto + "'";
-                        OleDbCommand cmd5 = new OleDbCommand(insertar4, conexion);
-                        cmd5.Parameters.AddWithValue("@TIPO", cbotipo.Text);
-                        cmd5.ExecuteNonQuery();
-
                         MessageBox.Show("Usuario modificado", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        RESET();
                     }
 
                     catch (DBConcurrencyException ex)
@@ -134,8 +135,7 @@ namespace empanada_2
                     }
                     conexion.Close();
                 }
-            }
-            this.Close();
+            }            
         }
     }
 }

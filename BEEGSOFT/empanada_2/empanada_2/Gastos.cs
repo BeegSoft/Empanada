@@ -74,39 +74,7 @@ namespace empanada_2
         {
             
         }
-
-        private void button2_Click(object sender, EventArgs e)
-        {
-            OleDbConnection conexion = new OleDbConnection(ds);
-
-            conexion.Open();
-            if ((textBox_descripcion.Text == "") || (textBox_gasto.Text == ""))
-            {
-                MessageBox.Show("No has introduccido la informacion necesaria", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                textBox_descripcion.Focus();
-            }
-            else
-            {
-                string insertar = "INSERT INTO GASTOS (Fecha, Descripcion, Gasto) VALUES (@Fecha, @Descripcion, @Gasto)";
-                OleDbCommand cmd = new OleDbCommand(insertar, conexion);
-                cmd.Parameters.AddWithValue("@Fecha", fecha);
-                cmd.Parameters.AddWithValue("@Descripcion", textBox_descripcion.Text);
-                cmd.Parameters.AddWithValue("@Gasto", Convert.ToInt32(textBox_gasto.Text));
-
-                cmd.ExecuteNonQuery();
-                MessageBox.Show("Datos agregados correctamente", "MENSAJE", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                conexion.Close();
-
-                SELECT_GASTOS();
-
-                SUMA_GASTOS();
-
-                GANANCIAS();
-
-                textBox_descripcion.Clear();
-                textBox_gasto.Clear();
-            }                        
-        }
+ 
 
         int ventas, gastos, ganancias;
 
@@ -149,38 +117,53 @@ namespace empanada_2
             conexion.Close();
         }
 
-        private void SUMA_GASTOS()
+        private void button5_Click(object sender, EventArgs e)
         {
             OleDbConnection conexion = new OleDbConnection(ds);
 
             conexion.Open();
-            
-            
-            //SUMAR TODOS LOS GASTOS
-
-            string sql = "select SUM(Gasto) from GASTOS WHERE Fecha = '" + fecha + "'";
-            OleDbCommand cmd2 = new OleDbCommand(sql, conexion); //Conexion es tu objeto conexion                                            
-
-            string suma_gasto = ((cmd2.ExecuteScalar()).ToString());
-            if (suma_gasto == "")
+            if ((textBox_descripcion.Text == "") || (textBox_gasto.Text == ""))
             {
-                suma_gasto = "0";
-            }            
-            //-------------------
-            textBox_total.Text = suma_gasto;
+                MessageBox.Show("No has introduccido la informacion necesaria", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                textBox_descripcion.Focus();
+            }
+            else
+            {
+                string insertar = "INSERT INTO GASTOS (Fecha, Descripcion, Gasto) VALUES (@Fecha, @Descripcion, @Gasto)";
+                OleDbCommand cmd = new OleDbCommand(insertar, conexion);
+                cmd.Parameters.AddWithValue("@Fecha", fecha);
+                cmd.Parameters.AddWithValue("@Descripcion", textBox_descripcion.Text);
+                cmd.Parameters.AddWithValue("@Gasto", Convert.ToInt32(textBox_gasto.Text));
 
-            //ACTUALIZAR LOS GASTOS DE LA FECHA
+                cmd.ExecuteNonQuery();
+                MessageBox.Show("Datos agregados correctamente", "MENSAJE", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                conexion.Close();
 
-            string actualizar = "UPDATE FECHA SET Gastos = @Gastos WHERE fecha = '" + fecha + "'";
-            OleDbCommand cmd3 = new OleDbCommand(actualizar, conexion);
-            cmd3.Parameters.AddWithValue("@Gastos", suma_gasto);
+                SELECT_GASTOS();
 
-            cmd3.ExecuteNonQuery();
+                SUMA_GASTOS();
 
-            conexion.Close();
+                GANANCIAS();
+
+                textBox_descripcion.Clear();
+                textBox_gasto.Clear();
+            }
         }
 
         private void button3_Click(object sender, EventArgs e)
+        {
+            foreach (ListViewItem lista in listView_fechas.SelectedItems)
+            {
+                fecha = lista.Text;
+                label_fecha.Text = fecha;
+            }
+            textBox_descripcion.Focus();
+            SELECT_GASTOS();
+            SUMA_GASTOS();
+            GANANCIAS();
+        }
+
+        private void button4_Click(object sender, EventArgs e)
         {
             foreach (ListViewItem lista in listView_gastos.SelectedItems)
             {
@@ -223,17 +206,35 @@ namespace empanada_2
             GANANCIAS();
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void SUMA_GASTOS()
         {
-            foreach (ListViewItem lista in listView_fechas.SelectedItems)
+            OleDbConnection conexion = new OleDbConnection(ds);
+
+            conexion.Open();
+            
+            
+            //SUMAR TODOS LOS GASTOS
+
+            string sql = "select SUM(Gasto) from GASTOS WHERE Fecha = '" + fecha + "'";
+            OleDbCommand cmd2 = new OleDbCommand(sql, conexion); //Conexion es tu objeto conexion                                            
+
+            string suma_gasto = ((cmd2.ExecuteScalar()).ToString());
+            if (suma_gasto == "")
             {
-                fecha = lista.Text;
-                label_fecha.Text = fecha;
-            }
-            textBox_descripcion.Focus();
-            SELECT_GASTOS();
-            SUMA_GASTOS();
-            GANANCIAS();
+                suma_gasto = "0";
+            }            
+            //-------------------
+            textBox_total.Text = suma_gasto;
+
+            //ACTUALIZAR LOS GASTOS DE LA FECHA
+
+            string actualizar = "UPDATE FECHA SET Gastos = @Gastos WHERE fecha = '" + fecha + "'";
+            OleDbCommand cmd3 = new OleDbCommand(actualizar, conexion);
+            cmd3.Parameters.AddWithValue("@Gastos", suma_gasto);
+
+            cmd3.ExecuteNonQuery();
+
+            conexion.Close();
         }
     }
 }

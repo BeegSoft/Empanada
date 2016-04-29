@@ -26,7 +26,31 @@ namespace empanada_2
             SELECT_FECHA();
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void SELECT_FECHA()
+        {
+            OleDbDataAdapter adaptador = new OleDbDataAdapter("SELECT FECHA.fecha FROM FECHA ORDER BY FECHA.fecha", ds);
+
+            DataSet dataset = new DataSet();
+            DataTable tabla = new DataTable();
+
+            adaptador.Fill(dataset);
+            tabla = dataset.Tables[0];
+            this.listView_fechas.Items.Clear();
+            for (int i = 0; i < tabla.Rows.Count; i++)
+            {
+                DataRow filas = tabla.Rows[i];
+                ListViewItem elementos = new ListViewItem(filas["fecha"].ToString());
+                listView_fechas.Items.Add(elementos);
+            }
+
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            CARGAR();
+        }
+
+        private void button2_Click(object sender, EventArgs e)
         {
             CARGAR();
             Microsoft.Office.Interop.Excel.Application xla = new Microsoft.Office.Interop.Excel.Application();
@@ -74,30 +98,6 @@ namespace empanada_2
                 j = 1;
                 i++;
             }
-        }
-
-        private void SELECT_FECHA()
-        {
-            OleDbDataAdapter adaptador = new OleDbDataAdapter("SELECT FECHA.fecha FROM FECHA ORDER BY FECHA.fecha", ds);
-
-            DataSet dataset = new DataSet();
-            DataTable tabla = new DataTable();
-
-            adaptador.Fill(dataset);
-            tabla = dataset.Tables[0];
-            this.listView_fechas.Items.Clear();
-            for (int i = 0; i < tabla.Rows.Count; i++)
-            {
-                DataRow filas = tabla.Rows[i];
-                ListViewItem elementos = new ListViewItem(filas["fecha"].ToString());
-                listView_fechas.Items.Add(elementos);
-            }
-
-        }
-
-        private void button2_Click_1(object sender, EventArgs e)
-        {           
-            CARGAR();
         }
 
         private void CARGAR()

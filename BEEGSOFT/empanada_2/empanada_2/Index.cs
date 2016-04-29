@@ -43,314 +43,6 @@ namespace empanada_2
             textBoxcarnec.Enabled = false;
         }
 
-        //carga el form para realizar el pago de cada pedido
-        private void button16_Click(object sender, EventArgs e)
-        {
-            int id_orden = 0;
-            foreach (ListViewItem lista in listView_ordenes.SelectedItems)
-            {
-                id_orden = Convert.ToInt32(lista.Text);
-            }
-            if (id_orden == 0)
-            {
-                MessageBox.Show("No se encuentra seleccionada una orden", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-            else
-            {
-                foreach (ListViewItem lista in listView_ordenes.SelectedItems)
-                {
-                    id_orden = Convert.ToInt32(lista.Text);
-                    int pagare;
-
-                    //.....
-                    OleDbConnection conexion = new OleDbConnection(ds);
-
-                    conexion.Open();
-
-                    string select = "SELECT total_pagar FROM ORDEN WHERE id_orden=" + id_orden;
-                    OleDbCommand cmd = new OleDbCommand(select, conexion);
-                    try
-                    {
-                        OleDbDataReader reader = cmd.ExecuteReader();
-
-                        if (reader.HasRows)
-                        {
-                            while (reader.Read())
-                            {
-                                pagare = reader.GetInt32(0);
-
-                                if (pagare > 0)
-                                {
-                                    pagar correr = new pagar(id_orden, fecha, ds);
-                                    correr.ShowDialog(this);
-                                }
-                                else
-                                {
-                                    MessageBox.Show("No se puede continuar porque la orden no tiene nada que pagar", "MENSAJE", MessageBoxButtons.OK, MessageBoxIcon.Stop);
-                                }
-                            }
-                        }
-                        else
-                        {
-                            MessageBox.Show("No se pudo", "MENSAJE", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                        }
-                        reader.Close();
-                    }
-                    catch (Exception ex)
-                    {
-                        MessageBox.Show("Error orden" + ex, "MENSAJE", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    }                 
-                }
-            }
-
-        }
-
-        private void button17_Click(object sender, EventArgs e)
-        {
-            if (id == 0)
-            {
-                MessageBox.Show("No se has cargado ninguna orden", "MENSAJE", MessageBoxButtons.OK, MessageBoxIcon.Stop);
-            }
-            else
-            {
-                try
-                {
-                    if (Convert.ToInt32(textBox_otros.Text) != 0)
-                    {
-                        cantidad = Convert.ToInt32(textBox_otros.Text);
-                        platillo = comboBox_otros.Text;
-
-                        Insertar_datos(cantidad, platillo);
-                        INSERTAR_VISU(platillo, cantidad);
-                    }
-
-                    if (Convert.ToInt32(textBoxcarnec.Text) != 0)
-                    {
-                        cantidad = Convert.ToInt32(textBoxcarnec.Text);
-                        platillo = "carne con chile";
-
-                        Insertar_datos(cantidad, platillo);
-                        INSERTAR_VISU(platillo, cantidad);
-                    }
-
-                    if (Convert.ToInt32(textBoxrajas.Text) != 0)
-                    {
-                        cantidad = Convert.ToInt32(textBoxrajas.Text);
-                        platillo = "rajas con queso";
-
-                        Insertar_datos(cantidad, platillo);
-                        INSERTAR_VISU(platillo, cantidad);
-                    }
-
-                    if (Convert.ToInt32(textBoxfrijol.Text) != 0)
-                    {
-                        cantidad = Convert.ToInt32(textBoxfrijol.Text);
-                        platillo = "frijol con queso";
-
-                        Insertar_datos(cantidad, platillo);
-                        INSERTAR_VISU(platillo, cantidad);
-                    }
-
-                    if (Convert.ToInt32(textBoxcochinita.Text) != 0)
-                    {
-                        cantidad = Convert.ToInt32(textBoxcochinita.Text);
-                        platillo = "cochinita";
-
-                        Insertar_datos(cantidad, platillo);
-                        INSERTAR_VISU(platillo, cantidad);
-                    }
-
-                    if (Convert.ToInt32(textBoxchicharronsv.Text) != 0)
-                    {
-                        cantidad = Convert.ToInt32(textBoxchicharronsv.Text);
-                        platillo = "chicharron salsa verde";
-
-                        Insertar_datos(cantidad, platillo);
-                        INSERTAR_VISU(platillo, cantidad);
-                    }
-
-                    if (Convert.ToInt32(textBoxchicharronsr.Text) != 0)
-                    {
-                        cantidad = Convert.ToInt32(textBoxchicharronsr.Text);
-                        platillo = "chicharron salsa roja";
-
-                        Insertar_datos(cantidad, platillo);
-                        INSERTAR_VISU(platillo, cantidad);
-                    }
-
-                    if (Convert.ToInt32(textBoxnopal.Text) != 0)
-                    {
-                        cantidad = Convert.ToInt32(textBoxnopal.Text);
-                        platillo = "nopal";
-
-                        Insertar_datos(cantidad, platillo);
-                        INSERTAR_VISU(platillo, cantidad);
-                    }
-
-                    if (Convert.ToInt32(textBoxtinga.Text) != 0)
-                    {
-                        cantidad = Convert.ToInt32(textBoxtinga.Text);
-                        platillo = "tinga de pollo";
-
-                        Insertar_datos(cantidad, platillo);
-                        INSERTAR_VISU(platillo, cantidad);
-                    }
-
-                    if (Convert.ToInt32(textBoxpicadillo.Text) != 0)
-                    {
-                        cantidad = Convert.ToInt32(textBoxpicadillo.Text);
-                        platillo = "picadillo";
-
-                        Insertar_datos(cantidad, platillo);
-                        INSERTAR_VISU(platillo, cantidad);
-                    }
-
-                    if (Convert.ToInt32(textBoxhorchata.Text) != 0)
-                    {
-                        cantidad = Convert.ToInt32(textBoxhorchata.Text);
-                        platillo = "horchata";
-
-                        Insertar_datos(cantidad, platillo);
-                        INSERTAR_VISU(platillo, cantidad);
-                    }
-
-                    if (Convert.ToInt32(textBoxjamaica.Text) != 0)
-                    {
-                        cantidad = Convert.ToInt32(textBoxjamaica.Text);
-                        platillo = "jamaica";
-
-                        Insertar_datos(cantidad, platillo);
-                        INSERTAR_VISU(platillo, cantidad);
-                    }
-
-                    if (Convert.ToInt32(textBoxtamarindo.Text) != 0)
-                    {
-                        cantidad = Convert.ToInt32(textBoxtamarindo.Text);
-                        platillo = "tamarindo";
-
-                        Insertar_datos(cantidad, platillo);
-                        INSERTAR_VISU(platillo, cantidad);
-                    }
-
-                    if (Convert.ToInt32(textBoxsoda.Text) != 0)
-                    {
-                        cantidad = Convert.ToInt32(textBoxsoda.Text);
-                        platillo = "soda";
-
-                        Insertar_datos(cantidad, platillo);
-                        INSERTAR_VISU(platillo, cantidad);
-                    }
-
-                    if (Convert.ToInt32(textBoxcafe.Text) != 0)
-                    {
-                        cantidad = Convert.ToInt32(textBoxcafe.Text);
-                        platillo = "cafe";
-
-                        Insertar_datos(cantidad, platillo);
-                        INSERTAR_VISU(platillo, cantidad);
-                    }
-
-                    if (Convert.ToInt32(textBoxcebada.Text) != 0)
-                    {
-                        cantidad = Convert.ToInt32(textBoxcebada.Text);
-                        platillo = "cebada";
-
-                        Insertar_datos(cantidad, platillo);
-                        INSERTAR_VISU(platillo, cantidad);
-                    }
-
-
-                    //MOSTRAR EL TOTAL A PAGAR DEL PEDIDO
-
-                    OleDbConnection conexion4 = new OleDbConnection(ds);
-
-                    conexion4.Open();
-
-                    string sql = "select SUM(pagar) from PLATILLO WHERE id_orden=" + id;
-                    OleDbCommand cmd = new OleDbCommand(sql, conexion4); //Conexion es tu objeto conexion                                
-
-                    total_pagar = (cmd.ExecuteScalar()).ToString();
-
-                    textBox_total.Text = total_pagar;
-                    //-------------------
-
-                    //INSERTAR EL TOTAL EN LA TABLA ORDEN
-                    try {
-                        string insertar = "UPDATE ORDEN SET total_pagar = @total_pagar WHERE id_orden=" + id;
-                        OleDbCommand cmd3 = new OleDbCommand(insertar, conexion4);
-                        cmd3.Parameters.AddWithValue("@total_pagar", textBox_total.Text);
-
-                        cmd3.ExecuteNonQuery();
-
-                        // INSERTAR DESCRIPCION A LA TABLA ORDEN
-
-                        string descripcion = "UPDATE ORDEN SET descripcion = @descripcion WHERE id_orden=" + id;
-                        OleDbCommand cmd5 = new OleDbCommand(descripcion, conexion4);
-                        cmd5.Parameters.AddWithValue("@descripcion", textBox_descripcion.Text);
-
-                        cmd5.ExecuteNonQuery();
-                    }
-                    catch { }
-                    conexion4.Close();
-                    //-------------------
-
-                    SELECT_PLATILLOS();
-
-                    //RELOGEAR EL LISTVIEW ORDENES PARA QUE APARESCA EL TOTAL
-
-
-                    SELECT_ORDEN();
-                    //--------------------------------
-                    //RESETEAR LAS CANTIDADES DE LOS TEXTBOX 
-                    resetear();                    
-                }
-                catch (FormatException)
-                {
-                    MessageBox.Show("Tipo de dato incorrecto", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    textBox_otros.Text = "0";
-                    textBox_otros.Focus();
-                }
-
-
-                string txt = textBox_descripcion.Text;
-
-                IForm formInterface = this.Owner as IForm;
-
-                if (formInterface != null)
-                    formInterface.ChangeTextBoxText(txt, id);
-
-                //TOTAL DEL DIA
-
-                OleDbConnection conexion5 = new OleDbConnection(ds);
-
-                conexion5.Open();
-                try {
-                    string sql5 = "SELECT SUM(ORDEN.total_pagar) FROM FECHA INNER JOIN ORDEN ON FECHA.fecha = ORDEN.fecha WHERE FECHA.fecha = '" + fecha + "'";
-
-                    OleDbCommand cmd7 = new OleDbCommand(sql5, conexion5); //Conexion es tu objeto conexion                                
-
-                    int total_dia = Convert.ToInt32(cmd7.ExecuteScalar());
-
-                    //-------------------
-
-                    //INSERTAR EL TOTAL EN LA TABLA ORDEN
-
-                    string insertar6 = "UPDATE FECHA SET Venta_total = @Venta_total WHERE fecha = '" + fecha + "'";
-                    OleDbCommand cmd6 = new OleDbCommand(insertar6, conexion5);
-                    cmd6.Parameters.AddWithValue("@Venta_total", total_dia);
-
-                    cmd6.ExecuteNonQuery();
-                }
-                catch
-                {
-
-                }
-                conexion5.Close();
-            }
-
-            GANANCIAS();
-        }
-
         private void INSERTAR_VISU(string platillo, int cantidad)
         {
             OleDbConnection conexion = new OleDbConnection(ds);
@@ -582,116 +274,7 @@ namespace empanada_2
 
         private void button14_Click(object sender, EventArgs e)
         {            
-            foreach (ListViewItem lista in listView_ordenes.SelectedItems)
-            {
-                id = Convert.ToInt32(lista.Text);
-            }
-
-            if (id == 0)
-            {
-                MessageBox.Show("No se encuentra seleccionada una orden", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-            else
-            {
-                SELECT_PLATILLOS();
-
-                //HACER LA SUMA DEL TOTAL A PAGAR
-                OleDbConnection conexion4 = new OleDbConnection(ds);
-
-                conexion4.Open();
-
-                string sql = "select SUM(pagar) from PLATILLO WHERE id_orden=" + id;
-                OleDbCommand cmd = new OleDbCommand(sql, conexion4);
-
-                total_pagar = (cmd.ExecuteScalar()).ToString();
-
-                textBox_total.Text = total_pagar;
-
-
-                //PONER LA DESCRIPCION EN EL TEXTBOX
-
-                string select = "SELECT descripcion FROM ORDEN WHERE id_orden=" + id;
-                OleDbCommand cmd6 = new OleDbCommand(select, conexion4);
-                try
-                {
-                    OleDbDataReader reader = cmd6.ExecuteReader();
-
-                    if (reader.HasRows)
-                    {
-                        while (reader.Read())
-                        {
-                            string descripcion = reader.GetString(0);
-
-                            textBox_descripcion.Text = descripcion;
-                        }
-                    }
-                    else
-                    {
-                        MessageBox.Show("No se pudo", "MENSAJE", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    }
-                    reader.Close();
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show("Error orden" + ex, "MENSAJE", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
-
-                //---------------------------------
-                conexion4.Close();
-                resetear();
-            }            
-        }
-
-        private void button13_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                OleDbConnection conexion = new OleDbConnection(ds);
-
-                conexion.Open();
-
-                string insertar = "INSERT INTO ORDEN (descripcion, total_pagar, fecha, checador) VALUES (@descripcion, @total_pagar, @fecha, @checador)";
-                OleDbCommand cmd = new OleDbCommand(insertar, conexion);
-                cmd.Parameters.AddWithValue("@descripcion", "Descripcion");
-                cmd.Parameters.AddWithValue("@total_pagar", 0);
-                cmd.Parameters.AddWithValue("@fecha", fecha);
-                cmd.Parameters.AddWithValue("@checador", 1);
-
-                cmd.ExecuteNonQuery();
-                MessageBox.Show("Orden creada Correctamente", "MENSAJE", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                conexion.Close();
-            }
-
-            catch (DBConcurrencyException ex)
-            {
-                MessageBox.Show("Error de concurrencia:\n" + ex.Message,"ERROR",MessageBoxButtons.OK,MessageBoxIcon.Error);
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message, "MENSAJE", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-
-
-            SELECT_ORDEN();
-
-            textBox_descripcion.Focus();
-
-            //SACAR LA ORDEN MAS ALTA PARA CREAR UNA NUEVA ORDEN
-           
-            OleDbConnection conexion4 = new OleDbConnection(ds);
-
-            conexion4.Open();
-
-            string maximo = "SELECT MAX(id_orden) FROM ORDEN";
-            OleDbCommand cmd3 = new OleDbCommand(maximo, conexion4);
-            id = Convert.ToInt32(cmd3.ExecuteScalar());
-            conexion4.Close();
-            //---------------------------------
-
-            resetear();
-
-            this.listView_platillos.Items.Clear();
-
+                       
         }
 
         int ventas, gastos, ganancias;
@@ -732,83 +315,6 @@ namespace empanada_2
             cmd3.ExecuteNonQuery();
 
             conexion.Close();
-        }
-
-        private void button15_Click(object sender, EventArgs e)
-        {            
-            foreach (ListViewItem lista in listView_ordenes.SelectedItems)
-            {
-                id = Convert.ToInt32(lista.Text);
-            }
-            if (id == 0)
-            {
-                MessageBox.Show("No se encuentra seleccionada una orden", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-            else
-            {
-                foreach (ListViewItem lista in listView_ordenes.SelectedItems)
-                {
-                    id = Convert.ToInt32(lista.Text);
-
-                    DialogResult resultado = MessageBox.Show("Esta seguro de borrar la orden?", "ADVERTENCIA", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
-                    if (resultado == DialogResult.Yes)
-                    {
-                        try
-                        {
-                            OleDbConnection conexion = new OleDbConnection(ds);
-
-                            conexion.Open();
-                            string insertar = "DELETE FROM ORDEN WHERE id_orden = " + id;
-                            OleDbCommand cmd = new OleDbCommand(insertar, conexion);
-
-                            cmd.ExecuteNonQuery();
-                            conexion.Close();
-                            listView_platillos.Items.Clear();
-                            textBox_total.Text = "0";
-                        }
-                        catch (DBConcurrencyException ex)
-                        {
-                            MessageBox.Show("Error de concurrencia:\n" + ex.Message, "MENSAJE", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                        }
-                        catch (Exception ex)
-                        {
-                            MessageBox.Show(ex.Message, "MENSAJE", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                        }
-                        lista.Remove();
-                    }
-                }
-
-                //TOTAL DEL DIA
-
-                OleDbConnection conexion5 = new OleDbConnection(ds);
-
-                conexion5.Open();
-                try
-                {
-                    string sql5 = "SELECT SUM(ORDEN.total_pagar) FROM FECHA INNER JOIN ORDEN ON FECHA.fecha = ORDEN.fecha WHERE FECHA.fecha = '" + fecha + "'";
-
-                    OleDbCommand cmd7 = new OleDbCommand(sql5, conexion5); //Conexion es tu objeto conexion                                
-
-                    int total_dia = Convert.ToInt32(cmd7.ExecuteScalar());
-                    //-------------------
-
-                    //INSERTAR EL TOTAL EN LA TABLA ORDEN
-
-                    string insertar6 = "UPDATE FECHA SET Venta_total = @Venta_total WHERE fecha = '" + fecha + "'";
-                    OleDbCommand cmd6 = new OleDbCommand(insertar6, conexion5);
-                    cmd6.Parameters.AddWithValue("@Venta_total", total_dia);
-
-                    cmd6.ExecuteNonQuery();
-                }
-                catch
-                {
-
-                }
-
-                conexion5.Close();
-
-                GANANCIAS();
-            }
         }
 
         private void button1_Click_2(object sender, EventArgs e)
@@ -987,7 +493,7 @@ namespace empanada_2
             }
         }
 
-        private void button18_Click(object sender, EventArgs e)
+        private void button25_Click(object sender, EventArgs e)
         {
             foreach (ListViewItem lista in listView_platillos.SelectedItems)
             {
@@ -1006,7 +512,7 @@ namespace empanada_2
                         string insertar = "DELETE FROM PLATILLO WHERE id_platillo = " + id_platillo;
                         OleDbCommand cmd = new OleDbCommand(insertar, conexion);
 
-                        cmd.ExecuteNonQuery();                        
+                        cmd.ExecuteNonQuery();
                         //-------------------------------------------------                        
 
                         string sql = "select SUM(pagar) from PLATILLO WHERE id_orden=" + id;
@@ -1014,14 +520,14 @@ namespace empanada_2
 
                         total_pagar = (cmd2.ExecuteScalar()).ToString();
                         if (total_pagar == "")
-                        {                                                        
+                        {
                             textBox_total.Text = "0";
                         }
                         else
                         {
                             textBox_total.Text = total_pagar;
                         }
-                        
+
                         //-------------------
 
                         //INSERTAR EL TOTAL EN LA TABLA ORDEN
@@ -1035,7 +541,7 @@ namespace empanada_2
 
                         SELECT_ORDEN();
                         //MessageBox.Show("Borrado", "", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                        
+
 
                     }
                     catch (DBConcurrencyException ex)
@@ -1047,7 +553,7 @@ namespace empanada_2
                         MessageBox.Show(ex.Message, "MENSAJE", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
                     lista.Remove();
-                } 
+                }
             }
 
             //TOTAL DEL DIA
@@ -1077,16 +583,505 @@ namespace empanada_2
             GANANCIAS();
         }
 
-        private void button23_Click_2(object sender, EventArgs e)
+        private void button18_Click(object sender, EventArgs e)
         {
-            if (Convert.ToInt32(textBox_otros.Text) > 0)
+            foreach (ListViewItem lista in listView_ordenes.SelectedItems)
             {
-                otros = otros - 1;
-                textBox_otros.Text = Convert.ToString(otros);
+                id = Convert.ToInt32(lista.Text);
+            }
+            if (id == 0)
+            {
+                MessageBox.Show("No se encuentra seleccionada una orden", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            else
+            {
+                foreach (ListViewItem lista in listView_ordenes.SelectedItems)
+                {
+                    id = Convert.ToInt32(lista.Text);
+
+                    DialogResult resultado = MessageBox.Show("Esta seguro de borrar la orden?", "ADVERTENCIA", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+                    if (resultado == DialogResult.Yes)
+                    {
+                        try
+                        {
+                            OleDbConnection conexion = new OleDbConnection(ds);
+
+                            conexion.Open();
+                            string insertar = "DELETE FROM ORDEN WHERE id_orden = " + id;
+                            OleDbCommand cmd = new OleDbCommand(insertar, conexion);
+
+                            cmd.ExecuteNonQuery();
+                            conexion.Close();
+                            listView_platillos.Items.Clear();
+                            textBox_total.Text = "0";
+                        }
+                        catch (DBConcurrencyException ex)
+                        {
+                            MessageBox.Show("Error de concurrencia:\n" + ex.Message, "MENSAJE", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        }
+                        catch (Exception ex)
+                        {
+                            MessageBox.Show(ex.Message, "MENSAJE", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        }
+                        lista.Remove();
+                    }
+                }
+
+                //TOTAL DEL DIA
+
+                OleDbConnection conexion5 = new OleDbConnection(ds);
+
+                conexion5.Open();
+                try
+                {
+                    string sql5 = "SELECT SUM(ORDEN.total_pagar) FROM FECHA INNER JOIN ORDEN ON FECHA.fecha = ORDEN.fecha WHERE FECHA.fecha = '" + fecha + "'";
+
+                    OleDbCommand cmd7 = new OleDbCommand(sql5, conexion5); //Conexion es tu objeto conexion                                
+
+                    int total_dia = Convert.ToInt32(cmd7.ExecuteScalar());
+                    //-------------------
+
+                    //INSERTAR EL TOTAL EN LA TABLA ORDEN
+
+                    string insertar6 = "UPDATE FECHA SET Venta_total = @Venta_total WHERE fecha = '" + fecha + "'";
+                    OleDbCommand cmd6 = new OleDbCommand(insertar6, conexion5);
+                    cmd6.Parameters.AddWithValue("@Venta_total", total_dia);
+
+                    cmd6.ExecuteNonQuery();
+                }
+                catch
+                {
+
+                }
+
+                conexion5.Close();
+
+                GANANCIAS();
             }
         }
 
-        private void button24_Click(object sender, EventArgs e)
+        private void button15_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                OleDbConnection conexion = new OleDbConnection(ds);
+
+                conexion.Open();
+
+                string insertar = "INSERT INTO ORDEN (descripcion, total_pagar, fecha, checador) VALUES (@descripcion, @total_pagar, @fecha, @checador)";
+                OleDbCommand cmd = new OleDbCommand(insertar, conexion);
+                cmd.Parameters.AddWithValue("@descripcion", "Descripcion");
+                cmd.Parameters.AddWithValue("@total_pagar", 0);
+                cmd.Parameters.AddWithValue("@fecha", fecha);
+                cmd.Parameters.AddWithValue("@checador", 1);
+
+                cmd.ExecuteNonQuery();
+                MessageBox.Show("Orden creada Correctamente", "MENSAJE", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                conexion.Close();
+            }
+
+            catch (DBConcurrencyException ex)
+            {
+                MessageBox.Show("Error de concurrencia:\n" + ex.Message, "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "MENSAJE", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+
+
+            SELECT_ORDEN();
+
+            textBox_descripcion.Focus();
+
+            //SACAR LA ORDEN MAS ALTA PARA CREAR UNA NUEVA ORDEN
+
+            OleDbConnection conexion4 = new OleDbConnection(ds);
+
+            conexion4.Open();
+
+            string maximo = "SELECT MAX(id_orden) FROM ORDEN";
+            OleDbCommand cmd3 = new OleDbCommand(maximo, conexion4);
+            id = Convert.ToInt32(cmd3.ExecuteScalar());
+            conexion4.Close();
+            //---------------------------------
+
+            resetear();
+
+            this.listView_platillos.Items.Clear();
+        }
+
+        private void button13_Click(object sender, EventArgs e)
+        {
+            foreach (ListViewItem lista in listView_ordenes.SelectedItems)
+            {
+                id = Convert.ToInt32(lista.Text);
+            }
+
+            if (id == 0)
+            {
+                MessageBox.Show("No se encuentra seleccionada una orden", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            else
+            {
+                SELECT_PLATILLOS();
+
+                //HACER LA SUMA DEL TOTAL A PAGAR
+                OleDbConnection conexion4 = new OleDbConnection(ds);
+
+                conexion4.Open();
+
+                string sql = "select SUM(pagar) from PLATILLO WHERE id_orden=" + id;
+                OleDbCommand cmd = new OleDbCommand(sql, conexion4);
+
+                total_pagar = (cmd.ExecuteScalar()).ToString();
+
+                textBox_total.Text = total_pagar;
+
+
+                //PONER LA DESCRIPCION EN EL TEXTBOX
+
+                string select = "SELECT descripcion FROM ORDEN WHERE id_orden=" + id;
+                OleDbCommand cmd6 = new OleDbCommand(select, conexion4);
+                try
+                {
+                    OleDbDataReader reader = cmd6.ExecuteReader();
+
+                    if (reader.HasRows)
+                    {
+                        while (reader.Read())
+                        {
+                            string descripcion = reader.GetString(0);
+
+                            textBox_descripcion.Text = descripcion;
+                        }
+                    }
+                    else
+                    {
+                        MessageBox.Show("No se pudo", "MENSAJE", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                    reader.Close();
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Error orden" + ex, "MENSAJE", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+
+                //---------------------------------
+                conexion4.Close();
+                resetear();
+            }
+        }
+
+        private void button26_Click(object sender, EventArgs e)
+        {
+            int id_orden = 0;
+            foreach (ListViewItem lista in listView_ordenes.SelectedItems)
+            {
+                id_orden = Convert.ToInt32(lista.Text);
+            }
+            if (id_orden == 0)
+            {
+                MessageBox.Show("No se encuentra seleccionada una orden", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            else
+            {
+                foreach (ListViewItem lista in listView_ordenes.SelectedItems)
+                {
+                    id_orden = Convert.ToInt32(lista.Text);
+                    int pagare;
+
+                    //.....
+                    OleDbConnection conexion = new OleDbConnection(ds);
+
+                    conexion.Open();
+
+                    string select = "SELECT total_pagar FROM ORDEN WHERE id_orden=" + id_orden;
+                    OleDbCommand cmd = new OleDbCommand(select, conexion);
+                    try
+                    {
+                        OleDbDataReader reader = cmd.ExecuteReader();
+
+                        if (reader.HasRows)
+                        {
+                            while (reader.Read())
+                            {
+                                pagare = reader.GetInt32(0);
+
+                                if (pagare > 0)
+                                {
+                                    pagar correr = new pagar(id_orden, fecha, ds);
+                                    correr.ShowDialog(this);
+                                }
+                                else
+                                {
+                                    MessageBox.Show("No se puede continuar porque la orden no tiene nada que pagar", "MENSAJE", MessageBoxButtons.OK, MessageBoxIcon.Stop);
+                                }
+                            }
+                        }
+                        else
+                        {
+                            MessageBox.Show("No se pudo", "MENSAJE", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        }
+                        reader.Close();
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show("Error orden" + ex, "MENSAJE", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                }
+            }
+        }
+
+        private void button14_Click_1(object sender, EventArgs e)
+        {
+            if (id == 0)
+            {
+                MessageBox.Show("No se has cargado ninguna orden", "MENSAJE", MessageBoxButtons.OK, MessageBoxIcon.Stop);
+            }
+            else
+            {
+                try
+                {
+                    if (Convert.ToInt32(textBox_otros.Text) != 0)
+                    {
+                        cantidad = Convert.ToInt32(textBox_otros.Text);
+                        platillo = comboBox_otros.Text;
+
+                        Insertar_datos(cantidad, platillo);
+                        INSERTAR_VISU(platillo, cantidad);
+                    }
+
+                    if (Convert.ToInt32(textBoxcarnec.Text) != 0)
+                    {
+                        cantidad = Convert.ToInt32(textBoxcarnec.Text);
+                        platillo = "carne con chile";
+
+                        Insertar_datos(cantidad, platillo);
+                        INSERTAR_VISU(platillo, cantidad);
+                    }
+
+                    if (Convert.ToInt32(textBoxrajas.Text) != 0)
+                    {
+                        cantidad = Convert.ToInt32(textBoxrajas.Text);
+                        platillo = "rajas con queso";
+
+                        Insertar_datos(cantidad, platillo);
+                        INSERTAR_VISU(platillo, cantidad);
+                    }
+
+                    if (Convert.ToInt32(textBoxfrijol.Text) != 0)
+                    {
+                        cantidad = Convert.ToInt32(textBoxfrijol.Text);
+                        platillo = "frijol con queso";
+
+                        Insertar_datos(cantidad, platillo);
+                        INSERTAR_VISU(platillo, cantidad);
+                    }
+
+                    if (Convert.ToInt32(textBoxcochinita.Text) != 0)
+                    {
+                        cantidad = Convert.ToInt32(textBoxcochinita.Text);
+                        platillo = "cochinita";
+
+                        Insertar_datos(cantidad, platillo);
+                        INSERTAR_VISU(platillo, cantidad);
+                    }
+
+                    if (Convert.ToInt32(textBoxchicharronsv.Text) != 0)
+                    {
+                        cantidad = Convert.ToInt32(textBoxchicharronsv.Text);
+                        platillo = "chicharron salsa verde";
+
+                        Insertar_datos(cantidad, platillo);
+                        INSERTAR_VISU(platillo, cantidad);
+                    }
+
+                    if (Convert.ToInt32(textBoxchicharronsr.Text) != 0)
+                    {
+                        cantidad = Convert.ToInt32(textBoxchicharronsr.Text);
+                        platillo = "chicharron salsa roja";
+
+                        Insertar_datos(cantidad, platillo);
+                        INSERTAR_VISU(platillo, cantidad);
+                    }
+
+                    if (Convert.ToInt32(textBoxnopal.Text) != 0)
+                    {
+                        cantidad = Convert.ToInt32(textBoxnopal.Text);
+                        platillo = "nopal";
+
+                        Insertar_datos(cantidad, platillo);
+                        INSERTAR_VISU(platillo, cantidad);
+                    }
+
+                    if (Convert.ToInt32(textBoxtinga.Text) != 0)
+                    {
+                        cantidad = Convert.ToInt32(textBoxtinga.Text);
+                        platillo = "tinga de pollo";
+
+                        Insertar_datos(cantidad, platillo);
+                        INSERTAR_VISU(platillo, cantidad);
+                    }
+
+                    if (Convert.ToInt32(textBoxpicadillo.Text) != 0)
+                    {
+                        cantidad = Convert.ToInt32(textBoxpicadillo.Text);
+                        platillo = "picadillo";
+
+                        Insertar_datos(cantidad, platillo);
+                        INSERTAR_VISU(platillo, cantidad);
+                    }
+
+                    if (Convert.ToInt32(textBoxhorchata.Text) != 0)
+                    {
+                        cantidad = Convert.ToInt32(textBoxhorchata.Text);
+                        platillo = "horchata";
+
+                        Insertar_datos(cantidad, platillo);
+                        INSERTAR_VISU(platillo, cantidad);
+                    }
+
+                    if (Convert.ToInt32(textBoxjamaica.Text) != 0)
+                    {
+                        cantidad = Convert.ToInt32(textBoxjamaica.Text);
+                        platillo = "jamaica";
+
+                        Insertar_datos(cantidad, platillo);
+                        INSERTAR_VISU(platillo, cantidad);
+                    }
+
+                    if (Convert.ToInt32(textBoxtamarindo.Text) != 0)
+                    {
+                        cantidad = Convert.ToInt32(textBoxtamarindo.Text);
+                        platillo = "tamarindo";
+
+                        Insertar_datos(cantidad, platillo);
+                        INSERTAR_VISU(platillo, cantidad);
+                    }
+
+                    if (Convert.ToInt32(textBoxsoda.Text) != 0)
+                    {
+                        cantidad = Convert.ToInt32(textBoxsoda.Text);
+                        platillo = "soda";
+
+                        Insertar_datos(cantidad, platillo);
+                        INSERTAR_VISU(platillo, cantidad);
+                    }
+
+                    if (Convert.ToInt32(textBoxcafe.Text) != 0)
+                    {
+                        cantidad = Convert.ToInt32(textBoxcafe.Text);
+                        platillo = "cafe";
+
+                        Insertar_datos(cantidad, platillo);
+                        INSERTAR_VISU(platillo, cantidad);
+                    }
+
+                    if (Convert.ToInt32(textBoxcebada.Text) != 0)
+                    {
+                        cantidad = Convert.ToInt32(textBoxcebada.Text);
+                        platillo = "cebada";
+
+                        Insertar_datos(cantidad, platillo);
+                        INSERTAR_VISU(platillo, cantidad);
+                    }
+
+
+                    //MOSTRAR EL TOTAL A PAGAR DEL PEDIDO
+
+                    OleDbConnection conexion4 = new OleDbConnection(ds);
+
+                    conexion4.Open();
+
+                    string sql = "select SUM(pagar) from PLATILLO WHERE id_orden=" + id;
+                    OleDbCommand cmd = new OleDbCommand(sql, conexion4); //Conexion es tu objeto conexion                                
+
+                    total_pagar = (cmd.ExecuteScalar()).ToString();
+
+                    textBox_total.Text = total_pagar;
+                    //-------------------
+
+                    //INSERTAR EL TOTAL EN LA TABLA ORDEN
+                    try
+                    {
+                        string insertar = "UPDATE ORDEN SET total_pagar = @total_pagar WHERE id_orden=" + id;
+                        OleDbCommand cmd3 = new OleDbCommand(insertar, conexion4);
+                        cmd3.Parameters.AddWithValue("@total_pagar", textBox_total.Text);
+
+                        cmd3.ExecuteNonQuery();
+
+                        // INSERTAR DESCRIPCION A LA TABLA ORDEN
+
+                        string descripcion = "UPDATE ORDEN SET descripcion = @descripcion WHERE id_orden=" + id;
+                        OleDbCommand cmd5 = new OleDbCommand(descripcion, conexion4);
+                        cmd5.Parameters.AddWithValue("@descripcion", textBox_descripcion.Text);
+
+                        cmd5.ExecuteNonQuery();
+                    }
+                    catch { }
+                    conexion4.Close();
+                    //-------------------
+
+                    SELECT_PLATILLOS();
+
+                    //RELOGEAR EL LISTVIEW ORDENES PARA QUE APARESCA EL TOTAL
+
+
+                    SELECT_ORDEN();
+                    //--------------------------------
+                    //RESETEAR LAS CANTIDADES DE LOS TEXTBOX 
+                    resetear();
+                }
+                catch (FormatException)
+                {
+                    MessageBox.Show("Tipo de dato incorrecto", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    textBox_otros.Text = "0";
+                    textBox_otros.Focus();
+                }
+
+
+                string txt = textBox_descripcion.Text;
+
+                IForm formInterface = this.Owner as IForm;
+
+                if (formInterface != null)
+                    formInterface.ChangeTextBoxText(txt, id);
+
+                //TOTAL DEL DIA
+
+                OleDbConnection conexion5 = new OleDbConnection(ds);
+
+                conexion5.Open();
+                try
+                {
+                    string sql5 = "SELECT SUM(ORDEN.total_pagar) FROM FECHA INNER JOIN ORDEN ON FECHA.fecha = ORDEN.fecha WHERE FECHA.fecha = '" + fecha + "'";
+
+                    OleDbCommand cmd7 = new OleDbCommand(sql5, conexion5); //Conexion es tu objeto conexion                                
+
+                    int total_dia = Convert.ToInt32(cmd7.ExecuteScalar());
+
+                    //-------------------
+
+                    //INSERTAR EL TOTAL EN LA TABLA ORDEN
+
+                    string insertar6 = "UPDATE FECHA SET Venta_total = @Venta_total WHERE fecha = '" + fecha + "'";
+                    OleDbCommand cmd6 = new OleDbCommand(insertar6, conexion5);
+                    cmd6.Parameters.AddWithValue("@Venta_total", total_dia);
+
+                    cmd6.ExecuteNonQuery();
+                }
+                catch
+                {
+
+                }
+                conexion5.Close();
+            }
+
+            GANANCIAS();
+        }
+
+        private void button16_Click(object sender, EventArgs e)
         {
             string txt = textBox_descripcion.Text;
 
@@ -1094,6 +1089,15 @@ namespace empanada_2
 
             if (formInterface != null)
                 formInterface.ChangeTextBoxText(txt, id);
+        }
+
+        private void button23_Click_2(object sender, EventArgs e)
+        {
+            if (Convert.ToInt32(textBox_otros.Text) > 0)
+            {
+                otros = otros - 1;
+                textBox_otros.Text = Convert.ToString(otros);
+            }
         }
 
         private void estadisticasToolStripMenuItem_Click(object sender, EventArgs e)
