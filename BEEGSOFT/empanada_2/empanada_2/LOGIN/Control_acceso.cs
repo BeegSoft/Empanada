@@ -48,213 +48,115 @@ namespace empanada_2
         int veces = 0;
         private const int intentos = 2;
 
-        private void button2_Click(object sender, EventArgs e)
+
+        //para ingresar
+        private void CONECTAR()
         {
-            if (this.comboBox1.Text == "SELECCIONAR")
-            {
-                MessageBox.Show("Seleccione Tipo de Usuario", "Mensaje de Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                comboBox1.Focus();
-            }                                 
+            //checamos la encriptacion
+            string var1;
+            var1 = Encriptado.Encriptar(textBox2.Text);
+            //--------               
 
-            if (textBox1.Text == "")
+            OleDbConnection conexion = new OleDbConnection(ds);
+            conexion.Open();
+            string select = "SELECT * FROM USUARIOS where USUARIOS.nombre='" + textBox1.Text + "'and USUARIOS.clave='" + var1 + "'and USUARIOS.tipo_usuario='" + comboBox1.Text + "'";
+            OleDbCommand cmd6 = new OleDbCommand(select, conexion);
+            try
             {
-                MessageBox.Show("Digite Usuario para Continuar", "conexion", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                textBox1.Focus();
-            }
-            else if (textBox2.Text == "")
-            {
-                MessageBox.Show("Digite Clave para Continuar", "conexion", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                textBox2.Focus();
-            }            
-            else
-            {
-                //checamos la encriptacion
-                string var1;
-                var1 = Encriptado.Encriptar(textBox2.Text);
-                //--------               
+                OleDbDataReader reader = cmd6.ExecuteReader();
 
-                OleDbConnection conexion = new OleDbConnection(ds);
-                conexion.Open();
-                string select="SELECT * FROM USUARIOS where USUARIOS.nombre='" + textBox1.Text + "'and USUARIOS.clave='" + var1 + "'and USUARIOS.tipo_usuario='" + comboBox1.Text + "'";
-                OleDbCommand cmd6 = new OleDbCommand(select, conexion);
-                try
+                if (reader.HasRows)
                 {
-                    OleDbDataReader reader = cmd6.ExecuteReader();
-
-                    if (reader.HasRows)
+                    while (reader.Read())
                     {
-                        while (reader.Read())
-                        {
-                            MessageBox.Show("Usuario Aceptado", "Empanada", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                            Inicio form = new Inicio(ds);
-
-                            LIMPIAR();
-                            
-                            form.Show();
-
-                            
-                        }
+                        MessageBox.Show("Usuario Aceptado", "Empanada", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        TIPO();
+                    }
+                }
+                else
+                {
+                    if (veces == 2)
+                    {
+                        MessageBox.Show("Has excedido el limite permitido ", "conexion", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        this.Close();
                     }
                     else
                     {
                         MessageBox.Show("Su Usuario o Contraseña o Tipo NO Coinciden o son Erroneas \n \n                        Le Quedan " + (intentos - veces) + " Intento(s)", "Acceso", MessageBoxButtons.OK, MessageBoxIcon.Error);
                         LIMPIAR();
-                        veces = veces + 1;                        
+                        veces = veces + 1;
+                        textBox1.Focus();
                     }
-                    reader.Close();
                 }
-                catch (Exception ex)
-                {
-                    MessageBox.Show("Error orden" + ex, "MENSAJE", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }                
+                reader.Close();
             }
-            if (veces == 2)
+            catch (Exception ex)
             {
-                MessageBox.Show("Has excedido el limite permitido ", "conexion", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                this.Close();
+                MessageBox.Show("Error orden" + ex, "MENSAJE", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
-
-        private void registrarToolStripMenuItem_Click(object sender, EventArgs e)
+        private void button2_Click(object sender, EventArgs e)
         {
-            band = 0;
-            if (this.textBox1.Text == "")
-            {
-                MessageBox.Show("Para Agregar un usuario tienes que identificarte", "Mensaje de Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                textBox1.Focus();
-            }            
+            CHECAR();
+        }
 
-            else if (textBox2.Text == "")
+        private void TIPO()
+        {
+            if (comboBox1.Text == "ROOT")
             {
-                MessageBox.Show("Para Agregar un usuario tienes que identificarte", "Mensaje de Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                textBox2.Focus();
+                band = 0;
+                Users corre = new Users(ds, band);
+                corre.Show();
+                LIMPIAR();
             }
-            else if (comboBox1.Text == "SELECCIONAR")
+            else if (comboBox1.Text == "ADMINISTRADOR")
             {
-                MessageBox.Show("Para Agregar un usuario tienes que identificarte", "Mensaje de Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                comboBox1.Focus();
+                band = 1;
+                Users corre = new Users(ds, band);
+                corre.Show();
+                corre.abrirBaseDeDatosToolStripMenuItem.Visible = false;
+                LIMPIAR();
             }
             else
             {
-                //checamos la encriptacion
-                string var1;
-                var1 = Encriptado.Encriptar(textBox2.Text);
-                //-------- 
-                texto = textBox1.Text; 
-                OleDbConnection conexion = new OleDbConnection(ds);
-                conexion.Open();
-                string select = "SELECT * FROM USUARIOS where nombre='" + textBox1.Text + "'and clave='" + var1 + "'and tipo_usuario='" + comboBox1.Text + "'";
-                OleDbCommand cmd6 = new OleDbCommand(select, conexion);
-                try
-                {
-                    OleDbDataReader reader = cmd6.ExecuteReader();
-
-                    if (reader.HasRows)
-                    {
-                        while (reader.Read())
-                        {                                                        
-                            Nuevo_usuario corre = new Nuevo_usuario(ds,texto,band);
-                            LIMPIAR();
-                            corre.Show();
-                        }
-                    }
-                    else
-                    {
-                        MessageBox.Show("Su Usuario o Contraseña o Tipo NO Coinciden o son Erroneas \n \n                        Le Quedan " + (intentos - veces) + " Intento(s)", "conexion", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                        LIMPIAR();
-                        veces = veces + 1;
-                    }
-                    reader.Close();
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show("Error orden" + ex, "MENSAJE", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }                
-            }
-            if (veces == 2)
-            {
-                MessageBox.Show("Has excedido el limite permitido ", "conexion", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                this.Close();
+                Inicio form = new Inicio(ds);
+                LIMPIAR();
+                form.Show();
             }
         }
 
-        private void UsuariosToolStripMenuItem_Click(object sender, EventArgs e)
-        {            
-          
-        }
-
-        private void modificarToolStripMenuItem_Click(object sender, EventArgs e)
+        private void CHECAR()
         {
-            band = 1;
-            if (this.textBox1.Text == "")
+            do
             {
-                MessageBox.Show("Para modificar un usuario tienes que identificarte", "Mensaje de Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                textBox1.Focus();
-            }
-
-            else if (textBox2.Text == "")
-            {
-                MessageBox.Show("Para modificar un usuario tienes que identificarte", "Mensaje de Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                textBox2.Focus();
-            }
-            else if (comboBox1.Text == "SELECCIONAR")
-            {
-                MessageBox.Show("Para modificar un usuario tienes que identificarte", "Mensaje de Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                comboBox1.Focus();
-            }
-            else
-            {
-                //checamos la encriptacion
-                string var1;
-                var1 = Encriptado.Encriptar(textBox2.Text);
-                //-------- 
-
-                texto = textBox1.Text;
-
-                OleDbConnection conexion = new OleDbConnection(ds);
-                conexion.Open();
-                string select = "SELECT * FROM USUARIOS where nombre='" + textBox1.Text + "'and clave='" + var1 + "'and tipo_usuario='" + comboBox1.Text + "'";
-                OleDbCommand cmd6 = new OleDbCommand(select, conexion);
-                try
+                if (textBox1.Text == "")
                 {
-                    OleDbDataReader reader = cmd6.ExecuteReader();
+                    MessageBox.Show("Ingrese su Nombre para Continuar", "conexion", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                    textBox1.Focus();
+                    return;
+                }
+                if (textBox2.Text == "")
+                {
+                    MessageBox.Show("Ingrese su Clave para Continuar", "conexion", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                    textBox2.Focus();
+                    return;
+                }
+                if (comboBox1.Text == "SELECCIONAR")
+                {
+                    MessageBox.Show("Seleccione Tipo para Continuar", "conexion", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                    comboBox1.Focus();
+                    return;
+                }
+                if ((textBox1.Text != "") || (textBox2.Text != "") || (comboBox1.Text != "SELECCIONAR"))
+                {
+                    CONECTAR();
+                    break;
+                }
+            } while (true);
 
-                    if (reader.HasRows)
-                    {
-                        while (reader.Read())
-                        {
-                            
-                            Nuevo_usuario corre = new Nuevo_usuario(ds, texto, band);
-                            LIMPIAR();
-                            corre.Show();
-                        }
-                    }
-                    else
-                    {
-                        MessageBox.Show("Su Usuario o Contraseña o Tipo NO Coinciden o son Erroneas \n \n                        Le Quedan " + (intentos - veces) + " Intento(s)", "conexion", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                        LIMPIAR();
-                        veces = veces + 1;
-                    }
-                    reader.Close();
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show("Error orden" + ex, "MENSAJE", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
-                if (veces == 2)
-                {
-                    MessageBox.Show("Has excedido el limite permitido ", "conexion", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    this.Close();
-                }
-            }
         }
 
-
-        private void cerrarToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            this.Close();
-        }
         private void Control_acceso_Load(object sender, EventArgs e)
         {
 

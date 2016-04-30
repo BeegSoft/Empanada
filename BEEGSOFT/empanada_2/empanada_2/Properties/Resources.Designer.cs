@@ -123,6 +123,16 @@ namespace empanada_2.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap bdd {
+            get {
+                object obj = ResourceManager.GetObject("bdd", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap book_search {
             get {
                 object obj = ResourceManager.GetObject("book_search", resourceCulture);
@@ -326,6 +336,16 @@ namespace empanada_2.Properties {
         internal static System.Drawing.Bitmap pagar1 {
             get {
                 object obj = ResourceManager.GetObject("pagar1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap picasion_com_486ae478bb1e5c7f9f0eac83a104f497 {
+            get {
+                object obj = ResourceManager.GetObject("picasion.com_486ae478bb1e5c7f9f0eac83a104f497", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

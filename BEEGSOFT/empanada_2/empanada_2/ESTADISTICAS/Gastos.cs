@@ -43,6 +43,7 @@ namespace empanada_2
                 ListViewItem elementos = new ListViewItem(filas["fecha"].ToString());
                 listView_fechas.Items.Add(elementos);
             }
+
             SELECT_GASTOS();
             SUMA_GASTOS();
             GANANCIAS();
@@ -50,7 +51,7 @@ namespace empanada_2
 
         private void SELECT_GASTOS()
         {
-            OleDbDataAdapter adaptador = new OleDbDataAdapter("SELECT id, Fecha, Descripcion, Gasto FROM GASTOS WHERE fecha = '" + fecha + "'", ds);
+            OleDbDataAdapter adaptador = new OleDbDataAdapter("SELECT id_gastos, Fecha, Descripcion, Gasto FROM GASTOS WHERE fecha = '" + fecha + "'", ds);
 
             DataSet dataset = new DataSet();
             DataTable tabla = new DataTable();
@@ -61,7 +62,7 @@ namespace empanada_2
             for (int i = 0; i < tabla.Rows.Count; i++)
             {
                 DataRow filas = tabla.Rows[i];
-                ListViewItem elementos = new ListViewItem(filas["id"].ToString());
+                ListViewItem elementos = new ListViewItem(filas["id_gastos"].ToString());
                 elementos.SubItems.Add(filas["Fecha"].ToString());
                 elementos.SubItems.Add(filas["Descripcion"].ToString());
                 elementos.SubItems.Add(filas["Gasto"].ToString());

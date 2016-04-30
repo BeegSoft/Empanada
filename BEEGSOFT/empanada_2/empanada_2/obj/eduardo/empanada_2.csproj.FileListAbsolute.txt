@@ -5,7 +5,6 @@ C:\Users\EDUARDO\Desktop\Empanada\BEEGSOFT\empanada_2\empanada_2\obj\eduardo\emp
 C:\Empanada\BEEGSOFT\empanada_2\empanada_2\obj\eduardo\empanada_2.csproj.ResolveComReference.cache
 C:\Empanada\BEEGSOFT\empanada_2\empanada_2\obj\eduardo\empanada_2.Control_acceso.resources
 C:\Empanada\BEEGSOFT\empanada_2\empanada_2\obj\eduardo\empanada_2.Exportacion_excel.resources
-C:\Empanada\BEEGSOFT\empanada_2\empanada_2\obj\eduardo\empanada_2.Fechas.resources
 C:\Empanada\BEEGSOFT\empanada_2\empanada_2\obj\eduardo\empanada_2.Form2.resources
 C:\Empanada\BEEGSOFT\empanada_2\empanada_2\obj\eduardo\empanada_2.Gastos.resources
 C:\Empanada\BEEGSOFT\empanada_2\empanada_2\obj\eduardo\empanada_2.Historial.resources
