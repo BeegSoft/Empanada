@@ -63,8 +63,22 @@ namespace empanada_2
                 {
                     while (reader.Read())
                     {
+<<<<<<< HEAD:BEEGSOFT/empanada_2/empanada_2/Control_acceso.cs
                         MessageBox.Show("Usuario Aceptado", "Empanada", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         TIPO();
+=======
+                        while (reader.Read())
+                        {
+                            MessageBox.Show("Usuario Aceptado", "Empanada", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            Inicio form = new Inicio(ds);
+
+                            LIMPIAR();
+                            
+                            form.Show();
+
+                            
+                        }
+>>>>>>> 0eedd94902d46d36c4c1a27e9e928cee8fc9aad9:BEEGSOFT/empanada_2/empanada_2/LOGIN/Control_acceso.cs
                     }
                 }
                 else

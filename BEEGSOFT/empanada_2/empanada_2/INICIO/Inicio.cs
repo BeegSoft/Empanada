@@ -19,9 +19,6 @@ namespace empanada_2
             InitializeComponent();
             this.ds = ds;
         }
-
-        
-
         //CONEXION
         string ds;
         private void button1_Click(object sender, EventArgs e)

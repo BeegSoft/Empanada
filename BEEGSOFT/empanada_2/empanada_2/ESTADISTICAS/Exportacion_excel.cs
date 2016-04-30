@@ -52,7 +52,6 @@ namespace empanada_2
 
         private void button2_Click(object sender, EventArgs e)
         {
-            CARGAR();
             Microsoft.Office.Interop.Excel.Application xla = new Microsoft.Office.Interop.Excel.Application();
             xla.Visible = true;
             Microsoft.Office.Interop.Excel.Workbook wb = xla.Workbooks.Add(Microsoft.Office.Interop.Excel.XlSheetType.xlWorksheet);
@@ -79,11 +78,11 @@ namespace empanada_2
                 j = 1;
                 i++;
             }
-
+            i = 2;
+            j = 7;
             foreach (ListViewItem comp in listView_gastos.Items)
             {
-                i = 2;
-                j = 7;
+                
                 ws.Cells[1, 7] = ("FECHA");
                 ws.Cells[1, 8] = ("DESCRIPCION");
                 ws.Cells[1, 9] = ("GASTO");
@@ -95,10 +94,74 @@ namespace empanada_2
                     ws.Cells[i, j] = drv.Text.ToString();
                     j++;
                 }
-                j = 1;
+                j = 7;
                 i++;
             }
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            OleDbConnection conexion = new OleDbConnection(ds);
+            conexion.Open();
+
+            //SACAR LA FECHA MENOR
+            string sql = "SELECT MIN(id) FROM FECHA";
+
+            OleDbCommand cmd = new OleDbCommand(sql, conexion); //Conexion es tu objeto conexion                                
+
+            int fecha_menor = Convert.ToInt32(cmd.ExecuteScalar());
+
+            //SACAR LA FECHA MAYOR
+            string sql2 = "SELECT MAX(id) FROM FECHA";
+
+            OleDbCommand cmd2 = new OleDbCommand(sql2, conexion);
+
+            int fecha_mayor = Convert.ToInt32(cmd2.ExecuteScalar());
+            
+            //SELECCIONAR TODAS LAS FECHAS DESDE EL ORIGEN
+
+            OleDbDataAdapter adaptador = new OleDbDataAdapter("SELECT FECHA.fecha, ORDEN.id_orden, PLATILLO.nombre_platillo, PLATILLO.cantidad, PLATILLO.pagar FROM(FECHA INNER JOIN ORDEN ON FECHA.fecha = ORDEN.fecha) INNER JOIN PLATILLO ON ORDEN.id_orden = PLATILLO.id_orden WHERE id >= " + fecha_menor + " AND id <= " + fecha_mayor, ds);
+
+            DataSet dataset = new DataSet();
+            DataTable tabla = new DataTable();
+
+            adaptador.Fill(dataset);
+            tabla = dataset.Tables[0];
+            this.listView_esta.Items.Clear();
+            for (int i = 0; i < tabla.Rows.Count; i++)
+            {
+                DataRow filas = tabla.Rows[i];
+                ListViewItem elemntos = new ListViewItem(filas["fecha"].ToString());
+                elemntos.SubItems.Add(filas["id_orden"].ToString());
+                elemntos.SubItems.Add(filas["nombre_platillo"].ToString());
+                elemntos.SubItems.Add(filas["cantidad"].ToString());
+                elemntos.SubItems.Add(filas["pagar"].ToString());
+
+                listView_esta.Items.Add(elemntos);
+            }
+
+            //MOSTRAR LOS DATOS DE LOS GASTOS
+
+            OleDbDataAdapter adaptador2 = new OleDbDataAdapter("SELECT GASTOS.Fecha, GASTOS.Descripcion, GASTOS.Gasto FROM FECHA INNER JOIN GASTOS ON FECHA.fecha = GASTOS.Fecha WHERE id >= " + fecha_menor + " AND id <= " + fecha_mayor, ds);
+
+            DataSet dataset2 = new DataSet();
+            DataTable tabla2 = new DataTable();
+
+            adaptador2.Fill(dataset2);
+            tabla2 = dataset2.Tables[0];
+            this.listView_gastos.Items.Clear();
+            for (int i = 0; i < tabla2.Rows.Count; i++)
+            {
+                DataRow filas2 = tabla2.Rows[i];
+                ListViewItem elemntos2 = new ListViewItem(filas2["Fecha"].ToString());
+                elemntos2.SubItems.Add(filas2["Descripcion"].ToString());
+                elemntos2.SubItems.Add(filas2["Gasto"].ToString());
+
+                listView_gastos.Items.Add(elemntos2);
+            }
+            conexion.Close();
+
+    }
 
         private void CARGAR()
         {

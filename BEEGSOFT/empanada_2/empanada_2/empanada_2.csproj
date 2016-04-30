@@ -73,146 +73,141 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Control_acceso.cs">
+    <Compile Include="LOGIN\Control_acceso.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Control_acceso.Designer.cs">
+    <Compile Include="LOGIN\Control_acceso.Designer.cs">
       <DependentUpon>Control_acceso.cs</DependentUpon>
     </Compile>
-    <Compile Include="CrearTicket.cs" />
-    <Compile Include="Encriptado.cs" />
-    <Compile Include="Exportacion_excel.cs">
+    <Compile Include="ORDENES\CrearTicket.cs" />
+    <Compile Include="LOGIN\Encriptado.cs" />
+    <Compile Include="ESTADISTICAS\Exportacion_excel.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Exportacion_excel.Designer.cs">
+    <Compile Include="ESTADISTICAS\Exportacion_excel.Designer.cs">
       <DependentUpon>Exportacion_excel.cs</DependentUpon>
     </Compile>
-    <Compile Include="Fechas.cs">
+    <Compile Include="INICIO\Form2.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Fechas.Designer.cs">
-      <DependentUpon>Fechas.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Form2.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Form2.Designer.cs">
+    <Compile Include="INICIO\Form2.Designer.cs">
       <DependentUpon>Form2.cs</DependentUpon>
     </Compile>
-    <Compile Include="Gastos.cs">
+    <Compile Include="ESTADISTICAS\Gastos.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Gastos.Designer.cs">
+    <Compile Include="ESTADISTICAS\Gastos.Designer.cs">
       <DependentUpon>Gastos.cs</DependentUpon>
     </Compile>
-    <Compile Include="Historial.cs">
+    <Compile Include="ESTADISTICAS\Historial.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Historial.Designer.cs">
+    <Compile Include="ESTADISTICAS\Historial.Designer.cs">
       <DependentUpon>Historial.cs</DependentUpon>
     </Compile>
-    <Compile Include="IForm.cs" />
-    <Compile Include="Index.cs">
+    <Compile Include="ORDENES\IForm.cs" />
+    <Compile Include="ORDENES\Index.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Index.Designer.cs">
+    <Compile Include="ORDENES\Index.Designer.cs">
       <DependentUpon>Index.cs</DependentUpon>
     </Compile>
-    <Compile Include="Inicio.cs">
+    <Compile Include="INICIO\Inicio.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Inicio.Designer.cs">
+    <Compile Include="INICIO\Inicio.Designer.cs">
       <DependentUpon>Inicio.cs</DependentUpon>
     </Compile>
-    <Compile Include="Menu.cs">
+    <Compile Include="MENU\Menu.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Menu.Designer.cs">
+    <Compile Include="MENU\Menu.Designer.cs">
       <DependentUpon>Menu.cs</DependentUpon>
     </Compile>
-    <Compile Include="Menu_agregar.cs">
+    <Compile Include="MENU\Menu_agregar.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Menu_agregar.Designer.cs">
+    <Compile Include="MENU\Menu_agregar.Designer.cs">
       <DependentUpon>Menu_agregar.cs</DependentUpon>
     </Compile>
-    <Compile Include="Menu_modificar.cs">
+    <Compile Include="MENU\Menu_modificar.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Menu_modificar.Designer.cs">
+    <Compile Include="MENU\Menu_modificar.Designer.cs">
       <DependentUpon>Menu_modificar.cs</DependentUpon>
     </Compile>
-    <Compile Include="Nuevo_usuario.cs">
+    <Compile Include="LOGIN\Nuevo_usuario.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Nuevo_usuario.Designer.cs">
+    <Compile Include="LOGIN\Nuevo_usuario.Designer.cs">
       <DependentUpon>Nuevo_usuario.cs</DependentUpon>
     </Compile>
-    <Compile Include="pagar.cs">
+    <Compile Include="ORDENES\pagar.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="pagar.Designer.cs">
+    <Compile Include="ORDENES\pagar.Designer.cs">
       <DependentUpon>pagar.cs</DependentUpon>
     </Compile>
-    <Compile Include="Pantalla2.cs">
+    <Compile Include="ORDENES\Pantalla2.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Pantalla2.Designer.cs">
+    <Compile Include="ORDENES\Pantalla2.Designer.cs">
       <DependentUpon>Pantalla2.cs</DependentUpon>
     </Compile>
-    <Compile Include="Program.cs" />
+    <Compile Include="INICIO\Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+<<<<<<< HEAD
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
     <Compile Include="Users.cs">
+=======
+    <Compile Include="LOGIN\Users.cs">
+>>>>>>> 0eedd94902d46d36c4c1a27e9e928cee8fc9aad9
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Users.Designer.cs">
+    <Compile Include="LOGIN\Users.Designer.cs">
       <DependentUpon>Users.cs</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="Control_acceso.resx">
+    <EmbeddedResource Include="LOGIN\Control_acceso.resx">
       <DependentUpon>Control_acceso.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Exportacion_excel.resx">
+    <EmbeddedResource Include="ESTADISTICAS\Exportacion_excel.resx">
       <DependentUpon>Exportacion_excel.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Fechas.resx">
-      <DependentUpon>Fechas.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Form2.resx">
+    <EmbeddedResource Include="INICIO\Form2.resx">
       <DependentUpon>Form2.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Gastos.resx">
+    <EmbeddedResource Include="ESTADISTICAS\Gastos.resx">
       <DependentUpon>Gastos.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Historial.resx">
+    <EmbeddedResource Include="ESTADISTICAS\Historial.resx">
       <DependentUpon>Historial.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Index.resx">
+    <EmbeddedResource Include="ORDENES\Index.resx">
       <DependentUpon>Index.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Inicio.resx">
+    <EmbeddedResource Include="INICIO\Inicio.resx">
       <DependentUpon>Inicio.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Menu.resx">
+    <EmbeddedResource Include="MENU\Menu.resx">
       <DependentUpon>Menu.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Menu_agregar.resx">
+    <EmbeddedResource Include="MENU\Menu_agregar.resx">
       <DependentUpon>Menu_agregar.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Menu_modificar.resx">
+    <EmbeddedResource Include="MENU\Menu_modificar.resx">
       <DependentUpon>Menu_modificar.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Nuevo_usuario.resx">
+    <EmbeddedResource Include="LOGIN\Nuevo_usuario.resx">
       <DependentUpon>Nuevo_usuario.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="pagar.resx">
+    <EmbeddedResource Include="ORDENES\pagar.resx">
       <DependentUpon>pagar.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Pantalla2.resx">
+    <EmbeddedResource Include="ORDENES\Pantalla2.resx">
       <DependentUpon>Pantalla2.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
@@ -220,7 +215,7 @@
       <SubType>Designer</SubType>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <EmbeddedResource Include="Users.resx">
+    <EmbeddedResource Include="LOGIN\Users.resx">
       <DependentUpon>Users.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Properties\Settings.settings">
@@ -364,12 +359,16 @@
   <ItemGroup>
     <None Include="Resources\comanda.png" />
   </ItemGroup>
+<<<<<<< HEAD
   <ItemGroup>
     <None Include="Resources\picasion.com_486ae478bb1e5c7f9f0eac83a104f497.jpg" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\bdd.jpg" />
   </ItemGroup>
+=======
+  <ItemGroup />
+>>>>>>> 0eedd94902d46d36c4c1a27e9e928cee8fc9aad9
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

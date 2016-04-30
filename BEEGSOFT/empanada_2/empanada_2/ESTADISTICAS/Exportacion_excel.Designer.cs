@@ -46,6 +46,7 @@
             this.columnHeader8 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.button2 = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
+            this.button1 = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // label6
@@ -153,7 +154,7 @@
             this.columnHeader8});
             this.listView_gastos.Location = new System.Drawing.Point(175, 311);
             this.listView_gastos.Name = "listView_gastos";
-            this.listView_gastos.Size = new System.Drawing.Size(121, 97);
+            this.listView_gastos.Size = new System.Drawing.Size(185, 97);
             this.listView_gastos.TabIndex = 26;
             this.listView_gastos.UseCompatibleStateImageBehavior = false;
             this.listView_gastos.View = System.Windows.Forms.View.Details;
@@ -181,7 +182,7 @@
             this.button2.Font = new System.Drawing.Font("Lucida Sans", 7F);
             this.button2.Image = global::empanada_2.Properties.Resources.exportar;
             this.button2.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.button2.Location = new System.Drawing.Point(427, 8);
+            this.button2.Location = new System.Drawing.Point(515, 8);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(92, 55);
             this.button2.TabIndex = 76;
@@ -209,11 +210,31 @@
             this.button3.UseVisualStyleBackColor = false;
             this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
+            // button1
+            // 
+            this.button1.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.button1.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.button1.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Yellow;
+            this.button1.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
+            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button1.Font = new System.Drawing.Font("Lucida Sans", 7F);
+            this.button1.Image = global::empanada_2.Properties.Resources.mostrar1;
+            this.button1.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.button1.Location = new System.Drawing.Point(417, 8);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(92, 55);
+            this.button1.TabIndex = 77;
+            this.button1.Text = "Mostrar todo";
+            this.button1.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.button1.UseVisualStyleBackColor = false;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
             // Exportacion_excel
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(683, 345);
+            this.ClientSize = new System.Drawing.Size(683, 340);
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.button3);
             this.Controls.Add(this.listView_gastos);
@@ -250,5 +271,6 @@
         private System.Windows.Forms.ColumnHeader columnHeader8;
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button button1;
     }
 }
