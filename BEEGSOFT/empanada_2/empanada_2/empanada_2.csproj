@@ -355,7 +355,12 @@
   <ItemGroup>
     <None Include="Resources\comanda.png" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <None Include="Resources\picasion.com_486ae478bb1e5c7f9f0eac83a104f497.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\bdd.jpg" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

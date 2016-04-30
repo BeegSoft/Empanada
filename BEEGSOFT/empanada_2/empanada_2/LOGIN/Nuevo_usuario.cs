@@ -33,7 +33,8 @@ namespace empanada_2
 
         private void btngrabar_Click(object sender, EventArgs e)
         {
-            if (band==0)
+            //cero para agregar
+            if (band == 0)
             {
                 if (this.cbotipo.Text == "SELECCIONAR")
                 {
@@ -57,7 +58,7 @@ namespace empanada_2
                     string var1;
                     var1 = Encriptado.Encriptar(txtclave.Text);
                     //----------------------------------
-                                       
+
                     OleDbConnection conexion = new OleDbConnection(ds);
                     conexion.Open();
                     try
@@ -84,8 +85,9 @@ namespace empanada_2
                     conexion.Close();
                 }
             }
-            else if(band==1)
-            {                
+            //uno para modificar
+            else if (band == 1)
+            {
                 if (this.cbotipo.Text == "SELECCIONAR")
                 {
                     MessageBox.Show("Falta Tipo de Usuario", "Mensaje de Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -104,20 +106,19 @@ namespace empanada_2
                 }
                 else
                 {
-                    
+
                     OleDbConnection conexion = new OleDbConnection(ds);
                     conexion.Open();
                     try
                     {
                         //ahora encriptamos                     
                         string var1 = Encriptado.Encriptar(txtclave.Text);
-                        //----------------------------------
-                        //realizar la conexion
+
 
                         string insertar2 = "UPDATE USUARIOS SET nombre = @NOMBRE, clave = @CLAVE,tipo_usuario = @TIPO WHERE nombre = '" + texto + "'";
                         OleDbCommand cmd3 = new OleDbCommand(insertar2, conexion);
-                        cmd3.Parameters.AddWithValue("@NOMBRE", txtnombre.Text);                        
-                        cmd3.Parameters.AddWithValue("@CLAVE", var1);                        ;
+                        cmd3.Parameters.AddWithValue("@NOMBRE", txtnombre.Text);
+                        cmd3.Parameters.AddWithValue("@CLAVE", var1);
                         cmd3.Parameters.AddWithValue("@TIPO", cbotipo.Text);
                         cmd3.ExecuteNonQuery();
 
@@ -135,7 +136,7 @@ namespace empanada_2
                     }
                     conexion.Close();
                 }
-            }            
+            }
         }
     }
 }
