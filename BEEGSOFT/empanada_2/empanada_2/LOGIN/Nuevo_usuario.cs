@@ -33,7 +33,6 @@ namespace empanada_2
 
         private void btngrabar_Click(object sender, EventArgs e)
         {
-            //cero para agregar
             if (band==0)
             {
                 if (this.cbotipo.Text == "SELECCIONAR")
@@ -85,7 +84,6 @@ namespace empanada_2
                     conexion.Close();
                 }
             }
-            //uno para modificar
             else if(band==1)
             {                
                 if (this.cbotipo.Text == "SELECCIONAR")
@@ -112,13 +110,14 @@ namespace empanada_2
                     try
                     {
                         //ahora encriptamos                     
-                        string var1 = Encriptado.Encriptar(txtclave.Text);                        
-
+                        string var1 = Encriptado.Encriptar(txtclave.Text);
+                        //----------------------------------
+                        //realizar la conexion
 
                         string insertar2 = "UPDATE USUARIOS SET nombre = @NOMBRE, clave = @CLAVE,tipo_usuario = @TIPO WHERE nombre = '" + texto + "'";
                         OleDbCommand cmd3 = new OleDbCommand(insertar2, conexion);
                         cmd3.Parameters.AddWithValue("@NOMBRE", txtnombre.Text);                        
-                        cmd3.Parameters.AddWithValue("@CLAVE", var1);
+                        cmd3.Parameters.AddWithValue("@CLAVE", var1);                        ;
                         cmd3.Parameters.AddWithValue("@TIPO", cbotipo.Text);
                         cmd3.ExecuteNonQuery();
 

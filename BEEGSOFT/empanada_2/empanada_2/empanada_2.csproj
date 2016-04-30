@@ -156,16 +156,7 @@
     </Compile>
     <Compile Include="INICIO\Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-<<<<<<< HEAD
-    <Compile Include="Properties\Resources.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Resources.resx</DependentUpon>
-    </Compile>
-    <Compile Include="Users.cs">
-=======
     <Compile Include="LOGIN\Users.cs">
->>>>>>> 0eedd94902d46d36c4c1a27e9e928cee8fc9aad9
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="LOGIN\Users.Designer.cs">
@@ -222,6 +213,11 @@
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </None>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
     <Compile Include="Properties\Settings.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Settings.settings</DependentUpon>
@@ -359,16 +355,7 @@
   <ItemGroup>
     <None Include="Resources\comanda.png" />
   </ItemGroup>
-<<<<<<< HEAD
-  <ItemGroup>
-    <None Include="Resources\picasion.com_486ae478bb1e5c7f9f0eac83a104f497.jpg" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\bdd.jpg" />
-  </ItemGroup>
-=======
   <ItemGroup />
->>>>>>> 0eedd94902d46d36c4c1a27e9e928cee8fc9aad9
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
