@@ -57,7 +57,7 @@ namespace empanada_2
 
         private void AbrirProgramaToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            Inicio corre = new Inicio(ds);
+            Inicio corre = new Inicio(ds,band);
             corre.Show();
         }
 

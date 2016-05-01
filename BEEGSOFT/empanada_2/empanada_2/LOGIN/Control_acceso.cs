@@ -120,7 +120,8 @@ namespace empanada_2
             }
             else
             {
-                Inicio form = new Inicio(ds);
+                band = 3;
+                Inicio form = new Inicio(ds,band);
                 LIMPIAR();
                 form.Show();
             }
