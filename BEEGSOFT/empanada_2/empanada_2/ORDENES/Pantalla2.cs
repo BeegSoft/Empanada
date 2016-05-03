@@ -13,15 +13,16 @@ namespace empanada_2
 {
     public partial class Pantalla2 : Form, IForm, Terminar_orden
     {
-        public Pantalla2(string fecha, string ds)
+        public Pantalla2(string fecha, string ds,int band)
         {
             InitializeComponent();
             this.ds = ds;
             this.fecha = fecha;
+            this.band = band;
         }
         
         string ds, fecha;
-        int orden_1, orden_2, orden_3, orden_4, orden_5;
+        int orden_1, orden_2, orden_3, orden_4, orden_5,band;
         #region IForm Members
 
         public void ChangeTextBoxText(string text, int id)
@@ -253,8 +254,21 @@ namespace empanada_2
 
         private void Pantalla2cs_Load(object sender, EventArgs e)
         {
-            Form1 form = new Form1(fecha, ds);
-            form.Show(this);
+            if (band == 3)
+            {
+                Form1 form = new Form1(fecha, ds);
+                form.estadisticasToolStripMenuItem.Visible = false;
+                form.gastosToolStripMenuItem.Visible = false;
+                form.modificarToolStripMenuItem.Visible = false;              
+                form.Show(this);
+                
+            }
+            else
+            {
+                Form1 form = new Form1(fecha, ds);
+                form.Show(this);
+            }
+            
         }
 
         private void textBox1_TextChanged(object sender, EventArgs e)

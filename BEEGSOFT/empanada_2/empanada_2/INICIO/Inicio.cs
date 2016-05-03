@@ -14,12 +14,14 @@ namespace empanada_2
 {
     public partial class Inicio : Form
     {
-        public Inicio(string ds)
+        public Inicio(string ds,int band)
         {
             InitializeComponent();
             this.ds = ds;
+            this.band = band;
         }
         //CONEXION
+        int band;
         string ds;
         private void button1_Click(object sender, EventArgs e)
         {
@@ -52,7 +54,7 @@ namespace empanada_2
 
                 conexion.Close();
                 
-                Pantalla2 form = new Pantalla2(fecha, ds);
+                Pantalla2 form = new Pantalla2(fecha, ds,band);
                 form.Show();
                 
                 
@@ -64,7 +66,7 @@ namespace empanada_2
                 if (resultado == DialogResult.Yes)
                 {
                     
-                Pantalla2 form = new Pantalla2(fecha, ds);
+                Pantalla2 form = new Pantalla2(fecha, ds,band);
                 form.Show();
                 
                     
@@ -91,7 +93,7 @@ namespace empanada_2
                 if (Convert.ToInt32(compro) != 0)
                 {
                     
-                Pantalla2 form = new Pantalla2(fecha, ds);
+                Pantalla2 form = new Pantalla2(fecha, ds,band);
                 form.Show();
                 
                     
@@ -122,7 +124,11 @@ namespace empanada_2
 
         private void Inicio_Load(object sender, EventArgs e)
         {
-
+            if (band == 3)
+            {
+                button3.Visible = false;
+                button4.Visible = false;
+            }
         }
     }
 }

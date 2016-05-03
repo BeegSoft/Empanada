@@ -14,7 +14,7 @@ namespace empanada_2
 {
     public partial class Control_acceso : Form
     {
-        public Control_acceso(string ds)
+        public Control_acceso(string ds,string ds2)
         {
             //---------
             Thread t = new Thread(new ThreadStart(splashtart));
@@ -24,9 +24,8 @@ namespace empanada_2
             t.Abort();
             //---------
             this.ds = ds;
-
-
-        }
+            this.ds2 = ds2;
+        }       
 
         private void splashtart()
         {
@@ -40,9 +39,7 @@ namespace empanada_2
             comboBox1.Text = "SELECCIONAR";
         }
         
-        string ds;
-
-        string texto;
+        string ds,ds2;
         int band;              
 
         int veces = 0;
@@ -57,7 +54,7 @@ namespace empanada_2
             var1 = Encriptado.Encriptar(textBox2.Text);
             //--------               
 
-            OleDbConnection conexion = new OleDbConnection(ds);
+            OleDbConnection conexion = new OleDbConnection(ds2);
             conexion.Open();
             string select = "SELECT * FROM USUARIOS where USUARIOS.nombre='" + textBox1.Text + "'and USUARIOS.clave='" + var1 + "'and USUARIOS.tipo_usuario='" + comboBox1.Text + "'";
             OleDbCommand cmd6 = new OleDbCommand(select, conexion);
@@ -68,9 +65,8 @@ namespace empanada_2
                 if (reader.HasRows)
                 {
                     while (reader.Read())
-                    {
-                        MessageBox.Show("Usuario Aceptado", "Empanada", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                        TIPO();
+                    {                        
+                        CHECAR2();
                     }
                 }
                 else
@@ -87,7 +83,7 @@ namespace empanada_2
                         veces = veces + 1;
                         textBox1.Focus();
                     }
-                }
+                }               
                 reader.Close();
             }
             catch (Exception ex)
@@ -101,26 +97,51 @@ namespace empanada_2
             CHECAR();
         }
 
+        private void CHECAR2()
+        {
+            if ((comboBox1.Text == "ROOT") || (comboBox1.Text == "ADMINISTRADOR") || (comboBox1.Text == "OPERADOR"))
+            {
+                MessageBox.Show("Usuario Aceptado", "AVISO", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                TIPO();                
+            }
+            else if ((comboBox1.Text != "ROOT") || (comboBox1.Text != "ADMINISTRADOR") || (comboBox1.Text != "OPERADOR"))
+            {
+                if (veces == 2)
+                {
+                    MessageBox.Show("Has excedido el limite permitido ", "conexion", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    this.Close();
+                }
+                else
+                {
+                    MessageBox.Show("Su Usuario o Contraseña o Tipo NO Coinciden o son Erroneas \n \n                        Le Quedan " + (intentos - veces) + " Intento(s)", "Acceso", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    LIMPIAR();
+                    veces = veces + 1;
+                    textBox1.Focus();
+                }
+            }
+        }
+
         private void TIPO()
         {
             if (comboBox1.Text == "ROOT")
             {
                 band = 0;
-                Users corre = new Users(ds, band);
+                Users corre = new Users(ds,ds2, band);
                 corre.Show();
                 LIMPIAR();
             }
             else if (comboBox1.Text == "ADMINISTRADOR")
             {
                 band = 1;
-                Users corre = new Users(ds, band);
-                corre.Show();
-                corre.abrirBaseDeDatosToolStripMenuItem.Visible = false;
+                Users corre = new Users(ds,ds2, band);
+                corre.usuariosToolStripMenuItem.Visible = false;                
+                corre.Show();                
                 LIMPIAR();
             }
-            else
+            else if(comboBox1.Text=="OPERADOR")
             {
-                Inicio form = new Inicio(ds);
+                band = 3;
+                Inicio form = new Inicio(ds,band);                
                 LIMPIAR();
                 form.Show();
             }
@@ -148,18 +169,17 @@ namespace empanada_2
                     comboBox1.Focus();
                     return;
                 }
-                if ((textBox1.Text != "") || (textBox2.Text != "") || (comboBox1.Text != "SELECCIONAR"))
+                if ((textBox1.Text != "") && (textBox2.Text != "") && (comboBox1.Text != "SELECCIONAR"))
                 {
                     CONECTAR();
                     break;
-                }
+                }                
             } while (true);
 
         }
 
         private void Control_acceso_Load(object sender, EventArgs e)
-        {
-
+        {           
         }
     }
 }
