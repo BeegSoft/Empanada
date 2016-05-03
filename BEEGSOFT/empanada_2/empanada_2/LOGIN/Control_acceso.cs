@@ -14,7 +14,7 @@ namespace empanada_2
 {
     public partial class Control_acceso : Form
     {
-        public Control_acceso(string ds)
+        public Control_acceso(string ds,string ds2)
         {
             //---------
             Thread t = new Thread(new ThreadStart(splashtart));
@@ -24,9 +24,8 @@ namespace empanada_2
             t.Abort();
             //---------
             this.ds = ds;
-
-
-        }
+            this.ds2 = ds2;
+        }       
 
         private void splashtart()
         {
@@ -40,7 +39,7 @@ namespace empanada_2
             comboBox1.Text = "SELECCIONAR";
         }
         
-        string ds;
+        string ds,ds2;
         int band;              
 
         int veces = 0;
@@ -55,7 +54,7 @@ namespace empanada_2
             var1 = Encriptado.Encriptar(textBox2.Text);
             //--------               
 
-            OleDbConnection conexion = new OleDbConnection(ds);
+            OleDbConnection conexion = new OleDbConnection(ds2);
             conexion.Open();
             string select = "SELECT * FROM USUARIOS where USUARIOS.nombre='" + textBox1.Text + "'and USUARIOS.clave='" + var1 + "'and USUARIOS.tipo_usuario='" + comboBox1.Text + "'";
             OleDbCommand cmd6 = new OleDbCommand(select, conexion);
@@ -127,16 +126,16 @@ namespace empanada_2
             if (comboBox1.Text == "ROOT")
             {
                 band = 0;
-                Users corre = new Users(ds, band);
+                Users corre = new Users(ds,ds2, band);
                 corre.Show();
                 LIMPIAR();
             }
             else if (comboBox1.Text == "ADMINISTRADOR")
             {
                 band = 1;
-                Users corre = new Users(ds, band);                
-                corre.Show();
-                corre.abrirBaseDeDatosToolStripMenuItem.Visible = false;
+                Users corre = new Users(ds,ds2, band);
+                corre.usuariosToolStripMenuItem.Visible = false;                
+                corre.Show();                
                 LIMPIAR();
             }
             else if(comboBox1.Text=="OPERADOR")

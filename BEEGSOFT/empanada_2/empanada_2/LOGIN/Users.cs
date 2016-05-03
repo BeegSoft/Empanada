@@ -14,20 +14,21 @@ namespace empanada_2
 {
     public partial class Users : Form
     {
-        public Users(string ds, int band)
+        public Users(string ds,string ds2, int band)
         {
             InitializeComponent();
             this.band = band;
             this.ds = ds;
+            this.ds2 = ds2;
         }
         int band;
         string texto;
-        string ds;
+        string ds,ds2;
         private void registrarToolStripMenuItem_Click(object sender, EventArgs e)
         {
             texto = "ROOT";
             band = 0;
-            Nuevo_usuario abre = new Nuevo_usuario(ds, texto, band);
+            Nuevo_usuario abre = new Nuevo_usuario(ds2, texto, band);
             abre.Show();
         }
 
@@ -39,7 +40,7 @@ namespace empanada_2
                 {
                     texto = lista.Text;
                     band = 1;
-                    Nuevo_usuario abre = new Nuevo_usuario(ds, texto, band);
+                    Nuevo_usuario abre = new Nuevo_usuario(ds2, texto, band);
                     abre.Show();
                 }
             }
@@ -49,7 +50,7 @@ namespace empanada_2
                 {
                     texto = lista.Text;
                     band = 1;
-                    Nuevo_usuario abre = new Nuevo_usuario(ds, texto, band);
+                    Nuevo_usuario abre = new Nuevo_usuario(ds2, texto, band);
                     abre.Show();
                 }
             }
@@ -83,7 +84,7 @@ namespace empanada_2
                 string text = lista.Text;
 
 
-                OleDbConnection conexion = new OleDbConnection(ds);
+                OleDbConnection conexion = new OleDbConnection(ds2);
                 conexion.Open();
                 string select = "SELECT clave FROM USUARIOS WHERE nombre= '" + text + "'";
                 OleDbCommand cmd6 = new OleDbCommand(select, conexion);
@@ -139,7 +140,7 @@ namespace empanada_2
                     {
                         try
                         {
-                            OleDbConnection conexion = new OleDbConnection(ds);
+                            OleDbConnection conexion = new OleDbConnection(ds2);
 
                             conexion.Open();
                             string borrar = "DELETE FROM USUARIOS WHERE nombre = '" + text + "'";
@@ -172,7 +173,7 @@ namespace empanada_2
                     {
                         try
                         {
-                            OleDbConnection conexion = new OleDbConnection(ds);
+                            OleDbConnection conexion = new OleDbConnection(ds2);
 
                             conexion.Open();
                             string borrar = "DELETE FROM USUARIOS WHERE nombre = '" + nombre + "'";
@@ -194,6 +195,11 @@ namespace empanada_2
             }
         }
 
+        private void usuariosToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            System.Diagnostics.Process.Start("C:/Empanada/BEEGSOFT/empanada_2/empanada_2/UsuariosEmpanadas.mdb");
+        }
+
         private void SELECT_USUARIOS(int band)
         {
             if (band == 0)
@@ -201,7 +207,7 @@ namespace empanada_2
                 label2.Text = "Usted Ingreso como usuario Root";
                 listView2.Visible = false;
 
-                OleDbDataAdapter adaptador = new OleDbDataAdapter("SELECT USUARIOS.id, USUARIOS.nombre, USUARIOS.clave, USUARIOS.TIPO_USUARIO FROM USUARIOS ", ds);
+                OleDbDataAdapter adaptador = new OleDbDataAdapter("SELECT USUARIOS.id, USUARIOS.nombre, USUARIOS.clave, USUARIOS.TIPO_USUARIO FROM USUARIOS ", ds2);
 
                 DataSet dataset = new DataSet();
                 DataTable tabla = new DataTable();
@@ -226,8 +232,9 @@ namespace empanada_2
                 button1.Visible = false;
                 label3.Visible = false;
                 textBox1.Visible = false;
+                this.Size = new Size(489, 440);
 
-                OleDbDataAdapter adaptador = new OleDbDataAdapter("SELECT USUARIOS.nombre, USUARIOS.TIPO_USUARIO FROM USUARIOS WHERE USUARIOS.tipo_usuario <>'ROOT'", ds);
+                OleDbDataAdapter adaptador = new OleDbDataAdapter("SELECT USUARIOS.nombre, USUARIOS.TIPO_USUARIO FROM USUARIOS WHERE USUARIOS.tipo_usuario <>'ROOT'", ds2);
 
                 DataSet dataset = new DataSet();
                 DataTable tabla = new DataTable();

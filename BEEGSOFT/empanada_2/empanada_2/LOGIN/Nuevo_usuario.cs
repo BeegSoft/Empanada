@@ -13,14 +13,14 @@ namespace empanada_2
 {
     public partial class Nuevo_usuario : Form
     {
-        public Nuevo_usuario(string ds,string texto,int band)
+        public Nuevo_usuario(string ds2,string texto,int band)
         {
             InitializeComponent();
-            this.ds = ds;
+            this.ds2 = ds2;
             this.texto = texto;
             this.band = band;
         }
-        string ds,texto;
+        string ds2,texto;
         int band;
         
         private void RESET()
@@ -59,7 +59,7 @@ namespace empanada_2
                     var1 = Encriptado.Encriptar(txtclave.Text);
                     //----------------------------------
 
-                    OleDbConnection conexion = new OleDbConnection(ds);
+                    OleDbConnection conexion = new OleDbConnection(ds2);
                     conexion.Open();
                     try
                     {
@@ -107,7 +107,7 @@ namespace empanada_2
                 else
                 {
 
-                    OleDbConnection conexion = new OleDbConnection(ds);
+                    OleDbConnection conexion = new OleDbConnection(ds2);
                     conexion.Open();
                     try
                     {
