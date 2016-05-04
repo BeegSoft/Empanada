@@ -8,11 +8,11 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Data.OleDb;
-using System.Threading;
+
 
 namespace empanada_2
 {
-    public partial class Users : Form
+    public partial class Users : Form,IForm3
     {
         public Users(string ds,string ds2, int band)
         {
@@ -21,14 +21,64 @@ namespace empanada_2
             this.ds = ds;
             this.ds2 = ds2;
         }
-        int band;
-        string texto;
+        int band,id;        
         string ds,ds2;
+
+        #region IForm3 Members
+        public void recibir()
+        {
+            if (label2.Text == "Usted Ingreso Como Root")
+            {
+                if (Convert.ToInt32(listView1.Items.Count) != 0)
+                {
+                    OleDbDataAdapter adaptador = new OleDbDataAdapter("SELECT USUARIOS.id, USUARIOS.nombre, USUARIOS.clave, USUARIOS.TIPO_USUARIO FROM USUARIOS ", ds2);
+
+                    DataSet dataset = new DataSet();
+                    DataTable tabla = new DataTable();
+
+                    adaptador.Fill(dataset);
+                    tabla = dataset.Tables[0];
+                    this.listView1.Items.Clear();
+                    for (int i = 0; i < tabla.Rows.Count; i++)
+                    {
+                        DataRow filas = tabla.Rows[i];
+                        ListViewItem elementos = new ListViewItem(filas["id"].ToString());
+                        elementos.SubItems.Add(filas["nombre"].ToString());
+                        elementos.SubItems.Add(filas["clave"].ToString());
+                        elementos.SubItems.Add(filas["tipo_usuario"].ToString());
+                        listView1.Items.Add(elementos);
+                    }
+                }
+            }
+            else if (label2.Text == "Usted Ingreso como Administrador")
+            {
+                if (Convert.ToInt32(listView2.Items.Count) != 0)
+                {
+                    OleDbDataAdapter adaptador = new OleDbDataAdapter("SELECT USUARIOS.id,USUARIOS.nombre, USUARIOS.TIPO_USUARIO FROM USUARIOS WHERE USUARIOS.tipo_usuario <>'ROOT'", ds2);
+
+                    DataSet dataset = new DataSet();
+                    DataTable tabla = new DataTable();
+
+                    adaptador.Fill(dataset);
+                    tabla = dataset.Tables[0];
+                    this.listView2.Items.Clear();
+                    for (int i = 0; i < tabla.Rows.Count; i++)
+                    {
+                        DataRow filas = tabla.Rows[i];
+                        ListViewItem elementos = new ListViewItem(filas["id"].ToString());
+                        elementos.SubItems.Add(filas["nombre"].ToString());
+                        elementos.SubItems.Add(filas["tipo_usuario"].ToString());
+                        listView2.Items.Add(elementos);
+                    }
+                }
+            }
+        }        
+        #endregion
+
         private void registrarToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            texto = "ROOT";
-            band = 0;
-            Nuevo_usuario abre = new Nuevo_usuario(ds2, texto, band);
+            band = 0;            
+            Nuevo_usuario abre = new Nuevo_usuario(ds,ds2, id, band);
             abre.Show();
         }
 
@@ -38,9 +88,9 @@ namespace empanada_2
             {
                 foreach (ListViewItem lista in listView1.SelectedItems)
                 {
-                    texto = lista.Text;
+                    id =Convert.ToInt32(lista.Text);
                     band = 1;
-                    Nuevo_usuario abre = new Nuevo_usuario(ds2, texto, band);
+                    Nuevo_usuario abre = new Nuevo_usuario(ds,ds2, id, band);
                     abre.Show();
                 }
             }
@@ -48,13 +98,14 @@ namespace empanada_2
             {
                 foreach (ListViewItem lista in listView2.SelectedItems)
                 {
-                    texto = lista.Text;
+                    id = Convert.ToInt32(lista.Text);
                     band = 1;
-                    Nuevo_usuario abre = new Nuevo_usuario(ds2, texto, band);
+                    Nuevo_usuario abre = new Nuevo_usuario(ds,ds2, id, band);
                     abre.Show();
                 }
             }
         }
+        //public event EventHandler<ListViewUpdateEventArgs> ItemUpdating;
 
         private void AbrirProgramaToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -81,12 +132,12 @@ namespace empanada_2
         {
             foreach (ListViewItem lista in listView1.SelectedItems)
             {
-                string text = lista.Text;
+                id = Convert.ToInt32(lista.Text);
 
 
                 OleDbConnection conexion = new OleDbConnection(ds2);
                 conexion.Open();
-                string select = "SELECT clave FROM USUARIOS WHERE nombre= '" + text + "'";
+                string select = "SELECT clave FROM USUARIOS WHERE id=" + id;
                 OleDbCommand cmd6 = new OleDbCommand(select, conexion);
                 try
                 {
@@ -133,7 +184,7 @@ namespace empanada_2
             {
                 foreach (ListViewItem lista in listView1.SelectedItems)
                 {
-                    string text = lista.Text;
+                    id = Convert.ToInt32(lista.Text);
 
                     DialogResult resultado = MessageBox.Show("Esta seguro de borrar el usuario?", "ADVERTENCIA", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
                     if (resultado == DialogResult.Yes)
@@ -143,7 +194,7 @@ namespace empanada_2
                             OleDbConnection conexion = new OleDbConnection(ds2);
 
                             conexion.Open();
-                            string borrar = "DELETE FROM USUARIOS WHERE nombre = '" + text + "'";
+                            string borrar = "DELETE FROM USUARIOS WHERE id =" + id;
                             OleDbCommand cmd = new OleDbCommand(borrar, conexion);
 
                             cmd.ExecuteNonQuery();
@@ -166,7 +217,7 @@ namespace empanada_2
             {
                 foreach (ListViewItem lista in listView2.SelectedItems)
                 {
-                    string nombre = lista.Text;
+                    id = Convert.ToInt32(lista.Text);
 
                     DialogResult resultado = MessageBox.Show("Esta seguro de borrar el usuario?", "ADVERTENCIA", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
                     if (resultado == DialogResult.Yes)
@@ -176,7 +227,7 @@ namespace empanada_2
                             OleDbConnection conexion = new OleDbConnection(ds2);
 
                             conexion.Open();
-                            string borrar = "DELETE FROM USUARIOS WHERE nombre = '" + nombre + "'";
+                            string borrar = "DELETE FROM USUARIOS WHERE id =" + id;
                             OleDbCommand cmd = new OleDbCommand(borrar, conexion);
                             cmd.ExecuteNonQuery();
 
@@ -200,11 +251,59 @@ namespace empanada_2
             System.Diagnostics.Process.Start("C:/Empanada/BEEGSOFT/empanada_2/empanada_2/UsuariosEmpanadas.mdb");
         }
 
-        private void SELECT_USUARIOS(int band)
+        private void button2_Click(object sender, EventArgs e)
+        {
+            ACTUALIZADO();
+        }
+
+        public void ACTUALIZADO()
+        {
+            if (label2.Text == "Usted Ingreso Como Root")
+            {
+                OleDbDataAdapter adaptador = new OleDbDataAdapter("SELECT USUARIOS.id, USUARIOS.nombre, USUARIOS.clave, USUARIOS.TIPO_USUARIO FROM USUARIOS ", ds2);
+
+                DataSet dataset = new DataSet();
+                DataTable tabla = new DataTable();
+
+                adaptador.Fill(dataset);
+                tabla = dataset.Tables[0];
+                this.listView1.Items.Clear();
+                for (int i = 0; i < tabla.Rows.Count; i++)
+                {
+                    DataRow filas = tabla.Rows[i];
+                    ListViewItem elementos = new ListViewItem(filas["id"].ToString());
+                    elementos.SubItems.Add(filas["nombre"].ToString());
+                    elementos.SubItems.Add(filas["clave"].ToString());
+                    elementos.SubItems.Add(filas["tipo_usuario"].ToString());
+                    listView1.Items.Add(elementos);
+                }
+            }
+            else if (label2.Text == "Usted Ingreso como Administrador")
+            {
+                OleDbDataAdapter adaptador = new OleDbDataAdapter("SELECT USUARIOS.id,USUARIOS.nombre, USUARIOS.TIPO_USUARIO FROM USUARIOS WHERE USUARIOS.tipo_usuario <>'ROOT'", ds2);
+
+                DataSet dataset = new DataSet();
+                DataTable tabla = new DataTable();
+
+                adaptador.Fill(dataset);
+                tabla = dataset.Tables[0];
+                this.listView2.Items.Clear();
+                for (int i = 0; i < tabla.Rows.Count; i++)
+                {
+                    DataRow filas = tabla.Rows[i];
+                    ListViewItem elementos = new ListViewItem(filas["id"].ToString());
+                    elementos.SubItems.Add(filas["nombre"].ToString());
+                    elementos.SubItems.Add(filas["tipo_usuario"].ToString());
+                    listView2.Items.Add(elementos);
+                }
+            }
+        }
+
+        public void SELECT_USUARIOS(int band)
         {
             if (band == 0)
             {
-                label2.Text = "Usted Ingreso como usuario Root";
+                label2.Text = "Usted Ingreso Como Root";
                 listView2.Visible = false;
 
                 OleDbDataAdapter adaptador = new OleDbDataAdapter("SELECT USUARIOS.id, USUARIOS.nombre, USUARIOS.clave, USUARIOS.TIPO_USUARIO FROM USUARIOS ", ds2);
@@ -218,10 +317,10 @@ namespace empanada_2
                 for (int i = 0; i < tabla.Rows.Count; i++)
                 {
                     DataRow filas = tabla.Rows[i];
-                    ListViewItem elementos = new ListViewItem(filas["nombre"].ToString());
+                    ListViewItem elementos = new ListViewItem(filas["id"].ToString());
+                    elementos.SubItems.Add(filas["nombre"].ToString());
                     elementos.SubItems.Add(filas["clave"].ToString());
                     elementos.SubItems.Add(filas["tipo_usuario"].ToString());
-                    elementos.SubItems.Add(filas["id"].ToString());
                     listView1.Items.Add(elementos);
                 }
             }
@@ -229,12 +328,16 @@ namespace empanada_2
             {
                 label2.Text = "Usted Ingreso Como Administrador";
                 listView1.Visible = false;
+                listView2.Location = new Point(189, 154);
+                button25.Location = new Point(436, 154);
+                label1.Location = new Point(219, 104);
+                label2.Location = new Point(214, 128);
                 button1.Visible = false;
                 label3.Visible = false;
                 textBox1.Visible = false;
-                this.Size = new Size(489, 440);
+                this.Size = new Size(552, 440);
 
-                OleDbDataAdapter adaptador = new OleDbDataAdapter("SELECT USUARIOS.nombre, USUARIOS.TIPO_USUARIO FROM USUARIOS WHERE USUARIOS.tipo_usuario <>'ROOT'", ds2);
+                OleDbDataAdapter adaptador = new OleDbDataAdapter("SELECT USUARIOS.id,USUARIOS.nombre, USUARIOS.TIPO_USUARIO FROM USUARIOS WHERE USUARIOS.tipo_usuario <>'ROOT'", ds2);
 
                 DataSet dataset = new DataSet();
                 DataTable tabla = new DataTable();
@@ -245,7 +348,8 @@ namespace empanada_2
                 for (int i = 0; i < tabla.Rows.Count; i++)
                 {
                     DataRow filas = tabla.Rows[i];
-                    ListViewItem elementos = new ListViewItem(filas["nombre"].ToString());
+                    ListViewItem elementos = new ListViewItem(filas["id"].ToString());
+                    elementos.SubItems.Add(filas["nombre"].ToString());
                     elementos.SubItems.Add(filas["tipo_usuario"].ToString());
                     listView2.Items.Add(elementos);
                 }

@@ -246,6 +246,12 @@ namespace empanada_2
             form.ShowDialog();
         }
 
+        private void gastosToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Gastos form = new Gastos(ds);
+            form.ShowDialog();
+        }
+
         private void Historial_Load(object sender, EventArgs e)
         {
             textBox_clientes.Text = "0";

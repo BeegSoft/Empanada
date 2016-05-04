@@ -63,16 +63,6 @@ namespace empanada_2.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap _1 {
-            get {
-                object obj = ResourceManager.GetObject("1", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
-        /// </summary>
         internal static System.Drawing.Bitmap _61672 {
             get {
                 object obj = ResourceManager.GetObject("61672", resourceCulture);
@@ -116,6 +106,16 @@ namespace empanada_2.Properties {
         internal static System.Drawing.Bitmap agregar {
             get {
                 object obj = ResourceManager.GetObject("agregar", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap almacen {
+            get {
+                object obj = ResourceManager.GetObject("almacen", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

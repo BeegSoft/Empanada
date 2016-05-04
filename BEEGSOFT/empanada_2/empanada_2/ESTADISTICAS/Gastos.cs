@@ -179,7 +179,7 @@ namespace empanada_2
                         OleDbConnection conexion = new OleDbConnection(ds);
 
                         conexion.Open();
-                        string insertar = "DELETE FROM GASTOS WHERE Id = " + id;
+                        string insertar = "DELETE FROM GASTOS WHERE Id_gastos = " + id;
                         OleDbCommand cmd = new OleDbCommand(insertar, conexion);
 
                         cmd.ExecuteNonQuery();

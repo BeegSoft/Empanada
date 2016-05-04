@@ -44,18 +44,21 @@
             this.modificarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.AbrirProgramaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.abrirBaseDeDatosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.usuariosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.cerrarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.almacenToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.button25 = new System.Windows.Forms.Button();
-            this.usuariosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.button2 = new System.Windows.Forms.Button();
+            this.columnHeader5 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(167, 370);
+            this.label3.Location = new System.Drawing.Point(307, 370);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(109, 13);
             this.label3.TabIndex = 101;
@@ -63,14 +66,14 @@
             // 
             // textBox1
             // 
-            this.textBox1.Location = new System.Drawing.Point(282, 367);
+            this.textBox1.Location = new System.Drawing.Point(422, 367);
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(135, 20);
             this.textBox1.TabIndex = 100;
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(49, 365);
+            this.button1.Location = new System.Drawing.Point(189, 365);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(100, 23);
             this.button1.TabIndex = 99;
@@ -81,11 +84,12 @@
             // listView2
             // 
             this.listView2.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.columnHeader5,
             this.columnHeader6,
             this.columnHeader8});
-            this.listView2.Location = new System.Drawing.Point(190, 155);
+            this.listView2.Location = new System.Drawing.Point(295, 155);
             this.listView2.Name = "listView2";
-            this.listView2.Size = new System.Drawing.Size(227, 195);
+            this.listView2.Size = new System.Drawing.Size(262, 195);
             this.listView2.TabIndex = 97;
             this.listView2.UseCompatibleStateImageBehavior = false;
             this.listView2.View = System.Windows.Forms.View.Details;
@@ -103,11 +107,11 @@
             // listView1
             // 
             this.listView1.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.columnHeader1,
             this.columnHeader2,
             this.columnHeader3,
-            this.columnHeader4,
-            this.columnHeader1});
-            this.listView1.Location = new System.Drawing.Point(24, 154);
+            this.columnHeader4});
+            this.listView1.Location = new System.Drawing.Point(164, 154);
             this.listView1.Name = "listView1";
             this.listView1.Size = new System.Drawing.Size(394, 195);
             this.listView1.TabIndex = 96;
@@ -144,11 +148,12 @@
             this.AbrirProgramaToolStripMenuItem,
             this.abrirBaseDeDatosToolStripMenuItem,
             this.usuariosToolStripMenuItem,
-            this.cerrarToolStripMenuItem});
+            this.cerrarToolStripMenuItem,
+            this.almacenToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.RenderMode = System.Windows.Forms.ToolStripRenderMode.System;
-            this.menuStrip1.Size = new System.Drawing.Size(537, 87);
+            this.menuStrip1.Size = new System.Drawing.Size(612, 87);
             this.menuStrip1.TabIndex = 95;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -193,6 +198,16 @@
             this.abrirBaseDeDatosToolStripMenuItem.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.abrirBaseDeDatosToolStripMenuItem.Click += new System.EventHandler(this.abrirBaseDeDatosToolStripMenuItem_Click);
             // 
+            // usuariosToolStripMenuItem
+            // 
+            this.usuariosToolStripMenuItem.Image = global::empanada_2.Properties.Resources.female_male_users;
+            this.usuariosToolStripMenuItem.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+            this.usuariosToolStripMenuItem.Name = "usuariosToolStripMenuItem";
+            this.usuariosToolStripMenuItem.Size = new System.Drawing.Size(76, 83);
+            this.usuariosToolStripMenuItem.Text = "Usuarios";
+            this.usuariosToolStripMenuItem.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.usuariosToolStripMenuItem.Click += new System.EventHandler(this.usuariosToolStripMenuItem_Click);
+            // 
             // cerrarToolStripMenuItem
             // 
             this.cerrarToolStripMenuItem.Image = global::empanada_2.Properties.Resources.shut_down;
@@ -203,10 +218,19 @@
             this.cerrarToolStripMenuItem.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.cerrarToolStripMenuItem.Click += new System.EventHandler(this.cerrarToolStripMenuItem_Click);
             // 
+            // almacenToolStripMenuItem
+            // 
+            this.almacenToolStripMenuItem.Image = global::empanada_2.Properties.Resources.almacen;
+            this.almacenToolStripMenuItem.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+            this.almacenToolStripMenuItem.Name = "almacenToolStripMenuItem";
+            this.almacenToolStripMenuItem.Size = new System.Drawing.Size(76, 83);
+            this.almacenToolStripMenuItem.Text = "Almacen";
+            this.almacenToolStripMenuItem.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(167, 128);
+            this.label2.Location = new System.Drawing.Point(231, 128);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(35, 13);
             this.label2.TabIndex = 94;
@@ -216,7 +240,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Times New Roman", 15.75F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(182, 104);
+            this.label1.Location = new System.Drawing.Point(247, 104);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(113, 24);
             this.label1.TabIndex = 93;
@@ -232,7 +256,7 @@
             this.button25.Font = new System.Drawing.Font("Lucida Sans", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button25.Image = global::empanada_2.Properties.Resources.delete;
             this.button25.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.button25.Location = new System.Drawing.Point(424, 155);
+            this.button25.Location = new System.Drawing.Point(564, 155);
             this.button25.Name = "button25";
             this.button25.Size = new System.Drawing.Size(42, 43);
             this.button25.TabIndex = 98;
@@ -240,21 +264,27 @@
             this.button25.UseVisualStyleBackColor = false;
             this.button25.Click += new System.EventHandler(this.button25_Click);
             // 
-            // usuariosToolStripMenuItem
+            // button2
             // 
-            this.usuariosToolStripMenuItem.Image = global::empanada_2.Properties.Resources.female_male_users;
-            this.usuariosToolStripMenuItem.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
-            this.usuariosToolStripMenuItem.Name = "usuariosToolStripMenuItem";
-            this.usuariosToolStripMenuItem.Size = new System.Drawing.Size(76, 83);
-            this.usuariosToolStripMenuItem.Text = "Usuarios";
-            this.usuariosToolStripMenuItem.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
-            this.usuariosToolStripMenuItem.Click += new System.EventHandler(this.usuariosToolStripMenuItem_Click);
+            this.button2.Location = new System.Drawing.Point(38, 366);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(100, 23);
+            this.button2.TabIndex = 102;
+            this.button2.Text = "Actualizar Tabla";
+            this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
+            // 
+            // columnHeader5
+            // 
+            this.columnHeader5.Text = "ID";
+            this.columnHeader5.Width = 35;
             // 
             // Users
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(537, 401);
+            this.ClientSize = new System.Drawing.Size(612, 401);
+            this.Controls.Add(this.button2);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.textBox1);
             this.Controls.Add(this.button1);
@@ -279,11 +309,9 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.ListView listView2;
         private System.Windows.Forms.ColumnHeader columnHeader6;
         private System.Windows.Forms.ColumnHeader columnHeader8;
         private System.Windows.Forms.Button button25;
-        private System.Windows.Forms.ListView listView1;
         private System.Windows.Forms.ColumnHeader columnHeader2;
         private System.Windows.Forms.ColumnHeader columnHeader3;
         private System.Windows.Forms.ColumnHeader columnHeader4;
@@ -297,5 +325,10 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
         public System.Windows.Forms.ToolStripMenuItem usuariosToolStripMenuItem;
+        public System.Windows.Forms.ToolStripMenuItem almacenToolStripMenuItem;
+        public System.Windows.Forms.ListView listView2;
+        public System.Windows.Forms.ListView listView1;
+        public System.Windows.Forms.Button button2;
+        private System.Windows.Forms.ColumnHeader columnHeader5;
     }
 }
