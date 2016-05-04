@@ -98,3 +98,4 @@ C:\Empanada\BEEGSOFT\empanada_2\empanada_2\obj\Debug\empanada_2.Properties.Resou
 C:\Empanada\BEEGSOFT\empanada_2\empanada_2\obj\Debug\empanada_2.csproj.GenerateResource.Cache
 =======
 >>>>>>> 0b5b93acd017260e8757edb2a58e48c9f88f8f45
+C:\Empanada\BEEGSOFT\empanada_2\empanada_2\obj\Debug\empanada_2.csproj.ResolveComReference.cache
