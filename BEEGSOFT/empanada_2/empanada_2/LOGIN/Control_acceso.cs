@@ -102,11 +102,12 @@ namespace empanada_2
             if ((comboBox1.Text == "ROOT") || (comboBox1.Text == "ADMINISTRADOR") || (comboBox1.Text == "OPERADOR"))
             {
                 MessageBox.Show("Usuario Aceptado", "AVISO", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                textBox1.Focus();
                 TIPO();                
             }
             else if ((comboBox1.Text != "ROOT") || (comboBox1.Text != "ADMINISTRADOR") || (comboBox1.Text != "OPERADOR"))
             {
-                if (veces == 2)
+                if (veces == 3)
                 {
                     MessageBox.Show("Has excedido el limite permitido ", "conexion", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     this.Close();

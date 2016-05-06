@@ -11,25 +11,39 @@ using System.Data.OleDb;
 
 namespace empanada_2
 {
-    public partial class Nuevo_usuario : Form
+    public partial class Nuevo_usuario : Form,IForm4
     {
-        public Nuevo_usuario(string ds2,string texto,int band)
+        public Nuevo_usuario(string ds,string ds2,int id,int band)
         {
             InitializeComponent();
             this.ds2 = ds2;
-            this.texto = texto;
+            this.ds = ds;
+            this.id = id;            
             this.band = band;
         }
-        string ds2,texto;
-        int band;
-        
+
+        #region IForm4 Members
+        public void enviar()
+        {
+            
+        }
+        #endregion
+
+        string ds,ds2;
+        int band,id;
+
+        private void groupBox1_Enter(object sender, EventArgs e)
+        {
+
+        }
+
         private void RESET()
         {
             txtclave.Clear();
             txtnombre.Clear();
             cbotipo.Text = "SELECCIONE TIPO";
             txtnombre.Focus();
-        }
+        }                   
 
         private void btngrabar_Click(object sender, EventArgs e)
         {
@@ -115,7 +129,7 @@ namespace empanada_2
                         string var1 = Encriptado.Encriptar(txtclave.Text);
 
 
-                        string insertar2 = "UPDATE USUARIOS SET nombre = @NOMBRE, clave = @CLAVE,tipo_usuario = @TIPO WHERE nombre = '" + texto + "'";
+                        string insertar2 = "UPDATE USUARIOS SET nombre = @NOMBRE, clave = @CLAVE,tipo_usuario = @TIPO WHERE id =" + id;
                         OleDbCommand cmd3 = new OleDbCommand(insertar2, conexion);
                         cmd3.Parameters.AddWithValue("@NOMBRE", txtnombre.Text);
                         cmd3.Parameters.AddWithValue("@CLAVE", var1);
@@ -137,6 +151,10 @@ namespace empanada_2
                     conexion.Close();
                 }
             }
+
+            IForm3 formInterface = this.Owner as IForm3;
+            if (formInterface != null)
+                formInterface.recibir();
         }
     }
 }
