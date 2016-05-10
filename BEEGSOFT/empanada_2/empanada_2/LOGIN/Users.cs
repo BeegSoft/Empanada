@@ -12,7 +12,7 @@ using System.Data.OleDb;
 
 namespace empanada_2
 {
-    public partial class Users : Form,IForm3
+    public partial class Users : Form, IForm5
     {
         public Users(string ds,string ds2, int band)
         {
@@ -24,62 +24,19 @@ namespace empanada_2
         int band,id;        
         string ds,ds2;
 
-        #region IForm3 Members
-        public void recibir()
+
+        #region Para Actualizar los datos
+        public void Cargar_usuarios()
         {
-            if (label2.Text == "Usted Ingreso Como Root")
-            {
-                if (Convert.ToInt32(listView1.Items.Count) != 0)
-                {
-                    OleDbDataAdapter adaptador = new OleDbDataAdapter("SELECT USUARIOS.id, USUARIOS.nombre, USUARIOS.clave, USUARIOS.TIPO_USUARIO FROM USUARIOS ", ds2);
-
-                    DataSet dataset = new DataSet();
-                    DataTable tabla = new DataTable();
-
-                    adaptador.Fill(dataset);
-                    tabla = dataset.Tables[0];
-                    this.listView1.Items.Clear();
-                    for (int i = 0; i < tabla.Rows.Count; i++)
-                    {
-                        DataRow filas = tabla.Rows[i];
-                        ListViewItem elementos = new ListViewItem(filas["id"].ToString());
-                        elementos.SubItems.Add(filas["nombre"].ToString());
-                        elementos.SubItems.Add(filas["clave"].ToString());
-                        elementos.SubItems.Add(filas["tipo_usuario"].ToString());
-                        listView1.Items.Add(elementos);
-                    }
-                }
-            }
-            else if (label2.Text == "Usted Ingreso como Administrador")
-            {
-                if (Convert.ToInt32(listView2.Items.Count) != 0)
-                {
-                    OleDbDataAdapter adaptador = new OleDbDataAdapter("SELECT USUARIOS.id,USUARIOS.nombre, USUARIOS.TIPO_USUARIO FROM USUARIOS WHERE USUARIOS.tipo_usuario <>'ROOT'", ds2);
-
-                    DataSet dataset = new DataSet();
-                    DataTable tabla = new DataTable();
-
-                    adaptador.Fill(dataset);
-                    tabla = dataset.Tables[0];
-                    this.listView2.Items.Clear();
-                    for (int i = 0; i < tabla.Rows.Count; i++)
-                    {
-                        DataRow filas = tabla.Rows[i];
-                        ListViewItem elementos = new ListViewItem(filas["id"].ToString());
-                        elementos.SubItems.Add(filas["nombre"].ToString());
-                        elementos.SubItems.Add(filas["tipo_usuario"].ToString());
-                        listView2.Items.Add(elementos);
-                    }
-                }
-            }
-        }        
+            ACTUALIZADO();
+        }
         #endregion
 
         private void registrarToolStripMenuItem_Click(object sender, EventArgs e)
         {
             band = 0;            
             Nuevo_usuario abre = new Nuevo_usuario(ds,ds2, id, band);
-            abre.Show();
+            abre.Show(this);
         }
 
         private void modificarToolStripMenuItem_Click(object sender, EventArgs e)
@@ -168,14 +125,7 @@ namespace empanada_2
 
         private void Users_Load(object sender, EventArgs e)
         {
-            if (band == 0)
-            {
-                SELECT_USUARIOS(band);
-            }
-            else if (band == 1)
-            {
-                SELECT_USUARIOS(band);
-            }
+            SELECT_USUARIOS(band);
         }
 
         private void BORRAR()

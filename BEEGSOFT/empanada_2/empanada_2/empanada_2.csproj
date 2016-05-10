@@ -79,7 +79,6 @@
     <Compile Include="LOGIN\Control_acceso.Designer.cs">
       <DependentUpon>Control_acceso.cs</DependentUpon>
     </Compile>
-    <Compile Include="LOGIN\IForm3.cs" />
     <Compile Include="ORDENES\CrearTicket.cs" />
     <Compile Include="LOGIN\Encriptado.cs" />
     <Compile Include="ESTADISTICAS\Exportacion_excel.cs">

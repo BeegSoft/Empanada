@@ -317,8 +317,8 @@ namespace empanada_2
             ticket.TextoIzquierda("");
             ticket.TextoCentro("¡GRACIAS POR SU COMPRA!");
             ticket.CortaTicket();
-            ticket.ImprimirTicket("Microsoft XPS Document Writer");//Nombre de la impresora ticketera
-            ticket.ImprimirTicket("canon iP2800 series");
+            //ticket.ImprimirTicket("Microsoft XPS Document Writer");//Nombre de la impresora ticketera
+            ticket.ImprimirTicket("POS-58(copy of 3)");
 
 
             conexion.Close();
