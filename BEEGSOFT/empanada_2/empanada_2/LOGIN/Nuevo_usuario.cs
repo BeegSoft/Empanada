@@ -11,7 +11,7 @@ using System.Data.OleDb;
 
 namespace empanada_2
 {
-    public partial class Nuevo_usuario : Form,IForm4
+    public partial class Nuevo_usuario : Form
     {
         public Nuevo_usuario(string ds,string ds2,int id,int band)
         {
@@ -22,12 +22,9 @@ namespace empanada_2
             this.band = band;
         }
 
-        #region IForm4 Members
-        public void enviar()
-        {
-            
-        }
-        #endregion
+        
+
+
 
         string ds,ds2;
         int band,id;
@@ -85,6 +82,9 @@ namespace empanada_2
 
                         cmd2.ExecuteNonQuery();
                         MessageBox.Show("Usuario Agregado", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                        
+
                         RESET();
                     }
 
@@ -95,8 +95,11 @@ namespace empanada_2
                     catch (Exception ex)
                     {
                         MessageBox.Show(ex.Message);
+
                     }
+
                     conexion.Close();
+
                 }
             }
             //uno para modificar
@@ -137,6 +140,8 @@ namespace empanada_2
                         cmd3.ExecuteNonQuery();
 
                         MessageBox.Show("Usuario modificado", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        
+
                         RESET();
                     }
 
@@ -147,14 +152,20 @@ namespace empanada_2
                     catch (Exception ex)
                     {
                         MessageBox.Show(ex.Message);
+
                     }
+
+
                     conexion.Close();
+
                 }
             }
 
-            IForm3 formInterface = this.Owner as IForm3;
+            #region Relogear la lista de usuarios
+            IForm5 formInterface = this.Owner as IForm5;
             if (formInterface != null)
-                formInterface.recibir();
+                formInterface.Cargar_usuarios();
+            #endregion
         }
     }
 }

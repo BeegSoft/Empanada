@@ -16,6 +16,11 @@ namespace empanada_2
         void Relogear_ordenes();
     }
 
+    public interface IForm5
+    {
+        void Cargar_usuarios();
+    }
+
     public interface Terminar_orden
     {
         void orden1();
