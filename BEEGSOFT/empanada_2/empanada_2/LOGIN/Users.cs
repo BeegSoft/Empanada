@@ -206,6 +206,12 @@ namespace empanada_2
             ACTUALIZADO();
         }
 
+        private void almacenToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Almacen corre = new Almacen(ds);
+            corre.Show();
+        }
+
         public void ACTUALIZADO()
         {
             if (label2.Text == "Usted Ingreso Como Root")

@@ -29,3 +29,4 @@ C:\Users\Toshiba\Downloads\Empanada-0eedd94902d46d36c4c1a27e9e928cee8fc9aad9\BEE
 C:\Users\Toshiba\Downloads\Empanada-0eedd94902d46d36c4c1a27e9e928cee8fc9aad9\BEEGSOFT\empanada_2\empanada_2\obj\eduardo\empanada_2.csproj.ResolveComReference.cache
 C:\Users\Toshiba\Downloads\Empanada-0eedd94902d46d36c4c1a27e9e928cee8fc9aad9\BEEGSOFT\empanada_2\empanada_2\obj\eduardo\empanada_2.exe
 C:\Users\Toshiba\Downloads\Empanada-0eedd94902d46d36c4c1a27e9e928cee8fc9aad9\BEEGSOFT\empanada_2\empanada_2\obj\eduardo\empanada_2.pdb
+C:\Empanada\BEEGSOFT\empanada_2\empanada_2\obj\eduardo\empanada_2.Almacen.resources

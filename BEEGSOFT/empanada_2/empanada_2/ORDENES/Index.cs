@@ -23,8 +23,9 @@ namespace empanada_2
         //CONEXIONES
         String ds;
 
-        string fecha, total_pagar, platillo;
+        string fecha, total_pagar, platillo,peso;
         int precio_platillo, total, cantidad;
+        decimal tipo, suma;        
         int id = 0;
 
         //para cada producto falta agregar una variable para que realice la funcion de contar cuanto se esta seleccionando de cada cosa
@@ -833,6 +834,78 @@ namespace empanada_2
             }
         }
 
+        private void TIPO_RESTA(string descripcion)
+        {            
+            if (descripcion == "carne con chile")
+            {
+                tipo=520/15;
+            }
+            if (descripcion == "cochinita")
+            {
+                tipo = 450 / 15;
+            }
+            if (descripcion == "nopal")
+            {
+                tipo = 360 / 8;
+            }
+            if (descripcion == "tinga de pollo")
+            {
+                tipo = 525 / 15;
+            }
+            if (descripcion == "frijol con queso")
+            {
+                tipo = 450 / 10;
+            }
+            if (descripcion == "rajas con queso")
+            {
+                tipo = 675 / 15;
+            }
+            if (descripcion == "picadillo")
+            {
+                tipo = 400 / 10;
+            }
+            if (descripcion == "chicharron salsa verde")
+            {
+                tipo = 525 / 15;
+            }
+            if (descripcion == "chicharron salsa roja")
+            {
+                tipo = 525 / 15;
+            }            
+        }
+
+        private void ALMACEN(string descripcion,int cantidad)
+        {
+
+            TIPO_RESTA(descripcion);
+            //checar cuanto es lo que tiene de peso respecto a la descripcion
+            OleDbConnection conexion4 = new OleDbConnection(ds);
+
+            conexion4.Open();
+
+            string sql = "select Peso from ALMACEN WHERE Descripcion='" + descripcion + "'";
+            OleDbCommand cmd2 = new OleDbCommand(sql, conexion4); //Conexion es tu objeto conexion
+
+            peso = (cmd2.ExecuteScalar()).ToString();
+
+            conexion4.Close();
+
+            //Realizando la resta para aser la modificacion           
+            suma = ((Convert.ToDecimal(peso)) - (tipo * cantidad));
+
+            //realizando la consulta
+            OleDbConnection conexion = new OleDbConnection(ds);
+
+            conexion.Open();
+
+            string insertar = "UPDATE ALMACEN SET Peso = @Peso WHERE Descripcion= '" + descripcion + "'";
+            OleDbCommand cmd3 = new OleDbCommand(insertar, conexion);
+            cmd3.Parameters.AddWithValue("@Peso", suma.ToString());
+
+            cmd3.ExecuteNonQuery();
+            conexion.Close();
+        }
+
         private void button14_Click_1(object sender, EventArgs e)
         {
             if (id == 0)
@@ -850,6 +923,7 @@ namespace empanada_2
 
                         Insertar_datos(cantidad, platillo);
                         INSERTAR_VISU(platillo, cantidad);
+                        ALMACEN(platillo, cantidad);                        
                     }
 
                     if (Convert.ToInt32(textBoxcarnec.Text) != 0)
@@ -859,6 +933,7 @@ namespace empanada_2
 
                         Insertar_datos(cantidad, platillo);
                         INSERTAR_VISU(platillo, cantidad);
+                        ALMACEN(platillo, cantidad);
                     }
 
                     if (Convert.ToInt32(textBoxrajas.Text) != 0)
@@ -868,6 +943,7 @@ namespace empanada_2
 
                         Insertar_datos(cantidad, platillo);
                         INSERTAR_VISU(platillo, cantidad);
+                        ALMACEN(platillo, cantidad);
                     }
 
                     if (Convert.ToInt32(textBoxfrijol.Text) != 0)
@@ -877,6 +953,7 @@ namespace empanada_2
 
                         Insertar_datos(cantidad, platillo);
                         INSERTAR_VISU(platillo, cantidad);
+                        ALMACEN(platillo, cantidad);
                     }
 
                     if (Convert.ToInt32(textBoxcochinita.Text) != 0)
@@ -886,6 +963,7 @@ namespace empanada_2
 
                         Insertar_datos(cantidad, platillo);
                         INSERTAR_VISU(platillo, cantidad);
+                        ALMACEN(platillo, cantidad);
                     }
 
                     if (Convert.ToInt32(textBoxchicharronsv.Text) != 0)
@@ -895,6 +973,7 @@ namespace empanada_2
 
                         Insertar_datos(cantidad, platillo);
                         INSERTAR_VISU(platillo, cantidad);
+                        ALMACEN(platillo, cantidad);
                     }
 
                     if (Convert.ToInt32(textBoxchicharronsr.Text) != 0)
@@ -904,6 +983,7 @@ namespace empanada_2
 
                         Insertar_datos(cantidad, platillo);
                         INSERTAR_VISU(platillo, cantidad);
+                        ALMACEN(platillo, cantidad);
                     }
 
                     if (Convert.ToInt32(textBoxnopal.Text) != 0)
@@ -913,6 +993,7 @@ namespace empanada_2
 
                         Insertar_datos(cantidad, platillo);
                         INSERTAR_VISU(platillo, cantidad);
+                        ALMACEN(platillo, cantidad);
                     }
 
                     if (Convert.ToInt32(textBoxtinga.Text) != 0)
@@ -922,6 +1003,7 @@ namespace empanada_2
 
                         Insertar_datos(cantidad, platillo);
                         INSERTAR_VISU(platillo, cantidad);
+                        ALMACEN(platillo, cantidad);
                     }
 
                     if (Convert.ToInt32(textBoxpicadillo.Text) != 0)
@@ -931,6 +1013,7 @@ namespace empanada_2
 
                         Insertar_datos(cantidad, platillo);
                         INSERTAR_VISU(platillo, cantidad);
+                        ALMACEN(platillo, cantidad);
                     }
 
                     if (Convert.ToInt32(textBoxhorchata.Text) != 0)
