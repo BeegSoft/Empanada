@@ -9,6 +9,10 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Data.OleDb;
 
+using System.Globalization;
+using System.Reflection;
+using System.Threading;
+
 namespace empanada_2
 {
     public partial class Almacen : Form
@@ -20,7 +24,47 @@ namespace empanada_2
         }
 
         string ds, peso;
-        decimal suma;
+        double suma;
+
+
+        public void SetDefaultCulture(CultureInfo culture)
+        {
+            Type type = typeof(CultureInfo);
+
+            try
+            {
+                type.InvokeMember("s_userDefaultCulture",
+                                    BindingFlags.SetField | BindingFlags.NonPublic | BindingFlags.Static,
+                                    null,
+                                    culture,
+                                    new object[] { culture });
+
+                type.InvokeMember("s_userDefaultUICulture",
+                                    BindingFlags.SetField | BindingFlags.NonPublic | BindingFlags.Static,
+                                    null,
+                                    culture,
+                                    new object[] { culture });
+            }
+            catch { }
+
+            try
+            {
+                type.InvokeMember("m_userDefaultCulture",
+                                    BindingFlags.SetField | BindingFlags.NonPublic | BindingFlags.Static,
+                                    null,
+                                    culture,
+                                    new object[] { culture });
+
+                type.InvokeMember("m_userDefaultUICulture",
+                                    BindingFlags.SetField | BindingFlags.NonPublic | BindingFlags.Static,
+                                    null,
+                                    culture,
+                                    new object[] { culture });
+            }
+            catch { }
+        }
+
+
         private void Almacen_Load(object sender, EventArgs e)
         {
             SELECT_ALMACEN();
@@ -60,6 +104,8 @@ namespace empanada_2
 
         private void button4_Click(object sender, EventArgs e)
         {
+            SetDefaultCulture(new CultureInfo("es-MX"));
+
             if (textBox_almacen.Text == "")
             {
                 MessageBox.Show("No has introduccido la informacion necesaria", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -78,12 +124,13 @@ namespace empanada_2
                     OleDbCommand cmd2 = new OleDbCommand(sql, conexion4); //Conexion es tu objeto conexion
 
                     peso = (cmd2.ExecuteScalar()).ToString();
+                    
 
                     conexion4.Close();
 
                     //Realizando la resta para aser la modificacion
-
-                    suma = (Convert.ToDecimal(peso)) - (Convert.ToDecimal(textBox_almacen.Text));
+                    suma = (double.Parse(peso, Thread.CurrentThread.CurrentCulture)) - (double.Parse(textBox_almacen.Text, Thread.CurrentThread.CurrentCulture));
+                    
 
                     //realizando la consulta
                     OleDbConnection conexion = new OleDbConnection(ds);
@@ -105,7 +152,8 @@ namespace empanada_2
 
         private void button5_Click(object sender, EventArgs e)
         {
-            
+            SetDefaultCulture(new CultureInfo("es-MX"));
+
             if (textBox_almacen.Text == "")
             {
                 MessageBox.Show("No has introduccido la informacion necesaria", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -128,8 +176,7 @@ namespace empanada_2
                     conexion4.Close();
 
                     //Realizando la suma para aser la modificacion
-
-                    suma = (Convert.ToDecimal(peso)) + (Convert.ToDecimal(textBox_almacen.Text));                    
+                    suma = (double.Parse(peso, Thread.CurrentThread.CurrentCulture)) + (double.Parse(textBox_almacen.Text, Thread.CurrentThread.CurrentCulture));                    
 
                     //realizando la consulta
                     OleDbConnection conexion = new OleDbConnection(ds);

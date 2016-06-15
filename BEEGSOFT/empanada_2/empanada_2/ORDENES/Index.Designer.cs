@@ -129,6 +129,7 @@
             this.button13 = new System.Windows.Forms.Button();
             this.button15 = new System.Windows.Forms.Button();
             this.button18 = new System.Windows.Forms.Button();
+            this.button24 = new System.Windows.Forms.Button();
             this.menuStrip1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
@@ -1178,11 +1179,29 @@
             this.button18.UseVisualStyleBackColor = false;
             this.button18.Click += new System.EventHandler(this.button18_Click);
             // 
+            // button24
+            // 
+            this.button24.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.button24.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.button24.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Yellow;
+            this.button24.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
+            this.button24.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button24.Font = new System.Drawing.Font("Lucida Sans", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button24.Image = global::empanada_2.Properties.Resources.almacen;
+            this.button24.Location = new System.Drawing.Point(893, 24);
+            this.button24.Name = "button24";
+            this.button24.Size = new System.Drawing.Size(74, 75);
+            this.button24.TabIndex = 81;
+            this.button24.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
+            this.button24.UseVisualStyleBackColor = false;
+            this.button24.Click += new System.EventHandler(this.button24_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1005, 624);
+            this.Controls.Add(this.button24);
             this.Controls.Add(this.button26);
             this.Controls.Add(this.button13);
             this.Controls.Add(this.button15);
@@ -1316,6 +1335,7 @@
         public System.Windows.Forms.ToolStripMenuItem estadisticasToolStripMenuItem;
         public System.Windows.Forms.ToolStripMenuItem terminarOrdenesToolStripMenuItem;
         public System.Windows.Forms.ToolStripMenuItem gastosToolStripMenuItem;
+        private System.Windows.Forms.Button button24;
     }
 }
 

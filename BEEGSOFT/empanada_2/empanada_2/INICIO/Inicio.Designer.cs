@@ -36,13 +36,14 @@
             this.button4 = new System.Windows.Forms.Button();
             this.imageList1 = new System.Windows.Forms.ImageList(this.components);
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.button5 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // button1
             // 
             this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.Location = new System.Drawing.Point(254, 57);
+            this.button1.Location = new System.Drawing.Point(254, 12);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(119, 74);
             this.button1.TabIndex = 0;
@@ -53,7 +54,7 @@
             // button2
             // 
             this.button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button2.Location = new System.Drawing.Point(379, 57);
+            this.button2.Location = new System.Drawing.Point(379, 12);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(149, 74);
             this.button2.TabIndex = 1;
@@ -64,7 +65,7 @@
             // button3
             // 
             this.button3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button3.Location = new System.Drawing.Point(254, 146);
+            this.button3.Location = new System.Drawing.Point(254, 101);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(138, 74);
             this.button3.TabIndex = 2;
@@ -75,7 +76,7 @@
             // button4
             // 
             this.button4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button4.Location = new System.Drawing.Point(398, 146);
+            this.button4.Location = new System.Drawing.Point(398, 101);
             this.button4.Name = "button4";
             this.button4.Size = new System.Drawing.Size(130, 74);
             this.button4.TabIndex = 3;
@@ -100,12 +101,24 @@
             this.pictureBox1.TabIndex = 4;
             this.pictureBox1.TabStop = false;
             // 
+            // button5
+            // 
+            this.button5.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button5.Location = new System.Drawing.Point(329, 181);
+            this.button5.Name = "button5";
+            this.button5.Size = new System.Drawing.Size(119, 64);
+            this.button5.TabIndex = 5;
+            this.button5.Text = "ALMACEN";
+            this.button5.UseVisualStyleBackColor = true;
+            this.button5.Click += new System.EventHandler(this.button5_Click);
+            // 
             // Inicio
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(542, 257);
+            this.Controls.Add(this.button5);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.button4);
             this.Controls.Add(this.button3);
@@ -128,5 +141,6 @@
         private System.Windows.Forms.Button button4;
         private System.Windows.Forms.ImageList imageList1;
         private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.Button button5;
     }
 }

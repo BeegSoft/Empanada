@@ -9,6 +9,10 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Data.OleDb;
 
+using System.Globalization;
+using System.Reflection;
+using System.Threading;
+
 namespace empanada_2
 {
     public partial class Form1 : Form, IForm2
@@ -25,7 +29,7 @@ namespace empanada_2
 
         string fecha, total_pagar, platillo,peso;
         int precio_platillo, total, cantidad;
-        decimal tipo, suma;        
+        double tipo, suma,resta;        
         int id = 0;
 
         //para cada producto falta agregar una variable para que realice la funcion de contar cuanto se esta seleccionando de cada cosa
@@ -36,6 +40,45 @@ namespace empanada_2
 
         //aqui van a ir los contadores de cada producto igual al de abajo asiendo doble click sobre el boton
         //------------------------------------------------
+
+        public void SetDefaultCulture(CultureInfo culture)
+        {
+            Type type = typeof(CultureInfo);
+
+            try
+            {
+                type.InvokeMember("s_userDefaultCulture",
+                                    BindingFlags.SetField | BindingFlags.NonPublic | BindingFlags.Static,
+                                    null,
+                                    culture,
+                                    new object[] { culture });
+
+                type.InvokeMember("s_userDefaultUICulture",
+                                    BindingFlags.SetField | BindingFlags.NonPublic | BindingFlags.Static,
+                                    null,
+                                    culture,
+                                    new object[] { culture });
+            }
+            catch { }
+
+            try
+            {
+                type.InvokeMember("m_userDefaultCulture",
+                                    BindingFlags.SetField | BindingFlags.NonPublic | BindingFlags.Static,
+                                    null,
+                                    culture,
+                                    new object[] { culture });
+
+                type.InvokeMember("m_userDefaultUICulture",
+                                    BindingFlags.SetField | BindingFlags.NonPublic | BindingFlags.Static,
+                                    null,
+                                    culture,
+                                    new object[] { culture });
+            }
+            catch { }
+        }
+
+
         private void button1_Click(object sender, EventArgs e)
         {
             
@@ -834,48 +877,57 @@ namespace empanada_2
             }
         }
 
+        private void button24_Click(object sender, EventArgs e)
+        {
+            Almacen corre = new Almacen(ds);
+            corre.Show(this);
+        }
+
         private void TIPO_RESTA(string descripcion)
-        {            
+        {
+            SetDefaultCulture(new CultureInfo("es-MX"));
+
             if (descripcion == "carne con chile")
             {
-                tipo=520/15;
+                tipo = 34.666666667;
             }
             if (descripcion == "cochinita")
             {
-                tipo = 450 / 15;
+                tipo = 30;
             }
             if (descripcion == "nopal")
             {
-                tipo = 360 / 8;
+                tipo = 45;
             }
             if (descripcion == "tinga de pollo")
             {
-                tipo = 525 / 15;
+                tipo = 35;
             }
             if (descripcion == "frijol con queso")
             {
-                tipo = 450 / 10;
+                tipo = 45;
             }
             if (descripcion == "rajas con queso")
             {
-                tipo = 675 / 15;
+                tipo = 45;
             }
             if (descripcion == "picadillo")
             {
-                tipo = 400 / 10;
+                tipo = 40;
             }
             if (descripcion == "chicharron salsa verde")
             {
-                tipo = 525 / 15;
+                tipo = 35;
             }
             if (descripcion == "chicharron salsa roja")
             {
-                tipo = 525 / 15;
+                tipo = 35;
             }            
         }
 
         private void ALMACEN(string descripcion,int cantidad)
         {
+            SetDefaultCulture(new CultureInfo("es-MX"));
 
             TIPO_RESTA(descripcion);
             //checar cuanto es lo que tiene de peso respecto a la descripcion
@@ -888,10 +940,30 @@ namespace empanada_2
 
             peso = (cmd2.ExecuteScalar()).ToString();
 
+            //vamos a checar si el almacen esta sobre el limite permitido si no avisas al usuario
+            double checado = double.Parse(peso, Thread.CurrentThread.CurrentCulture);
+
+            if (checado <= 90)
+            {
+                for(int i=0;i<=100; i++)
+                {
+                    button24.BackColor = Color.Red;
+                    button24.BackColor = Color.Orange;
+                }                                
+            }
+
+
             conexion4.Close();
 
-            //Realizando la resta para aser la modificacion           
-            suma = ((Convert.ToDecimal(peso)) - (tipo * cantidad));
+            resta = tipo * cantidad;
+
+            //Realizando la resta para aser la modificacion
+            suma = ((double.Parse(peso, Thread.CurrentThread.CurrentCulture)) - (resta));
+
+            if (suma <= 0)
+            {
+                suma = 0;
+            }           
 
             //realizando la consulta
             OleDbConnection conexion = new OleDbConnection(ds);

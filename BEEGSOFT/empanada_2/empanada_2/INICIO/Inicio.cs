@@ -128,7 +128,14 @@ namespace empanada_2
             {
                 button3.Visible = false;
                 button4.Visible = false;
+                button5.Visible = false;
             }
+        }
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+            Almacen corre = new Almacen(ds);
+            corre.Show();
         }
     }
 }
