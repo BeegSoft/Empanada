@@ -73,10 +73,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Almacen.cs">
+    <Compile Include="ESTADISTICAS\Almacen.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Almacen.Designer.cs">
+    <Compile Include="ESTADISTICAS\Almacen.Designer.cs">
       <DependentUpon>Almacen.cs</DependentUpon>
     </Compile>
     <Compile Include="LOGIN\Control_acceso.cs">
@@ -168,7 +168,7 @@
     <Compile Include="LOGIN\Users.Designer.cs">
       <DependentUpon>Users.cs</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="Almacen.resx">
+    <EmbeddedResource Include="ESTADISTICAS\Almacen.resx">
       <DependentUpon>Almacen.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="LOGIN\Control_acceso.resx">

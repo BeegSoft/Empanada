@@ -28,8 +28,10 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.button4 = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.comboBox_almacen = new System.Windows.Forms.ComboBox();
             this.button5 = new System.Windows.Forms.Button();
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
@@ -37,10 +39,11 @@
             this.label5 = new System.Windows.Forms.Label();
             this.listView_almacen = new System.Windows.Forms.ListView();
             this.columnHeader4 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader3 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.comboBox_almacen = new System.Windows.Forms.ComboBox();
+            this.timer1 = new System.Windows.Forms.Timer(this.components);
+            this.progressBar1 = new System.Windows.Forms.ProgressBar();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -78,6 +81,16 @@
             this.groupBox1.TabIndex = 77;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Agregar";
+            // 
+            // comboBox_almacen
+            // 
+            this.comboBox_almacen.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
+            this.comboBox_almacen.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
+            this.comboBox_almacen.FormattingEnabled = true;
+            this.comboBox_almacen.Location = new System.Drawing.Point(21, 50);
+            this.comboBox_almacen.Name = "comboBox_almacen";
+            this.comboBox_almacen.Size = new System.Drawing.Size(121, 21);
+            this.comboBox_almacen.TabIndex = 78;
             // 
             // button5
             // 
@@ -151,36 +164,39 @@
             this.columnHeader4.Text = "ID";
             this.columnHeader4.Width = 40;
             // 
-            // columnHeader1
-            // 
-            this.columnHeader1.Text = "Peso";
-            this.columnHeader1.Width = 70;
-            // 
             // columnHeader2
             // 
             this.columnHeader2.Text = "Descripción";
             this.columnHeader2.Width = 120;
+            // 
+            // columnHeader1
+            // 
+            this.columnHeader1.Text = "Peso";
+            this.columnHeader1.Width = 70;
             // 
             // columnHeader3
             // 
             this.columnHeader3.Text = "Rendimiento";
             this.columnHeader3.Width = 100;
             // 
-            // comboBox_almacen
+            // timer1
             // 
-            this.comboBox_almacen.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
-            this.comboBox_almacen.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
-            this.comboBox_almacen.FormattingEnabled = true;
-            this.comboBox_almacen.Location = new System.Drawing.Point(21, 50);
-            this.comboBox_almacen.Name = "comboBox_almacen";
-            this.comboBox_almacen.Size = new System.Drawing.Size(121, 21);
-            this.comboBox_almacen.TabIndex = 78;
+            this.timer1.Interval = 25;
+            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
+            // 
+            // progressBar1
+            // 
+            this.progressBar1.Location = new System.Drawing.Point(205, 255);
+            this.progressBar1.Name = "progressBar1";
+            this.progressBar1.Size = new System.Drawing.Size(179, 31);
+            this.progressBar1.TabIndex = 0;
             // 
             // Almacen
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(588, 295);
+            this.Controls.Add(this.progressBar1);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.listView_almacen);
             this.Name = "Almacen";
@@ -199,13 +215,15 @@
         private System.Windows.Forms.Button button5;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.TextBox textBox_almacen;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.ListView listView_almacen;
         private System.Windows.Forms.ColumnHeader columnHeader4;
         private System.Windows.Forms.ColumnHeader columnHeader1;
         private System.Windows.Forms.ColumnHeader columnHeader2;
         private System.Windows.Forms.ColumnHeader columnHeader3;
-        private System.Windows.Forms.ComboBox comboBox_almacen;
+        public System.Windows.Forms.TextBox textBox_almacen;
+        public System.Windows.Forms.ComboBox comboBox_almacen;
+        private System.Windows.Forms.Timer timer1;
+        private System.Windows.Forms.ProgressBar progressBar1;
     }
 }

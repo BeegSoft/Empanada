@@ -84,7 +84,6 @@ namespace empanada_2
                     while (reader.Read())
                     {
                         textBox_descripcion.Text = reader.GetString(0);
-
                     }
                 }
                 else
@@ -92,9 +91,6 @@ namespace empanada_2
                     MessageBox.Show("No se pudo", "MENSAJE", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
                 reader.Close();
-
-
-
             }
             catch (Exception ex)
             {

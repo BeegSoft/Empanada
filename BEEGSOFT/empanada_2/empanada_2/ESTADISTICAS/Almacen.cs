@@ -21,10 +21,11 @@ namespace empanada_2
         {
             InitializeComponent();
             this.ds = ds;
-        }
+        }        
 
-        string ds, peso;
-        double suma;
+        string ds, peso,descripcion,fecha;
+        double suma, peso2;
+        public int P=0;
 
 
         public void SetDefaultCulture(CultureInfo culture)
@@ -67,16 +68,90 @@ namespace empanada_2
 
         private void Almacen_Load(object sender, EventArgs e)
         {
-            SELECT_ALMACEN();
+            if (P == 0)
+            {                
 
-            DataSet dss = new DataSet();
-            //indicamos la consulta en SQL
-            OleDbDataAdapter da = new OleDbDataAdapter("SELECT Descripcion FROM ALMACEN", ds);
-            //se indica el nombre de la tabla
-            da.Fill(dss, "Descripcion");
-            comboBox_almacen.DataSource = dss.Tables[0].DefaultView;
-            //se especifica el campo de la tabla
-            comboBox_almacen.ValueMember = "Descripcion";
+                SELECT_ALMACEN();
+
+                DataSet dss = new DataSet();
+                //indicamos la consulta en SQL
+                OleDbDataAdapter da = new OleDbDataAdapter("SELECT Descripcion FROM ALMACEN", ds);
+                //se indica el nombre de la tabla
+                da.Fill(dss, "Descripcion");
+                comboBox_almacen.DataSource = dss.Tables[0].DefaultView;
+                //se especifica el campo de la tabla
+                comboBox_almacen.ValueMember = "Descripcion";
+
+
+                //ESTE ES EL QUE VAS A QUITAR SI FUNCIONA EL PROGRESSBAR
+                P = 3;
+                CARGA(P);
+
+
+            }
+            else if(P==1)
+            {
+                SELECT_ALMACEN();
+
+                textBox_almacen.Focus();
+                DataSet dss = new DataSet();
+                //indicamos la consulta en SQL
+                OleDbDataAdapter da = new OleDbDataAdapter("SELECT Descripcion FROM ALMACEN", ds);
+                //se indica el nombre de la tabla
+                da.Fill(dss, "Descripcion");
+                comboBox_almacen.DataSource = dss.Tables[0].DefaultView;
+                //se especifica el campo de la tabla
+                comboBox_almacen.ValueMember = "Descripcion";
+                P = 0;
+            }            
+
+        }
+
+        private void CARGA(int P)
+        {
+            if (P == 3)
+            {
+                OleDbConnection conexion = new OleDbConnection(ds);
+
+                conexion.Open();
+                peso2 = 90;
+                string select = "SELECT Descripcion FROM ALMACEN WHERE Peso <=" + peso2;
+                OleDbCommand cmd = new OleDbCommand(select, conexion);
+                try
+                {
+                    OleDbDataReader reader = cmd.ExecuteReader();
+
+                    if (reader.HasRows)
+                    {
+                        while (reader.Read())
+                        {
+                            descripcion = reader.GetString(0);
+                            MessageBox.Show(descripcion + " se encuentra sobre el limite permitido te sugerimos que agregues mas producto", "Alerta", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        }
+                    }
+                    else
+                    {
+
+                    }
+                    reader.Close();
+                }
+
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Error " + ex, "MENSAJE", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+                conexion.Close();
+                P = 0;
+            }
+        }
+
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+            progressBar1.Increment(1);
+            if (progressBar1.Value == 100)
+                timer1.Stop();
+                CARGA(P);
+
         }
 
         private void SELECT_ALMACEN()
@@ -99,7 +174,8 @@ namespace empanada_2
 
                 listView_almacen.Items.Add(elemntos);
 
-            }
+            }            
+
         }
 
         private void button4_Click(object sender, EventArgs e)
@@ -172,7 +248,39 @@ namespace empanada_2
                     OleDbCommand cmd2 = new OleDbCommand(sql, conexion4); //Conexion es tu objeto conexion
 
                     peso = (cmd2.ExecuteScalar()).ToString();
-                    
+
+                    //vamos a checar si el almacen esta sobre el limite permitido si no avisas al usuario
+                    double checado = double.Parse(peso, Thread.CurrentThread.CurrentCulture);
+
+                    if (checado <= 90)
+                    {
+                        if (checado <= 0)
+                        {
+                            DialogResult resultado = MessageBox.Show(descripcion + " se encuentra  agotado ya no podras realizar ventas de este producto a menos que agreges mas en el almacen quieres abrir el almacen para Agregar mas " + descripcion, "ALERTA", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+                            if (resultado == DialogResult.Yes)
+                            {
+                                //Form1 corre = new Form1(fecha, ds);
+                                //corre.ACTIVADO(comboBox_almacen.Text);
+                            }
+                            else if (resultado == DialogResult.No)
+                            {
+                                //Form1 corre = new Form1(fecha, ds);
+                                //corre.CANCELADO(comboBox_almacen.Text);
+                            }
+                        }
+                        else if (checado <= 90)
+                        {
+                            DialogResult resultado = MessageBox.Show(descripcion + " se encuentra en el limite permitido pronto te quedaras sin este producto quieres abrir el almacen para Agregar mas " + descripcion, "ALERTA", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+                            if (resultado == DialogResult.Yes)
+                            {
+                               // Form1 corre = new Form1(fecha, ds);
+                                //corre.ACTIVADO(comboBox_almacen.Text);
+                            }
+                        }
+
+                    }                
+
+
                     conexion4.Close();
 
                     //Realizando la suma para aser la modificacion

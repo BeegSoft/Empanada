@@ -252,6 +252,12 @@ namespace empanada_2
             form.ShowDialog();
         }
 
+        private void almacenToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Almacen form = new Almacen(ds);
+            form.ShowDialog();
+        }
+
         private void Historial_Load(object sender, EventArgs e)
         {
             textBox_clientes.Text = "0";

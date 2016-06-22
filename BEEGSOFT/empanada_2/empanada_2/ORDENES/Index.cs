@@ -290,6 +290,54 @@ namespace empanada_2
 
         #endregion
 
+        public double peso2=90;
+        public string descripcion;
+
+        private void CARGA()
+        {
+            OleDbConnection conexion = new OleDbConnection(ds);
+
+            conexion.Open();
+            peso2 = 90;
+            string select = "SELECT Descripcion FROM ALMACEN WHERE Peso <=" + peso2;
+            OleDbCommand cmd = new OleDbCommand(select, conexion);
+            try
+            {
+                OleDbDataReader reader = cmd.ExecuteReader();
+
+                if (reader.HasRows)
+                {
+                    while (reader.Read())
+                    {
+                        descripcion = reader.GetString(0);
+
+                        DialogResult resultado = MessageBox.Show(descripcion + " se encuentra  agotado ya no podras realizar ventas de este producto a menos que agreges mas en el almacen quieres abrir el almacen para Agregar mas " + descripcion, "ALERTA", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+                        if (resultado == DialogResult.Yes)
+                        {
+                            Almacen form = new Almacen(ds);
+                            form.P = 1;
+                            form.Show();
+                        }
+                        else if (resultado == DialogResult.No)
+                        {
+                            //CANCELADO(descripcion);
+                        }
+                    }
+                }
+                else
+                {
+
+                }
+                reader.Close();
+            }
+
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error " + ex, "MENSAJE", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            conexion.Close();
+        }
+
         private void Form1_Load(object sender, EventArgs e)
         {
             SELECT_PLATILLOS();
@@ -307,6 +355,8 @@ namespace empanada_2
 
             this.listView_platillos.Items.Clear();
 
+            //ESTE ES EL QUE VAS A QUITAR SI FUNCIONA EL PROGRESSBAR
+            CARGA();                      
 
         }
 
@@ -925,6 +975,114 @@ namespace empanada_2
             }            
         }
 
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+            progressBar1.Increment(1);
+            if (progressBar1.Value == 100)            
+                timer1.Stop();
+                CARGA();
+        }
+
+        public void ACTIVADO(string descripcion)
+        {
+            if (descripcion == "carne con chile")
+            {
+                buttoncarneconchile.Enabled = true;
+                button1.Enabled = true;
+            }
+            if (descripcion == "cochinita")
+            {
+                buttoncochinita.Enabled = true;
+                button4.Enabled = true;
+            }
+            if (descripcion == "nopal")
+            {
+                buttonnopal.Enabled = true;
+                button8.Enabled = true;
+            }
+            if (descripcion == "tinga de pollo")
+            {
+                buttontinga.Enabled = true;
+                button9.Enabled = true;
+            }
+            if (descripcion == "frijol con queso")
+            {
+                buttonfrijol.Enabled = true;
+                button3.Enabled = true;
+            }
+            if (descripcion == "rajas con queso")
+            {
+                buttonrajas.Enabled = true;
+                button2.Enabled = true;
+            }
+            if (descripcion == "picadillo")
+
+            {
+                buttonpicadillo.Enabled = true;
+                button5.Enabled = true;
+            }
+            if (descripcion == "chicharron salsa verde")
+            {
+                buttonchicarronsv.Enabled = true;
+                button6.Enabled = true;
+            }
+            if (descripcion == "chicharron salsa roja")
+            {
+                buttonchicharronsr.Enabled = true;
+                button7.Enabled = true;
+            }
+        }
+
+        public void CANCELADO(string descripcion)
+        {            
+            if (descripcion == "carne con chile")
+            {
+                buttoncarneconchile.Enabled = false;
+                button1.Enabled = false;                
+            }
+            if (descripcion == "cochinita")
+            {
+                buttoncochinita.Enabled = false;
+                button4.Enabled = false;
+            }
+            if (descripcion == "nopal")
+            {
+                buttonnopal.Enabled = false;
+                button8.Enabled = false;
+            }
+            if (descripcion == "tinga de pollo")
+            {
+                buttontinga.Enabled = false;
+                button9.Enabled = false;
+            }
+            if (descripcion == "frijol con queso")
+            {
+                buttonfrijol.Enabled = false;
+                button3.Enabled = false;
+            }
+            if (descripcion == "rajas con queso")
+            {
+                buttonrajas.Enabled = false;
+                button2.Enabled = false;
+            }
+            if (descripcion == "picadillo")                
+
+            {
+                buttonpicadillo.Enabled = false;
+                button5.Enabled = false;
+            }
+            if (descripcion == "chicharron salsa verde")
+            {
+                buttonchicarronsv.Enabled = false;
+                button6.Enabled = false;
+            }
+            if (descripcion == "chicharron salsa roja")
+            {
+                buttonchicharronsr.Enabled = false;
+                button7.Enabled = false;
+            }
+        }
+
         private void ALMACEN(string descripcion,int cantidad)
         {
             SetDefaultCulture(new CultureInfo("es-MX"));
@@ -945,13 +1103,36 @@ namespace empanada_2
 
             if (checado <= 90)
             {
-                for(int i=0;i<=100; i++)
+                if (checado <= 0)
                 {
-                    button24.BackColor = Color.Red;
-                    button24.BackColor = Color.Orange;
-                }                                
-            }
+                    DialogResult resultado = MessageBox.Show(descripcion + " se encuentra  agotado ya no podras realizar ventas de este producto a menos que agreges mas en el almacen quieres abrir el almacen para Agregar mas " + descripcion, "ALERTA", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+                    if (resultado == DialogResult.Yes)
+                    {
+                        Almacen form = new Almacen(ds);
+                        form.P = 1;
+                        form.Show();
+                    }
+                    else if (resultado==DialogResult.No)
+                    {
+                        //CANCELADO(descripcion);
+                    }
+                }
+                else if(checado<=90)
+                {
+                    DialogResult resultado = MessageBox.Show(descripcion + " se encuentra en el limite permitido pronto te quedaras sin este producto quieres abrir el almacen para Agregar mas " + descripcion, "ALERTA", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+                    if (resultado == DialogResult.Yes)
+                    {
+                        Almacen form = new Almacen(ds);
+                        form.P = 1;
+                        form.Show();
+                    }
+                }
 
+            }
+            else
+            {
+                //ACTIVADO(descripcion);
+            }
 
             conexion4.Close();
 
