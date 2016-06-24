@@ -15,7 +15,7 @@ using System.Threading;
 
 namespace empanada_2
 {
-    public partial class Form1 : Form, IForm2
+    public partial class Form1 : Form, IForm2, IForm6
     {
         public Form1(string fecha, string ds)
         {
@@ -937,9 +937,9 @@ namespace empanada_2
         {
             SetDefaultCulture(new CultureInfo("es-MX"));
 
-            if (descripcion == "carne con chile")
+            if (descripcion == "carne c/chile")
             {
-                tipo = 34.666666667;
+                tipo = 35;
             }
             if (descripcion == "cochinita")
             {
@@ -953,11 +953,11 @@ namespace empanada_2
             {
                 tipo = 35;
             }
-            if (descripcion == "frijol con queso")
+            if (descripcion == "frijol c/queso")
             {
                 tipo = 45;
             }
-            if (descripcion == "rajas con queso")
+            if (descripcion == "rajas c/queso")
             {
                 tipo = 45;
             }
@@ -965,11 +965,11 @@ namespace empanada_2
             {
                 tipo = 40;
             }
-            if (descripcion == "chicharron salsa verde")
+            if (descripcion == "chicharron s/v")
             {
                 tipo = 35;
             }
-            if (descripcion == "chicharron salsa roja")
+            if (descripcion == "chicharron s/r")
             {
                 tipo = 35;
             }            
@@ -985,7 +985,7 @@ namespace empanada_2
 
         public void ACTIVADO(string descripcion)
         {
-            if (descripcion == "carne con chile")
+            if (descripcion == "carne c/chile")
             {
                 buttoncarneconchile.Enabled = true;
                 button1.Enabled = true;
@@ -1005,12 +1005,12 @@ namespace empanada_2
                 buttontinga.Enabled = true;
                 button9.Enabled = true;
             }
-            if (descripcion == "frijol con queso")
+            if (descripcion == "frijol c/queso")
             {
                 buttonfrijol.Enabled = true;
                 button3.Enabled = true;
             }
-            if (descripcion == "rajas con queso")
+            if (descripcion == "rajas c/queso")
             {
                 buttonrajas.Enabled = true;
                 button2.Enabled = true;
@@ -1021,21 +1021,26 @@ namespace empanada_2
                 buttonpicadillo.Enabled = true;
                 button5.Enabled = true;
             }
-            if (descripcion == "chicharron salsa verde")
+            if (descripcion == "chicharron s/v")
             {
                 buttonchicarronsv.Enabled = true;
                 button6.Enabled = true;
             }
-            if (descripcion == "chicharron salsa roja")
+            if (descripcion == "chicharron s/r")
             {
                 buttonchicharronsr.Enabled = true;
                 button7.Enabled = true;
             }
         }
 
+        private void groupBox1_Enter(object sender, EventArgs e)
+        {
+
+        }
+
         public void CANCELADO(string descripcion)
         {            
-            if (descripcion == "carne con chile")
+            if (descripcion == "carne c/chile")
             {
                 buttoncarneconchile.Enabled = false;
                 button1.Enabled = false;                
@@ -1055,12 +1060,12 @@ namespace empanada_2
                 buttontinga.Enabled = false;
                 button9.Enabled = false;
             }
-            if (descripcion == "frijol con queso")
+            if (descripcion == "frijol c/queso")
             {
                 buttonfrijol.Enabled = false;
                 button3.Enabled = false;
             }
-            if (descripcion == "rajas con queso")
+            if (descripcion == "rajas c/queso")
             {
                 buttonrajas.Enabled = false;
                 button2.Enabled = false;
@@ -1071,12 +1076,12 @@ namespace empanada_2
                 buttonpicadillo.Enabled = false;
                 button5.Enabled = false;
             }
-            if (descripcion == "chicharron salsa verde")
+            if (descripcion == "chicharron s/v")
             {
                 buttonchicarronsv.Enabled = false;
                 button6.Enabled = false;
             }
-            if (descripcion == "chicharron salsa roja")
+            if (descripcion == "chicharron s/r")
             {
                 buttonchicharronsr.Enabled = false;
                 button7.Enabled = false;
@@ -1098,12 +1103,21 @@ namespace empanada_2
 
             peso = (cmd2.ExecuteScalar()).ToString();
 
-            //vamos a checar si el almacen esta sobre el limite permitido si no avisas al usuario
-            double checado = double.Parse(peso, Thread.CurrentThread.CurrentCulture);
+            conexion4.Close();
 
-            if (checado <= 90)
+            resta = tipo * cantidad;
+
+            //Realizando la resta para aser la modificacion
+            suma = ((double.Parse(peso, Thread.CurrentThread.CurrentCulture)) - (resta));
+
+            if (suma <= 0)
             {
-                if (checado <= 0)
+                suma = 0;
+            }
+
+            if (suma <= 90)
+            {
+                if (suma <= 0)
                 {
                     DialogResult resultado = MessageBox.Show(descripcion + " se encuentra  agotado ya no podras realizar ventas de este producto a menos que agreges mas en el almacen quieres abrir el almacen para Agregar mas " + descripcion, "ALERTA", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
                     if (resultado == DialogResult.Yes)
@@ -1112,12 +1126,12 @@ namespace empanada_2
                         form.P = 1;
                         form.Show();
                     }
-                    else if (resultado==DialogResult.No)
+                    else if (resultado == DialogResult.No)
                     {
-                        //CANCELADO(descripcion);
+                        CANCELADO(descripcion);
                     }
                 }
-                else if(checado<=90)
+                else if (suma <= 90)
                 {
                     DialogResult resultado = MessageBox.Show(descripcion + " se encuentra en el limite permitido pronto te quedaras sin este producto quieres abrir el almacen para Agregar mas " + descripcion, "ALERTA", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
                     if (resultado == DialogResult.Yes)
@@ -1133,18 +1147,6 @@ namespace empanada_2
             {
                 //ACTIVADO(descripcion);
             }
-
-            conexion4.Close();
-
-            resta = tipo * cantidad;
-
-            //Realizando la resta para aser la modificacion
-            suma = ((double.Parse(peso, Thread.CurrentThread.CurrentCulture)) - (resta));
-
-            if (suma <= 0)
-            {
-                suma = 0;
-            }           
 
             //realizando la consulta
             OleDbConnection conexion = new OleDbConnection(ds);

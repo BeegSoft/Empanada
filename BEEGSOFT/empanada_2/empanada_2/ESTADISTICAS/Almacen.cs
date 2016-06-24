@@ -218,7 +218,7 @@ namespace empanada_2
 
         public void BUSCAR(string descripcion)
         {
-            if(descripcion== "carne con chile")
+            if(descripcion== "carne c/chile")
             {
                 cantidad =525;
             }
@@ -234,11 +234,11 @@ namespace empanada_2
             {
                 cantidad = 525;
             }
-            if (descripcion == "frijol con queso")
+            if (descripcion == "frijol c/queso")
             {
                 cantidad = 450;
             }
-            if (descripcion == "rajas con queso")
+            if (descripcion == "rajas c/queso")
             {
                 cantidad = 675;
             }
@@ -246,11 +246,11 @@ namespace empanada_2
             {
                 cantidad = 400;
             }
-            if (descripcion == "chicharron salsa roja")
+            if (descripcion == "chicharron s/r")
             {
                 cantidad = 525;
             }
-            if (descripcion == "chicharron salsa verde")
+            if (descripcion == "chicharron s/v")
             {
                 cantidad = 525;
             }
@@ -272,38 +272,6 @@ namespace empanada_2
 
             peso = (cmd2.ExecuteScalar()).ToString();
 
-            //vamos a checar si el almacen esta sobre el limite permitido si no avisas al usuario
-            double checado = double.Parse(peso, Thread.CurrentThread.CurrentCulture);
-
-            if (checado <= 90)
-            {
-                if (checado <= 0)
-                {
-                    DialogResult resultado = MessageBox.Show(descripcion + " se encuentra  agotado ya no podras realizar ventas de este producto a menos que agreges mas en el almacen quieres abrir el almacen para Agregar mas " + descripcion, "ALERTA", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
-                    if (resultado == DialogResult.Yes)
-                    {
-                        //Form1 corre = new Form1(fecha, ds);
-                        //corre.ACTIVADO(comboBox_almacen.Text);
-                    }
-                    else if (resultado == DialogResult.No)
-                    {
-                        //Form1 corre = new Form1(fecha, ds);
-                        //corre.CANCELADO(comboBox_almacen.Text);
-                    }
-                }
-                else if (checado <= 90)
-                {
-                    DialogResult resultado = MessageBox.Show(descripcion + " se encuentra en el limite permitido pronto te quedaras sin este producto quieres abrir el almacen para Agregar mas " + descripcion, "ALERTA", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
-                    if (resultado == DialogResult.Yes)
-                    {
-                        // Form1 corre = new Form1(fecha, ds);
-                        //corre.ACTIVADO(comboBox_almacen.Text);
-                    }
-                }
-
-            }
-
-
             conexion4.Close();
 
             //Realizando la suma para aser la modificacion
@@ -322,6 +290,10 @@ namespace empanada_2
             conexion.Close();
 
             SELECT_ALMACEN();
+
+            IForm6 formInterface = this.Owner as IForm6;
+            if (formInterface != null)
+                formInterface.ACTIVADO(comboBox_almacen.Text);
         }
     }
 }

@@ -21,6 +21,11 @@ namespace empanada_2
         void Cargar_usuarios();
     }
 
+    public interface IForm6
+    {
+        void ACTIVADO(string descripcion);
+    }
+
     public interface Terminar_orden
     {
         void orden1();
