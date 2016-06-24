@@ -61,7 +61,6 @@
             this.button1 = new System.Windows.Forms.Button();
             this.textBoxpicadillo = new System.Windows.Forms.TextBox();
             this.label14 = new System.Windows.Forms.Label();
-            this.buttonpicadillo = new System.Windows.Forms.Button();
             this.textBoxtinga = new System.Windows.Forms.TextBox();
             this.textBoxnopal = new System.Windows.Forms.TextBox();
             this.textBoxchicharronsr = new System.Windows.Forms.TextBox();
@@ -78,14 +77,6 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.buttontinga = new System.Windows.Forms.Button();
-            this.buttonnopal = new System.Windows.Forms.Button();
-            this.buttonchicharronsr = new System.Windows.Forms.Button();
-            this.buttonchicarronsv = new System.Windows.Forms.Button();
-            this.buttonrajas = new System.Windows.Forms.Button();
-            this.buttonfrijol = new System.Windows.Forms.Button();
-            this.buttoncochinita = new System.Windows.Forms.Button();
-            this.buttoncarneconchile = new System.Windows.Forms.Button();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.button21 = new System.Windows.Forms.Button();
             this.button20 = new System.Windows.Forms.Button();
@@ -95,7 +86,6 @@
             this.button10 = new System.Windows.Forms.Button();
             this.textBoxcebada = new System.Windows.Forms.TextBox();
             this.label15 = new System.Windows.Forms.Label();
-            this.buttoncebada = new System.Windows.Forms.Button();
             this.textBoxcafe = new System.Windows.Forms.TextBox();
             this.v = new System.Windows.Forms.Label();
             this.buttoncafe = new System.Windows.Forms.Button();
@@ -107,32 +97,42 @@
             this.label11 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
-            this.button12 = new System.Windows.Forms.Button();
-            this.buttontamarindo = new System.Windows.Forms.Button();
-            this.buttonjamaica = new System.Windows.Forms.Button();
-            this.buttonhorchata = new System.Windows.Forms.Button();
             this.label13 = new System.Windows.Forms.Label();
             this.textBox_total = new System.Windows.Forms.TextBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.button16 = new System.Windows.Forms.Button();
-            this.button14 = new System.Windows.Forms.Button();
-            this.button25 = new System.Windows.Forms.Button();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
             this.button23 = new System.Windows.Forms.Button();
-            this.button22 = new System.Windows.Forms.Button();
             this.textBox_otros = new System.Windows.Forms.TextBox();
             this.comboBox_otros = new System.Windows.Forms.ComboBox();
             this.checkBox_algo = new System.Windows.Forms.CheckBox();
             this.label16 = new System.Windows.Forms.Label();
             this.textBox_descripcion = new System.Windows.Forms.TextBox();
             this.label17 = new System.Windows.Forms.Label();
+            this.timer1 = new System.Windows.Forms.Timer(this.components);
+            this.progressBar1 = new System.Windows.Forms.ProgressBar();
+            this.button24 = new System.Windows.Forms.Button();
             this.button26 = new System.Windows.Forms.Button();
             this.button13 = new System.Windows.Forms.Button();
             this.button15 = new System.Windows.Forms.Button();
             this.button18 = new System.Windows.Forms.Button();
-            this.button24 = new System.Windows.Forms.Button();
-            this.timer1 = new System.Windows.Forms.Timer(this.components);
-            this.progressBar1 = new System.Windows.Forms.ProgressBar();
+            this.button16 = new System.Windows.Forms.Button();
+            this.button14 = new System.Windows.Forms.Button();
+            this.button25 = new System.Windows.Forms.Button();
+            this.button22 = new System.Windows.Forms.Button();
+            this.buttoncebada = new System.Windows.Forms.Button();
+            this.button12 = new System.Windows.Forms.Button();
+            this.buttontamarindo = new System.Windows.Forms.Button();
+            this.buttonjamaica = new System.Windows.Forms.Button();
+            this.buttonhorchata = new System.Windows.Forms.Button();
+            this.buttonpicadillo = new System.Windows.Forms.Button();
+            this.buttontinga = new System.Windows.Forms.Button();
+            this.buttonnopal = new System.Windows.Forms.Button();
+            this.buttonchicharronsr = new System.Windows.Forms.Button();
+            this.buttonchicarronsv = new System.Windows.Forms.Button();
+            this.buttonrajas = new System.Windows.Forms.Button();
+            this.buttonfrijol = new System.Windows.Forms.Button();
+            this.buttoncochinita = new System.Windows.Forms.Button();
+            this.buttoncarneconchile = new System.Windows.Forms.Button();
             this.menuStrip1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
@@ -431,15 +431,6 @@
             this.label14.TabIndex = 26;
             this.label14.Text = "Picadillo";
             // 
-            // buttonpicadillo
-            // 
-            this.buttonpicadillo.Location = new System.Drawing.Point(342, 19);
-            this.buttonpicadillo.Name = "buttonpicadillo";
-            this.buttonpicadillo.Size = new System.Drawing.Size(77, 41);
-            this.buttonpicadillo.TabIndex = 25;
-            this.buttonpicadillo.UseVisualStyleBackColor = true;
-            this.buttonpicadillo.Click += new System.EventHandler(this.buttonpicadillo_Click);
-            // 
             // textBoxtinga
             // 
             this.textBoxtinga.Enabled = false;
@@ -584,88 +575,6 @@
             this.label1.TabIndex = 9;
             this.label1.Text = "Carne con Chile";
             // 
-            // buttontinga
-            // 
-            this.buttontinga.Location = new System.Drawing.Point(255, 100);
-            this.buttontinga.Name = "buttontinga";
-            this.buttontinga.Size = new System.Drawing.Size(77, 41);
-            this.buttontinga.TabIndex = 8;
-            this.buttontinga.UseVisualStyleBackColor = true;
-            this.buttontinga.Click += new System.EventHandler(this.buttontinga_Click);
-            // 
-            // buttonnopal
-            // 
-            this.buttonnopal.Location = new System.Drawing.Point(172, 100);
-            this.buttonnopal.Name = "buttonnopal";
-            this.buttonnopal.Size = new System.Drawing.Size(77, 41);
-            this.buttonnopal.TabIndex = 7;
-            this.buttonnopal.UseVisualStyleBackColor = true;
-            this.buttonnopal.Click += new System.EventHandler(this.buttonnopal_Click);
-            // 
-            // buttonchicharronsr
-            // 
-            this.buttonchicharronsr.Location = new System.Drawing.Point(89, 100);
-            this.buttonchicharronsr.Name = "buttonchicharronsr";
-            this.buttonchicharronsr.Size = new System.Drawing.Size(77, 41);
-            this.buttonchicharronsr.TabIndex = 6;
-            this.buttonchicharronsr.UseVisualStyleBackColor = true;
-            this.buttonchicharronsr.Click += new System.EventHandler(this.buttonchicharronsr_Click);
-            // 
-            // buttonchicarronsv
-            // 
-            this.buttonchicarronsv.BackgroundImage = global::empanada_2.Properties.Resources.images;
-            this.buttonchicarronsv.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.buttonchicarronsv.Location = new System.Drawing.Point(6, 100);
-            this.buttonchicarronsv.Name = "buttonchicarronsv";
-            this.buttonchicarronsv.Size = new System.Drawing.Size(77, 41);
-            this.buttonchicarronsv.TabIndex = 5;
-            this.buttonchicarronsv.UseVisualStyleBackColor = true;
-            this.buttonchicarronsv.Click += new System.EventHandler(this.buttonchicarronsv_Click);
-            // 
-            // buttonrajas
-            // 
-            this.buttonrajas.BackgroundImage = global::empanada_2.Properties.Resources.queso;
-            this.buttonrajas.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.buttonrajas.Location = new System.Drawing.Point(91, 19);
-            this.buttonrajas.Name = "buttonrajas";
-            this.buttonrajas.Size = new System.Drawing.Size(77, 41);
-            this.buttonrajas.TabIndex = 4;
-            this.buttonrajas.UseVisualStyleBackColor = true;
-            this.buttonrajas.Click += new System.EventHandler(this.button4_Click);
-            // 
-            // buttonfrijol
-            // 
-            this.buttonfrijol.BackgroundImage = global::empanada_2.Properties.Resources.frijol;
-            this.buttonfrijol.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.buttonfrijol.Location = new System.Drawing.Point(175, 19);
-            this.buttonfrijol.Name = "buttonfrijol";
-            this.buttonfrijol.Size = new System.Drawing.Size(77, 41);
-            this.buttonfrijol.TabIndex = 3;
-            this.buttonfrijol.UseVisualStyleBackColor = true;
-            this.buttonfrijol.Click += new System.EventHandler(this.button3_Click);
-            // 
-            // buttoncochinita
-            // 
-            this.buttoncochinita.BackgroundImage = global::empanada_2.Properties.Resources.cochinita;
-            this.buttoncochinita.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.buttoncochinita.Location = new System.Drawing.Point(259, 19);
-            this.buttoncochinita.Name = "buttoncochinita";
-            this.buttoncochinita.Size = new System.Drawing.Size(77, 41);
-            this.buttoncochinita.TabIndex = 2;
-            this.buttoncochinita.UseVisualStyleBackColor = true;
-            this.buttoncochinita.Click += new System.EventHandler(this.button2_Click);
-            // 
-            // buttoncarneconchile
-            // 
-            this.buttoncarneconchile.BackgroundImage = global::empanada_2.Properties.Resources.chile;
-            this.buttoncarneconchile.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.buttoncarneconchile.Location = new System.Drawing.Point(6, 19);
-            this.buttoncarneconchile.Name = "buttoncarneconchile";
-            this.buttoncarneconchile.Size = new System.Drawing.Size(77, 41);
-            this.buttoncarneconchile.TabIndex = 1;
-            this.buttoncarneconchile.UseVisualStyleBackColor = true;
-            this.buttoncarneconchile.Click += new System.EventHandler(this.button1_Click);
-            // 
             // groupBox3
             // 
             this.groupBox3.Controls.Add(this.button21);
@@ -771,15 +680,6 @@
             this.label15.TabIndex = 32;
             this.label15.Text = "Cebada";
             // 
-            // buttoncebada
-            // 
-            this.buttoncebada.Location = new System.Drawing.Point(8, 102);
-            this.buttoncebada.Name = "buttoncebada";
-            this.buttoncebada.Size = new System.Drawing.Size(77, 41);
-            this.buttoncebada.TabIndex = 31;
-            this.buttoncebada.UseVisualStyleBackColor = true;
-            this.buttoncebada.Click += new System.EventHandler(this.buttoncebada_Click);
-            // 
             // textBoxcafe
             // 
             this.textBoxcafe.Enabled = false;
@@ -800,6 +700,8 @@
             // 
             // buttoncafe
             // 
+            this.buttoncafe.BackgroundImage = global::empanada_2.Properties.Resources.cafe;
+            this.buttoncafe.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.buttoncafe.Location = new System.Drawing.Point(89, 102);
             this.buttoncafe.Name = "buttoncafe";
             this.buttoncafe.Size = new System.Drawing.Size(77, 41);
@@ -879,50 +781,6 @@
             this.label9.TabIndex = 17;
             this.label9.Text = "Horchata";
             // 
-            // button12
-            // 
-            this.button12.BackgroundImage = global::empanada_2.Properties.Resources.soda;
-            this.button12.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.button12.Location = new System.Drawing.Point(172, 102);
-            this.button12.Name = "button12";
-            this.button12.Size = new System.Drawing.Size(77, 41);
-            this.button12.TabIndex = 12;
-            this.button12.UseVisualStyleBackColor = true;
-            this.button12.Click += new System.EventHandler(this.button12_Click);
-            // 
-            // buttontamarindo
-            // 
-            this.buttontamarindo.BackgroundImage = global::empanada_2.Properties.Resources.tamarindo;
-            this.buttontamarindo.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.buttontamarindo.Location = new System.Drawing.Point(172, 19);
-            this.buttontamarindo.Name = "buttontamarindo";
-            this.buttontamarindo.Size = new System.Drawing.Size(77, 41);
-            this.buttontamarindo.TabIndex = 11;
-            this.buttontamarindo.UseVisualStyleBackColor = true;
-            this.buttontamarindo.Click += new System.EventHandler(this.button11_Click);
-            // 
-            // buttonjamaica
-            // 
-            this.buttonjamaica.BackgroundImage = global::empanada_2.Properties.Resources.jamaica;
-            this.buttonjamaica.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.buttonjamaica.Location = new System.Drawing.Point(89, 19);
-            this.buttonjamaica.Name = "buttonjamaica";
-            this.buttonjamaica.Size = new System.Drawing.Size(77, 41);
-            this.buttonjamaica.TabIndex = 10;
-            this.buttonjamaica.UseVisualStyleBackColor = true;
-            this.buttonjamaica.Click += new System.EventHandler(this.button10_Click);
-            // 
-            // buttonhorchata
-            // 
-            this.buttonhorchata.BackgroundImage = global::empanada_2.Properties.Resources.horchata;
-            this.buttonhorchata.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.buttonhorchata.Location = new System.Drawing.Point(6, 19);
-            this.buttonhorchata.Name = "buttonhorchata";
-            this.buttonhorchata.Size = new System.Drawing.Size(77, 41);
-            this.buttonhorchata.TabIndex = 9;
-            this.buttonhorchata.UseVisualStyleBackColor = true;
-            this.buttonhorchata.Click += new System.EventHandler(this.buttonhorchata_Click);
-            // 
             // label13
             // 
             this.label13.AutoSize = true;
@@ -961,62 +819,6 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Pedido";
             // 
-            // button16
-            // 
-            this.button16.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.button16.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.button16.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Yellow;
-            this.button16.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
-            this.button16.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button16.Font = new System.Drawing.Font("Lucida Sans", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button16.Image = global::empanada_2.Properties.Resources.comanda;
-            this.button16.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.button16.Location = new System.Drawing.Point(474, 408);
-            this.button16.Name = "button16";
-            this.button16.Size = new System.Drawing.Size(97, 56);
-            this.button16.TabIndex = 80;
-            this.button16.Text = "Comanda";
-            this.button16.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.button16.UseVisualStyleBackColor = false;
-            this.button16.Click += new System.EventHandler(this.button16_Click);
-            // 
-            // button14
-            // 
-            this.button14.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.button14.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.button14.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Yellow;
-            this.button14.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
-            this.button14.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button14.Font = new System.Drawing.Font("Lucida Sans", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button14.Image = global::empanada_2.Properties.Resources.agregar;
-            this.button14.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.button14.Location = new System.Drawing.Point(104, 447);
-            this.button14.Name = "button14";
-            this.button14.Size = new System.Drawing.Size(97, 56);
-            this.button14.TabIndex = 79;
-            this.button14.Text = "Agregar";
-            this.button14.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.button14.UseVisualStyleBackColor = false;
-            this.button14.Click += new System.EventHandler(this.button14_Click_1);
-            // 
-            // button25
-            // 
-            this.button25.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.button25.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.button25.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Yellow;
-            this.button25.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
-            this.button25.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button25.Font = new System.Drawing.Font("Lucida Sans", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button25.Image = global::empanada_2.Properties.Resources.delete;
-            this.button25.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.button25.Location = new System.Drawing.Point(721, 31);
-            this.button25.Name = "button25";
-            this.button25.Size = new System.Drawing.Size(42, 43);
-            this.button25.TabIndex = 76;
-            this.button25.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.button25.UseVisualStyleBackColor = false;
-            this.button25.Click += new System.EventHandler(this.button25_Click);
-            // 
             // groupBox4
             // 
             this.groupBox4.Controls.Add(this.button23);
@@ -1039,17 +841,6 @@
             this.button23.TabIndex = 40;
             this.button23.UseVisualStyleBackColor = true;
             this.button23.Click += new System.EventHandler(this.button23_Click_2);
-            // 
-            // button22
-            // 
-            this.button22.BackgroundImage = global::empanada_2.Properties.Resources.otros1;
-            this.button22.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.button22.Location = new System.Drawing.Point(12, 63);
-            this.button22.Name = "button22";
-            this.button22.Size = new System.Drawing.Size(77, 41);
-            this.button22.TabIndex = 34;
-            this.button22.UseVisualStyleBackColor = true;
-            this.button22.Click += new System.EventHandler(this.button22_Click);
             // 
             // textBox_otros
             // 
@@ -1105,6 +896,35 @@
             this.label17.Size = new System.Drawing.Size(95, 13);
             this.label17.TabIndex = 8;
             this.label17.Text = "Nombre del cliente";
+            // 
+            // timer1
+            // 
+            this.timer1.Interval = 25;
+            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
+            // 
+            // progressBar1
+            // 
+            this.progressBar1.Location = new System.Drawing.Point(12, 538);
+            this.progressBar1.Name = "progressBar1";
+            this.progressBar1.Size = new System.Drawing.Size(179, 31);
+            this.progressBar1.TabIndex = 0;
+            // 
+            // button24
+            // 
+            this.button24.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.button24.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.button24.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Yellow;
+            this.button24.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
+            this.button24.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button24.Font = new System.Drawing.Font("Lucida Sans", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button24.Image = global::empanada_2.Properties.Resources.almacen;
+            this.button24.Location = new System.Drawing.Point(893, 24);
+            this.button24.Name = "button24";
+            this.button24.Size = new System.Drawing.Size(74, 75);
+            this.button24.TabIndex = 81;
+            this.button24.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
+            this.button24.UseVisualStyleBackColor = false;
+            this.button24.Click += new System.EventHandler(this.button24_Click);
             // 
             // button26
             // 
@@ -1182,34 +1002,226 @@
             this.button18.UseVisualStyleBackColor = false;
             this.button18.Click += new System.EventHandler(this.button18_Click);
             // 
-            // button24
+            // button16
             // 
-            this.button24.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.button24.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.button24.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Yellow;
-            this.button24.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
-            this.button24.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button24.Font = new System.Drawing.Font("Lucida Sans", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button24.Image = global::empanada_2.Properties.Resources.almacen;
-            this.button24.Location = new System.Drawing.Point(893, 24);
-            this.button24.Name = "button24";
-            this.button24.Size = new System.Drawing.Size(74, 75);
-            this.button24.TabIndex = 81;
-            this.button24.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
-            this.button24.UseVisualStyleBackColor = false;
-            this.button24.Click += new System.EventHandler(this.button24_Click);
+            this.button16.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.button16.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.button16.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Yellow;
+            this.button16.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
+            this.button16.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button16.Font = new System.Drawing.Font("Lucida Sans", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button16.Image = global::empanada_2.Properties.Resources.comanda;
+            this.button16.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.button16.Location = new System.Drawing.Point(474, 408);
+            this.button16.Name = "button16";
+            this.button16.Size = new System.Drawing.Size(97, 56);
+            this.button16.TabIndex = 80;
+            this.button16.Text = "Comanda";
+            this.button16.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.button16.UseVisualStyleBackColor = false;
+            this.button16.Click += new System.EventHandler(this.button16_Click);
             // 
-            // timer1
+            // button14
             // 
-            this.timer1.Interval = 25;
-            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
+            this.button14.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.button14.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.button14.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Yellow;
+            this.button14.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
+            this.button14.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button14.Font = new System.Drawing.Font("Lucida Sans", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button14.Image = global::empanada_2.Properties.Resources.agregar;
+            this.button14.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.button14.Location = new System.Drawing.Point(104, 447);
+            this.button14.Name = "button14";
+            this.button14.Size = new System.Drawing.Size(97, 56);
+            this.button14.TabIndex = 79;
+            this.button14.Text = "Agregar";
+            this.button14.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.button14.UseVisualStyleBackColor = false;
+            this.button14.Click += new System.EventHandler(this.button14_Click_1);
             // 
-            // progressBar1
+            // button25
             // 
-            this.progressBar1.Location = new System.Drawing.Point(12, 538);
-            this.progressBar1.Name = "progressBar1";
-            this.progressBar1.Size = new System.Drawing.Size(179, 31);
-            this.progressBar1.TabIndex = 0;
+            this.button25.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.button25.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.button25.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Yellow;
+            this.button25.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
+            this.button25.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button25.Font = new System.Drawing.Font("Lucida Sans", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button25.Image = global::empanada_2.Properties.Resources.delete;
+            this.button25.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.button25.Location = new System.Drawing.Point(721, 31);
+            this.button25.Name = "button25";
+            this.button25.Size = new System.Drawing.Size(42, 43);
+            this.button25.TabIndex = 76;
+            this.button25.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.button25.UseVisualStyleBackColor = false;
+            this.button25.Click += new System.EventHandler(this.button25_Click);
+            // 
+            // button22
+            // 
+            this.button22.BackgroundImage = global::empanada_2.Properties.Resources.otros1;
+            this.button22.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.button22.Location = new System.Drawing.Point(12, 63);
+            this.button22.Name = "button22";
+            this.button22.Size = new System.Drawing.Size(77, 41);
+            this.button22.TabIndex = 34;
+            this.button22.UseVisualStyleBackColor = true;
+            this.button22.Click += new System.EventHandler(this.button22_Click);
+            // 
+            // buttoncebada
+            // 
+            this.buttoncebada.BackgroundImage = global::empanada_2.Properties.Resources.cebada;
+            this.buttoncebada.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.buttoncebada.Location = new System.Drawing.Point(8, 102);
+            this.buttoncebada.Name = "buttoncebada";
+            this.buttoncebada.Size = new System.Drawing.Size(77, 41);
+            this.buttoncebada.TabIndex = 31;
+            this.buttoncebada.UseVisualStyleBackColor = true;
+            this.buttoncebada.Click += new System.EventHandler(this.buttoncebada_Click);
+            // 
+            // button12
+            // 
+            this.button12.BackgroundImage = global::empanada_2.Properties.Resources.soda;
+            this.button12.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.button12.Location = new System.Drawing.Point(172, 102);
+            this.button12.Name = "button12";
+            this.button12.Size = new System.Drawing.Size(77, 41);
+            this.button12.TabIndex = 12;
+            this.button12.UseVisualStyleBackColor = true;
+            this.button12.Click += new System.EventHandler(this.button12_Click);
+            // 
+            // buttontamarindo
+            // 
+            this.buttontamarindo.BackgroundImage = global::empanada_2.Properties.Resources.tamarindo;
+            this.buttontamarindo.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.buttontamarindo.Location = new System.Drawing.Point(172, 19);
+            this.buttontamarindo.Name = "buttontamarindo";
+            this.buttontamarindo.Size = new System.Drawing.Size(77, 41);
+            this.buttontamarindo.TabIndex = 11;
+            this.buttontamarindo.UseVisualStyleBackColor = true;
+            this.buttontamarindo.Click += new System.EventHandler(this.button11_Click);
+            // 
+            // buttonjamaica
+            // 
+            this.buttonjamaica.BackgroundImage = global::empanada_2.Properties.Resources.jamaica;
+            this.buttonjamaica.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.buttonjamaica.Location = new System.Drawing.Point(89, 19);
+            this.buttonjamaica.Name = "buttonjamaica";
+            this.buttonjamaica.Size = new System.Drawing.Size(77, 41);
+            this.buttonjamaica.TabIndex = 10;
+            this.buttonjamaica.UseVisualStyleBackColor = true;
+            this.buttonjamaica.Click += new System.EventHandler(this.button10_Click);
+            // 
+            // buttonhorchata
+            // 
+            this.buttonhorchata.BackgroundImage = global::empanada_2.Properties.Resources.horchata;
+            this.buttonhorchata.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.buttonhorchata.Location = new System.Drawing.Point(6, 19);
+            this.buttonhorchata.Name = "buttonhorchata";
+            this.buttonhorchata.Size = new System.Drawing.Size(77, 41);
+            this.buttonhorchata.TabIndex = 9;
+            this.buttonhorchata.UseVisualStyleBackColor = true;
+            this.buttonhorchata.Click += new System.EventHandler(this.buttonhorchata_Click);
+            // 
+            // buttonpicadillo
+            // 
+            this.buttonpicadillo.BackgroundImage = global::empanada_2.Properties.Resources.picadillo;
+            this.buttonpicadillo.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.buttonpicadillo.Location = new System.Drawing.Point(342, 19);
+            this.buttonpicadillo.Name = "buttonpicadillo";
+            this.buttonpicadillo.Size = new System.Drawing.Size(77, 41);
+            this.buttonpicadillo.TabIndex = 25;
+            this.buttonpicadillo.UseVisualStyleBackColor = true;
+            this.buttonpicadillo.Click += new System.EventHandler(this.buttonpicadillo_Click);
+            // 
+            // buttontinga
+            // 
+            this.buttontinga.BackgroundImage = global::empanada_2.Properties.Resources.tinga_de_pollo;
+            this.buttontinga.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.buttontinga.Location = new System.Drawing.Point(255, 100);
+            this.buttontinga.Name = "buttontinga";
+            this.buttontinga.Size = new System.Drawing.Size(77, 41);
+            this.buttontinga.TabIndex = 8;
+            this.buttontinga.UseVisualStyleBackColor = true;
+            this.buttontinga.Click += new System.EventHandler(this.buttontinga_Click);
+            // 
+            // buttonnopal
+            // 
+            this.buttonnopal.BackgroundImage = global::empanada_2.Properties.Resources.nopal;
+            this.buttonnopal.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.buttonnopal.Location = new System.Drawing.Point(172, 100);
+            this.buttonnopal.Name = "buttonnopal";
+            this.buttonnopal.Size = new System.Drawing.Size(77, 41);
+            this.buttonnopal.TabIndex = 7;
+            this.buttonnopal.UseVisualStyleBackColor = true;
+            this.buttonnopal.Click += new System.EventHandler(this.buttonnopal_Click);
+            // 
+            // buttonchicharronsr
+            // 
+            this.buttonchicharronsr.BackgroundImage = global::empanada_2.Properties.Resources.chicharron_salsa_roja;
+            this.buttonchicharronsr.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.buttonchicharronsr.Location = new System.Drawing.Point(89, 100);
+            this.buttonchicharronsr.Name = "buttonchicharronsr";
+            this.buttonchicharronsr.Size = new System.Drawing.Size(77, 41);
+            this.buttonchicharronsr.TabIndex = 6;
+            this.buttonchicharronsr.UseVisualStyleBackColor = true;
+            this.buttonchicharronsr.Click += new System.EventHandler(this.buttonchicharronsr_Click);
+            // 
+            // buttonchicarronsv
+            // 
+            this.buttonchicarronsv.BackgroundImage = global::empanada_2.Properties.Resources.images;
+            this.buttonchicarronsv.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.buttonchicarronsv.Location = new System.Drawing.Point(6, 100);
+            this.buttonchicarronsv.Name = "buttonchicarronsv";
+            this.buttonchicarronsv.Size = new System.Drawing.Size(77, 41);
+            this.buttonchicarronsv.TabIndex = 5;
+            this.buttonchicarronsv.UseVisualStyleBackColor = true;
+            this.buttonchicarronsv.Click += new System.EventHandler(this.buttonchicarronsv_Click);
+            // 
+            // buttonrajas
+            // 
+            this.buttonrajas.BackgroundImage = global::empanada_2.Properties.Resources.queso;
+            this.buttonrajas.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.buttonrajas.Location = new System.Drawing.Point(91, 19);
+            this.buttonrajas.Name = "buttonrajas";
+            this.buttonrajas.Size = new System.Drawing.Size(77, 41);
+            this.buttonrajas.TabIndex = 4;
+            this.buttonrajas.UseVisualStyleBackColor = true;
+            this.buttonrajas.Click += new System.EventHandler(this.button4_Click);
+            // 
+            // buttonfrijol
+            // 
+            this.buttonfrijol.BackgroundImage = global::empanada_2.Properties.Resources.frijol;
+            this.buttonfrijol.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.buttonfrijol.Location = new System.Drawing.Point(175, 19);
+            this.buttonfrijol.Name = "buttonfrijol";
+            this.buttonfrijol.Size = new System.Drawing.Size(77, 41);
+            this.buttonfrijol.TabIndex = 3;
+            this.buttonfrijol.UseVisualStyleBackColor = true;
+            this.buttonfrijol.Click += new System.EventHandler(this.button3_Click);
+            // 
+            // buttoncochinita
+            // 
+            this.buttoncochinita.BackgroundImage = global::empanada_2.Properties.Resources.cochinita;
+            this.buttoncochinita.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.buttoncochinita.Location = new System.Drawing.Point(259, 19);
+            this.buttoncochinita.Name = "buttoncochinita";
+            this.buttoncochinita.Size = new System.Drawing.Size(77, 41);
+            this.buttoncochinita.TabIndex = 2;
+            this.buttoncochinita.UseVisualStyleBackColor = true;
+            this.buttoncochinita.Click += new System.EventHandler(this.button2_Click);
+            // 
+            // buttoncarneconchile
+            // 
+            this.buttoncarneconchile.BackgroundImage = global::empanada_2.Properties.Resources.chile;
+            this.buttoncarneconchile.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.buttoncarneconchile.Location = new System.Drawing.Point(6, 19);
+            this.buttoncarneconchile.Name = "buttoncarneconchile";
+            this.buttoncarneconchile.Size = new System.Drawing.Size(77, 41);
+            this.buttoncarneconchile.TabIndex = 1;
+            this.buttoncarneconchile.UseVisualStyleBackColor = true;
+            this.buttoncarneconchile.Click += new System.EventHandler(this.button1_Click);
             // 
             // Form1
             // 

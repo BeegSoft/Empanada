@@ -376,6 +376,24 @@
   <ItemGroup>
     <None Include="Resources\almacen.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\picadillo.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\chicharron-salsa-roja.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\nopal.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\tinga de pollo.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\cebada.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\cafe.jpg" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

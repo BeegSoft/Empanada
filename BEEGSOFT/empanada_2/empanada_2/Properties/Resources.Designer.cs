@@ -153,6 +153,36 @@ namespace empanada_2.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap cafe {
+            get {
+                object obj = ResourceManager.GetObject("cafe", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap cebada {
+            get {
+                object obj = ResourceManager.GetObject("cebada", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap chicharron_salsa_roja {
+            get {
+                object obj = ResourceManager.GetObject("chicharron-salsa-roja", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap chile {
             get {
                 object obj = ResourceManager.GetObject("chile", resourceCulture);
@@ -323,6 +353,16 @@ namespace empanada_2.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap nopal {
+            get {
+                object obj = ResourceManager.GetObject("nopal", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap otros1 {
             get {
                 object obj = ResourceManager.GetObject("otros1", resourceCulture);
@@ -346,6 +386,16 @@ namespace empanada_2.Properties {
         internal static System.Drawing.Bitmap pagar1 {
             get {
                 object obj = ResourceManager.GetObject("pagar1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap picadillo {
+            get {
+                object obj = ResourceManager.GetObject("picadillo", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -406,6 +456,16 @@ namespace empanada_2.Properties {
         internal static System.Drawing.Bitmap tamarindo {
             get {
                 object obj = ResourceManager.GetObject("tamarindo", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap tinga_de_pollo {
+            get {
+                object obj = ResourceManager.GetObject("tinga de pollo", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
