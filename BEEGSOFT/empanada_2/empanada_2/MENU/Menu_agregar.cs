@@ -78,24 +78,41 @@ namespace empanada_2
 
         private void button4_Click(object sender, EventArgs e)
         {
-            try
+            if (textBox_nombre.TextLength == 0 || textBox_precio.TextLength == 0)
             {
-                INSERT_MENU();
+                MessageBox.Show("Tienes Campos vacios para continuar", "ALERTA", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
-
-            catch (DBConcurrencyException ex)
+            else
             {
-                MessageBox.Show("Error de concurrencia:\n" + ex.Message, "MENSAJE", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message, "MENSAJE", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
+                if (textBox_nombre.TextLength >= 15)
+                {
+                    MessageBox.Show("No pudes poner un nombre muy largo trata de reducirlo o abreviarlo un poco", "ALERTA", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    textBox_nombre.Clear();
+                    textBox_nombre.Focus();
+                }
+                else
+                {
+                    try
+                    {
+                        INSERT_MENU();
+                    }
 
-            Menu form = new Menu(ds);
-            form.Show();
+                    catch (DBConcurrencyException ex)
+                    {
+                        MessageBox.Show("Error de concurrencia:\n" + ex.Message, "MENSAJE", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show(ex.Message, "MENSAJE", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
 
-            this.Close();
+                    Menu form = new Menu(ds);
+                    form.Show();
+
+                    this.Close();
+                }
+            }            
+            
         }
 
         private void button2_Click(object sender, EventArgs e)

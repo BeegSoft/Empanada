@@ -85,24 +85,42 @@ namespace empanada_2
 
         private void button4_Click(object sender, EventArgs e)
         {
-            try
+            if (textBox_nombre.TextLength == 0 || textBox_precio.TextLength == 0)
             {
-                UPDATE_MENU();
+                MessageBox.Show("Tienes Campos vacios para continuar", "ALERTA", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
-
-            catch (DBConcurrencyException ex)
+            else
             {
-                MessageBox.Show("Error de concurrencia:\n" + ex.Message, "MENSAJE", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message, "MENSAJE", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
+                if (textBox_nombre.TextLength >= 15)
+                {
+                    MessageBox.Show("No pudes poner un nombre muy largo trata de reducirlo o abreviarlo un poco", "ALERTA", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    textBox_nombre.Clear();
+                    textBox_nombre.Focus();
+                }
+                else
+                {
 
-            Menu form = new Menu(ds);
-            form.Show();
+                    try
+                    {
+                        UPDATE_MENU();
+                    }
 
-            this.Hide();
+                    catch (DBConcurrencyException ex)
+                    {
+                        MessageBox.Show("Error de concurrencia:\n" + ex.Message, "MENSAJE", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show(ex.Message, "MENSAJE", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+
+                    Menu form = new Menu(ds);
+                    form.Show();
+
+                    this.Hide();
+                }
+            }
+            
         }
 
         private void button2_Click(object sender, EventArgs e)
