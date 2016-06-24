@@ -35,8 +35,6 @@
             this.button5 = new System.Windows.Forms.Button();
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
-            this.textBox_almacen = new System.Windows.Forms.TextBox();
-            this.label5 = new System.Windows.Forms.Label();
             this.listView_almacen = new System.Windows.Forms.ListView();
             this.columnHeader4 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
@@ -73,8 +71,6 @@
             this.groupBox1.Controls.Add(this.button5);
             this.groupBox1.Controls.Add(this.label3);
             this.groupBox1.Controls.Add(this.label4);
-            this.groupBox1.Controls.Add(this.textBox_almacen);
-            this.groupBox1.Controls.Add(this.label5);
             this.groupBox1.Location = new System.Drawing.Point(11, 61);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(171, 188);
@@ -128,22 +124,6 @@
             this.label4.Size = new System.Drawing.Size(71, 13);
             this.label4.TabIndex = 28;
             this.label4.Text = "Agregar Peso";
-            // 
-            // textBox_almacen
-            // 
-            this.textBox_almacen.Location = new System.Drawing.Point(61, 93);
-            this.textBox_almacen.Name = "textBox_almacen";
-            this.textBox_almacen.Size = new System.Drawing.Size(61, 20);
-            this.textBox_almacen.TabIndex = 29;
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(18, 96);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(46, 13);
-            this.label5.TabIndex = 30;
-            this.label5.Text = "Gramos:";
             // 
             // listView_almacen
             // 
@@ -215,13 +195,11 @@
         private System.Windows.Forms.Button button5;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Label label5;
         private System.Windows.Forms.ListView listView_almacen;
         private System.Windows.Forms.ColumnHeader columnHeader4;
         private System.Windows.Forms.ColumnHeader columnHeader1;
         private System.Windows.Forms.ColumnHeader columnHeader2;
         private System.Windows.Forms.ColumnHeader columnHeader3;
-        public System.Windows.Forms.TextBox textBox_almacen;
         public System.Windows.Forms.ComboBox comboBox_almacen;
         private System.Windows.Forms.Timer timer1;
         private System.Windows.Forms.ProgressBar progressBar1;

@@ -135,6 +135,7 @@ namespace empanada_2
         private void button5_Click(object sender, EventArgs e)
         {
             Almacen corre = new Almacen(ds);
+            corre.P = 0;
             corre.Show();
         }
     }

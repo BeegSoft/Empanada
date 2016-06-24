@@ -320,7 +320,7 @@ namespace empanada_2
                         }
                         else if (resultado == DialogResult.No)
                         {
-                            //CANCELADO(descripcion);
+                            CANCELADO(descripcion);
                         }
                     }
                 }
