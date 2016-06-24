@@ -209,136 +209,143 @@ namespace empanada_2
         {
             //QUITAR LA ORDEN DEL LISTVIEW QUE SIGNIFICA QUE YA HA PAGADO Y NO TIENE PORQUE APARECER AHI
 
-            OleDbConnection conexion4 = new OleDbConnection(ds);
-
-            conexion4.Open();
-
-            string insertar = "UPDATE ORDEN SET checador = @checador WHERE id_orden=" + id_orden;
-            OleDbCommand cmd3 = new OleDbCommand(insertar, conexion4);
-            cmd3.Parameters.AddWithValue("@checador", 0);
-
-            cmd3.ExecuteNonQuery();
-
-            MessageBox.Show("Pago con exito", "MENSAJE", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            conexion4.Close();
-
-            CrearTicket ticket = new CrearTicket();
-            ticket.AbreCajon();
-            ticket.TextoCentro("LAS EMPANADAS DE MI AMA");
-            ticket.TextoIzquierda("EXPEDIDO EN: LOCAL PRINCIPAL");
-            ticket.TextoIzquierda("DIREC: CALLE 16 Y AV TECNOLOGICO");
-            ticket.TextoIzquierda("TELEFONO: 01 662 176 3999 ");
-            ticket.TextoIzquierda("RFC XXXXXX-XXXXXXX-XXXXX");
-            ticket.TextoIzquierda("");
-            ticket.TextoIzquierda("");
-            ticket.TextoIzquierda("ATENDIO: VENDEDOR ");
-            ticket.TextoExtremos("CLIENTE: ", textBox_descripcion.Text);
-            ticket.TextoIzquierda("");
-            ticket.TextoExtremos("FECHA:" + DateTime.Now.ToShortDateString(), "HORA:" + DateTime.Now.ToShortTimeString());
-            ticket.lineasAsteriscos();
-            //Articulos a vender.
-            ticket.EncabezadoVenta();//NOMBRE DEL ARTICULO, CANT, PRECIO, IMPORTE
-            ticket.lineasAsteriscos();
-
-
-            OleDbConnection conexion = new OleDbConnection(ds);
-
-            conexion.Open();
-
-            string select = "SELECT descripcion FROM ORDEN WHERE id_orden=" + id_orden;
-            OleDbCommand cmd = new OleDbCommand(select, conexion);
-            try
+            if (textBox_efectivo == null)
             {
+                MessageBox.Show("no puedes imprimir", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            else
+            {
+                OleDbConnection conexion4 = new OleDbConnection(ds);
+
+                conexion4.Open();
+
+                string insertar = "UPDATE ORDEN SET checador = @checador WHERE id_orden=" + id_orden;
+                OleDbCommand cmd3 = new OleDbCommand(insertar, conexion4);
+                cmd3.Parameters.AddWithValue("@checador", 0);
+
+                cmd3.ExecuteNonQuery();
+
+                MessageBox.Show("Pago con exito", "MENSAJE", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                conexion4.Close();
+
+                CrearTicket ticket = new CrearTicket();
+                ticket.AbreCajon();
+                ticket.TextoCentro("LAS EMPANADAS DE MI AMA");
+                ticket.TextoIzquierda("EXPEDIDO EN: LOCAL PRINCIPAL");
+                ticket.TextoIzquierda("DIREC: CALLE 16 Y AV TECNOLOGICO");
+                ticket.TextoIzquierda("TELEFONO: 01 662 176 3999 ");
+                ticket.TextoIzquierda("RFC XXXXXX-XXXXXXX-XXXXX");
+                ticket.TextoIzquierda("");
+                ticket.TextoIzquierda("");
+                ticket.TextoIzquierda("ATENDIO: VENDEDOR ");
+                ticket.TextoExtremos("CLIENTE: ", textBox_descripcion.Text);
+                ticket.TextoIzquierda("");
+                ticket.TextoExtremos("FECHA:" + DateTime.Now.ToShortDateString(), "HORA:" + DateTime.Now.ToShortTimeString());
+                ticket.lineasAsteriscos();
+                //Articulos a vender.
+                ticket.EncabezadoVenta();//NOMBRE DEL ARTICULO, CANT, PRECIO, IMPORTE
+                ticket.lineasAsteriscos();
 
 
-                OleDbDataReader reader = cmd.ExecuteReader();
+                OleDbConnection conexion = new OleDbConnection(ds);
 
-                if (reader.HasRows)
+                conexion.Open();
+
+                string select = "SELECT descripcion FROM ORDEN WHERE id_orden=" + id_orden;
+                OleDbCommand cmd = new OleDbCommand(select, conexion);
+                try
                 {
-                    while (reader.Read())
+
+
+                    OleDbDataReader reader = cmd.ExecuteReader();
+
+                    if (reader.HasRows)
                     {
-                        textBox_descripcion.Text = reader.GetString(0);
+                        while (reader.Read())
+                        {
+                            textBox_descripcion.Text = reader.GetString(0);
 
+                        }
                     }
-                }
-                else
-                {
-                    MessageBox.Show("No se pudo", "MENSAJE", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
-                reader.Close();
-
-
-
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Error orden" + ex, "MENSAJE", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-            conexion.Close();
-
-            OleDbDataAdapter adaptador = new OleDbDataAdapter("SELECT nombre_platillo,cantidad,pagar FROM PLATILLO WHERE id_orden = " + id_orden, conexion);
-
-            DataSet dataset = new DataSet();
-            DataTable tabla = new DataTable();
-
-            adaptador.Fill(dataset);
-            tabla = dataset.Tables[0];
-            //this.listView_pagar.Items.Clear();
-            int c;
-            c = tabla.Rows.Count;
-            for (int i = 0; i < tabla.Rows.Count; i++)
-            {
-
-
-                DataRow filas = tabla.Rows[i];
-                ListViewItem elemntos = new ListViewItem(filas["nombre_platillo"].ToString());
-                elemntos.SubItems.Add(filas["cantidad"].ToString());
-                elemntos.SubItems.Add(filas["pagar"].ToString());
-                decimal pagar = decimal.Parse(filas["pagar"].ToString());
-                int cantidad = int.Parse(filas["cantidad"].ToString());
-                decimal precio = pagar / cantidad;
-                string artic = filas["nombre_platillo"].ToString();
-
-                string arti = artic;
-                if (artic.Length != 15)
-                {
-                    int canti = Convert.ToInt32(artic.Length);
-                    for (int h = canti; h < 15; h++)
+                    else
                     {
-                        arti = arti + ".";
+                        MessageBox.Show("No se pudo", "MENSAJE", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
+                    reader.Close();
+
+
+
                 }
-                artic = arti;
-                //listView_pagar.Items.Add(elemntos);
-                ticket.AgregaArticulo(artic, int.Parse(filas["cantidad"].ToString()),precio, decimal.Parse(filas["pagar"].ToString()));
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Error orden" + ex, "MENSAJE", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+                conexion.Close();
 
+                OleDbDataAdapter adaptador = new OleDbDataAdapter("SELECT nombre_platillo,cantidad,pagar FROM PLATILLO WHERE id_orden = " + id_orden, conexion);
+
+                DataSet dataset = new DataSet();
+                DataTable tabla = new DataTable();
+
+                adaptador.Fill(dataset);
+                tabla = dataset.Tables[0];
+                //this.listView_pagar.Items.Clear();
+                int c;
+                c = tabla.Rows.Count;
+                for (int i = 0; i < tabla.Rows.Count; i++)
+                {
+
+
+                    DataRow filas = tabla.Rows[i];
+                    ListViewItem elemntos = new ListViewItem(filas["nombre_platillo"].ToString());
+                    elemntos.SubItems.Add(filas["cantidad"].ToString());
+                    elemntos.SubItems.Add(filas["pagar"].ToString());
+                    decimal pagar = decimal.Parse(filas["pagar"].ToString());
+                    int cantidad = int.Parse(filas["cantidad"].ToString());
+                    decimal precio = pagar / cantidad;
+                    string artic = filas["nombre_platillo"].ToString();
+
+                    string arti = artic;
+                    if (artic.Length != 15)
+                    {
+                        int canti = Convert.ToInt32(artic.Length);
+                        for (int h = canti; h < 15; h++)
+                        {
+                            arti = arti + ".";
+                        }
+                    }
+                    artic = arti;
+                    //listView_pagar.Items.Add(elemntos);
+                    ticket.AgregaArticulo(artic, int.Parse(filas["cantidad"].ToString()), precio, decimal.Parse(filas["pagar"].ToString()));
+
+                }
+                //ticket.AgregarTotales("         SUBTOTAL......$", 100);
+                //ticket.AgregarTotales("         IVA...........$", 10.04M);//La M indica que es un decimal en C#
+                //ticket.AgregaArticulo("Articulo B", 1, 10, 10);
+                //ticket.AgregaArticulo("Este es un nombre largo del articulo, para mostrar como se bajan las lineas", 1, 30, 30);
+                ticket.AgregarTotales("   TOTAL......$", System.Convert.ToDecimal(textBox_total.Text));
+                ticket.TextoIzquierda("");
+                ticket.AgregarTotales("   EFECTIVO...$", System.Convert.ToDecimal(textBox_efectivo.Text));
+                ticket.AgregarTotales("   CAMBIO.....$", System.Convert.ToDecimal(textBox_cambio.Text));
+                //Texto final del Ticket.
+                ticket.TextoIzquierda("");
+                ticket.TextoIzquierda("ARTICULOS VENDIDOS: " + c);
+                ticket.TextoIzquierda("");
+                ticket.TextoCentro("¡GRACIAS POR SU COMPRA!");
+                ticket.CortaTicket();
+                //ticket.ImprimirTicket("Microsoft XPS Document Writer");//Nombre de la impresora ticketera
+                ticket.ImprimirTicket("POS-58(copy of 5)");
+
+
+                conexion.Close();
+
+                IForm2 formInterface = this.Owner as IForm2;
+                if (formInterface != null)
+                    formInterface.Relogear_ordenes();
+
+
+                this.Close();
             }
-            //ticket.AgregarTotales("         SUBTOTAL......$", 100);
-            //ticket.AgregarTotales("         IVA...........$", 10.04M);//La M indica que es un decimal en C#
-            //ticket.AgregaArticulo("Articulo B", 1, 10, 10);
-            //ticket.AgregaArticulo("Este es un nombre largo del articulo, para mostrar como se bajan las lineas", 1, 30, 30);
-            ticket.AgregarTotales("   TOTAL......$", System.Convert.ToDecimal(textBox_total.Text));
-            ticket.TextoIzquierda("");
-            ticket.AgregarTotales("   EFECTIVO...$", System.Convert.ToDecimal(textBox_efectivo.Text));
-            ticket.AgregarTotales("   CAMBIO.....$", System.Convert.ToDecimal(textBox_cambio.Text));
-            //Texto final del Ticket.
-            ticket.TextoIzquierda("");
-            ticket.TextoIzquierda("ARTICULOS VENDIDOS: " + c);
-            ticket.TextoIzquierda("");
-            ticket.TextoCentro("¡GRACIAS POR SU COMPRA!");
-            ticket.CortaTicket();
-            //ticket.ImprimirTicket("Microsoft XPS Document Writer");//Nombre de la impresora ticketera
-            ticket.ImprimirTicket("POS-58(copy of 5)");
-
-
-            conexion.Close();
-
-            IForm2 formInterface = this.Owner as IForm2;
-            if (formInterface != null)
-                formInterface.Relogear_ordenes();
-
-            
-            this.Close();
         }
     }
 }

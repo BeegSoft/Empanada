@@ -24,7 +24,7 @@ namespace empanada_2
         }        
 
         string ds, peso,descripcion,fecha;
-        double suma, peso2;
+        double suma, peso2,cantidad;
         public int P=0;
 
 
@@ -68,6 +68,8 @@ namespace empanada_2
 
         private void Almacen_Load(object sender, EventArgs e)
         {
+
+            //cuando p=0 es que no es mandado del index o de otra pantalla
             if (P == 0)
             {                
 
@@ -84,16 +86,16 @@ namespace empanada_2
 
 
                 //ESTE ES EL QUE VAS A QUITAR SI FUNCIONA EL PROGRESSBAR
-                P = 3;
+                P = -1;
                 CARGA(P);
 
 
             }
+            // si p=1 es por que e esta mandando del index cuando se carga
             else if(P==1)
             {
                 SELECT_ALMACEN();
-
-                textBox_almacen.Focus();
+                
                 DataSet dss = new DataSet();
                 //indicamos la consulta en SQL
                 OleDbDataAdapter da = new OleDbDataAdapter("SELECT Descripcion FROM ALMACEN", ds);
@@ -109,7 +111,7 @@ namespace empanada_2
 
         private void CARGA(int P)
         {
-            if (P == 3)
+            if (P == -1)
             {
                 OleDbConnection conexion = new OleDbConnection(ds);
 
@@ -182,47 +184,75 @@ namespace empanada_2
         {
             SetDefaultCulture(new CultureInfo("es-MX"));
 
-            if (textBox_almacen.Text == "")
+            //checar cuanto es lo que tiene de peso respecto a la descripcion
+            OleDbConnection conexion4 = new OleDbConnection(ds);
+
+            conexion4.Open();
+
+            string sql = "select Peso from ALMACEN WHERE Descripcion='" + comboBox_almacen.Text + "'";
+            OleDbCommand cmd2 = new OleDbCommand(sql, conexion4); //Conexion es tu objeto conexion
+
+            peso = (cmd2.ExecuteScalar()).ToString();
+
+
+            conexion4.Close();
+
+            //Realizando la resta para aser la modificacion
+            suma = (double.Parse(peso, Thread.CurrentThread.CurrentCulture)) - cantidad;
+
+
+            //realizando la consulta
+            OleDbConnection conexion = new OleDbConnection(ds);
+
+            conexion.Open();
+
+            string insertar = "UPDATE ALMACEN SET Peso = @Peso WHERE Descripcion= '" + comboBox_almacen.Text + "'";
+            OleDbCommand cmd3 = new OleDbCommand(insertar, conexion);
+            cmd3.Parameters.AddWithValue("@Peso", suma.ToString());
+
+            cmd3.ExecuteNonQuery();
+            conexion.Close();
+
+            SELECT_ALMACEN();
+        }
+
+        public void BUSCAR(string descripcion)
+        {
+            if(descripcion== "carne con chile")
             {
-                MessageBox.Show("No has introduccido la informacion necesaria", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                textBox_almacen.Focus();
+                cantidad =525;
             }
-            else
+            if (descripcion == "cochinita")
             {
-                try
-                {
-                    //checar cuanto es lo que tiene de peso respecto a la descripcion
-                    OleDbConnection conexion4 = new OleDbConnection(ds);
-
-                    conexion4.Open();
-
-                    string sql = "select Peso from ALMACEN WHERE Descripcion='" + comboBox_almacen.Text + "'";
-                    OleDbCommand cmd2 = new OleDbCommand(sql, conexion4); //Conexion es tu objeto conexion
-
-                    peso = (cmd2.ExecuteScalar()).ToString();
-                    
-
-                    conexion4.Close();
-
-                    //Realizando la resta para aser la modificacion
-                    suma = (double.Parse(peso, Thread.CurrentThread.CurrentCulture)) - (double.Parse(textBox_almacen.Text, Thread.CurrentThread.CurrentCulture));
-                    
-
-                    //realizando la consulta
-                    OleDbConnection conexion = new OleDbConnection(ds);
-
-                    conexion.Open();
-
-                    string insertar = "UPDATE ALMACEN SET Peso = @Peso WHERE Descripcion= '" + comboBox_almacen.Text + "'";
-                    OleDbCommand cmd3 = new OleDbCommand(insertar, conexion);
-                    cmd3.Parameters.AddWithValue("@Peso", suma.ToString());
-
-                    cmd3.ExecuteNonQuery();
-                    conexion.Close();
-
-                    SELECT_ALMACEN();
-                }
-                catch { }
+                cantidad = 450;
+            }
+            if (descripcion == "nopal")
+            {
+                cantidad = 360;
+            }
+            if (descripcion == "tinga de pollo")
+            {
+                cantidad = 525;
+            }
+            if (descripcion == "frijol con queso")
+            {
+                cantidad = 450;
+            }
+            if (descripcion == "rajas con queso")
+            {
+                cantidad = 675;
+            }
+            if (descripcion == "picadillo")
+            {
+                cantidad = 400;
+            }
+            if (descripcion == "chicharron salsa roja")
+            {
+                cantidad = 525;
+            }
+            if (descripcion == "chicharron salsa verde")
+            {
+                cantidad = 525;
             }
         }
 
@@ -230,78 +260,68 @@ namespace empanada_2
         {
             SetDefaultCulture(new CultureInfo("es-MX"));
 
-            if (textBox_almacen.Text == "")
+            BUSCAR(comboBox_almacen.Text);           
+            
+            //checar cuanto es lo que tiene de peso respecto a la descripcion
+            OleDbConnection conexion4 = new OleDbConnection(ds);
+
+            conexion4.Open();
+
+            string sql = "select Peso from ALMACEN WHERE Descripcion='" + comboBox_almacen.Text + "'";
+            OleDbCommand cmd2 = new OleDbCommand(sql, conexion4); //Conexion es tu objeto conexion
+
+            peso = (cmd2.ExecuteScalar()).ToString();
+
+            //vamos a checar si el almacen esta sobre el limite permitido si no avisas al usuario
+            double checado = double.Parse(peso, Thread.CurrentThread.CurrentCulture);
+
+            if (checado <= 90)
             {
-                MessageBox.Show("No has introduccido la informacion necesaria", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                textBox_almacen.Focus();
-            }
-            else
-            {
-                try
+                if (checado <= 0)
                 {
-                    //checar cuanto es lo que tiene de peso respecto a la descripcion
-                    OleDbConnection conexion4 = new OleDbConnection(ds);
-
-                    conexion4.Open();
-
-                    string sql = "select Peso from ALMACEN WHERE Descripcion='" + comboBox_almacen.Text + "'";
-                    OleDbCommand cmd2 = new OleDbCommand(sql, conexion4); //Conexion es tu objeto conexion
-
-                    peso = (cmd2.ExecuteScalar()).ToString();
-
-                    //vamos a checar si el almacen esta sobre el limite permitido si no avisas al usuario
-                    double checado = double.Parse(peso, Thread.CurrentThread.CurrentCulture);
-
-                    if (checado <= 90)
+                    DialogResult resultado = MessageBox.Show(descripcion + " se encuentra  agotado ya no podras realizar ventas de este producto a menos que agreges mas en el almacen quieres abrir el almacen para Agregar mas " + descripcion, "ALERTA", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+                    if (resultado == DialogResult.Yes)
                     {
-                        if (checado <= 0)
-                        {
-                            DialogResult resultado = MessageBox.Show(descripcion + " se encuentra  agotado ya no podras realizar ventas de este producto a menos que agreges mas en el almacen quieres abrir el almacen para Agregar mas " + descripcion, "ALERTA", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
-                            if (resultado == DialogResult.Yes)
-                            {
-                                //Form1 corre = new Form1(fecha, ds);
-                                //corre.ACTIVADO(comboBox_almacen.Text);
-                            }
-                            else if (resultado == DialogResult.No)
-                            {
-                                //Form1 corre = new Form1(fecha, ds);
-                                //corre.CANCELADO(comboBox_almacen.Text);
-                            }
-                        }
-                        else if (checado <= 90)
-                        {
-                            DialogResult resultado = MessageBox.Show(descripcion + " se encuentra en el limite permitido pronto te quedaras sin este producto quieres abrir el almacen para Agregar mas " + descripcion, "ALERTA", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
-                            if (resultado == DialogResult.Yes)
-                            {
-                               // Form1 corre = new Form1(fecha, ds);
-                                //corre.ACTIVADO(comboBox_almacen.Text);
-                            }
-                        }
-
-                    }                
-
-
-                    conexion4.Close();
-
-                    //Realizando la suma para aser la modificacion
-                    suma = (double.Parse(peso, Thread.CurrentThread.CurrentCulture)) + (double.Parse(textBox_almacen.Text, Thread.CurrentThread.CurrentCulture));                    
-
-                    //realizando la consulta
-                    OleDbConnection conexion = new OleDbConnection(ds);
-
-                    conexion.Open();
-
-                    string insertar = "UPDATE ALMACEN SET Peso = @Peso WHERE Descripcion= '" +comboBox_almacen.Text +"'";
-                    OleDbCommand cmd3 = new OleDbCommand(insertar, conexion);
-                    cmd3.Parameters.AddWithValue("@Peso", suma.ToString());
-
-                    cmd3.ExecuteNonQuery();
-                    conexion.Close();
-
-                    SELECT_ALMACEN();
+                        //Form1 corre = new Form1(fecha, ds);
+                        //corre.ACTIVADO(comboBox_almacen.Text);
+                    }
+                    else if (resultado == DialogResult.No)
+                    {
+                        //Form1 corre = new Form1(fecha, ds);
+                        //corre.CANCELADO(comboBox_almacen.Text);
+                    }
                 }
-                catch { }
+                else if (checado <= 90)
+                {
+                    DialogResult resultado = MessageBox.Show(descripcion + " se encuentra en el limite permitido pronto te quedaras sin este producto quieres abrir el almacen para Agregar mas " + descripcion, "ALERTA", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+                    if (resultado == DialogResult.Yes)
+                    {
+                        // Form1 corre = new Form1(fecha, ds);
+                        //corre.ACTIVADO(comboBox_almacen.Text);
+                    }
+                }
+
             }
+
+
+            conexion4.Close();
+
+            //Realizando la suma para aser la modificacion
+            suma = (double.Parse(peso, Thread.CurrentThread.CurrentCulture)) + cantidad;
+
+            //realizando la consulta
+            OleDbConnection conexion = new OleDbConnection(ds);
+
+            conexion.Open();
+
+            string insertar = "UPDATE ALMACEN SET Peso = @Peso WHERE Descripcion= '" + comboBox_almacen.Text + "'";
+            OleDbCommand cmd3 = new OleDbCommand(insertar, conexion);
+            cmd3.Parameters.AddWithValue("@Peso", suma.ToString());
+
+            cmd3.ExecuteNonQuery();
+            conexion.Close();
+
+            SELECT_ALMACEN();
         }
     }
 }
