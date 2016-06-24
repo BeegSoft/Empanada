@@ -14,7 +14,7 @@ namespace empanada_2
         //Creamos un objeto de la clase StringBuilder, en este objeto agregaremos las lineas del ticket
         StringBuilder linea = new StringBuilder();
         //Creamos una variable para almacenar el numero maximo de caracteres que permitiremos en el ticket.
-        int maxCar = 40, cortar;//Para una impresora ticketera que imprime a 40 columnas. La variable cortar cortara el texto cuando rebase el limte.
+        int maxCar = 35, cortar;//Para una impresora ticketera que imprime a 40 columnas. La variable cortar cortara el texto cuando rebase el limte.
 
         //Creamos el primer metodo, este dibujara lineas guion.
         public string lineasGuio()
@@ -31,7 +31,7 @@ namespace empanada_2
         public string lineasAsteriscos()
         {
             string lineasAsterisco = "";
-            for (int i = 0; i < maxCar; i++)
+            for (int i = 0; i < maxCar - 3; i++)
             {
                 lineasAsterisco += "*";//Agregara un asterisco hasta llegar la numero maximo de caracteres.
             }
@@ -53,7 +53,7 @@ namespace empanada_2
         public void EncabezadoVenta()
         {
             //Escribimos los espacios para mostrar el articulo. En total tienen que ser 40 caracteres
-            linea.AppendLine("ARTÍCULO            |CANT|PRECIO|IMPORTE");
+            linea.AppendLine("ARTICULO    |CANT|PRECIO|IMPORTE");
         }
 
         //Creamos un metodo para poner el texto a la izquierda
@@ -184,7 +184,7 @@ namespace empanada_2
             { textoDer = textoDerecho; }
 
             //Obtenemos el numero de espacios restantes para poner textoDerecho al final
-            int nroEspacios = maxCar - (textoIzq.Length + textoDer.Length);
+            int nroEspacios = maxCar - 3 -(textoIzq.Length + textoDer.Length);
             for (int i = 0; i < nroEspacios; i++)
             {
                 espacios += " ";//agrega los espacios para poner textoDerecho al final
@@ -211,7 +211,7 @@ namespace empanada_2
             valor = total.ToString("#,#.00");//Agregamos el total previo formateo.
 
             //Obtenemos el numero de espacios restantes para alinearlos a la derecha
-            int nroEspacios = maxCar - (resumen.Length + valor.Length);
+            int nroEspacios = maxCar - 5 - (resumen.Length + valor.Length);
             //agregamos los espacios
             for (int i = 0; i < nroEspacios; i++)
             {
@@ -284,14 +284,17 @@ namespace empanada_2
                 }
                 else //Si no es mayor solo agregarlo, sin dar saltos de lineas
                 {
-                    for (int i = 0; i < (20 - articulo.Length); i++)
+
+                    for (int i = 0; i < (4 - articulo.Length); i++)
                     {
                         espacios += " "; //Agrega espacios para completar los 20 caracteres
                     }
                     elemento = articulo + espacios;
 
+                    
+
                     //Colocar la cantidad a la derecha.
-                    nroEspacios = (5 - cant.ToString().Length);// +(20 - elemento.Length);
+                    nroEspacios = (3 - cant.ToString().Length);// +(20 - elemento.Length);
                     espacios = "";
                     for (int i = 0; i < nroEspacios; i++)
                     {
@@ -300,7 +303,7 @@ namespace empanada_2
                     elemento += espacios + cant.ToString();
 
                     //Colocar el precio a la derecha.
-                    nroEspacios = (7 - precio.ToString().Length);
+                    nroEspacios = (5 - precio.ToString().Length);
                     espacios = "";
                     for (int i = 0; i < nroEspacios; i++)
                     {
@@ -309,7 +312,7 @@ namespace empanada_2
                     elemento += espacios + precio.ToString();
 
                     //Colocar el importe a la derecha.
-                    nroEspacios = (8 - importe.ToString().Length);
+                    nroEspacios = (6 - importe.ToString().Length);
                     espacios = "";
                     for (int i = 0; i < nroEspacios; i++)
                     {

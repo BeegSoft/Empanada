@@ -235,10 +235,10 @@ namespace empanada_2
             ticket.TextoIzquierda("RFC XXXXXX-XXXXXXX-XXXXX");
             ticket.TextoIzquierda("");
             ticket.TextoIzquierda("");
-            ticket.TextoIzquierda("ATENDIÓ: VENDEDOR ");
+            ticket.TextoIzquierda("ATENDIO: VENDEDOR ");
             ticket.TextoExtremos("CLIENTE: ", textBox_descripcion.Text);
             ticket.TextoIzquierda("");
-            ticket.TextoExtremos("FECHA: " + DateTime.Now.ToShortDateString(), "HORA: " + DateTime.Now.ToShortTimeString());
+            ticket.TextoExtremos("FECHA:" + DateTime.Now.ToShortDateString(), "HORA:" + DateTime.Now.ToShortTimeString());
             ticket.lineasAsteriscos();
             //Articulos a vender.
             ticket.EncabezadoVenta();//NOMBRE DEL ARTICULO, CANT, PRECIO, IMPORTE
@@ -298,27 +298,41 @@ namespace empanada_2
                 ListViewItem elemntos = new ListViewItem(filas["nombre_platillo"].ToString());
                 elemntos.SubItems.Add(filas["cantidad"].ToString());
                 elemntos.SubItems.Add(filas["pagar"].ToString());
+                decimal pagar = decimal.Parse(filas["pagar"].ToString());
+                int cantidad = int.Parse(filas["cantidad"].ToString());
+                decimal precio = pagar / cantidad;
+                string artic = filas["nombre_platillo"].ToString();
 
+                string arti = artic;
+                if (artic.Length != 15)
+                {
+                    int canti = Convert.ToInt32(artic.Length);
+                    for (int h = canti; h < 15; h++)
+                    {
+                        arti = arti + ".";
+                    }
+                }
+                artic = arti;
                 //listView_pagar.Items.Add(elemntos);
-                ticket.AgregaArticulo(filas["nombre_platillo"].ToString(), int.Parse(filas["cantidad"].ToString()), decimal.Parse(filas["pagar"].ToString()), decimal.Parse(filas["pagar"].ToString()));
+                ticket.AgregaArticulo(artic, int.Parse(filas["cantidad"].ToString()),precio, decimal.Parse(filas["pagar"].ToString()));
 
             }
             //ticket.AgregarTotales("         SUBTOTAL......$", 100);
             //ticket.AgregarTotales("         IVA...........$", 10.04M);//La M indica que es un decimal en C#
             //ticket.AgregaArticulo("Articulo B", 1, 10, 10);
             //ticket.AgregaArticulo("Este es un nombre largo del articulo, para mostrar como se bajan las lineas", 1, 30, 30);
-            ticket.AgregarTotales("         TOTAL.........$", System.Convert.ToDecimal(textBox_total.Text));
+            ticket.AgregarTotales("   TOTAL......$", System.Convert.ToDecimal(textBox_total.Text));
             ticket.TextoIzquierda("");
-            ticket.AgregarTotales("         EFECTIVO......$", System.Convert.ToDecimal(textBox_efectivo.Text));
-            ticket.AgregarTotales("         CAMBIO........$", System.Convert.ToDecimal(textBox_cambio.Text));
+            ticket.AgregarTotales("   EFECTIVO...$", System.Convert.ToDecimal(textBox_efectivo.Text));
+            ticket.AgregarTotales("   CAMBIO.....$", System.Convert.ToDecimal(textBox_cambio.Text));
             //Texto final del Ticket.
             ticket.TextoIzquierda("");
-            ticket.TextoIzquierda("ARTÍCULOS VENDIDOS: " + c);
+            ticket.TextoIzquierda("ARTICULOS VENDIDOS: " + c);
             ticket.TextoIzquierda("");
             ticket.TextoCentro("¡GRACIAS POR SU COMPRA!");
             ticket.CortaTicket();
             //ticket.ImprimirTicket("Microsoft XPS Document Writer");//Nombre de la impresora ticketera
-            ticket.ImprimirTicket("POS-58(copy of 3)");
+            ticket.ImprimirTicket("POS-58(copy of 5)");
 
 
             conexion.Close();

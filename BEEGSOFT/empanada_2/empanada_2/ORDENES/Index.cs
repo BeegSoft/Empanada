@@ -855,7 +855,7 @@ namespace empanada_2
                     if (Convert.ToInt32(textBoxcarnec.Text) != 0)
                     {
                         cantidad = Convert.ToInt32(textBoxcarnec.Text);
-                        platillo = "carne con chile";
+                        platillo = "carne c/chile";
 
                         Insertar_datos(cantidad, platillo);
                         INSERTAR_VISU(platillo, cantidad);
@@ -864,7 +864,7 @@ namespace empanada_2
                     if (Convert.ToInt32(textBoxrajas.Text) != 0)
                     {
                         cantidad = Convert.ToInt32(textBoxrajas.Text);
-                        platillo = "rajas con queso";
+                        platillo = "rajas c/queso";
 
                         Insertar_datos(cantidad, platillo);
                         INSERTAR_VISU(platillo, cantidad);
@@ -873,7 +873,7 @@ namespace empanada_2
                     if (Convert.ToInt32(textBoxfrijol.Text) != 0)
                     {
                         cantidad = Convert.ToInt32(textBoxfrijol.Text);
-                        platillo = "frijol con queso";
+                        platillo = "frijol c/queso";
 
                         Insertar_datos(cantidad, platillo);
                         INSERTAR_VISU(platillo, cantidad);
@@ -891,7 +891,7 @@ namespace empanada_2
                     if (Convert.ToInt32(textBoxchicharronsv.Text) != 0)
                     {
                         cantidad = Convert.ToInt32(textBoxchicharronsv.Text);
-                        platillo = "chicharron salsa verde";
+                        platillo = "chicharron s/v";
 
                         Insertar_datos(cantidad, platillo);
                         INSERTAR_VISU(platillo, cantidad);
@@ -900,7 +900,7 @@ namespace empanada_2
                     if (Convert.ToInt32(textBoxchicharronsr.Text) != 0)
                     {
                         cantidad = Convert.ToInt32(textBoxchicharronsr.Text);
-                        platillo = "chicharron salsa roja";
+                        platillo = "chicharron s/r";
 
                         Insertar_datos(cantidad, platillo);
                         INSERTAR_VISU(platillo, cantidad);
