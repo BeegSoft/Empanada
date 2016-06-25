@@ -28,7 +28,7 @@ namespace empanada_2
         String ds;
 
         string fecha, total_pagar, platillo,peso;
-        int precio_platillo, total, cantidad;
+        int precio_platillo, total, cantidad,cant_alm,cant_disp;
         double tipo, suma,resta;        
         int id = 0;
 
@@ -1033,6 +1033,11 @@ namespace empanada_2
             }
         }
 
+        private void groupBox3_Enter(object sender, EventArgs e)
+        {
+
+        }
+
         private void groupBox1_Enter(object sender, EventArgs e)
         {
 
@@ -1160,7 +1165,38 @@ namespace empanada_2
             cmd3.ExecuteNonQuery();
             conexion.Close();
         }
+        public void RESTA_ALMACEN(string descripcion,int total)
+        {
+            OleDbConnection conexion = new OleDbConnection(ds);
 
+            conexion.Open();
+
+            cant_disp = cant_disp - total;
+
+            string insertar = "UPDATE ALMACEN SET Rendimiento = @Rendimiento WHERE Descripcion= '" + descripcion + "'";
+            OleDbCommand cmd3 = new OleDbCommand(insertar, conexion);
+            cmd3.Parameters.AddWithValue("@Rendimiento", cant_disp.ToString());
+
+            cmd3.ExecuteNonQuery();
+            conexion.Close();
+        }
+        public void CANTIDAD_PLATILLO(string descripcion,int total)
+        {
+            //checar cuanto es lo que tiene de peso respecto a la descripcion
+            OleDbConnection conexion4 = new OleDbConnection(ds);
+
+            conexion4.Open();
+
+            string sql = "select Rendimiento from ALMACEN WHERE Descripcion='" + descripcion + "'";
+            OleDbCommand cmd2 = new OleDbCommand(sql, conexion4); //Conexion es tu objeto conexion
+
+            cant_disp = Convert.ToInt32(cmd2.ExecuteScalar());
+
+            
+
+                    
+            conexion4.Close();
+        }
         private void button14_Click_1(object sender, EventArgs e)
         {
             if (id == 0)
@@ -1176,9 +1212,19 @@ namespace empanada_2
                         cantidad = Convert.ToInt32(textBox_otros.Text);
                         platillo = comboBox_otros.Text;
 
-                        Insertar_datos(cantidad, platillo);
-                        INSERTAR_VISU(platillo, cantidad);
-                        ALMACEN(platillo, cantidad);                        
+                        CANTIDAD_PLATILLO(platillo,cantidad);
+
+                        if (cant_disp >= cantidad)
+                        {
+                            Insertar_datos(cantidad, platillo);
+                            INSERTAR_VISU(platillo, cantidad);
+                            ALMACEN(platillo, cantidad);
+                            RESTA_ALMACEN(platillo,cantidad);
+                        }
+                        else
+                        {
+                            MessageBox.Show("No te Alcanza para realizar el pedido, tienes para hacer "+cant_disp+" empanadas de "+platillo, "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                        }                                               
                     }
 
                     if (Convert.ToInt32(textBoxcarnec.Text) != 0)
@@ -1186,9 +1232,19 @@ namespace empanada_2
                         cantidad = Convert.ToInt32(textBoxcarnec.Text);
                         platillo = "carne c/chile";
 
-                        Insertar_datos(cantidad, platillo);
-                        INSERTAR_VISU(platillo, cantidad);
-                        ALMACEN(platillo, cantidad);
+                        CANTIDAD_PLATILLO(platillo, cantidad);
+
+                        if (cant_disp >= cantidad)
+                        {
+                            Insertar_datos(cantidad, platillo);
+                            INSERTAR_VISU(platillo, cantidad);
+                            ALMACEN(platillo, cantidad);
+                            RESTA_ALMACEN(platillo, cantidad);
+                        }
+                        else
+                        {
+                            MessageBox.Show("No te Alcanza para realizar el pedido, tienes para hacer " + cant_disp + " empanadas de " + platillo, "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                        }
                     }
 
                     if (Convert.ToInt32(textBoxrajas.Text) != 0)
@@ -1196,9 +1252,19 @@ namespace empanada_2
                         cantidad = Convert.ToInt32(textBoxrajas.Text);
                         platillo = "rajas c/queso";
 
-                        Insertar_datos(cantidad, platillo);
-                        INSERTAR_VISU(platillo, cantidad);
-                        ALMACEN(platillo, cantidad);
+                        CANTIDAD_PLATILLO(platillo, cantidad);
+
+                        if (cant_disp >= cantidad)
+                        {
+                            Insertar_datos(cantidad, platillo);
+                            INSERTAR_VISU(platillo, cantidad);
+                            ALMACEN(platillo, cantidad);
+                            RESTA_ALMACEN(platillo, cantidad);
+                        }
+                        else
+                        {
+                            MessageBox.Show("No te Alcanza para realizar el pedido, tienes para hacer " + cant_disp + " empanadas de " + platillo, "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                        }
                     }
 
                     if (Convert.ToInt32(textBoxfrijol.Text) != 0)
@@ -1206,9 +1272,19 @@ namespace empanada_2
                         cantidad = Convert.ToInt32(textBoxfrijol.Text);
                         platillo = "frijol c/queso";
 
-                        Insertar_datos(cantidad, platillo);
-                        INSERTAR_VISU(platillo, cantidad);
-                        ALMACEN(platillo, cantidad);
+                        CANTIDAD_PLATILLO(platillo, cantidad);
+
+                        if (cant_disp >= cantidad)
+                        {
+                            Insertar_datos(cantidad, platillo);
+                            INSERTAR_VISU(platillo, cantidad);
+                            ALMACEN(platillo, cantidad);
+                            RESTA_ALMACEN(platillo, cantidad);
+                        }
+                        else
+                        {
+                            MessageBox.Show("No te Alcanza para realizar el pedido, tienes para hacer " + cant_disp + " empanadas de " + platillo, "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                        }
                     }
 
                     if (Convert.ToInt32(textBoxcochinita.Text) != 0)
@@ -1216,9 +1292,19 @@ namespace empanada_2
                         cantidad = Convert.ToInt32(textBoxcochinita.Text);
                         platillo = "cochinita";
 
-                        Insertar_datos(cantidad, platillo);
-                        INSERTAR_VISU(platillo, cantidad);
-                        ALMACEN(platillo, cantidad);
+                        CANTIDAD_PLATILLO(platillo, cantidad);
+
+                        if (cant_disp >= cantidad)
+                        {
+                            Insertar_datos(cantidad, platillo);
+                            INSERTAR_VISU(platillo, cantidad);
+                            ALMACEN(platillo, cantidad);
+                            RESTA_ALMACEN(platillo, cantidad);
+                        }
+                        else
+                        {
+                            MessageBox.Show("No te Alcanza para realizar el pedido, tienes para hacer " + cant_disp + " empanadas de " + platillo, "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                        }
                     }
 
                     if (Convert.ToInt32(textBoxchicharronsv.Text) != 0)
@@ -1226,9 +1312,19 @@ namespace empanada_2
                         cantidad = Convert.ToInt32(textBoxchicharronsv.Text);
                         platillo = "chicharron s/v";
 
-                        Insertar_datos(cantidad, platillo);
-                        INSERTAR_VISU(platillo, cantidad);
-                        ALMACEN(platillo, cantidad);
+                        CANTIDAD_PLATILLO(platillo, cantidad);
+
+                        if (cant_disp >= cantidad)
+                        {
+                            Insertar_datos(cantidad, platillo);
+                            INSERTAR_VISU(platillo, cantidad);
+                            ALMACEN(platillo, cantidad);
+                            RESTA_ALMACEN(platillo, cantidad);
+                        }
+                        else
+                        {
+                            MessageBox.Show("No te Alcanza para realizar el pedido, tienes para hacer " + cant_disp + " empanadas de " + platillo, "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                        }
                     }
 
                     if (Convert.ToInt32(textBoxchicharronsr.Text) != 0)
@@ -1236,9 +1332,19 @@ namespace empanada_2
                         cantidad = Convert.ToInt32(textBoxchicharronsr.Text);
                         platillo = "chicharron s/r";
 
-                        Insertar_datos(cantidad, platillo);
-                        INSERTAR_VISU(platillo, cantidad);
-                        ALMACEN(platillo, cantidad);
+                        CANTIDAD_PLATILLO(platillo, cantidad);
+
+                        if (cant_disp >= cantidad)
+                        {
+                            Insertar_datos(cantidad, platillo);
+                            INSERTAR_VISU(platillo, cantidad);
+                            ALMACEN(platillo, cantidad);
+                            RESTA_ALMACEN(platillo, cantidad);
+                        }
+                        else
+                        {
+                            MessageBox.Show("No te Alcanza para realizar el pedido, tienes para hacer " + cant_disp + " empanadas de " + platillo, "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                        }
                     }
 
                     if (Convert.ToInt32(textBoxnopal.Text) != 0)
@@ -1246,9 +1352,19 @@ namespace empanada_2
                         cantidad = Convert.ToInt32(textBoxnopal.Text);
                         platillo = "nopal";
 
-                        Insertar_datos(cantidad, platillo);
-                        INSERTAR_VISU(platillo, cantidad);
-                        ALMACEN(platillo, cantidad);
+                        CANTIDAD_PLATILLO(platillo, cantidad);
+
+                        if (cant_disp >= cantidad)
+                        {
+                            Insertar_datos(cantidad, platillo);
+                            INSERTAR_VISU(platillo, cantidad);
+                            ALMACEN(platillo, cantidad);
+                            RESTA_ALMACEN(platillo, cantidad);
+                        }
+                        else
+                        {
+                            MessageBox.Show("No te Alcanza para realizar el pedido, tienes para hacer " + cant_disp + " empanadas de " + platillo, "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                        }
                     }
 
                     if (Convert.ToInt32(textBoxtinga.Text) != 0)
@@ -1256,9 +1372,19 @@ namespace empanada_2
                         cantidad = Convert.ToInt32(textBoxtinga.Text);
                         platillo = "tinga de pollo";
 
-                        Insertar_datos(cantidad, platillo);
-                        INSERTAR_VISU(platillo, cantidad);
-                        ALMACEN(platillo, cantidad);
+                        CANTIDAD_PLATILLO(platillo, cantidad);
+
+                        if (cant_disp >= cantidad)
+                        {
+                            Insertar_datos(cantidad, platillo);
+                            INSERTAR_VISU(platillo, cantidad);
+                            ALMACEN(platillo, cantidad);
+                            RESTA_ALMACEN(platillo, cantidad);
+                        }
+                        else
+                        {
+                            MessageBox.Show("No te Alcanza para realizar el pedido, tienes para hacer " + cant_disp + " empanadas de " + platillo, "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                        }
                     }
 
                     if (Convert.ToInt32(textBoxpicadillo.Text) != 0)
@@ -1266,9 +1392,19 @@ namespace empanada_2
                         cantidad = Convert.ToInt32(textBoxpicadillo.Text);
                         platillo = "picadillo";
 
-                        Insertar_datos(cantidad, platillo);
-                        INSERTAR_VISU(platillo, cantidad);
-                        ALMACEN(platillo, cantidad);
+                        CANTIDAD_PLATILLO(platillo, cantidad);
+
+                        if (cant_disp >= cantidad)
+                        {
+                            Insertar_datos(cantidad, platillo);
+                            INSERTAR_VISU(platillo, cantidad);
+                            ALMACEN(platillo, cantidad);
+                            RESTA_ALMACEN(platillo, cantidad);
+                        }
+                        else
+                        {
+                            MessageBox.Show("No te Alcanza para realizar el pedido, tienes para hacer " + cant_disp + " empanadas de " + platillo, "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                        }
                     }
 
                     if (Convert.ToInt32(textBoxhorchata.Text) != 0)

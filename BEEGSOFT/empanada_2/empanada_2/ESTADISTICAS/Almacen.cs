@@ -23,9 +23,9 @@ namespace empanada_2
             this.ds = ds;
         }        
 
-        string ds, peso,descripcion,fecha;
-        double suma, peso2,cantidad;
-        public int P=0;
+        string ds, peso, peso3, descripcion,fecha;
+        double suma,suma2, peso2,cantidad;
+        public int P=0,rendimiento;
 
 
         public void SetDefaultCulture(CultureInfo culture)
@@ -216,43 +216,53 @@ namespace empanada_2
             SELECT_ALMACEN();
         }
 
+
         public void BUSCAR(string descripcion)
         {
             if(descripcion== "carne c/chile")
             {
                 cantidad =525;
+                rendimiento = 15;
             }
             if (descripcion == "cochinita")
             {
                 cantidad = 450;
+                rendimiento = 15;
             }
             if (descripcion == "nopal")
             {
                 cantidad = 360;
+                rendimiento = 8;
             }
             if (descripcion == "tinga de pollo")
             {
                 cantidad = 525;
+                rendimiento = 15;
             }
             if (descripcion == "frijol c/queso")
             {
                 cantidad = 450;
+                rendimiento = 10;
             }
             if (descripcion == "rajas c/queso")
             {
                 cantidad = 675;
+                rendimiento = 15;
             }
             if (descripcion == "picadillo")
             {
                 cantidad = 400;
+                rendimiento = 10;
             }
             if (descripcion == "chicharron s/r")
             {
                 cantidad = 525;
+                rendimiento = 15;
             }
             if (descripcion == "chicharron s/v")
             {
                 cantidad = 525;
+                rendimiento = 15;
             }
         }
 
@@ -260,7 +270,7 @@ namespace empanada_2
         {
             SetDefaultCulture(new CultureInfo("es-MX"));
 
-            BUSCAR(comboBox_almacen.Text);           
+            BUSCAR(comboBox_almacen.Text);            
             
             //checar cuanto es lo que tiene de peso respecto a la descripcion
             OleDbConnection conexion4 = new OleDbConnection(ds);
@@ -272,19 +282,27 @@ namespace empanada_2
 
             peso = (cmd2.ExecuteScalar()).ToString();
 
+            string sql2 = "select Rendimiento from ALMACEN WHERE Descripcion='" + comboBox_almacen.Text + "'";
+            OleDbCommand cmd1 = new OleDbCommand(sql2, conexion4); //Conexion es tu objeto conexion
+
+            peso3= (cmd1.ExecuteScalar()).ToString();
+
             conexion4.Close();
 
             //Realizando la suma para aser la modificacion
             suma = (double.Parse(peso, Thread.CurrentThread.CurrentCulture)) + cantidad;
+
+            suma2 = (double.Parse(peso3, Thread.CurrentThread.CurrentCulture)) + rendimiento;
 
             //realizando la consulta
             OleDbConnection conexion = new OleDbConnection(ds);
 
             conexion.Open();
 
-            string insertar = "UPDATE ALMACEN SET Peso = @Peso WHERE Descripcion= '" + comboBox_almacen.Text + "'";
+            string insertar = "UPDATE ALMACEN SET Peso = @Peso, Rendimiento= @Rendimiento WHERE Descripcion= '" + comboBox_almacen.Text + "'";
             OleDbCommand cmd3 = new OleDbCommand(insertar, conexion);
             cmd3.Parameters.AddWithValue("@Peso", suma.ToString());
+            cmd3.Parameters.AddWithValue("@Rendimiento", suma2.ToString());
 
             cmd3.ExecuteNonQuery();
             conexion.Close();
