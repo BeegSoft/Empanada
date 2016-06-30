@@ -25,6 +25,10 @@ namespace empanada_2
     {
         void ACTIVADO(string descripcion);
     }
+    public interface IForm7
+    {
+        void Cerrar_sesion();
+    }
 
     public interface Terminar_orden
     {

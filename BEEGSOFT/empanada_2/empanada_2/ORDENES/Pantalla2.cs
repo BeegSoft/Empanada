@@ -11,7 +11,7 @@ using System.Data.OleDb;
 
 namespace empanada_2
 {
-    public partial class Pantalla2 : Form, IForm, Terminar_orden
+    public partial class Pantalla2 : Form, IForm, Terminar_orden, IForm7
     {
         public Pantalla2(string fecha, string ds,int band)
         {
@@ -253,6 +253,10 @@ namespace empanada_2
         
         #endregion
 
+        public void Cerrar_sesion()
+        {
+            this.Close();
+        }
         private void Pantalla2cs_Load(object sender, EventArgs e)
         {
             if (band == 3)

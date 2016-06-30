@@ -68,6 +68,7 @@ namespace empanada_2
         {
             Inicio corre = new Inicio(ds,band);
             corre.Show();
+            this.Close();
         }
 
         private void abrirBaseDeDatosToolStripMenuItem_Click(object sender, EventArgs e)
@@ -77,6 +78,8 @@ namespace empanada_2
 
         private void cerrarToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            Control_acceso logeo = new Control_acceso(ds, ds2);
+            logeo.Show();
             this.Close();
         }
 

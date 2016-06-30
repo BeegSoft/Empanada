@@ -1038,6 +1038,19 @@ namespace empanada_2
 
         }
 
+        private void cerrarSesiónToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            string ds2 = "Provider=Microsoft.Jet.OLEDB.4.0;Data Source=C:/Empanada/BEEGSOFT/empanada_2/empanada_2/UsuariosEmpanadas.mdb";
+            Control_acceso logeo = new Control_acceso(ds, ds2);
+            logeo.Show();
+
+            IForm7 formInterface = this.Owner as IForm7;
+            if (formInterface != null)
+                formInterface.Cerrar_sesion();
+
+            this.Close();
+        }
+
         public void CANCELADO(string descripcion)
         {            
             if (descripcion == "carne c/chile")

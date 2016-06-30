@@ -56,8 +56,7 @@ namespace empanada_2
                 
                 Pantalla2 form = new Pantalla2(fecha, ds,band);
                 form.Show();
-                
-                
+                this.Close();
             }
 
             catch (Exception)
@@ -65,11 +64,9 @@ namespace empanada_2
                 DialogResult resultado = MessageBox.Show("Ya existe un historial del dia de hoy\n\n      Desea continuar el dia de hoy?", "ADVERTENCIA", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
                 if (resultado == DialogResult.Yes)
                 {
-                    
-                Pantalla2 form = new Pantalla2(fecha, ds,band);
-                form.Show();
-                
-                    
+                    Pantalla2 form = new Pantalla2(fecha, ds,band);
+                    form.Show();
+                    this.Close();
                 }
             }
         }
@@ -87,16 +84,13 @@ namespace empanada_2
             OleDbCommand cmd = new OleDbCommand(select, conexion);
             try
             {
-
                 string compro = (cmd.ExecuteScalar()).ToString();
 
                 if (Convert.ToInt32(compro) != 0)
                 {
-                    
-                Pantalla2 form = new Pantalla2(fecha, ds,band);
-                form.Show();
-                
-                    
+                    Pantalla2 form = new Pantalla2(fecha, ds,band);
+                    form.Show();
+                    this.Close();
                 }
                 else
                 {

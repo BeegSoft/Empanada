@@ -101,7 +101,6 @@ namespace empanada_2
         {
             if ((comboBox1.Text == "ROOT") || (comboBox1.Text == "ADMINISTRADOR") || (comboBox1.Text == "OPERADOR"))
             {
-                MessageBox.Show("Usuario Aceptado", "AVISO", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 textBox1.Focus();
                 TIPO();                
             }
@@ -130,6 +129,7 @@ namespace empanada_2
                 Users corre = new Users(ds,ds2, band);
                 corre.Show();
                 LIMPIAR();
+                this.Hide();
             }
             else if (comboBox1.Text == "ADMINISTRADOR")
             {
@@ -138,6 +138,7 @@ namespace empanada_2
                 corre.usuariosToolStripMenuItem.Visible = false;                
                 corre.Show();                
                 LIMPIAR();
+                this.Hide();
             }
             else if(comboBox1.Text=="OPERADOR")
             {
@@ -145,6 +146,7 @@ namespace empanada_2
                 Inicio form = new Inicio(ds,band);                
                 LIMPIAR();
                 form.Show();
+                this.Hide();
             }
         }
 
