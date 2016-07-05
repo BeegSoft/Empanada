@@ -181,6 +181,7 @@
             this.Controls.Add(this.listView_almacen);
             this.Name = "Almacen";
             this.Text = "Almacen";
+            this.Activated += new System.EventHandler(this.Almacen_Activated);
             this.Load += new System.EventHandler(this.Almacen_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();

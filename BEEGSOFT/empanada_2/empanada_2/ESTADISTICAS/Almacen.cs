@@ -27,6 +27,26 @@ namespace empanada_2
         double suma,suma2, peso2,cantidad;
         public int P=0,rendimiento;
 
+        private void Almacen_Activated(object sender, EventArgs e)
+        {
+            if (P == 0)
+            {
+                SELECT_ALMACEN();
+
+                DataSet dss = new DataSet();
+                //indicamos la consulta en SQL
+                OleDbDataAdapter da = new OleDbDataAdapter("SELECT Descripcion FROM ALMACEN", ds);
+                //se indica el nombre de la tabla
+                da.Fill(dss, "Descripcion");
+                comboBox_almacen.DataSource = dss.Tables[0].DefaultView;
+                //se especifica el campo de la tabla
+                comboBox_almacen.ValueMember = "Descripcion";
+
+                //ESTE ES EL QUE VAS A QUITAR SI FUNCIONA EL PROGRESSBAR
+                P = -1;
+                CARGA(P);
+            }
+        }
 
         public void SetDefaultCulture(CultureInfo culture)
         {
@@ -65,14 +85,11 @@ namespace empanada_2
             catch { }
         }
 
-
         private void Almacen_Load(object sender, EventArgs e)
         {
-
             //cuando p=0 es que no es mandado del index o de otra pantalla
             if (P == 0)
             {                
-
                 SELECT_ALMACEN();
 
                 DataSet dss = new DataSet();
@@ -84,12 +101,9 @@ namespace empanada_2
                 //se especifica el campo de la tabla
                 comboBox_almacen.ValueMember = "Descripcion";
 
-
                 //ESTE ES EL QUE VAS A QUITAR SI FUNCIONA EL PROGRESSBAR
-                P = -1;
-                CARGA(P);
-
-
+                //P = -1;
+                //CARGA(P);
             }
             // si p=1 es por que e esta mandando del index cuando se carga
             else if(P==1)
@@ -106,7 +120,6 @@ namespace empanada_2
                 comboBox_almacen.ValueMember = "Descripcion";
                 P = 0;
             }            
-
         }
 
         private void CARGA(int P)
@@ -133,7 +146,6 @@ namespace empanada_2
                     }
                     else
                     {
-
                     }
                     reader.Close();
                 }
@@ -153,7 +165,6 @@ namespace empanada_2
             if (progressBar1.Value == 100)
                 timer1.Stop();
                 CARGA(P);
-
         }
 
         private void SELECT_ALMACEN()
@@ -175,9 +186,7 @@ namespace empanada_2
                 elemntos.SubItems.Add(filas["Rendimiento"].ToString());
 
                 listView_almacen.Items.Add(elemntos);
-
             }            
-
         }
 
         private void button4_Click(object sender, EventArgs e)
@@ -215,7 +224,6 @@ namespace empanada_2
 
             SELECT_ALMACEN();
         }
-
 
         public void BUSCAR(string descripcion)
         {
