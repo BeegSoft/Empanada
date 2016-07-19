@@ -1450,7 +1450,7 @@ namespace empanada_2
                     if (Convert.ToInt32(textBoxsoda.Text) != 0)
                     {
                         cantidad = Convert.ToInt32(textBoxsoda.Text);
-                        platillo = "soda";
+                        platillo = "cocacola";
 
                         Insertar_datos(cantidad, platillo);
                         INSERTAR_VISU(platillo, cantidad);
