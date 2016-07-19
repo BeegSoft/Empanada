@@ -50,6 +50,7 @@ namespace empanada_2
                     Nuevo_usuario abre = new Nuevo_usuario(ds,ds2, id, band);
                     abre.Show();
                 }
+                band = 0;
             }
             else if (band == 1)
             {
@@ -60,6 +61,7 @@ namespace empanada_2
                     Nuevo_usuario abre = new Nuevo_usuario(ds,ds2, id, band);
                     abre.Show();
                 }
+                band = 0;
             }
         }
         //public event EventHandler<ListViewUpdateEventArgs> ItemUpdating;
@@ -165,6 +167,7 @@ namespace empanada_2
                         lista.Remove();
                     }
                 }
+                band = 0;
             }
             else if (band == 1)
             {
@@ -197,6 +200,7 @@ namespace empanada_2
                     }
                 }
             }
+            band = 1;
         }
 
         private void usuariosToolStripMenuItem_Click(object sender, EventArgs e)
