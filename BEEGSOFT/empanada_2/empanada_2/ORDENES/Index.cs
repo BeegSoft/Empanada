@@ -587,6 +587,95 @@ namespace empanada_2
             }
         }
 
+        public void SUMA_ALMACEN(string descripcion, int total)
+        {
+            OleDbConnection conexion = new OleDbConnection(ds);
+
+            conexion.Open();
+
+            cant_disp = cant_disp + total;
+
+            string insertar = "UPDATE ALMACEN SET Rendimiento = @Rendimiento WHERE Descripcion= '" + descripcion + "'";
+            OleDbCommand cmd3 = new OleDbCommand(insertar, conexion);
+            cmd3.Parameters.AddWithValue("@Rendimiento", cant_disp.ToString());
+
+            cmd3.ExecuteNonQuery();
+            conexion.Close();
+        }
+
+        private void AGREGAR_ALMACEN(int id)
+        {
+            OleDbConnection conexion6 = new OleDbConnection(ds);
+
+            conexion6.Open();
+
+            #region carga de descripcion            
+            string select = "SELECT nombre_platillo FROM PLATILLO WHERE id_platillo=" + id;            
+            OleDbCommand cmd = new OleDbCommand(select, conexion6);
+            try
+            {
+                OleDbDataReader reader = cmd.ExecuteReader();
+                if (reader.HasRows)
+                {
+                    while (reader.Read())
+                    {
+                        descripcion = reader.GetString(0);
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("No se pudo", "MENSAJE", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+                reader.Close();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error orden" + ex, "MENSAJE", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            #endregion            
+            #region carga de la cantidad            
+            string select2 = "SELECT cantidad FROM PLATILLO WHERE id_platillo=" + id;            
+            OleDbCommand cmd6 = new OleDbCommand(select2, conexion6); //Conexion es tu objeto conexion
+
+            cantidad = Convert.ToInt32((cmd6.ExecuteScalar()).ToString());
+            //FDJGGHDJHDHFJDGHLHKJHFJ       
+
+            #endregion
+
+            #region agregando al almacen
+
+            SetDefaultCulture(new CultureInfo("es-MX"));
+
+            TIPO_RESTA(descripcion);
+
+            CANTIDAD_PLATILLO(descripcion, cantidad);
+
+            //checar cuanto es lo que tiene de peso respecto a la descripcion            
+
+            string sql = "select Peso from ALMACEN WHERE Descripcion='" + descripcion + "'";
+            OleDbCommand cmd3 = new OleDbCommand(sql, conexion6); //Conexion es tu objeto conexion
+
+            peso = (cmd3.ExecuteScalar()).ToString();
+
+            resta = tipo * cantidad;
+            
+            //Realizando la suma para aser la modificacion
+            suma = ((double.Parse(peso, Thread.CurrentThread.CurrentCulture)) + (resta));
+            
+            //realizando la consulta            
+            string insertar = "UPDATE ALMACEN SET Peso = @Peso WHERE Descripcion= '" + descripcion + "'";
+            OleDbCommand cmd4 = new OleDbCommand(insertar, conexion6);
+            cmd4.Parameters.AddWithValue("@Peso", suma.ToString());
+
+            cmd4.ExecuteNonQuery();
+
+            SUMA_ALMACEN(descripcion, cantidad);
+
+            #endregion
+
+            conexion6.Close();
+        }
+
         private void button25_Click(object sender, EventArgs e)
         {
             foreach (ListViewItem lista in listView_platillos.SelectedItems)
@@ -598,15 +687,21 @@ namespace empanada_2
                 {
                     try
                     {
+
+                        //agregando la cantidad de empanada eliminada
+
+                        AGREGAR_ALMACEN(id_platillo);
+
+                        //---------------------------------------------
+
                         OleDbConnection conexion = new OleDbConnection(ds);
 
                         conexion.Open();
-
-
                         string insertar = "DELETE FROM PLATILLO WHERE id_platillo = " + id_platillo;
                         OleDbCommand cmd = new OleDbCommand(insertar, conexion);
 
                         cmd.ExecuteNonQuery();
+                        
                         //-------------------------------------------------                        
 
                         string sql = "select SUM(pagar) from PLATILLO WHERE id_orden=" + id;
@@ -1193,6 +1288,7 @@ namespace empanada_2
             cmd3.ExecuteNonQuery();
             conexion.Close();
         }
+
         public void CANTIDAD_PLATILLO(string descripcion,int total)
         {
             //checar cuanto es lo que tiene de peso respecto a la descripcion
@@ -1204,10 +1300,7 @@ namespace empanada_2
             OleDbCommand cmd2 = new OleDbCommand(sql, conexion4); //Conexion es tu objeto conexion
 
             cant_disp = Convert.ToInt32(cmd2.ExecuteScalar());
-
-            
-
-                    
+                                
             conexion4.Close();
         }
         private void button14_Click_1(object sender, EventArgs e)
