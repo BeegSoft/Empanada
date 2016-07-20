@@ -44,6 +44,7 @@
             this.orden5ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.estadisticasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.gastosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.cerrarSesiónToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.listView_platillos = new System.Windows.Forms.ListView();
             this.columnHeader_id = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.column_platillo = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
@@ -133,7 +134,6 @@
             this.button13 = new System.Windows.Forms.Button();
             this.button15 = new System.Windows.Forms.Button();
             this.button18 = new System.Windows.Forms.Button();
-            this.cerrarSesiónToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
@@ -206,35 +206,35 @@
             // orden1ToolStripMenuItem
             // 
             this.orden1ToolStripMenuItem.Name = "orden1ToolStripMenuItem";
-            this.orden1ToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.orden1ToolStripMenuItem.Size = new System.Drawing.Size(116, 22);
             this.orden1ToolStripMenuItem.Text = "Orden 1";
             this.orden1ToolStripMenuItem.Click += new System.EventHandler(this.orden1ToolStripMenuItem_Click);
             // 
             // orden2ToolStripMenuItem
             // 
             this.orden2ToolStripMenuItem.Name = "orden2ToolStripMenuItem";
-            this.orden2ToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.orden2ToolStripMenuItem.Size = new System.Drawing.Size(116, 22);
             this.orden2ToolStripMenuItem.Text = "Orden 2";
             this.orden2ToolStripMenuItem.Click += new System.EventHandler(this.orden2ToolStripMenuItem_Click);
             // 
             // orden3ToolStripMenuItem
             // 
             this.orden3ToolStripMenuItem.Name = "orden3ToolStripMenuItem";
-            this.orden3ToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.orden3ToolStripMenuItem.Size = new System.Drawing.Size(116, 22);
             this.orden3ToolStripMenuItem.Text = "Orden 3";
             this.orden3ToolStripMenuItem.Click += new System.EventHandler(this.orden3ToolStripMenuItem_Click);
             // 
             // orden4ToolStripMenuItem
             // 
             this.orden4ToolStripMenuItem.Name = "orden4ToolStripMenuItem";
-            this.orden4ToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.orden4ToolStripMenuItem.Size = new System.Drawing.Size(116, 22);
             this.orden4ToolStripMenuItem.Text = "Orden 4";
             this.orden4ToolStripMenuItem.Click += new System.EventHandler(this.orden4ToolStripMenuItem_Click);
             // 
             // orden5ToolStripMenuItem
             // 
             this.orden5ToolStripMenuItem.Name = "orden5ToolStripMenuItem";
-            this.orden5ToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.orden5ToolStripMenuItem.Size = new System.Drawing.Size(116, 22);
             this.orden5ToolStripMenuItem.Text = "Orden 5";
             this.orden5ToolStripMenuItem.Click += new System.EventHandler(this.orden5ToolStripMenuItem_Click);
             // 
@@ -254,6 +254,13 @@
             this.gastosToolStripMenuItem.Text = "Gastos";
             this.gastosToolStripMenuItem.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.gastosToolStripMenuItem.Click += new System.EventHandler(this.gastosToolStripMenuItem_Click);
+            // 
+            // cerrarSesiónToolStripMenuItem
+            // 
+            this.cerrarSesiónToolStripMenuItem.Name = "cerrarSesiónToolStripMenuItem";
+            this.cerrarSesiónToolStripMenuItem.Size = new System.Drawing.Size(88, 20);
+            this.cerrarSesiónToolStripMenuItem.Text = "Cerrar Sesión";
+            this.cerrarSesiónToolStripMenuItem.Click += new System.EventHandler(this.cerrarSesiónToolStripMenuItem_Click);
             // 
             // listView_platillos
             // 
@@ -1095,6 +1102,7 @@
             this.checkBox_algo.TabIndex = 36;
             this.checkBox_algo.Text = "Habilitar cantidades";
             this.checkBox_algo.UseVisualStyleBackColor = true;
+            this.checkBox_algo.CheckedChanged += new System.EventHandler(this.checkBox_algo_CheckedChanged);
             this.checkBox_algo.Click += new System.EventHandler(this.checkBox1_Click);
             // 
             // label16
@@ -1226,13 +1234,6 @@
             this.button18.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.button18.UseVisualStyleBackColor = false;
             this.button18.Click += new System.EventHandler(this.button18_Click);
-            // 
-            // cerrarSesiónToolStripMenuItem
-            // 
-            this.cerrarSesiónToolStripMenuItem.Name = "cerrarSesiónToolStripMenuItem";
-            this.cerrarSesiónToolStripMenuItem.Size = new System.Drawing.Size(88, 20);
-            this.cerrarSesiónToolStripMenuItem.Text = "Cerrar Sesión";
-            this.cerrarSesiónToolStripMenuItem.Click += new System.EventHandler(this.cerrarSesiónToolStripMenuItem_Click);
             // 
             // Form1
             // 

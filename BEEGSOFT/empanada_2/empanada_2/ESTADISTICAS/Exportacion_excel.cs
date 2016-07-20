@@ -28,7 +28,7 @@ namespace empanada_2
 
         private void SELECT_FECHA()
         {
-            OleDbDataAdapter adaptador = new OleDbDataAdapter("SELECT FECHA.fecha FROM FECHA ORDER BY FECHA.fecha", ds);
+            OleDbDataAdapter adaptador = new OleDbDataAdapter("SELECT FECHA.fecha FROM FECHA ORDER BY FECHA.id ASC", ds);
 
             DataSet dataset = new DataSet();
             DataTable tabla = new DataTable();
@@ -120,7 +120,7 @@ namespace empanada_2
             
             //SELECCIONAR TODAS LAS FECHAS DESDE EL ORIGEN
 
-            OleDbDataAdapter adaptador = new OleDbDataAdapter("SELECT FECHA.fecha, ORDEN.id_orden, PLATILLO.nombre_platillo, PLATILLO.cantidad, PLATILLO.pagar FROM(FECHA INNER JOIN ORDEN ON FECHA.fecha = ORDEN.fecha) INNER JOIN PLATILLO ON ORDEN.id_orden = PLATILLO.id_orden WHERE id >= " + fecha_menor + " AND id <= " + fecha_mayor, ds);
+            OleDbDataAdapter adaptador = new OleDbDataAdapter("SELECT FECHA.fecha, ORDEN.id_orden, PLATILLO.nombre_platillo, PLATILLO.cantidad, PLATILLO.pagar FROM(FECHA INNER JOIN ORDEN ON FECHA.fecha = ORDEN.fecha) INNER JOIN PLATILLO ON ORDEN.id_orden = PLATILLO.id_orden WHERE FECHA.id >= " + fecha_menor + " AND FECHA.id <= " + fecha_mayor + " ORDER BY FECHA.id ASC", ds);
 
             DataSet dataset = new DataSet();
             DataTable tabla = new DataTable();
@@ -142,7 +142,7 @@ namespace empanada_2
 
             //MOSTRAR LOS DATOS DE LOS GASTOS
 
-            OleDbDataAdapter adaptador2 = new OleDbDataAdapter("SELECT GASTOS.Fecha, GASTOS.Descripcion, GASTOS.Gasto FROM FECHA INNER JOIN GASTOS ON FECHA.fecha = GASTOS.Fecha WHERE id >= " + fecha_menor + " AND id <= " + fecha_mayor, ds);
+            OleDbDataAdapter adaptador2 = new OleDbDataAdapter("SELECT GASTOS.Fecha, GASTOS.Descripcion, GASTOS.Gasto FROM FECHA INNER JOIN GASTOS ON FECHA.fecha = GASTOS.Fecha WHERE FECHA.id >= " + fecha_menor + " AND FECHA.id <= " + fecha_mayor + " ORDER BY FECHA.id ASC", ds);
 
             DataSet dataset2 = new DataSet();
             DataTable tabla2 = new DataTable();
@@ -195,7 +195,7 @@ namespace empanada_2
             fechab = Convert.ToInt32(FECHAB);
 
 
-            OleDbDataAdapter adaptador = new OleDbDataAdapter("SELECT FECHA.fecha, ORDEN.id_orden, PLATILLO.nombre_platillo, PLATILLO.cantidad, PLATILLO.pagar FROM(FECHA INNER JOIN ORDEN ON FECHA.fecha = ORDEN.fecha) INNER JOIN PLATILLO ON ORDEN.id_orden = PLATILLO.id_orden WHERE id >= " + fechaa + " AND id <= " + fechab, ds);
+            OleDbDataAdapter adaptador = new OleDbDataAdapter("SELECT FECHA.fecha, ORDEN.id_orden, PLATILLO.nombre_platillo, PLATILLO.cantidad, PLATILLO.pagar FROM(FECHA INNER JOIN ORDEN ON FECHA.fecha = ORDEN.fecha) INNER JOIN PLATILLO ON ORDEN.id_orden = PLATILLO.id_orden WHERE FECHA.id >= " + fechaa + " AND FECHA.id <= " + fechab + " ORDER BY FECHA.id ASC", ds);
 
             DataSet dataset = new DataSet();
             DataTable tabla = new DataTable();
@@ -217,7 +217,7 @@ namespace empanada_2
 
             //MOSTRAR LOS DATOS DE LOS GASTOS
 
-            OleDbDataAdapter adaptador2 = new OleDbDataAdapter("SELECT GASTOS.Fecha, GASTOS.Descripcion, GASTOS.Gasto FROM FECHA INNER JOIN GASTOS ON FECHA.fecha = GASTOS.Fecha WHERE id >= " + fechaa + " AND id <= " + fechab, ds);
+            OleDbDataAdapter adaptador2 = new OleDbDataAdapter("SELECT GASTOS.Fecha, GASTOS.Descripcion, GASTOS.Gasto FROM FECHA INNER JOIN GASTOS ON FECHA.fecha = GASTOS.Fecha WHERE FECHA.id >= " + fechaa + " AND FECHA.id <= " + fechab + " ORDER BY FECHA.id ASC", ds);
 
             DataSet dataset2 = new DataSet();
             DataTable tabla2 = new DataTable();

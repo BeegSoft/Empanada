@@ -1151,6 +1151,11 @@ namespace empanada_2
             this.Close();
         }
 
+        private void checkBox_algo_CheckedChanged(object sender, EventArgs e)
+        {
+
+        }
+
         public void CANCELADO(string descripcion)
         {            
             if (descripcion == "carne c/chile")

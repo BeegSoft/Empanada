@@ -69,9 +69,9 @@
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.exportarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.gastosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.almacenToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.label13 = new System.Windows.Forms.Label();
             this.button3 = new System.Windows.Forms.Button();
-            this.almacenToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.grafica)).BeginInit();
@@ -226,18 +226,18 @@
             // fechaA
             // 
             this.fechaA.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.fechaA.Location = new System.Drawing.Point(73, 103);
+            this.fechaA.Location = new System.Drawing.Point(64, 103);
             this.fechaA.Name = "fechaA";
-            this.fechaA.Size = new System.Drawing.Size(85, 20);
+            this.fechaA.Size = new System.Drawing.Size(102, 20);
             this.fechaA.TabIndex = 6;
             this.fechaA.Value = new System.DateTime(2016, 4, 10, 0, 0, 0, 0);
             // 
             // fechaB
             // 
             this.fechaB.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.fechaB.Location = new System.Drawing.Point(224, 103);
+            this.fechaB.Location = new System.Drawing.Point(217, 103);
             this.fechaB.Name = "fechaB";
-            this.fechaB.Size = new System.Drawing.Size(85, 20);
+            this.fechaB.Size = new System.Drawing.Size(102, 20);
             this.fechaB.TabIndex = 7;
             this.fechaB.Value = new System.DateTime(2016, 4, 18, 0, 0, 0, 0);
             // 
@@ -425,6 +425,13 @@
             this.gastosToolStripMenuItem.Text = "Gastos";
             this.gastosToolStripMenuItem.Click += new System.EventHandler(this.gastosToolStripMenuItem_Click);
             // 
+            // almacenToolStripMenuItem
+            // 
+            this.almacenToolStripMenuItem.Name = "almacenToolStripMenuItem";
+            this.almacenToolStripMenuItem.Size = new System.Drawing.Size(66, 20);
+            this.almacenToolStripMenuItem.Text = "Almacen";
+            this.almacenToolStripMenuItem.Click += new System.EventHandler(this.almacenToolStripMenuItem_Click);
+            // 
             // label13
             // 
             this.label13.AutoSize = true;
@@ -445,21 +452,14 @@
             this.button3.Font = new System.Drawing.Font("Lucida Sans", 7F);
             this.button3.Image = global::empanada_2.Properties.Resources.mostrar1;
             this.button3.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.button3.Location = new System.Drawing.Point(333, 77);
+            this.button3.Location = new System.Drawing.Point(336, 69);
             this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(92, 49);
+            this.button3.Size = new System.Drawing.Size(92, 57);
             this.button3.TabIndex = 76;
             this.button3.Text = "Mostrar";
             this.button3.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.button3.UseVisualStyleBackColor = false;
             this.button3.Click += new System.EventHandler(this.button3_Click);
-            // 
-            // almacenToolStripMenuItem
-            // 
-            this.almacenToolStripMenuItem.Name = "almacenToolStripMenuItem";
-            this.almacenToolStripMenuItem.Size = new System.Drawing.Size(66, 20);
-            this.almacenToolStripMenuItem.Text = "Almacen";
-            this.almacenToolStripMenuItem.Click += new System.EventHandler(this.almacenToolStripMenuItem_Click);
             // 
             // Historial
             // 

@@ -17,6 +17,13 @@ namespace empanada_2
         {
             InitializeComponent();
             this.ds = ds;
+
+            label2.Visible = false;
+            label1.Visible = false;
+            dateTimePicker1.Visible = false;
+            listView_fechas.Visible = false;
+            button2.Visible = false;
+            button3.Visible = false;
         }
 
         string ds, fecha;
@@ -29,7 +36,7 @@ namespace empanada_2
             label_fecha.Text = fecha;
             
 
-            OleDbDataAdapter adaptador = new OleDbDataAdapter("SELECT FECHA.fecha FROM FECHA ORDER BY FECHA.fecha", ds);
+            OleDbDataAdapter adaptador = new OleDbDataAdapter("SELECT FECHA.fecha FROM FECHA ORDER BY FECHA.id ASC", ds);
 
             DataSet dataset = new DataSet();
             DataTable tabla = new DataTable();
@@ -149,6 +156,62 @@ namespace empanada_2
                 textBox_descripcion.Clear();
                 textBox_gasto.Clear();
             }
+        }
+
+        private void radioButton1_Click(object sender, EventArgs e)
+        {
+            if (radioButton1.Checked)
+            {
+                label2.Visible = false;
+                label1.Visible = true;
+                dateTimePicker1.Visible = true;
+                listView_fechas.Visible = false;
+                button2.Visible = true;
+                button3.Visible = false;
+                listView_gastos.Items.Clear();
+            }
+            else
+            {
+                label2.Visible = false;
+                label1.Visible = false;
+                dateTimePicker1.Visible = false;
+                listView_fechas.Visible = false;
+                button2.Visible = false;
+                button3.Visible = false;
+            }            
+        }
+
+        private void radioButton2_Click(object sender, EventArgs e)
+        {
+            if (radioButton2.Checked)
+            {
+                label2.Visible = true;
+                label1.Visible = false;
+                dateTimePicker1.Visible = false;
+                listView_fechas.Visible = true;
+                button2.Visible = false;
+                button3.Visible = true;
+                listView_gastos.Items.Clear();
+            }
+            else
+            {
+                label2.Visible = false;
+                label1.Visible = false;
+                dateTimePicker1.Visible = false;
+                listView_fechas.Visible = false;
+                button2.Visible = false;
+                button3.Visible = false;
+            }          
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            fecha = dateTimePicker1.Text;
+            label_fecha.Text = fecha;
+            textBox_descripcion.Focus();
+            SELECT_GASTOS();
+            SUMA_GASTOS();
+            GANANCIAS();
         }
 
         private void button3_Click(object sender, EventArgs e)

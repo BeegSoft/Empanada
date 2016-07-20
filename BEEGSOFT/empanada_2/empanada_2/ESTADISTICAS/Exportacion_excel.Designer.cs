@@ -72,18 +72,18 @@
             // fechaB
             // 
             this.fechaB.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.fechaB.Location = new System.Drawing.Point(211, 23);
+            this.fechaB.Location = new System.Drawing.Point(202, 23);
             this.fechaB.Name = "fechaB";
-            this.fechaB.Size = new System.Drawing.Size(85, 20);
+            this.fechaB.Size = new System.Drawing.Size(102, 20);
             this.fechaB.TabIndex = 13;
             this.fechaB.Value = new System.DateTime(2016, 4, 18, 0, 0, 0, 0);
             // 
             // fechaA
             // 
             this.fechaA.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.fechaA.Location = new System.Drawing.Point(60, 23);
+            this.fechaA.Location = new System.Drawing.Point(53, 23);
             this.fechaA.Name = "fechaA";
-            this.fechaA.Size = new System.Drawing.Size(85, 20);
+            this.fechaA.Size = new System.Drawing.Size(102, 20);
             this.fechaA.TabIndex = 12;
             this.fechaA.Value = new System.DateTime(2016, 4, 10, 0, 0, 0, 0);
             // 

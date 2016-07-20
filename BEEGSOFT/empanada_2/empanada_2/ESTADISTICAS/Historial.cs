@@ -25,7 +25,7 @@ namespace empanada_2
 
         private void SELECT_FECHA()
         {
-            OleDbDataAdapter adaptador = new OleDbDataAdapter("SELECT FECHA.fecha FROM FECHA ORDER BY FECHA.fecha", ds);
+            OleDbDataAdapter adaptador = new OleDbDataAdapter("SELECT FECHA.fecha FROM FECHA ORDER BY FECHA.id ASC", ds);
 
             DataSet dataset = new DataSet();
             DataTable tabla = new DataTable();
