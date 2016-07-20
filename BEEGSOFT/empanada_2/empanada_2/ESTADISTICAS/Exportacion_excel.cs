@@ -57,16 +57,17 @@ namespace empanada_2
             Microsoft.Office.Interop.Excel.Workbook wb = xla.Workbooks.Add(Microsoft.Office.Interop.Excel.XlSheetType.xlWorksheet);
             Microsoft.Office.Interop.Excel.Worksheet ws = (Microsoft.Office.Interop.Excel.Worksheet)xla.ActiveSheet;
 
-            int i = 2;
+            int i = 3;
             int j = 1;
 
             foreach (ListViewItem comp in listView_esta.Items)
             {
-                ws.Cells[1, 1] = ("FECHA");
-                ws.Cells[1, 2] = ("ID");
-                ws.Cells[1, 3] = ("PLATILLO");
-                ws.Cells[1, 4] = ("CANTIDA");
-                ws.Cells[1, 5] = ("TOTAL");
+                ws.Cells.Rows.MergeCells();
+                ws.Cells[2, 1] = ("FECHA");
+                ws.Cells[2, 2] = ("ID");
+                ws.Cells[2, 3] = ("PLATILLO");
+                ws.Cells[2, 4] = ("CANTIDA");
+                ws.Cells[2, 5] = ("TOTAL");
 
                 ws.Cells[i, j] = comp.Text.ToString();
                 //MessageBox.Show(comp.Text.ToString());
@@ -78,14 +79,14 @@ namespace empanada_2
                 j = 1;
                 i++;
             }
-            i = 2;
+            i = 3;
             j = 7;
             foreach (ListViewItem comp in listView_gastos.Items)
             {
                 
-                ws.Cells[1, 7] = ("FECHA");
-                ws.Cells[1, 8] = ("DESCRIPCION");
-                ws.Cells[1, 9] = ("GASTO");
+                ws.Cells[2, 7] = ("FECHA");
+                ws.Cells[2, 8] = ("DESCRIPCION");
+                ws.Cells[2, 9] = ("GASTO");
 
                 ws.Cells[i, j] = comp.Text.ToString();
                 //MessageBox.Show(comp.Text.ToString());
