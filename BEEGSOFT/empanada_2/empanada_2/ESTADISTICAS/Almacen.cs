@@ -321,5 +321,10 @@ namespace empanada_2
             if (formInterface != null)
                 formInterface.ACTIVADO(comboBox_almacen.Text);
         }
+
+        private void progressBar1_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

@@ -300,5 +300,10 @@ namespace empanada_2
 
             conexion.Close();
         }
+
+        private void textBox_total_TextChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

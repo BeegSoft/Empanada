@@ -99,3 +99,9 @@ C:\Empanada\BEEGSOFT\empanada_2\empanada_2\obj\Debug\empanada_2.csproj.GenerateR
 =======
 >>>>>>> 0b5b93acd017260e8757edb2a58e48c9f88f8f45
 C:\Empanada\BEEGSOFT\empanada_2\empanada_2\obj\Debug\empanada_2.csproj.ResolveComReference.cache
+C:\Empanada\BEEGSOFT\empanada_2\empanada_2\obj\Debug\empanada_2.Almacen.resources
+C:\Empanada\BEEGSOFT\empanada_2\empanada_2\obj\Debug\empanada_2.Control_acceso.resources
+C:\Empanada\BEEGSOFT\empanada_2\empanada_2\obj\Debug\empanada_2.Exportacion_excel.resources
+C:\Empanada\BEEGSOFT\empanada_2\empanada_2\obj\Debug\empanada_2.Gastos.resources
+C:\Empanada\BEEGSOFT\empanada_2\empanada_2\obj\Debug\empanada_2.Nuevo_usuario.resources
+C:\Empanada\BEEGSOFT\empanada_2\empanada_2\obj\Debug\empanada_2.Users.resources

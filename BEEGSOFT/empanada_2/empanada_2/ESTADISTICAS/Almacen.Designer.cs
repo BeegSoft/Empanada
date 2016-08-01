@@ -71,7 +71,8 @@
             this.groupBox1.Controls.Add(this.button5);
             this.groupBox1.Controls.Add(this.label3);
             this.groupBox1.Controls.Add(this.label4);
-            this.groupBox1.Location = new System.Drawing.Point(11, 61);
+            this.groupBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.groupBox1.Location = new System.Drawing.Point(12, 21);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(171, 188);
             this.groupBox1.TabIndex = 77;
@@ -85,7 +86,7 @@
             this.comboBox_almacen.FormattingEnabled = true;
             this.comboBox_almacen.Location = new System.Drawing.Point(21, 50);
             this.comboBox_almacen.Name = "comboBox_almacen";
-            this.comboBox_almacen.Size = new System.Drawing.Size(121, 21);
+            this.comboBox_almacen.Size = new System.Drawing.Size(121, 24);
             this.comboBox_almacen.TabIndex = 78;
             // 
             // button5
@@ -112,7 +113,7 @@
             this.label3.AutoSize = true;
             this.label3.Location = new System.Drawing.Point(35, 29);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(63, 13);
+            this.label3.Size = new System.Drawing.Size(91, 16);
             this.label3.TabIndex = 27;
             this.label3.Text = "Descripción";
             // 
@@ -121,7 +122,7 @@
             this.label4.AutoSize = true;
             this.label4.Location = new System.Drawing.Point(38, 77);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(71, 13);
+            this.label4.Size = new System.Drawing.Size(104, 16);
             this.label4.TabIndex = 28;
             this.label4.Text = "Agregar Peso";
             // 
@@ -132,9 +133,10 @@
             this.columnHeader2,
             this.columnHeader1,
             this.columnHeader3});
-            this.listView_almacen.Location = new System.Drawing.Point(217, 82);
+            this.listView_almacen.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.listView_almacen.Location = new System.Drawing.Point(217, 29);
             this.listView_almacen.Name = "listView_almacen";
-            this.listView_almacen.Size = new System.Drawing.Size(335, 167);
+            this.listView_almacen.Size = new System.Drawing.Size(359, 167);
             this.listView_almacen.TabIndex = 76;
             this.listView_almacen.UseCompatibleStateImageBehavior = false;
             this.listView_almacen.View = System.Windows.Forms.View.Details;
@@ -166,15 +168,17 @@
             // 
             // progressBar1
             // 
-            this.progressBar1.Location = new System.Drawing.Point(205, 255);
+            this.progressBar1.Location = new System.Drawing.Point(305, 212);
             this.progressBar1.Name = "progressBar1";
             this.progressBar1.Size = new System.Drawing.Size(179, 31);
             this.progressBar1.TabIndex = 0;
+            this.progressBar1.Click += new System.EventHandler(this.progressBar1_Click);
             // 
             // Almacen
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.LightSkyBlue;
             this.ClientSize = new System.Drawing.Size(588, 295);
             this.Controls.Add(this.progressBar1);
             this.Controls.Add(this.groupBox1);

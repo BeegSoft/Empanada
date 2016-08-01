@@ -292,7 +292,7 @@ namespace empanada_2
                 label2.Text = "Usted Ingreso Como Administrador";
                 listView1.Visible = false;
                 listView2.Location = new Point(189, 154);
-                button25.Location = new Point(436, 154);
+                pictureBox1.Location = new Point(436, 154);
                 label1.Location = new Point(219, 104);
                 label2.Location = new Point(214, 128);
                 button1.Visible = false;
@@ -317,6 +317,31 @@ namespace empanada_2
                     listView2.Items.Add(elementos);
                 }
             }
+        }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void pictureBox1_Click(object sender, EventArgs e)
+        {
+            BORRAR();
+        }
+
+        private void menuStrip1_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
+        {
+
+        }
+
+        private void listView2_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void pictureBox2_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
