@@ -9,7 +9,6 @@ C:\Users\Toshiba\Downloads\Empanada-0eedd94902d46d36c4c1a27e9e928cee8fc9aad9\BEE
 C:\Empanada\BEEGSOFT\empanada_2\empanada_2\bin\eduardo\empanada_2.exe.config
 C:\Empanada\BEEGSOFT\empanada_2\empanada_2\bin\eduardo\empanada_2.exe
 C:\Empanada\BEEGSOFT\empanada_2\empanada_2\bin\eduardo\empanada_2.pdb
-C:\Empanada\BEEGSOFT\empanada_2\empanada_2\obj\eduardo\empanada_2.csprojResolveAssemblyReference.cache
 C:\Empanada\BEEGSOFT\empanada_2\empanada_2\obj\eduardo\empanada_2.csproj.ResolveComReference.cache
 C:\Empanada\BEEGSOFT\empanada_2\empanada_2\obj\eduardo\empanada_2.Almacen.resources
 C:\Empanada\BEEGSOFT\empanada_2\empanada_2\obj\eduardo\empanada_2.Control_acceso.resources

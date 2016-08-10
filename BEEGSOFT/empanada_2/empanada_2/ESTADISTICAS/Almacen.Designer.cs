@@ -41,7 +41,6 @@
             this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader3 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.timer1 = new System.Windows.Forms.Timer(this.components);
-            this.progressBar1 = new System.Windows.Forms.ProgressBar();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -120,7 +119,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(38, 77);
+            this.label4.Location = new System.Drawing.Point(30, 80);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(104, 16);
             this.label4.TabIndex = 28;
@@ -134,9 +133,9 @@
             this.columnHeader1,
             this.columnHeader3});
             this.listView_almacen.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.listView_almacen.Location = new System.Drawing.Point(217, 29);
+            this.listView_almacen.Location = new System.Drawing.Point(207, 29);
             this.listView_almacen.Name = "listView_almacen";
-            this.listView_almacen.Size = new System.Drawing.Size(359, 167);
+            this.listView_almacen.Size = new System.Drawing.Size(361, 180);
             this.listView_almacen.TabIndex = 76;
             this.listView_almacen.UseCompatibleStateImageBehavior = false;
             this.listView_almacen.View = System.Windows.Forms.View.Details;
@@ -144,17 +143,17 @@
             // columnHeader4
             // 
             this.columnHeader4.Text = "ID";
-            this.columnHeader4.Width = 40;
+            this.columnHeader4.Width = 44;
             // 
             // columnHeader2
             // 
             this.columnHeader2.Text = "Descripción";
-            this.columnHeader2.Width = 120;
+            this.columnHeader2.Width = 130;
             // 
             // columnHeader1
             // 
             this.columnHeader1.Text = "Peso";
-            this.columnHeader1.Width = 70;
+            this.columnHeader1.Width = 75;
             // 
             // columnHeader3
             // 
@@ -166,21 +165,12 @@
             this.timer1.Interval = 25;
             this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
-            // progressBar1
-            // 
-            this.progressBar1.Location = new System.Drawing.Point(305, 212);
-            this.progressBar1.Name = "progressBar1";
-            this.progressBar1.Size = new System.Drawing.Size(179, 31);
-            this.progressBar1.TabIndex = 0;
-            this.progressBar1.Click += new System.EventHandler(this.progressBar1_Click);
-            // 
             // Almacen
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.LightSkyBlue;
-            this.ClientSize = new System.Drawing.Size(588, 295);
-            this.Controls.Add(this.progressBar1);
+            this.ClientSize = new System.Drawing.Size(588, 230);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.listView_almacen);
             this.Name = "Almacen";
@@ -207,6 +197,5 @@
         private System.Windows.Forms.ColumnHeader columnHeader3;
         public System.Windows.Forms.ComboBox comboBox_almacen;
         private System.Windows.Forms.Timer timer1;
-        private System.Windows.Forms.ProgressBar progressBar1;
     }
 }

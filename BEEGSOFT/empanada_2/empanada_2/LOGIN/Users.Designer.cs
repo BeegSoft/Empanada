@@ -61,11 +61,11 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(307, 367);
+            this.label3.Location = new System.Drawing.Point(401, 368);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(143, 15);
+            this.label3.Size = new System.Drawing.Size(46, 15);
             this.label3.TabIndex = 101;
-            this.label3.Text = "Clave Desencriptada:";
+            this.label3.Text = "Clave:";
             // 
             // textBox1
             // 
@@ -80,7 +80,7 @@
             this.button1.BackColor = System.Drawing.Color.Black;
             this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button1.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.button1.Location = new System.Drawing.Point(178, 357);
+            this.button1.Location = new System.Drawing.Point(282, 359);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(112, 32);
             this.button1.TabIndex = 99;
@@ -95,7 +95,7 @@
             this.columnHeader6,
             this.columnHeader8});
             this.listView2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.listView2.Location = new System.Drawing.Point(326, 143);
+            this.listView2.Location = new System.Drawing.Point(326, 144);
             this.listView2.Name = "listView2";
             this.listView2.Size = new System.Drawing.Size(289, 205);
             this.listView2.TabIndex = 97;
@@ -126,9 +126,9 @@
             this.columnHeader3,
             this.columnHeader4});
             this.listView1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.listView1.Location = new System.Drawing.Point(96, 143);
+            this.listView1.Location = new System.Drawing.Point(222, 143);
             this.listView1.Name = "listView1";
-            this.listView1.Size = new System.Drawing.Size(520, 204);
+            this.listView1.Size = new System.Drawing.Size(394, 204);
             this.listView1.TabIndex = 96;
             this.listView1.UseCompatibleStateImageBehavior = false;
             this.listView1.View = System.Windows.Forms.View.Details;
@@ -164,12 +164,12 @@
             this.AbrirProgramaToolStripMenuItem,
             this.abrirBaseDeDatosToolStripMenuItem,
             this.usuariosToolStripMenuItem,
-            this.cerrarToolStripMenuItem,
-            this.almacenToolStripMenuItem});
+            this.almacenToolStripMenuItem,
+            this.cerrarToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.RenderMode = System.Windows.Forms.ToolStripRenderMode.System;
-            this.menuStrip1.Size = new System.Drawing.Size(818, 94);
+            this.menuStrip1.Size = new System.Drawing.Size(794, 94);
             this.menuStrip1.TabIndex = 95;
             this.menuStrip1.Text = "menuStrip1";
             this.menuStrip1.ItemClicked += new System.Windows.Forms.ToolStripItemClickedEventHandler(this.menuStrip1_ItemClicked);
@@ -269,7 +269,7 @@
             this.button2.BackColor = System.Drawing.Color.Black;
             this.button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button2.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.button2.Location = new System.Drawing.Point(51, 359);
+            this.button2.Location = new System.Drawing.Point(147, 359);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(111, 33);
             this.button2.TabIndex = 102;
@@ -280,7 +280,7 @@
             // pictureBox1
             // 
             this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(662, 169);
+            this.pictureBox1.Location = new System.Drawing.Point(655, 169);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(82, 85);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -303,7 +303,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.LightSkyBlue;
-            this.ClientSize = new System.Drawing.Size(818, 394);
+            this.ClientSize = new System.Drawing.Size(794, 394);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.button2);

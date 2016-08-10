@@ -291,14 +291,13 @@ namespace empanada_2
             {
                 label2.Text = "Usted Ingreso Como Administrador";
                 listView1.Visible = false;
-                listView2.Location = new Point(189, 154);
-                pictureBox1.Location = new Point(436, 154);
-                label1.Location = new Point(219, 104);
-                label2.Location = new Point(214, 128);
+                listView2.Location = new Point(303, 144);
+                pictureBox1.Location = new Point(613, 169);
+                
                 button1.Visible = false;
                 label3.Visible = false;
                 textBox1.Visible = false;
-                this.Size = new Size(552, 440);
+                this.Size = new Size(732, 433);
 
                 OleDbDataAdapter adaptador = new OleDbDataAdapter("SELECT USUARIOS.id,USUARIOS.nombre, USUARIOS.TIPO_USUARIO FROM USUARIOS WHERE USUARIOS.tipo_usuario <>'ROOT'", ds2);
 

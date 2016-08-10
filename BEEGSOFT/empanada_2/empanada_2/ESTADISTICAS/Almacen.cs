@@ -161,10 +161,10 @@ namespace empanada_2
 
         private void timer1_Tick(object sender, EventArgs e)
         {
-            progressBar1.Increment(1);
+            /*progressBar1.Increment(1);
             if (progressBar1.Value == 100)
                 timer1.Stop();
-                CARGA(P);
+                CARGA(P);*/
         }
 
         private void SELECT_ALMACEN()
