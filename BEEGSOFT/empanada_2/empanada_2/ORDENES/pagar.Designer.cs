@@ -106,7 +106,7 @@
             // 
             // button1
             // 
-            this.button1.BackColor = System.Drawing.Color.Yellow;
+            this.button1.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.button1.Location = new System.Drawing.Point(8, 315);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(87, 23);
@@ -117,7 +117,7 @@
             // 
             // button2
             // 
-            this.button2.BackColor = System.Drawing.Color.Yellow;
+            this.button2.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.button2.Location = new System.Drawing.Point(197, 316);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(87, 23);
@@ -206,7 +206,7 @@
             // 
             // button3
             // 
-            this.button3.BackColor = System.Drawing.Color.Yellow;
+            this.button3.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.button3.Location = new System.Drawing.Point(103, 316);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(87, 21);
@@ -219,7 +219,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.PowderBlue;
+            this.BackColor = System.Drawing.Color.LightSkyBlue;
             this.ClientSize = new System.Drawing.Size(573, 379);
             this.Controls.Add(this.button3);
             this.Controls.Add(this.label8);

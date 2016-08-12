@@ -128,7 +128,6 @@
             this.textBox_descripcion = new System.Windows.Forms.TextBox();
             this.label17 = new System.Windows.Forms.Label();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
-            this.progressBar1 = new System.Windows.Forms.ProgressBar();
             this.button24 = new System.Windows.Forms.Button();
             this.button26 = new System.Windows.Forms.Button();
             this.button13 = new System.Windows.Forms.Button();
@@ -171,7 +170,7 @@
             // 
             // menuStrip1
             // 
-            this.menuStrip1.BackColor = System.Drawing.Color.Cyan;
+            this.menuStrip1.BackColor = System.Drawing.Color.Plum;
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.modificarToolStripMenuItem,
             this.terminarOrdenesToolStripMenuItem,
@@ -1135,13 +1134,6 @@
             this.timer1.Interval = 25;
             this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
-            // progressBar1
-            // 
-            this.progressBar1.Location = new System.Drawing.Point(12, 538);
-            this.progressBar1.Name = "progressBar1";
-            this.progressBar1.Size = new System.Drawing.Size(179, 31);
-            this.progressBar1.TabIndex = 0;
-            // 
             // button24
             // 
             this.button24.BackColor = System.Drawing.SystemColors.ActiveCaption;
@@ -1239,9 +1231,8 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.Thistle;
+            this.BackColor = System.Drawing.Color.LightSkyBlue;
             this.ClientSize = new System.Drawing.Size(1005, 624);
-            this.Controls.Add(this.progressBar1);
             this.Controls.Add(this.button24);
             this.Controls.Add(this.button26);
             this.Controls.Add(this.button13);
@@ -1378,7 +1369,6 @@
         public System.Windows.Forms.ToolStripMenuItem gastosToolStripMenuItem;
         private System.Windows.Forms.Button button24;
         private System.Windows.Forms.Timer timer1;
-        private System.Windows.Forms.ProgressBar progressBar1;
         private System.Windows.Forms.ToolStripMenuItem cerrarSesiónToolStripMenuItem;
     }
 }

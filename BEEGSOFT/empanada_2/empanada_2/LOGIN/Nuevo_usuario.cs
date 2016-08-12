@@ -21,11 +21,7 @@ namespace empanada_2
             this.id = id;            
             this.band = band;
         }
-
         
-
-
-
         string ds,ds2;
         int band,id;
 
@@ -104,7 +100,8 @@ namespace empanada_2
             }
             //uno para modificar
             else if (band == 1)
-            {
+            {                
+
                 if (this.cbotipo.Text == "SELECCIONAR")
                 {
                     MessageBox.Show("Falta Tipo de Usuario", "Mensaje de Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -123,9 +120,9 @@ namespace empanada_2
                 }
                 else
                 {
-
                     OleDbConnection conexion = new OleDbConnection(ds2);
-                    conexion.Open();
+                    conexion.Open();                  
+
                     try
                     {
                         //ahora encriptamos                     
@@ -154,8 +151,6 @@ namespace empanada_2
                         MessageBox.Show(ex.Message);
 
                     }
-
-
                     conexion.Close();
 
                 }

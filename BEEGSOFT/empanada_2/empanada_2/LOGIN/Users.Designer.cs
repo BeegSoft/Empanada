@@ -47,8 +47,8 @@
             this.AbrirProgramaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.abrirBaseDeDatosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.usuariosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.cerrarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.almacenToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.cerrarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.label1 = new System.Windows.Forms.Label();
             this.button2 = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
@@ -77,9 +77,9 @@
             // 
             // button1
             // 
-            this.button1.BackColor = System.Drawing.Color.Black;
+            this.button1.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.button1.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.button1.Location = new System.Drawing.Point(282, 359);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(112, 32);
@@ -155,7 +155,7 @@
             // 
             // menuStrip1
             // 
-            this.menuStrip1.BackColor = System.Drawing.Color.Black;
+            this.menuStrip1.BackColor = System.Drawing.Color.Plum;
             this.menuStrip1.Font = new System.Drawing.Font("Monotype Corsiva", 14.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.menuStrip1.GripStyle = System.Windows.Forms.ToolStripGripStyle.Visible;
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -176,8 +176,8 @@
             // 
             // registrarToolStripMenuItem
             // 
-            this.registrarToolStripMenuItem.BackColor = System.Drawing.Color.Gold;
-            this.registrarToolStripMenuItem.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.registrarToolStripMenuItem.BackColor = System.Drawing.Color.LightSkyBlue;
+            this.registrarToolStripMenuItem.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.registrarToolStripMenuItem.Image = global::empanada_2.Properties.Resources.add_female_user;
             this.registrarToolStripMenuItem.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.registrarToolStripMenuItem.Name = "registrarToolStripMenuItem";
@@ -188,7 +188,7 @@
             // 
             // modificarToolStripMenuItem
             // 
-            this.modificarToolStripMenuItem.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.modificarToolStripMenuItem.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.modificarToolStripMenuItem.Image = global::empanada_2.Properties.Resources.book_search;
             this.modificarToolStripMenuItem.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.modificarToolStripMenuItem.Name = "modificarToolStripMenuItem";
@@ -200,7 +200,7 @@
             // AbrirProgramaToolStripMenuItem
             // 
             this.AbrirProgramaToolStripMenuItem.BackColor = System.Drawing.Color.DarkSalmon;
-            this.AbrirProgramaToolStripMenuItem.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.AbrirProgramaToolStripMenuItem.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.AbrirProgramaToolStripMenuItem.Image = global::empanada_2.Properties.Resources.picasion_com_486ae478bb1e5c7f9f0eac83a104f497;
             this.AbrirProgramaToolStripMenuItem.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.AbrirProgramaToolStripMenuItem.Name = "AbrirProgramaToolStripMenuItem";
@@ -211,7 +211,7 @@
             // 
             // abrirBaseDeDatosToolStripMenuItem
             // 
-            this.abrirBaseDeDatosToolStripMenuItem.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.abrirBaseDeDatosToolStripMenuItem.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.abrirBaseDeDatosToolStripMenuItem.Image = global::empanada_2.Properties.Resources.bdd;
             this.abrirBaseDeDatosToolStripMenuItem.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.abrirBaseDeDatosToolStripMenuItem.Name = "abrirBaseDeDatosToolStripMenuItem";
@@ -222,7 +222,7 @@
             // 
             // usuariosToolStripMenuItem
             // 
-            this.usuariosToolStripMenuItem.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.usuariosToolStripMenuItem.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.usuariosToolStripMenuItem.Image = global::empanada_2.Properties.Resources.female_male_users;
             this.usuariosToolStripMenuItem.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.usuariosToolStripMenuItem.Name = "usuariosToolStripMenuItem";
@@ -231,20 +231,9 @@
             this.usuariosToolStripMenuItem.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.usuariosToolStripMenuItem.Click += new System.EventHandler(this.usuariosToolStripMenuItem_Click);
             // 
-            // cerrarToolStripMenuItem
-            // 
-            this.cerrarToolStripMenuItem.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.cerrarToolStripMenuItem.Image = global::empanada_2.Properties.Resources.shut_down;
-            this.cerrarToolStripMenuItem.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
-            this.cerrarToolStripMenuItem.Name = "cerrarToolStripMenuItem";
-            this.cerrarToolStripMenuItem.Size = new System.Drawing.Size(76, 90);
-            this.cerrarToolStripMenuItem.Text = "Cerrar";
-            this.cerrarToolStripMenuItem.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
-            this.cerrarToolStripMenuItem.Click += new System.EventHandler(this.cerrarToolStripMenuItem_Click);
-            // 
             // almacenToolStripMenuItem
             // 
-            this.almacenToolStripMenuItem.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.almacenToolStripMenuItem.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.almacenToolStripMenuItem.Image = global::empanada_2.Properties.Resources.almacen;
             this.almacenToolStripMenuItem.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.almacenToolStripMenuItem.Name = "almacenToolStripMenuItem";
@@ -252,6 +241,17 @@
             this.almacenToolStripMenuItem.Text = "Almacen";
             this.almacenToolStripMenuItem.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.almacenToolStripMenuItem.Click += new System.EventHandler(this.almacenToolStripMenuItem_Click);
+            // 
+            // cerrarToolStripMenuItem
+            // 
+            this.cerrarToolStripMenuItem.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.cerrarToolStripMenuItem.Image = global::empanada_2.Properties.Resources.shut_down;
+            this.cerrarToolStripMenuItem.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+            this.cerrarToolStripMenuItem.Name = "cerrarToolStripMenuItem";
+            this.cerrarToolStripMenuItem.Size = new System.Drawing.Size(76, 90);
+            this.cerrarToolStripMenuItem.Text = "Cerrar";
+            this.cerrarToolStripMenuItem.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.cerrarToolStripMenuItem.Click += new System.EventHandler(this.cerrarToolStripMenuItem_Click);
             // 
             // label1
             // 
@@ -266,9 +266,9 @@
             // 
             // button2
             // 
-            this.button2.BackColor = System.Drawing.Color.Black;
+            this.button2.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button2.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.button2.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.button2.Location = new System.Drawing.Point(147, 359);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(111, 33);
