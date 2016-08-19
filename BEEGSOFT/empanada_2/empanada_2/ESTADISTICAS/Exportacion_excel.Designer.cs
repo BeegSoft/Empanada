@@ -52,38 +52,40 @@
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label6.Location = new System.Drawing.Point(7, 27);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(38, 13);
+            this.label6.Size = new System.Drawing.Size(54, 16);
             this.label6.TabIndex = 15;
             this.label6.Text = "Desde";
             // 
             // a
             // 
             this.a.AutoSize = true;
-            this.a.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.a.Location = new System.Drawing.Point(161, 27);
+            this.a.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.a.Location = new System.Drawing.Point(177, 27);
             this.a.Name = "a";
-            this.a.Size = new System.Drawing.Size(35, 13);
+            this.a.Size = new System.Drawing.Size(49, 16);
             this.a.TabIndex = 14;
             this.a.Text = "Hasta";
             // 
             // fechaB
             // 
+            this.fechaB.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.fechaB.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.fechaB.Location = new System.Drawing.Point(202, 23);
+            this.fechaB.Location = new System.Drawing.Point(228, 27);
             this.fechaB.Name = "fechaB";
-            this.fechaB.Size = new System.Drawing.Size(102, 20);
+            this.fechaB.Size = new System.Drawing.Size(117, 20);
             this.fechaB.TabIndex = 13;
             this.fechaB.Value = new System.DateTime(2016, 4, 18, 0, 0, 0, 0);
             // 
             // fechaA
             // 
+            this.fechaA.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.fechaA.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.fechaA.Location = new System.Drawing.Point(53, 23);
+            this.fechaA.Location = new System.Drawing.Point(62, 26);
             this.fechaA.Name = "fechaA";
-            this.fechaA.Size = new System.Drawing.Size(102, 20);
+            this.fechaA.Size = new System.Drawing.Size(109, 20);
             this.fechaA.TabIndex = 12;
             this.fechaA.Value = new System.DateTime(2016, 4, 10, 0, 0, 0, 0);
             // 
@@ -95,7 +97,8 @@
             this.columnHeader3,
             this.columnHeader5,
             this.columnHeader4});
-            this.listView_esta.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.listView_esta.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.listView_esta.ForeColor = System.Drawing.SystemColors.ControlText;
             this.listView_esta.Location = new System.Drawing.Point(164, 72);
             this.listView_esta.Name = "listView_esta";
             this.listView_esta.Size = new System.Drawing.Size(472, 247);
@@ -133,7 +136,8 @@
             this.listView_fechas.BackColor = System.Drawing.Color.White;
             this.listView_fechas.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.column_fechas});
-            this.listView_fechas.ForeColor = System.Drawing.SystemColors.WindowText;
+            this.listView_fechas.Font = new System.Drawing.Font("Microsoft Sans Serif", 6.75F, System.Drawing.FontStyle.Bold);
+            this.listView_fechas.ForeColor = System.Drawing.SystemColors.ControlText;
             this.listView_fechas.Location = new System.Drawing.Point(10, 70);
             this.listView_fechas.Name = "listView_fechas";
             this.listView_fechas.Size = new System.Drawing.Size(124, 178);
@@ -179,10 +183,10 @@
             this.button2.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Yellow;
             this.button2.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
             this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button2.Font = new System.Drawing.Font("Lucida Sans", 7F);
+            this.button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 6.75F, System.Drawing.FontStyle.Bold);
             this.button2.Image = global::empanada_2.Properties.Resources.exportar;
             this.button2.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.button2.Location = new System.Drawing.Point(515, 8);
+            this.button2.Location = new System.Drawing.Point(550, 8);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(92, 55);
             this.button2.TabIndex = 76;
@@ -198,10 +202,10 @@
             this.button3.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Yellow;
             this.button3.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
             this.button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button3.Font = new System.Drawing.Font("Lucida Sans", 7F);
+            this.button3.Font = new System.Drawing.Font("Microsoft Sans Serif", 6.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button3.Image = global::empanada_2.Properties.Resources.mostrar1;
             this.button3.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.button3.Location = new System.Drawing.Point(310, 8);
+            this.button3.Location = new System.Drawing.Point(353, 8);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(92, 55);
             this.button3.TabIndex = 75;
@@ -217,10 +221,10 @@
             this.button1.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Yellow;
             this.button1.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
             this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.Font = new System.Drawing.Font("Lucida Sans", 7F);
+            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 6.75F, System.Drawing.FontStyle.Bold);
             this.button1.Image = global::empanada_2.Properties.Resources.mostrar1;
             this.button1.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.button1.Location = new System.Drawing.Point(417, 8);
+            this.button1.Location = new System.Drawing.Point(450, 8);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(92, 55);
             this.button1.TabIndex = 77;

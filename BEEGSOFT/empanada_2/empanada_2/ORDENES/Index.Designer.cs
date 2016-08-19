@@ -146,9 +146,10 @@
             this.column_ordenes,
             this.columnHeader_descripcion,
             this.columnHeader_total});
-            this.listView_ordenes.Location = new System.Drawing.Point(12, 91);
+            this.listView_ordenes.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.listView_ordenes.Location = new System.Drawing.Point(14, 91);
             this.listView_ordenes.Name = "listView_ordenes";
-            this.listView_ordenes.Size = new System.Drawing.Size(173, 319);
+            this.listView_ordenes.Size = new System.Drawing.Size(196, 319);
             this.listView_ordenes.TabIndex = 0;
             this.listView_ordenes.UseCompatibleStateImageBehavior = false;
             this.listView_ordenes.View = System.Windows.Forms.View.Details;
@@ -156,21 +157,22 @@
             // column_ordenes
             // 
             this.column_ordenes.Text = "Orden";
-            this.column_ordenes.Width = 43;
+            this.column_ordenes.Width = 50;
             // 
             // columnHeader_descripcion
             // 
             this.columnHeader_descripcion.Text = "Descripcion";
-            this.columnHeader_descripcion.Width = 82;
+            this.columnHeader_descripcion.Width = 92;
             // 
             // columnHeader_total
             // 
             this.columnHeader_total.Text = "Total";
-            this.columnHeader_total.Width = 40;
+            this.columnHeader_total.Width = 49;
             // 
             // menuStrip1
             // 
             this.menuStrip1.BackColor = System.Drawing.Color.Plum;
+            this.menuStrip1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.modificarToolStripMenuItem,
             this.terminarOrdenesToolStripMenuItem,
@@ -179,7 +181,8 @@
             this.cerrarSesiónToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(1005, 24);
+            this.menuStrip1.Padding = new System.Windows.Forms.Padding(7, 2, 0, 2);
+            this.menuStrip1.Size = new System.Drawing.Size(1172, 24);
             this.menuStrip1.TabIndex = 1;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -199,48 +202,48 @@
             this.orden4ToolStripMenuItem,
             this.orden5ToolStripMenuItem});
             this.terminarOrdenesToolStripMenuItem.Name = "terminarOrdenesToolStripMenuItem";
-            this.terminarOrdenesToolStripMenuItem.Size = new System.Drawing.Size(111, 20);
+            this.terminarOrdenesToolStripMenuItem.Size = new System.Drawing.Size(117, 20);
             this.terminarOrdenesToolStripMenuItem.Text = "Terminar ordenes";
             // 
             // orden1ToolStripMenuItem
             // 
             this.orden1ToolStripMenuItem.Name = "orden1ToolStripMenuItem";
-            this.orden1ToolStripMenuItem.Size = new System.Drawing.Size(116, 22);
+            this.orden1ToolStripMenuItem.Size = new System.Drawing.Size(119, 22);
             this.orden1ToolStripMenuItem.Text = "Orden 1";
             this.orden1ToolStripMenuItem.Click += new System.EventHandler(this.orden1ToolStripMenuItem_Click);
             // 
             // orden2ToolStripMenuItem
             // 
             this.orden2ToolStripMenuItem.Name = "orden2ToolStripMenuItem";
-            this.orden2ToolStripMenuItem.Size = new System.Drawing.Size(116, 22);
+            this.orden2ToolStripMenuItem.Size = new System.Drawing.Size(119, 22);
             this.orden2ToolStripMenuItem.Text = "Orden 2";
             this.orden2ToolStripMenuItem.Click += new System.EventHandler(this.orden2ToolStripMenuItem_Click);
             // 
             // orden3ToolStripMenuItem
             // 
             this.orden3ToolStripMenuItem.Name = "orden3ToolStripMenuItem";
-            this.orden3ToolStripMenuItem.Size = new System.Drawing.Size(116, 22);
+            this.orden3ToolStripMenuItem.Size = new System.Drawing.Size(119, 22);
             this.orden3ToolStripMenuItem.Text = "Orden 3";
             this.orden3ToolStripMenuItem.Click += new System.EventHandler(this.orden3ToolStripMenuItem_Click);
             // 
             // orden4ToolStripMenuItem
             // 
             this.orden4ToolStripMenuItem.Name = "orden4ToolStripMenuItem";
-            this.orden4ToolStripMenuItem.Size = new System.Drawing.Size(116, 22);
+            this.orden4ToolStripMenuItem.Size = new System.Drawing.Size(119, 22);
             this.orden4ToolStripMenuItem.Text = "Orden 4";
             this.orden4ToolStripMenuItem.Click += new System.EventHandler(this.orden4ToolStripMenuItem_Click);
             // 
             // orden5ToolStripMenuItem
             // 
             this.orden5ToolStripMenuItem.Name = "orden5ToolStripMenuItem";
-            this.orden5ToolStripMenuItem.Size = new System.Drawing.Size(116, 22);
+            this.orden5ToolStripMenuItem.Size = new System.Drawing.Size(119, 22);
             this.orden5ToolStripMenuItem.Text = "Orden 5";
             this.orden5ToolStripMenuItem.Click += new System.EventHandler(this.orden5ToolStripMenuItem_Click);
             // 
             // estadisticasToolStripMenuItem
             // 
             this.estadisticasToolStripMenuItem.Name = "estadisticasToolStripMenuItem";
-            this.estadisticasToolStripMenuItem.Size = new System.Drawing.Size(79, 20);
+            this.estadisticasToolStripMenuItem.Size = new System.Drawing.Size(87, 20);
             this.estadisticasToolStripMenuItem.Text = "&Estadisticas";
             this.estadisticasToolStripMenuItem.Click += new System.EventHandler(this.estadisticasToolStripMenuItem_Click);
             // 
@@ -249,7 +252,7 @@
             this.gastosToolStripMenuItem.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.gastosToolStripMenuItem.ImageTransparentColor = System.Drawing.SystemColors.ActiveCaption;
             this.gastosToolStripMenuItem.Name = "gastosToolStripMenuItem";
-            this.gastosToolStripMenuItem.Size = new System.Drawing.Size(54, 20);
+            this.gastosToolStripMenuItem.Size = new System.Drawing.Size(58, 20);
             this.gastosToolStripMenuItem.Text = "Gastos";
             this.gastosToolStripMenuItem.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.gastosToolStripMenuItem.Click += new System.EventHandler(this.gastosToolStripMenuItem_Click);
@@ -257,7 +260,7 @@
             // cerrarSesiónToolStripMenuItem
             // 
             this.cerrarSesiónToolStripMenuItem.Name = "cerrarSesiónToolStripMenuItem";
-            this.cerrarSesiónToolStripMenuItem.Size = new System.Drawing.Size(88, 20);
+            this.cerrarSesiónToolStripMenuItem.Size = new System.Drawing.Size(95, 20);
             this.cerrarSesiónToolStripMenuItem.Text = "Cerrar Sesión";
             this.cerrarSesiónToolStripMenuItem.Click += new System.EventHandler(this.cerrarSesiónToolStripMenuItem_Click);
             // 
@@ -268,9 +271,10 @@
             this.column_platillo,
             this.column_cantidad,
             this.column_total});
-            this.listView_platillos.Location = new System.Drawing.Point(458, 20);
+            this.listView_platillos.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.listView_platillos.Location = new System.Drawing.Point(553, 20);
             this.listView_platillos.Name = "listView_platillos";
-            this.listView_platillos.Size = new System.Drawing.Size(257, 349);
+            this.listView_platillos.Size = new System.Drawing.Size(280, 349);
             this.listView_platillos.TabIndex = 0;
             this.listView_platillos.UseCompatibleStateImageBehavior = false;
             this.listView_platillos.View = System.Windows.Forms.View.Details;
@@ -288,12 +292,12 @@
             // column_cantidad
             // 
             this.column_cantidad.Text = "Cantidad";
-            this.column_cantidad.Width = 55;
+            this.column_cantidad.Width = 70;
             // 
             // column_total
             // 
             this.column_total.Text = "Total";
-            this.column_total.Width = 44;
+            this.column_total.Width = 49;
             // 
             // groupBox2
             // 
@@ -333,90 +337,91 @@
             this.groupBox2.Controls.Add(this.buttonfrijol);
             this.groupBox2.Controls.Add(this.buttoncochinita);
             this.groupBox2.Controls.Add(this.buttoncarneconchile);
-            this.groupBox2.Location = new System.Drawing.Point(13, 31);
+            this.groupBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.groupBox2.Location = new System.Drawing.Point(15, 31);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(434, 198);
+            this.groupBox2.Size = new System.Drawing.Size(506, 198);
             this.groupBox2.TabIndex = 1;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Empanadas";
             // 
             // button9
             // 
-            this.button9.Location = new System.Drawing.Point(313, 160);
+            this.button9.Location = new System.Drawing.Point(365, 160);
             this.button9.Name = "button9";
-            this.button9.Size = new System.Drawing.Size(21, 20);
+            this.button9.Size = new System.Drawing.Size(24, 20);
             this.button9.TabIndex = 29;
             this.button9.UseVisualStyleBackColor = true;
             this.button9.Click += new System.EventHandler(this.button9_Click);
             // 
             // button8
             // 
-            this.button8.Location = new System.Drawing.Point(232, 159);
+            this.button8.Location = new System.Drawing.Point(271, 159);
             this.button8.Name = "button8";
-            this.button8.Size = new System.Drawing.Size(21, 20);
+            this.button8.Size = new System.Drawing.Size(24, 20);
             this.button8.TabIndex = 33;
             this.button8.UseVisualStyleBackColor = true;
             this.button8.Click += new System.EventHandler(this.button8_Click);
             // 
             // button7
             // 
-            this.button7.Location = new System.Drawing.Point(143, 160);
+            this.button7.Location = new System.Drawing.Point(167, 160);
             this.button7.Name = "button7";
-            this.button7.Size = new System.Drawing.Size(21, 20);
+            this.button7.Size = new System.Drawing.Size(24, 20);
             this.button7.TabIndex = 29;
             this.button7.UseVisualStyleBackColor = true;
             this.button7.Click += new System.EventHandler(this.button7_Click);
             // 
             // button6
             // 
-            this.button6.Location = new System.Drawing.Point(60, 159);
+            this.button6.Location = new System.Drawing.Point(70, 159);
             this.button6.Name = "button6";
-            this.button6.Size = new System.Drawing.Size(21, 20);
+            this.button6.Size = new System.Drawing.Size(24, 20);
             this.button6.TabIndex = 32;
             this.button6.UseVisualStyleBackColor = true;
             this.button6.Click += new System.EventHandler(this.button6_Click);
             // 
             // button5
             // 
-            this.button5.Location = new System.Drawing.Point(398, 77);
+            this.button5.Location = new System.Drawing.Point(464, 77);
             this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(21, 20);
+            this.button5.Size = new System.Drawing.Size(24, 20);
             this.button5.TabIndex = 31;
             this.button5.UseVisualStyleBackColor = true;
             this.button5.Click += new System.EventHandler(this.button5_Click);
             // 
             // button4
             // 
-            this.button4.Location = new System.Drawing.Point(313, 77);
+            this.button4.Location = new System.Drawing.Point(365, 77);
             this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(21, 20);
+            this.button4.Size = new System.Drawing.Size(24, 20);
             this.button4.TabIndex = 29;
             this.button4.UseVisualStyleBackColor = true;
             this.button4.Click += new System.EventHandler(this.button4_Click_1);
             // 
             // button3
             // 
-            this.button3.Location = new System.Drawing.Point(232, 77);
+            this.button3.Location = new System.Drawing.Point(271, 77);
             this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(21, 20);
+            this.button3.Size = new System.Drawing.Size(24, 20);
             this.button3.TabIndex = 30;
             this.button3.UseVisualStyleBackColor = true;
             this.button3.Click += new System.EventHandler(this.button3_Click_1);
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(143, 77);
+            this.button2.Location = new System.Drawing.Point(167, 77);
             this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(21, 20);
+            this.button2.Size = new System.Drawing.Size(24, 20);
             this.button2.TabIndex = 29;
             this.button2.UseVisualStyleBackColor = true;
             this.button2.Click += new System.EventHandler(this.button2_Click_1);
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(60, 77);
+            this.button1.Location = new System.Drawing.Point(70, 77);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(21, 20);
+            this.button1.Size = new System.Drawing.Size(24, 20);
             this.button1.TabIndex = 28;
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click_2);
@@ -424,18 +429,20 @@
             // textBoxpicadillo
             // 
             this.textBoxpicadillo.Enabled = false;
-            this.textBoxpicadillo.Location = new System.Drawing.Point(366, 77);
+            this.textBoxpicadillo.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBoxpicadillo.Location = new System.Drawing.Point(427, 77);
             this.textBoxpicadillo.Name = "textBoxpicadillo";
-            this.textBoxpicadillo.Size = new System.Drawing.Size(26, 20);
+            this.textBoxpicadillo.Size = new System.Drawing.Size(30, 20);
             this.textBoxpicadillo.TabIndex = 27;
             this.textBoxpicadillo.Text = "0";
             // 
             // label14
             // 
             this.label14.AutoSize = true;
-            this.label14.Location = new System.Drawing.Point(339, 63);
+            this.label14.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label14.Location = new System.Drawing.Point(395, 63);
             this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(46, 13);
+            this.label14.Size = new System.Drawing.Size(55, 13);
             this.label14.TabIndex = 26;
             this.label14.Text = "Picadillo";
             // 
@@ -443,9 +450,9 @@
             // 
             this.buttonpicadillo.BackgroundImage = global::empanada_2.Properties.Resources.picadillo;
             this.buttonpicadillo.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.buttonpicadillo.Location = new System.Drawing.Point(342, 19);
+            this.buttonpicadillo.Location = new System.Drawing.Point(399, 19);
             this.buttonpicadillo.Name = "buttonpicadillo";
-            this.buttonpicadillo.Size = new System.Drawing.Size(77, 41);
+            this.buttonpicadillo.Size = new System.Drawing.Size(90, 41);
             this.buttonpicadillo.TabIndex = 25;
             this.buttonpicadillo.UseVisualStyleBackColor = true;
             this.buttonpicadillo.Click += new System.EventHandler(this.buttonpicadillo_Click);
@@ -453,144 +460,160 @@
             // textBoxtinga
             // 
             this.textBoxtinga.Enabled = false;
-            this.textBoxtinga.Location = new System.Drawing.Point(281, 160);
+            this.textBoxtinga.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBoxtinga.Location = new System.Drawing.Point(328, 160);
             this.textBoxtinga.Name = "textBoxtinga";
-            this.textBoxtinga.Size = new System.Drawing.Size(26, 20);
+            this.textBoxtinga.Size = new System.Drawing.Size(30, 20);
             this.textBoxtinga.TabIndex = 24;
             this.textBoxtinga.Text = "0";
             // 
             // textBoxnopal
             // 
             this.textBoxnopal.Enabled = false;
-            this.textBoxnopal.Location = new System.Drawing.Point(200, 160);
+            this.textBoxnopal.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBoxnopal.Location = new System.Drawing.Point(233, 160);
             this.textBoxnopal.Name = "textBoxnopal";
-            this.textBoxnopal.Size = new System.Drawing.Size(26, 20);
+            this.textBoxnopal.Size = new System.Drawing.Size(30, 20);
             this.textBoxnopal.TabIndex = 23;
             this.textBoxnopal.Text = "0";
             // 
             // textBoxchicharronsr
             // 
             this.textBoxchicharronsr.Enabled = false;
-            this.textBoxchicharronsr.Location = new System.Drawing.Point(111, 160);
+            this.textBoxchicharronsr.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBoxchicharronsr.Location = new System.Drawing.Point(129, 160);
             this.textBoxchicharronsr.Name = "textBoxchicharronsr";
-            this.textBoxchicharronsr.Size = new System.Drawing.Size(26, 20);
+            this.textBoxchicharronsr.Size = new System.Drawing.Size(30, 20);
             this.textBoxchicharronsr.TabIndex = 22;
             this.textBoxchicharronsr.Text = "0";
             // 
             // textBoxchicharronsv
             // 
             this.textBoxchicharronsv.Enabled = false;
-            this.textBoxchicharronsv.Location = new System.Drawing.Point(28, 160);
+            this.textBoxchicharronsv.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBoxchicharronsv.Location = new System.Drawing.Point(33, 160);
             this.textBoxchicharronsv.Name = "textBoxchicharronsv";
-            this.textBoxchicharronsv.Size = new System.Drawing.Size(26, 20);
+            this.textBoxchicharronsv.Size = new System.Drawing.Size(30, 20);
             this.textBoxchicharronsv.TabIndex = 21;
             this.textBoxchicharronsv.Text = "0";
             // 
             // textBoxcochinita
             // 
             this.textBoxcochinita.Enabled = false;
-            this.textBoxcochinita.Location = new System.Drawing.Point(281, 77);
+            this.textBoxcochinita.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBoxcochinita.Location = new System.Drawing.Point(328, 77);
             this.textBoxcochinita.Name = "textBoxcochinita";
-            this.textBoxcochinita.Size = new System.Drawing.Size(26, 20);
+            this.textBoxcochinita.Size = new System.Drawing.Size(30, 20);
             this.textBoxcochinita.TabIndex = 20;
             this.textBoxcochinita.Text = "0";
             // 
             // textBoxfrijol
             // 
             this.textBoxfrijol.Enabled = false;
-            this.textBoxfrijol.Location = new System.Drawing.Point(200, 77);
+            this.textBoxfrijol.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBoxfrijol.Location = new System.Drawing.Point(233, 77);
             this.textBoxfrijol.Name = "textBoxfrijol";
-            this.textBoxfrijol.Size = new System.Drawing.Size(26, 20);
+            this.textBoxfrijol.Size = new System.Drawing.Size(30, 20);
             this.textBoxfrijol.TabIndex = 19;
             this.textBoxfrijol.Text = "0";
             // 
             // textBoxrajas
             // 
             this.textBoxrajas.Enabled = false;
-            this.textBoxrajas.Location = new System.Drawing.Point(111, 77);
+            this.textBoxrajas.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBoxrajas.Location = new System.Drawing.Point(129, 77);
             this.textBoxrajas.Name = "textBoxrajas";
-            this.textBoxrajas.Size = new System.Drawing.Size(26, 20);
+            this.textBoxrajas.Size = new System.Drawing.Size(30, 20);
             this.textBoxrajas.TabIndex = 18;
             this.textBoxrajas.Text = "0";
             // 
             // textBoxcarnec
             // 
             this.textBoxcarnec.Enabled = false;
-            this.textBoxcarnec.Location = new System.Drawing.Point(28, 77);
+            this.textBoxcarnec.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBoxcarnec.Location = new System.Drawing.Point(33, 77);
             this.textBoxcarnec.Name = "textBoxcarnec";
-            this.textBoxcarnec.Size = new System.Drawing.Size(26, 20);
+            this.textBoxcarnec.Size = new System.Drawing.Size(30, 20);
             this.textBoxcarnec.TabIndex = 17;
             this.textBoxcarnec.Text = "0";
             // 
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(252, 144);
+            this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label8.Location = new System.Drawing.Point(294, 144);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(75, 13);
+            this.label8.Size = new System.Drawing.Size(89, 13);
             this.label8.TabIndex = 16;
             this.label8.Text = "Tinga de Pollo";
             // 
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(193, 144);
+            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label7.Location = new System.Drawing.Point(225, 144);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(35, 13);
+            this.label7.Size = new System.Drawing.Size(40, 13);
             this.label7.TabIndex = 15;
             this.label7.Text = "Nopal";
             // 
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(86, 144);
+            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.Location = new System.Drawing.Point(100, 144);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(81, 13);
+            this.label6.Size = new System.Drawing.Size(95, 13);
             this.label6.TabIndex = 14;
             this.label6.Text = "Chicharron S/R";
             // 
             // label5
             // 
             this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label5.Location = new System.Drawing.Point(3, 144);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(80, 13);
+            this.label5.Size = new System.Drawing.Size(94, 13);
             this.label5.TabIndex = 13;
             this.label5.Text = "Chicharron S/V";
             // 
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(87, 61);
+            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.Location = new System.Drawing.Point(101, 61);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(90, 13);
+            this.label4.Size = new System.Drawing.Size(106, 13);
             this.label4.TabIndex = 12;
             this.label4.Text = "Rajas con queso.";
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(174, 62);
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Location = new System.Drawing.Point(203, 62);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(81, 13);
+            this.label3.Size = new System.Drawing.Size(97, 13);
             this.label3.TabIndex = 11;
             this.label3.Text = "Frijol con queso";
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(270, 61);
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(315, 61);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(51, 13);
+            this.label2.Size = new System.Drawing.Size(60, 13);
             this.label2.TabIndex = 10;
             this.label2.Text = "Cochinita";
             // 
             // label1
             // 
             this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.Location = new System.Drawing.Point(3, 63);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(82, 13);
+            this.label1.Size = new System.Drawing.Size(97, 13);
             this.label1.TabIndex = 9;
             this.label1.Text = "Carne con Chile";
             // 
@@ -598,9 +621,9 @@
             // 
             this.buttontinga.BackgroundImage = global::empanada_2.Properties.Resources.tinga_de_pollo;
             this.buttontinga.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.buttontinga.Location = new System.Drawing.Point(255, 100);
+            this.buttontinga.Location = new System.Drawing.Point(297, 100);
             this.buttontinga.Name = "buttontinga";
-            this.buttontinga.Size = new System.Drawing.Size(77, 41);
+            this.buttontinga.Size = new System.Drawing.Size(90, 41);
             this.buttontinga.TabIndex = 8;
             this.buttontinga.UseVisualStyleBackColor = true;
             this.buttontinga.Click += new System.EventHandler(this.buttontinga_Click);
@@ -609,9 +632,9 @@
             // 
             this.buttonnopal.BackgroundImage = global::empanada_2.Properties.Resources.nopal;
             this.buttonnopal.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.buttonnopal.Location = new System.Drawing.Point(172, 100);
+            this.buttonnopal.Location = new System.Drawing.Point(201, 100);
             this.buttonnopal.Name = "buttonnopal";
-            this.buttonnopal.Size = new System.Drawing.Size(77, 41);
+            this.buttonnopal.Size = new System.Drawing.Size(90, 41);
             this.buttonnopal.TabIndex = 7;
             this.buttonnopal.UseVisualStyleBackColor = true;
             this.buttonnopal.Click += new System.EventHandler(this.buttonnopal_Click);
@@ -620,9 +643,9 @@
             // 
             this.buttonchicharronsr.BackgroundImage = global::empanada_2.Properties.Resources.chicharron_salsa_roja;
             this.buttonchicharronsr.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.buttonchicharronsr.Location = new System.Drawing.Point(89, 100);
+            this.buttonchicharronsr.Location = new System.Drawing.Point(104, 100);
             this.buttonchicharronsr.Name = "buttonchicharronsr";
-            this.buttonchicharronsr.Size = new System.Drawing.Size(77, 41);
+            this.buttonchicharronsr.Size = new System.Drawing.Size(90, 41);
             this.buttonchicharronsr.TabIndex = 6;
             this.buttonchicharronsr.UseVisualStyleBackColor = true;
             this.buttonchicharronsr.Click += new System.EventHandler(this.buttonchicharronsr_Click);
@@ -631,9 +654,9 @@
             // 
             this.buttonchicarronsv.BackgroundImage = global::empanada_2.Properties.Resources.images;
             this.buttonchicarronsv.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.buttonchicarronsv.Location = new System.Drawing.Point(6, 100);
+            this.buttonchicarronsv.Location = new System.Drawing.Point(7, 100);
             this.buttonchicarronsv.Name = "buttonchicarronsv";
-            this.buttonchicarronsv.Size = new System.Drawing.Size(77, 41);
+            this.buttonchicarronsv.Size = new System.Drawing.Size(90, 41);
             this.buttonchicarronsv.TabIndex = 5;
             this.buttonchicarronsv.UseVisualStyleBackColor = true;
             this.buttonchicarronsv.Click += new System.EventHandler(this.buttonchicarronsv_Click);
@@ -642,9 +665,9 @@
             // 
             this.buttonrajas.BackgroundImage = global::empanada_2.Properties.Resources.queso;
             this.buttonrajas.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.buttonrajas.Location = new System.Drawing.Point(91, 19);
+            this.buttonrajas.Location = new System.Drawing.Point(106, 19);
             this.buttonrajas.Name = "buttonrajas";
-            this.buttonrajas.Size = new System.Drawing.Size(77, 41);
+            this.buttonrajas.Size = new System.Drawing.Size(90, 41);
             this.buttonrajas.TabIndex = 4;
             this.buttonrajas.UseVisualStyleBackColor = true;
             this.buttonrajas.Click += new System.EventHandler(this.button4_Click);
@@ -653,9 +676,9 @@
             // 
             this.buttonfrijol.BackgroundImage = global::empanada_2.Properties.Resources.frijol;
             this.buttonfrijol.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.buttonfrijol.Location = new System.Drawing.Point(175, 19);
+            this.buttonfrijol.Location = new System.Drawing.Point(204, 19);
             this.buttonfrijol.Name = "buttonfrijol";
-            this.buttonfrijol.Size = new System.Drawing.Size(77, 41);
+            this.buttonfrijol.Size = new System.Drawing.Size(90, 41);
             this.buttonfrijol.TabIndex = 3;
             this.buttonfrijol.UseVisualStyleBackColor = true;
             this.buttonfrijol.Click += new System.EventHandler(this.button3_Click);
@@ -664,9 +687,9 @@
             // 
             this.buttoncochinita.BackgroundImage = global::empanada_2.Properties.Resources.cochinita;
             this.buttoncochinita.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.buttoncochinita.Location = new System.Drawing.Point(259, 19);
+            this.buttoncochinita.Location = new System.Drawing.Point(302, 19);
             this.buttoncochinita.Name = "buttoncochinita";
-            this.buttoncochinita.Size = new System.Drawing.Size(77, 41);
+            this.buttoncochinita.Size = new System.Drawing.Size(90, 41);
             this.buttoncochinita.TabIndex = 2;
             this.buttoncochinita.UseVisualStyleBackColor = true;
             this.buttoncochinita.Click += new System.EventHandler(this.button2_Click);
@@ -675,9 +698,10 @@
             // 
             this.buttoncarneconchile.BackgroundImage = global::empanada_2.Properties.Resources.chile;
             this.buttoncarneconchile.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.buttoncarneconchile.Location = new System.Drawing.Point(6, 19);
+            this.buttoncarneconchile.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttoncarneconchile.Location = new System.Drawing.Point(7, 19);
             this.buttoncarneconchile.Name = "buttoncarneconchile";
-            this.buttoncarneconchile.Size = new System.Drawing.Size(77, 41);
+            this.buttoncarneconchile.Size = new System.Drawing.Size(90, 41);
             this.buttoncarneconchile.TabIndex = 1;
             this.buttoncarneconchile.UseVisualStyleBackColor = true;
             this.buttoncarneconchile.Click += new System.EventHandler(this.button1_Click);
@@ -708,9 +732,10 @@
             this.groupBox3.Controls.Add(this.buttontamarindo);
             this.groupBox3.Controls.Add(this.buttonjamaica);
             this.groupBox3.Controls.Add(this.buttonhorchata);
-            this.groupBox3.Location = new System.Drawing.Point(13, 249);
+            this.groupBox3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.groupBox3.Location = new System.Drawing.Point(15, 249);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(270, 192);
+            this.groupBox3.Size = new System.Drawing.Size(315, 192);
             this.groupBox3.TabIndex = 2;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Bebidas";
@@ -718,54 +743,54 @@
             // 
             // button21
             // 
-            this.button21.Location = new System.Drawing.Point(232, 158);
+            this.button21.Location = new System.Drawing.Point(271, 158);
             this.button21.Name = "button21";
-            this.button21.Size = new System.Drawing.Size(21, 20);
+            this.button21.Size = new System.Drawing.Size(24, 20);
             this.button21.TabIndex = 39;
             this.button21.UseVisualStyleBackColor = true;
             this.button21.Click += new System.EventHandler(this.button21_Click);
             // 
             // button20
             // 
-            this.button20.Location = new System.Drawing.Point(143, 159);
+            this.button20.Location = new System.Drawing.Point(167, 159);
             this.button20.Name = "button20";
-            this.button20.Size = new System.Drawing.Size(21, 20);
+            this.button20.Size = new System.Drawing.Size(24, 20);
             this.button20.TabIndex = 38;
             this.button20.UseVisualStyleBackColor = true;
             this.button20.Click += new System.EventHandler(this.button20_Click);
             // 
             // button19
             // 
-            this.button19.Location = new System.Drawing.Point(60, 158);
+            this.button19.Location = new System.Drawing.Point(70, 158);
             this.button19.Name = "button19";
-            this.button19.Size = new System.Drawing.Size(21, 20);
+            this.button19.Size = new System.Drawing.Size(24, 20);
             this.button19.TabIndex = 37;
             this.button19.UseVisualStyleBackColor = true;
             this.button19.Click += new System.EventHandler(this.button19_Click);
             // 
             // button17
             // 
-            this.button17.Location = new System.Drawing.Point(232, 75);
+            this.button17.Location = new System.Drawing.Point(271, 75);
             this.button17.Name = "button17";
-            this.button17.Size = new System.Drawing.Size(21, 20);
+            this.button17.Size = new System.Drawing.Size(24, 20);
             this.button17.TabIndex = 36;
             this.button17.UseVisualStyleBackColor = true;
             this.button17.Click += new System.EventHandler(this.button17_Click_1);
             // 
             // button11
             // 
-            this.button11.Location = new System.Drawing.Point(143, 75);
+            this.button11.Location = new System.Drawing.Point(167, 75);
             this.button11.Name = "button11";
-            this.button11.Size = new System.Drawing.Size(21, 20);
+            this.button11.Size = new System.Drawing.Size(24, 20);
             this.button11.TabIndex = 35;
             this.button11.UseVisualStyleBackColor = true;
             this.button11.Click += new System.EventHandler(this.button11_Click_1);
             // 
             // button10
             // 
-            this.button10.Location = new System.Drawing.Point(60, 75);
+            this.button10.Location = new System.Drawing.Point(70, 75);
             this.button10.Name = "button10";
-            this.button10.Size = new System.Drawing.Size(21, 20);
+            this.button10.Size = new System.Drawing.Size(24, 20);
             this.button10.TabIndex = 34;
             this.button10.UseVisualStyleBackColor = true;
             this.button10.Click += new System.EventHandler(this.button10_Click_1);
@@ -773,18 +798,20 @@
             // textBoxcebada
             // 
             this.textBoxcebada.Enabled = false;
-            this.textBoxcebada.Location = new System.Drawing.Point(28, 159);
+            this.textBoxcebada.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBoxcebada.Location = new System.Drawing.Point(33, 159);
             this.textBoxcebada.Name = "textBoxcebada";
-            this.textBoxcebada.Size = new System.Drawing.Size(26, 20);
+            this.textBoxcebada.Size = new System.Drawing.Size(30, 20);
             this.textBoxcebada.TabIndex = 33;
             this.textBoxcebada.Text = "0";
             // 
             // label15
             // 
             this.label15.AutoSize = true;
+            this.label15.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label15.Location = new System.Drawing.Point(3, 146);
             this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(44, 13);
+            this.label15.Size = new System.Drawing.Size(50, 13);
             this.label15.TabIndex = 32;
             this.label15.Text = "Cebada";
             // 
@@ -792,9 +819,9 @@
             // 
             this.buttoncebada.BackgroundImage = global::empanada_2.Properties.Resources.cebada;
             this.buttoncebada.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.buttoncebada.Location = new System.Drawing.Point(8, 102);
+            this.buttoncebada.Location = new System.Drawing.Point(9, 102);
             this.buttoncebada.Name = "buttoncebada";
-            this.buttoncebada.Size = new System.Drawing.Size(77, 41);
+            this.buttoncebada.Size = new System.Drawing.Size(90, 41);
             this.buttoncebada.TabIndex = 31;
             this.buttoncebada.UseVisualStyleBackColor = true;
             this.buttoncebada.Click += new System.EventHandler(this.buttoncebada_Click);
@@ -802,18 +829,20 @@
             // textBoxcafe
             // 
             this.textBoxcafe.Enabled = false;
-            this.textBoxcafe.Location = new System.Drawing.Point(111, 159);
+            this.textBoxcafe.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBoxcafe.Location = new System.Drawing.Point(129, 159);
             this.textBoxcafe.Name = "textBoxcafe";
-            this.textBoxcafe.Size = new System.Drawing.Size(26, 20);
+            this.textBoxcafe.Size = new System.Drawing.Size(30, 20);
             this.textBoxcafe.TabIndex = 30;
             this.textBoxcafe.Text = "0";
             // 
             // v
             // 
             this.v.AutoSize = true;
-            this.v.Location = new System.Drawing.Point(88, 146);
+            this.v.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.v.Location = new System.Drawing.Point(103, 146);
             this.v.Name = "v";
-            this.v.Size = new System.Drawing.Size(29, 13);
+            this.v.Size = new System.Drawing.Size(33, 13);
             this.v.TabIndex = 29;
             this.v.Text = "Cafe";
             // 
@@ -821,9 +850,9 @@
             // 
             this.buttoncafe.BackgroundImage = global::empanada_2.Properties.Resources.cafe;
             this.buttoncafe.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.buttoncafe.Location = new System.Drawing.Point(89, 102);
+            this.buttoncafe.Location = new System.Drawing.Point(104, 102);
             this.buttoncafe.Name = "buttoncafe";
-            this.buttoncafe.Size = new System.Drawing.Size(77, 41);
+            this.buttoncafe.Size = new System.Drawing.Size(90, 41);
             this.buttoncafe.TabIndex = 28;
             this.buttoncafe.UseVisualStyleBackColor = true;
             this.buttoncafe.Click += new System.EventHandler(this.button1_Click_1);
@@ -831,72 +860,80 @@
             // textBoxsoda
             // 
             this.textBoxsoda.Enabled = false;
-            this.textBoxsoda.Location = new System.Drawing.Point(200, 159);
+            this.textBoxsoda.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBoxsoda.Location = new System.Drawing.Point(233, 159);
             this.textBoxsoda.Name = "textBoxsoda";
-            this.textBoxsoda.Size = new System.Drawing.Size(26, 20);
+            this.textBoxsoda.Size = new System.Drawing.Size(30, 20);
             this.textBoxsoda.TabIndex = 28;
             this.textBoxsoda.Text = "0";
             // 
             // textBoxtamarindo
             // 
             this.textBoxtamarindo.Enabled = false;
-            this.textBoxtamarindo.Location = new System.Drawing.Point(200, 76);
+            this.textBoxtamarindo.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBoxtamarindo.Location = new System.Drawing.Point(233, 76);
             this.textBoxtamarindo.Name = "textBoxtamarindo";
-            this.textBoxtamarindo.Size = new System.Drawing.Size(26, 20);
+            this.textBoxtamarindo.Size = new System.Drawing.Size(30, 20);
             this.textBoxtamarindo.TabIndex = 27;
             this.textBoxtamarindo.Text = "0";
             // 
             // textBoxjamaica
             // 
             this.textBoxjamaica.Enabled = false;
-            this.textBoxjamaica.Location = new System.Drawing.Point(111, 76);
+            this.textBoxjamaica.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBoxjamaica.Location = new System.Drawing.Point(129, 76);
             this.textBoxjamaica.Name = "textBoxjamaica";
-            this.textBoxjamaica.Size = new System.Drawing.Size(26, 20);
+            this.textBoxjamaica.Size = new System.Drawing.Size(30, 20);
             this.textBoxjamaica.TabIndex = 26;
             this.textBoxjamaica.Text = "0";
             // 
             // textBoxhorchata
             // 
             this.textBoxhorchata.Enabled = false;
-            this.textBoxhorchata.Location = new System.Drawing.Point(28, 76);
+            this.textBoxhorchata.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBoxhorchata.Location = new System.Drawing.Point(33, 76);
             this.textBoxhorchata.Name = "textBoxhorchata";
-            this.textBoxhorchata.Size = new System.Drawing.Size(26, 20);
+            this.textBoxhorchata.Size = new System.Drawing.Size(30, 20);
             this.textBoxhorchata.TabIndex = 25;
             this.textBoxhorchata.Text = "0";
             // 
             // label12
             // 
             this.label12.AutoSize = true;
-            this.label12.Location = new System.Drawing.Point(169, 146);
+            this.label12.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label12.Location = new System.Drawing.Point(197, 146);
             this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(32, 13);
+            this.label12.Size = new System.Drawing.Size(36, 13);
             this.label12.TabIndex = 20;
             this.label12.Text = "Soda";
             // 
             // label11
             // 
             this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(169, 63);
+            this.label11.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label11.Location = new System.Drawing.Point(197, 63);
             this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(57, 13);
+            this.label11.Size = new System.Drawing.Size(66, 13);
             this.label11.TabIndex = 19;
             this.label11.Text = "Tamarindo";
             // 
             // label10
             // 
             this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(86, 63);
+            this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label10.Location = new System.Drawing.Point(100, 63);
             this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(46, 13);
+            this.label10.Size = new System.Drawing.Size(53, 13);
             this.label10.TabIndex = 18;
             this.label10.Text = "Jamaica";
             // 
             // label9
             // 
             this.label9.AutoSize = true;
+            this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label9.Location = new System.Drawing.Point(3, 63);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(51, 13);
+            this.label9.Size = new System.Drawing.Size(59, 13);
             this.label9.TabIndex = 17;
             this.label9.Text = "Horchata";
             // 
@@ -904,9 +941,9 @@
             // 
             this.button12.BackgroundImage = global::empanada_2.Properties.Resources.soda;
             this.button12.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.button12.Location = new System.Drawing.Point(172, 102);
+            this.button12.Location = new System.Drawing.Point(201, 102);
             this.button12.Name = "button12";
-            this.button12.Size = new System.Drawing.Size(77, 41);
+            this.button12.Size = new System.Drawing.Size(90, 41);
             this.button12.TabIndex = 12;
             this.button12.UseVisualStyleBackColor = true;
             this.button12.Click += new System.EventHandler(this.button12_Click);
@@ -915,9 +952,9 @@
             // 
             this.buttontamarindo.BackgroundImage = global::empanada_2.Properties.Resources.tamarindo;
             this.buttontamarindo.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.buttontamarindo.Location = new System.Drawing.Point(172, 19);
+            this.buttontamarindo.Location = new System.Drawing.Point(201, 19);
             this.buttontamarindo.Name = "buttontamarindo";
-            this.buttontamarindo.Size = new System.Drawing.Size(77, 41);
+            this.buttontamarindo.Size = new System.Drawing.Size(90, 41);
             this.buttontamarindo.TabIndex = 11;
             this.buttontamarindo.UseVisualStyleBackColor = true;
             this.buttontamarindo.Click += new System.EventHandler(this.button11_Click);
@@ -926,9 +963,9 @@
             // 
             this.buttonjamaica.BackgroundImage = global::empanada_2.Properties.Resources.jamaica;
             this.buttonjamaica.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.buttonjamaica.Location = new System.Drawing.Point(89, 19);
+            this.buttonjamaica.Location = new System.Drawing.Point(104, 19);
             this.buttonjamaica.Name = "buttonjamaica";
-            this.buttonjamaica.Size = new System.Drawing.Size(77, 41);
+            this.buttonjamaica.Size = new System.Drawing.Size(90, 41);
             this.buttonjamaica.TabIndex = 10;
             this.buttonjamaica.UseVisualStyleBackColor = true;
             this.buttonjamaica.Click += new System.EventHandler(this.button10_Click);
@@ -937,9 +974,9 @@
             // 
             this.buttonhorchata.BackgroundImage = global::empanada_2.Properties.Resources.horchata;
             this.buttonhorchata.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.buttonhorchata.Location = new System.Drawing.Point(6, 19);
+            this.buttonhorchata.Location = new System.Drawing.Point(7, 19);
             this.buttonhorchata.Name = "buttonhorchata";
-            this.buttonhorchata.Size = new System.Drawing.Size(77, 41);
+            this.buttonhorchata.Size = new System.Drawing.Size(90, 41);
             this.buttonhorchata.TabIndex = 9;
             this.buttonhorchata.UseVisualStyleBackColor = true;
             this.buttonhorchata.Click += new System.EventHandler(this.buttonhorchata_Click);
@@ -947,18 +984,20 @@
             // label13
             // 
             this.label13.AutoSize = true;
-            this.label13.Location = new System.Drawing.Point(569, 379);
+            this.label13.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label13.Location = new System.Drawing.Point(664, 379);
             this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(70, 13);
+            this.label13.Size = new System.Drawing.Size(83, 13);
             this.label13.TabIndex = 6;
             this.label13.Text = "Total Pedido:";
             // 
             // textBox_total
             // 
             this.textBox_total.Enabled = false;
-            this.textBox_total.Location = new System.Drawing.Point(664, 376);
+            this.textBox_total.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox_total.Location = new System.Drawing.Point(775, 376);
             this.textBox_total.Name = "textBox_total";
-            this.textBox_total.Size = new System.Drawing.Size(43, 20);
+            this.textBox_total.Size = new System.Drawing.Size(49, 20);
             this.textBox_total.TabIndex = 7;
             this.textBox_total.Text = "0";
             // 
@@ -975,9 +1014,10 @@
             this.groupBox1.Controls.Add(this.groupBox3);
             this.groupBox1.Controls.Add(this.groupBox2);
             this.groupBox1.Controls.Add(this.listView_platillos);
-            this.groupBox1.Location = new System.Drawing.Point(202, 91);
+            this.groupBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.groupBox1.Location = new System.Drawing.Point(236, 91);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(791, 521);
+            this.groupBox1.Size = new System.Drawing.Size(923, 521);
             this.groupBox1.TabIndex = 2;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Pedido";
@@ -990,12 +1030,12 @@
             this.button16.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Yellow;
             this.button16.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
             this.button16.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button16.Font = new System.Drawing.Font("Lucida Sans", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button16.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button16.Image = global::empanada_2.Properties.Resources.comanda;
             this.button16.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.button16.Location = new System.Drawing.Point(474, 408);
+            this.button16.Location = new System.Drawing.Point(553, 408);
             this.button16.Name = "button16";
-            this.button16.Size = new System.Drawing.Size(97, 56);
+            this.button16.Size = new System.Drawing.Size(113, 56);
             this.button16.TabIndex = 80;
             this.button16.Text = "Comanda";
             this.button16.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
@@ -1009,12 +1049,12 @@
             this.button14.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Yellow;
             this.button14.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
             this.button14.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button14.Font = new System.Drawing.Font("Lucida Sans", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button14.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button14.Image = global::empanada_2.Properties.Resources.agregar;
             this.button14.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.button14.Location = new System.Drawing.Point(104, 447);
+            this.button14.Location = new System.Drawing.Point(121, 447);
             this.button14.Name = "button14";
-            this.button14.Size = new System.Drawing.Size(97, 56);
+            this.button14.Size = new System.Drawing.Size(113, 56);
             this.button14.TabIndex = 79;
             this.button14.Text = "Agregar";
             this.button14.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
@@ -1031,9 +1071,9 @@
             this.button25.Font = new System.Drawing.Font("Lucida Sans", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button25.Image = global::empanada_2.Properties.Resources.delete;
             this.button25.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.button25.Location = new System.Drawing.Point(721, 31);
+            this.button25.Location = new System.Drawing.Point(841, 31);
             this.button25.Name = "button25";
-            this.button25.Size = new System.Drawing.Size(42, 43);
+            this.button25.Size = new System.Drawing.Size(49, 43);
             this.button25.TabIndex = 76;
             this.button25.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.button25.UseVisualStyleBackColor = false;
@@ -1045,9 +1085,10 @@
             this.groupBox4.Controls.Add(this.button22);
             this.groupBox4.Controls.Add(this.textBox_otros);
             this.groupBox4.Controls.Add(this.comboBox_otros);
-            this.groupBox4.Location = new System.Drawing.Point(291, 256);
+            this.groupBox4.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.groupBox4.Location = new System.Drawing.Point(339, 256);
             this.groupBox4.Name = "groupBox4";
-            this.groupBox4.Size = new System.Drawing.Size(162, 185);
+            this.groupBox4.Size = new System.Drawing.Size(189, 185);
             this.groupBox4.TabIndex = 37;
             this.groupBox4.TabStop = false;
             this.groupBox4.Text = "Otros";
@@ -1055,9 +1096,9 @@
             // button23
             // 
             this.button23.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.button23.Location = new System.Drawing.Point(108, 93);
+            this.button23.Location = new System.Drawing.Point(126, 93);
             this.button23.Name = "button23";
-            this.button23.Size = new System.Drawing.Size(21, 20);
+            this.button23.Size = new System.Drawing.Size(24, 20);
             this.button23.TabIndex = 40;
             this.button23.UseVisualStyleBackColor = true;
             this.button23.Click += new System.EventHandler(this.button23_Click_2);
@@ -1066,9 +1107,9 @@
             // 
             this.button22.BackgroundImage = global::empanada_2.Properties.Resources.otros1;
             this.button22.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.button22.Location = new System.Drawing.Point(12, 63);
+            this.button22.Location = new System.Drawing.Point(14, 63);
             this.button22.Name = "button22";
-            this.button22.Size = new System.Drawing.Size(77, 41);
+            this.button22.Size = new System.Drawing.Size(90, 41);
             this.button22.TabIndex = 34;
             this.button22.UseVisualStyleBackColor = true;
             this.button22.Click += new System.EventHandler(this.button22_Click);
@@ -1076,9 +1117,10 @@
             // textBox_otros
             // 
             this.textBox_otros.Enabled = false;
-            this.textBox_otros.Location = new System.Drawing.Point(95, 66);
+            this.textBox_otros.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox_otros.Location = new System.Drawing.Point(111, 66);
             this.textBox_otros.Name = "textBox_otros";
-            this.textBox_otros.Size = new System.Drawing.Size(34, 20);
+            this.textBox_otros.Size = new System.Drawing.Size(39, 20);
             this.textBox_otros.TabIndex = 1;
             this.textBox_otros.Text = "0";
             // 
@@ -1086,18 +1128,19 @@
             // 
             this.comboBox_otros.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
             this.comboBox_otros.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
+            this.comboBox_otros.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.comboBox_otros.FormattingEnabled = true;
-            this.comboBox_otros.Location = new System.Drawing.Point(12, 32);
+            this.comboBox_otros.Location = new System.Drawing.Point(14, 32);
             this.comboBox_otros.Name = "comboBox_otros";
-            this.comboBox_otros.Size = new System.Drawing.Size(121, 21);
+            this.comboBox_otros.Size = new System.Drawing.Size(140, 21);
             this.comboBox_otros.TabIndex = 0;
             // 
             // checkBox_algo
             // 
             this.checkBox_algo.AutoSize = true;
-            this.checkBox_algo.Location = new System.Drawing.Point(313, 19);
+            this.checkBox_algo.Location = new System.Drawing.Point(365, 19);
             this.checkBox_algo.Name = "checkBox_algo";
-            this.checkBox_algo.Size = new System.Drawing.Size(119, 17);
+            this.checkBox_algo.Size = new System.Drawing.Size(139, 17);
             this.checkBox_algo.TabIndex = 36;
             this.checkBox_algo.Text = "Habilitar cantidades";
             this.checkBox_algo.UseVisualStyleBackColor = true;
@@ -1107,25 +1150,27 @@
             // label16
             // 
             this.label16.AutoSize = true;
-            this.label16.Location = new System.Drawing.Point(645, 379);
+            this.label16.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label16.Location = new System.Drawing.Point(752, 379);
             this.label16.Name = "label16";
-            this.label16.Size = new System.Drawing.Size(13, 13);
+            this.label16.Size = new System.Drawing.Size(14, 13);
             this.label16.TabIndex = 8;
             this.label16.Text = "$";
             // 
             // textBox_descripcion
             // 
-            this.textBox_descripcion.Location = new System.Drawing.Point(487, 64);
+            this.textBox_descripcion.Location = new System.Drawing.Point(568, 64);
             this.textBox_descripcion.Name = "textBox_descripcion";
-            this.textBox_descripcion.Size = new System.Drawing.Size(118, 20);
+            this.textBox_descripcion.Size = new System.Drawing.Size(137, 20);
             this.textBox_descripcion.TabIndex = 7;
             // 
             // label17
             // 
             this.label17.AutoSize = true;
-            this.label17.Location = new System.Drawing.Point(390, 67);
+            this.label17.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label17.Location = new System.Drawing.Point(455, 67);
             this.label17.Name = "label17";
-            this.label17.Size = new System.Drawing.Size(95, 13);
+            this.label17.Size = new System.Drawing.Size(113, 13);
             this.label17.TabIndex = 8;
             this.label17.Text = "Nombre del cliente";
             // 
@@ -1143,9 +1188,9 @@
             this.button24.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button24.Font = new System.Drawing.Font("Lucida Sans", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button24.Image = global::empanada_2.Properties.Resources.almacen;
-            this.button24.Location = new System.Drawing.Point(893, 24);
+            this.button24.Location = new System.Drawing.Point(1042, 24);
             this.button24.Name = "button24";
-            this.button24.Size = new System.Drawing.Size(74, 75);
+            this.button24.Size = new System.Drawing.Size(86, 75);
             this.button24.TabIndex = 81;
             this.button24.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
             this.button24.UseVisualStyleBackColor = false;
@@ -1158,12 +1203,12 @@
             this.button26.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Yellow;
             this.button26.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
             this.button26.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button26.Font = new System.Drawing.Font("Lucida Sans", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button26.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button26.Image = global::empanada_2.Properties.Resources.dinero;
             this.button26.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.button26.Location = new System.Drawing.Point(277, 30);
+            this.button26.Location = new System.Drawing.Point(323, 30);
             this.button26.Name = "button26";
-            this.button26.Size = new System.Drawing.Size(74, 56);
+            this.button26.Size = new System.Drawing.Size(86, 56);
             this.button26.TabIndex = 80;
             this.button26.Text = "Pagar";
             this.button26.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
@@ -1177,12 +1222,12 @@
             this.button13.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Yellow;
             this.button13.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
             this.button13.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button13.Font = new System.Drawing.Font("Lucida Sans", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button13.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button13.Image = global::empanada_2.Properties.Resources.modificar;
             this.button13.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.button13.Location = new System.Drawing.Point(117, 30);
+            this.button13.Location = new System.Drawing.Point(136, 30);
             this.button13.Name = "button13";
-            this.button13.Size = new System.Drawing.Size(74, 56);
+            this.button13.Size = new System.Drawing.Size(86, 56);
             this.button13.TabIndex = 79;
             this.button13.Text = "Modificar";
             this.button13.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
@@ -1196,12 +1241,12 @@
             this.button15.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Yellow;
             this.button15.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
             this.button15.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button15.Font = new System.Drawing.Font("Lucida Sans", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button15.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button15.Image = global::empanada_2.Properties.Resources.agregar;
             this.button15.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.button15.Location = new System.Drawing.Point(14, 30);
+            this.button15.Location = new System.Drawing.Point(16, 30);
             this.button15.Name = "button15";
-            this.button15.Size = new System.Drawing.Size(97, 56);
+            this.button15.Size = new System.Drawing.Size(113, 56);
             this.button15.TabIndex = 78;
             this.button15.Text = "Nueva orden";
             this.button15.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
@@ -1215,12 +1260,12 @@
             this.button18.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Yellow;
             this.button18.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
             this.button18.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button18.Font = new System.Drawing.Font("Lucida Sans", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button18.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button18.Image = global::empanada_2.Properties.Resources.delete;
             this.button18.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.button18.Location = new System.Drawing.Point(197, 30);
+            this.button18.Location = new System.Drawing.Point(230, 30);
             this.button18.Name = "button18";
-            this.button18.Size = new System.Drawing.Size(74, 56);
+            this.button18.Size = new System.Drawing.Size(86, 56);
             this.button18.TabIndex = 77;
             this.button18.Text = "Eliminar";
             this.button18.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
@@ -1229,10 +1274,10 @@
             // 
             // Form1
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.LightSkyBlue;
-            this.ClientSize = new System.Drawing.Size(1005, 624);
+            this.ClientSize = new System.Drawing.Size(1172, 624);
             this.Controls.Add(this.button24);
             this.Controls.Add(this.button26);
             this.Controls.Add(this.button13);
@@ -1243,6 +1288,7 @@
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.listView_ordenes);
             this.Controls.Add(this.menuStrip1);
+            this.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.KeyPreview = true;
             this.MainMenuStrip = this.menuStrip1;

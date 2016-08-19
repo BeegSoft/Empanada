@@ -193,6 +193,8 @@ namespace empanada_2
         {
             SetDefaultCulture(new CultureInfo("es-MX"));
 
+            BUSCAR(comboBox_almacen.Text);
+
             //checar cuanto es lo que tiene de peso respecto a la descripcion
             OleDbConnection conexion4 = new OleDbConnection(ds);
 
@@ -203,21 +205,42 @@ namespace empanada_2
 
             peso = (cmd2.ExecuteScalar()).ToString();
 
+            string sql2 = "select Rendimiento from ALMACEN WHERE Descripcion='" + comboBox_almacen.Text + "'";
+            OleDbCommand cmd1 = new OleDbCommand(sql2, conexion4); //Conexion es tu objeto conexion
+
+            peso3 = (cmd1.ExecuteScalar()).ToString();
 
             conexion4.Close();
 
-            //Realizando la resta para aser la modificacion
+            //Realizando la suma para aser la modificacion
             suma = (double.Parse(peso, Thread.CurrentThread.CurrentCulture)) - cantidad;
 
+            suma2 = (double.Parse(peso3, Thread.CurrentThread.CurrentCulture)) - rendimiento;
+
+            if (suma < 0 || suma2 < 0)
+            {
+                //cantidad
+                if (suma < 0)
+                {
+                    suma = 0;
+                }
+
+                //rendimiento
+                if (suma2 < 0)
+                {
+                    suma2 = 0;
+                }
+            }
 
             //realizando la consulta
             OleDbConnection conexion = new OleDbConnection(ds);
 
             conexion.Open();
 
-            string insertar = "UPDATE ALMACEN SET Peso = @Peso WHERE Descripcion= '" + comboBox_almacen.Text + "'";
+            string insertar = "UPDATE ALMACEN SET Peso = @Peso, Rendimiento= @Rendimiento WHERE Descripcion= '" + comboBox_almacen.Text + "'";
             OleDbCommand cmd3 = new OleDbCommand(insertar, conexion);
             cmd3.Parameters.AddWithValue("@Peso", suma.ToString());
+            cmd3.Parameters.AddWithValue("@Rendimiento", suma2.ToString());
 
             cmd3.ExecuteNonQuery();
             conexion.Close();

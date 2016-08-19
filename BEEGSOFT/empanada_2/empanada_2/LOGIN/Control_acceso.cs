@@ -183,41 +183,12 @@ namespace empanada_2
 
         private void Control_acceso_Load(object sender, EventArgs e)
         {           
-        }
+        }      
 
-        private void pictureBox4_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void pictureBox1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label3_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void textBox1_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void textBox2_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void pictureBox4_Click_1(object sender, EventArgs e)
-        {
-
-        }
-
-        private void pictureBox1_Click_1(object sender, EventArgs e)
+        private void button3_Click(object sender, EventArgs e)
         {
             CHECAR();
         }
+
     }
 }

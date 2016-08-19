@@ -82,7 +82,7 @@ namespace empanada_2
         {
             Control_acceso logeo = new Control_acceso(ds, ds2);
             logeo.Show();
-            this.Close();
+            this.Close();            
         }
 
         private void button25_Click(object sender, EventArgs e)
@@ -199,8 +199,8 @@ namespace empanada_2
                         lista.Remove();
                     }
                 }
-            }
-            band = 1;
+                band = 1;
+            }            
         }
 
         private void usuariosToolStripMenuItem_Click(object sender, EventArgs e)

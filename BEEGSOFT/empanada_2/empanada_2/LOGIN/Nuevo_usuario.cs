@@ -78,9 +78,7 @@ namespace empanada_2
 
                         cmd2.ExecuteNonQuery();
                         MessageBox.Show("Usuario Agregado", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Information);
-
                         
-
                         RESET();
                     }
 
@@ -286,7 +284,6 @@ namespace empanada_2
 
                 }
             }
-
  
             IForm5 formInterface = this.Owner as IForm5;
             if (formInterface != null)

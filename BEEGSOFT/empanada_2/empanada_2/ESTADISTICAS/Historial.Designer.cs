@@ -93,9 +93,10 @@
             this.groupBox2.Controls.Add(this.label4);
             this.groupBox2.Controls.Add(this.textBox_ventas);
             this.groupBox2.Controls.Add(this.label3);
-            this.groupBox2.Location = new System.Drawing.Point(224, 148);
+            this.groupBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.groupBox2.Location = new System.Drawing.Point(177, 148);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(221, 178);
+            this.groupBox2.Size = new System.Drawing.Size(268, 178);
             this.groupBox2.TabIndex = 5;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Resumen Total del Periodo Seleccionado";
@@ -105,7 +106,7 @@
             this.label17.AutoSize = true;
             this.label17.Location = new System.Drawing.Point(124, 85);
             this.label17.Name = "label17";
-            this.label17.Size = new System.Drawing.Size(13, 13);
+            this.label17.Size = new System.Drawing.Size(14, 13);
             this.label17.TabIndex = 17;
             this.label17.Text = "$";
             // 
@@ -122,7 +123,7 @@
             this.Ganancias.AutoSize = true;
             this.Ganancias.Location = new System.Drawing.Point(66, 85);
             this.Ganancias.Name = "Ganancias";
-            this.Ganancias.Size = new System.Drawing.Size(61, 13);
+            this.Ganancias.Size = new System.Drawing.Size(71, 13);
             this.Ganancias.TabIndex = 15;
             this.Ganancias.Text = "Ganancias:";
             // 
@@ -131,7 +132,7 @@
             this.label15.AutoSize = true;
             this.label15.Location = new System.Drawing.Point(124, 59);
             this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(13, 13);
+            this.label15.Size = new System.Drawing.Size(14, 13);
             this.label15.TabIndex = 14;
             this.label15.Text = "$";
             // 
@@ -148,7 +149,7 @@
             this.label16.AutoSize = true;
             this.label16.Location = new System.Drawing.Point(84, 59);
             this.label16.Name = "label16";
-            this.label16.Size = new System.Drawing.Size(43, 13);
+            this.label16.Size = new System.Drawing.Size(50, 13);
             this.label16.TabIndex = 12;
             this.label16.Text = "Gastos:";
             // 
@@ -165,7 +166,7 @@
             this.label14.AutoSize = true;
             this.label14.Location = new System.Drawing.Point(35, 138);
             this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(92, 13);
+            this.label14.Size = new System.Drawing.Size(111, 13);
             this.label14.TabIndex = 10;
             this.label14.Text = "Total de Articulos:";
             // 
@@ -174,7 +175,7 @@
             this.label10.AutoSize = true;
             this.label10.Location = new System.Drawing.Point(123, 31);
             this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(13, 13);
+            this.label10.Size = new System.Drawing.Size(14, 13);
             this.label10.TabIndex = 8;
             this.label10.Text = "$";
             // 
@@ -191,7 +192,7 @@
             this.label4.AutoSize = true;
             this.label4.Location = new System.Drawing.Point(53, 114);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(74, 13);
+            this.label4.Size = new System.Drawing.Size(89, 13);
             this.label4.TabIndex = 6;
             this.label4.Text = "Total Clientes:";
             // 
@@ -208,7 +209,7 @@
             this.label3.AutoSize = true;
             this.label3.Location = new System.Drawing.Point(84, 31);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(43, 13);
+            this.label3.Size = new System.Drawing.Size(50, 13);
             this.label3.TabIndex = 4;
             this.label3.Text = "Ventas:";
             // 
@@ -225,6 +226,7 @@
             // 
             // fechaA
             // 
+            this.fechaA.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.fechaA.Format = System.Windows.Forms.DateTimePickerFormat.Short;
             this.fechaA.Location = new System.Drawing.Point(64, 103);
             this.fechaA.Name = "fechaA";
@@ -234,6 +236,7 @@
             // 
             // fechaB
             // 
+            this.fechaB.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.fechaB.Format = System.Windows.Forms.DateTimePickerFormat.Short;
             this.fechaB.Location = new System.Drawing.Point(217, 103);
             this.fechaB.Name = "fechaB";
@@ -244,29 +247,30 @@
             // a
             // 
             this.a.AutoSize = true;
-            this.a.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.a.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.a.Location = new System.Drawing.Point(174, 107);
             this.a.Name = "a";
-            this.a.Size = new System.Drawing.Size(35, 13);
+            this.a.Size = new System.Drawing.Size(40, 13);
             this.a.TabIndex = 8;
             this.a.Text = "Hasta";
             // 
             // label5
             // 
             this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label5.Location = new System.Drawing.Point(20, 76);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(232, 13);
+            this.label5.Size = new System.Drawing.Size(279, 13);
             this.label5.TabIndex = 9;
             this.label5.Text = "Escoga entre que fechas quiere las estadisticas";
             // 
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label6.Location = new System.Drawing.Point(20, 107);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(38, 13);
+            this.label6.Size = new System.Drawing.Size(43, 13);
             this.label6.TabIndex = 10;
             this.label6.Text = "Desde";
             // 
@@ -292,7 +296,7 @@
             this.label8.AutoSize = true;
             this.label8.Location = new System.Drawing.Point(195, 18);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(49, 13);
+            this.label8.Size = new System.Drawing.Size(57, 13);
             this.label8.TabIndex = 16;
             this.label8.Text = "Cantidad";
             // 
@@ -301,7 +305,7 @@
             this.label9.AutoSize = true;
             this.label9.Location = new System.Drawing.Point(195, 72);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(53, 13);
+            this.label9.Size = new System.Drawing.Size(61, 13);
             this.label9.TabIndex = 17;
             this.label9.Text = "Ganancia";
             // 
@@ -318,7 +322,7 @@
             this.label7.AutoSize = true;
             this.label7.Location = new System.Drawing.Point(10, 18);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(42, 13);
+            this.label7.Size = new System.Drawing.Size(50, 13);
             this.label7.TabIndex = 14;
             this.label7.Text = "Articulo";
             // 
@@ -331,6 +335,7 @@
             this.groupBox3.Controls.Add(this.textBox_platillos_vendidos);
             this.groupBox3.Controls.Add(this.label7);
             this.groupBox3.Controls.Add(this.comboBox_platillos);
+            this.groupBox3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox3.Location = new System.Drawing.Point(40, 340);
             this.groupBox3.Name = "groupBox3";
             this.groupBox3.Size = new System.Drawing.Size(340, 129);
@@ -343,7 +348,7 @@
             this.label12.AutoSize = true;
             this.label12.Location = new System.Drawing.Point(181, 91);
             this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(13, 13);
+            this.label12.Size = new System.Drawing.Size(14, 13);
             this.label12.TabIndex = 10;
             this.label12.Text = "$";
             // 
@@ -385,6 +390,7 @@
             this.listView_fechas.BackColor = System.Drawing.Color.White;
             this.listView_fechas.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.column_fechas});
+            this.listView_fechas.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.listView_fechas.ForeColor = System.Drawing.SystemColors.WindowText;
             this.listView_fechas.Location = new System.Drawing.Point(23, 148);
             this.listView_fechas.Name = "listView_fechas";
@@ -450,7 +456,7 @@
             this.button3.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Yellow;
             this.button3.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
             this.button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button3.Font = new System.Drawing.Font("Lucida Sans", 7F);
+            this.button3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button3.Image = global::empanada_2.Properties.Resources.mostrar1;
             this.button3.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
             this.button3.Location = new System.Drawing.Point(336, 69);

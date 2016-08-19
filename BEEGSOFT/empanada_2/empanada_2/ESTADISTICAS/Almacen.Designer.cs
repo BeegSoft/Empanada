@@ -133,6 +133,7 @@
             this.columnHeader1,
             this.columnHeader3});
             this.listView_almacen.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.listView_almacen.ForeColor = System.Drawing.SystemColors.ControlText;
             this.listView_almacen.Location = new System.Drawing.Point(207, 29);
             this.listView_almacen.Name = "listView_almacen";
             this.listView_almacen.Size = new System.Drawing.Size(361, 180);
