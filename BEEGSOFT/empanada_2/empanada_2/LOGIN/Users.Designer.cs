@@ -315,7 +315,7 @@
             this.Controls.Add(this.menuStrip1);
             this.Controls.Add(this.label1);
             this.Name = "Users";
-            this.Text = "Users";
+            this.Text = "USUARIO";
             this.Load += new System.EventHandler(this.Users_Load);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();

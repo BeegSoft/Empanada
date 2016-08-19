@@ -135,7 +135,7 @@
             this.ClientSize = new System.Drawing.Size(306, 286);
             this.Controls.Add(this.groupBox1);
             this.Name = "Nuevo_usuario";
-            this.Text = "Nuevo_usuario";
+            this.Text = "NUEVO USUARIO";
             this.Load += new System.EventHandler(this.Nuevo_usuario_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();

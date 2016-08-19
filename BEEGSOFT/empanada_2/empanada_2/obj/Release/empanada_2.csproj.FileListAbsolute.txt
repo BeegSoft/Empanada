@@ -21,3 +21,7 @@ C:\Empanada\BEEGSOFT\empanada_2\empanada_2\obj\Release\empanada_2.Exportacion_ex
 C:\Empanada\BEEGSOFT\empanada_2\empanada_2\obj\Release\empanada_2.Gastos.resources
 C:\Empanada\BEEGSOFT\empanada_2\empanada_2\obj\Release\empanada_2.Nuevo_usuario.resources
 C:\Empanada\BEEGSOFT\empanada_2\empanada_2\obj\Release\empanada_2.Users.resources
+C:\Empanada\BEEGSOFT\empanada_2\empanada_2\bin\Release\empanada_2.exe.manifest
+C:\Empanada\BEEGSOFT\empanada_2\empanada_2\bin\Release\empanada_2.application
+C:\Empanada\BEEGSOFT\empanada_2\empanada_2\obj\Release\empanada_2.exe.manifest
+C:\Empanada\BEEGSOFT\empanada_2\empanada_2\obj\Release\empanada_2.application

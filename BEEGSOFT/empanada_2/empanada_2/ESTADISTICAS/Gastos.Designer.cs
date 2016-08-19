@@ -396,7 +396,7 @@
             this.Controls.Add(this.listView_fechas);
             this.Controls.Add(this.label2);
             this.Name = "Gastos";
-            this.Text = "Gastos";
+            this.Text = "GASTOS";
             this.Load += new System.EventHandler(this.Gastos_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();

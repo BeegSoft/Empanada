@@ -491,7 +491,7 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "Historial";
-            this.Text = "Historial";
+            this.Text = "HISTORIAL";
             this.Load += new System.EventHandler(this.Historial_Load);
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();

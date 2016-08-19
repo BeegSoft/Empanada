@@ -121,7 +121,7 @@
             this.Controls.Add(this.textBox_nombre);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Menu_modificar";
-            this.Text = "Menu_modificar";
+            this.Text = "MENU MODIFICAR";
             this.Load += new System.EventHandler(this.Menu_modificar_Load);
             this.ResumeLayout(false);
             this.PerformLayout();

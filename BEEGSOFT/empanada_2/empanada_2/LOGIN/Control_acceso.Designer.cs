@@ -164,7 +164,7 @@
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "Control_acceso";
-            this.Text = "Control_acceso";
+            this.Text = "CONTROL ACCESO";
             this.Load += new System.EventHandler(this.Control_acceso_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
             this.ResumeLayout(false);

@@ -42,14 +42,14 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="empanada_2.exe" size="3865584">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="empanada_2.exe" size="3875312">
       <assemblyIdentity name="empanada_2" version="1.0.0.0" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>a9fSH0o88Qtb75IkPXKTyMA1n793Zegm6BWXGOldwQo=</dsig:DigestValue>
+        <dsig:DigestValue>ME1Zzlf7flOrHBJ2S7WMJTEA9qt8m0TFuY5CrJ3cnFc=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>

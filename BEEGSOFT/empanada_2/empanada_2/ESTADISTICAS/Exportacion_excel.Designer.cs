@@ -250,7 +250,7 @@
             this.Controls.Add(this.fechaB);
             this.Controls.Add(this.fechaA);
             this.Name = "Exportacion_excel";
-            this.Text = "Exportacion_excel";
+            this.Text = "EXPORTACION EXCEL";
             this.Load += new System.EventHandler(this.Exportacion_excel_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
