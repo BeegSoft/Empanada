@@ -21,21 +21,21 @@ namespace empanada_2
             this.ds = ds;
             this.ds2 = ds2;
         }
-        int band,id;        
+        int band,banda2,id;        
         string ds,ds2;
 
 
         #region Para Actualizar los datos
         public void Cargar_usuarios()
         {
-            ACTUALIZADO();
+            ACTUALIZADO(band);
         }
         #endregion
 
         private void registrarToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            band = 0;            
-            Nuevo_usuario abre = new Nuevo_usuario(ds,ds2, id, band);
+            banda2 = 0;            
+            Nuevo_usuario abre = new Nuevo_usuario(ds,ds2, id, banda2);
             abre.Show(this);
         }
 
@@ -61,7 +61,7 @@ namespace empanada_2
                     Nuevo_usuario abre = new Nuevo_usuario(ds,ds2, id, band);
                     abre.Show();
                 }
-                band = 0;
+                band = 1;
             }
         }
         //public event EventHandler<ListViewUpdateEventArgs> ItemUpdating;
@@ -87,7 +87,7 @@ namespace empanada_2
 
         private void button25_Click(object sender, EventArgs e)
         {
-            BORRAR();
+            BORRAR(band);
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -133,7 +133,7 @@ namespace empanada_2
             SELECT_USUARIOS(band);
         }
 
-        private void BORRAR()
+        private void BORRAR(int band)
         {
             if (band == 0)
             {
@@ -210,7 +210,7 @@ namespace empanada_2
 
         private void button2_Click(object sender, EventArgs e)
         {
-            ACTUALIZADO();
+            ACTUALIZADO(band);
         }
 
         private void almacenToolStripMenuItem_Click(object sender, EventArgs e)
@@ -219,9 +219,9 @@ namespace empanada_2
             corre.Show();
         }
 
-        public void ACTUALIZADO()
+        public void ACTUALIZADO(int band)
         {
-            if (label2.Text == "Usted Ingreso Como Root")
+            if (label2.Text == "Usted Ingreso Como Root"||band==0)
             {
                 OleDbDataAdapter adaptador = new OleDbDataAdapter("SELECT USUARIOS.id, USUARIOS.nombre, USUARIOS.clave, USUARIOS.TIPO_USUARIO FROM USUARIOS ", ds2);
 
@@ -240,8 +240,9 @@ namespace empanada_2
                     elementos.SubItems.Add(filas["tipo_usuario"].ToString());
                     listView1.Items.Add(elementos);
                 }
+                band = 0;
             }
-            else if (label2.Text == "Usted Ingreso como Administrador")
+            else if (label2.Text == "Usted Ingreso como Administrador"||band==1)
             {
                 OleDbDataAdapter adaptador = new OleDbDataAdapter("SELECT USUARIOS.id,USUARIOS.nombre, USUARIOS.TIPO_USUARIO FROM USUARIOS WHERE USUARIOS.tipo_usuario <>'ROOT'", ds2);
 
@@ -259,6 +260,7 @@ namespace empanada_2
                     elementos.SubItems.Add(filas["tipo_usuario"].ToString());
                     listView2.Items.Add(elementos);
                 }
+                band = 1;
             }
         }
 
@@ -286,6 +288,7 @@ namespace empanada_2
                     elementos.SubItems.Add(filas["tipo_usuario"].ToString());
                     listView1.Items.Add(elementos);
                 }
+                band = 0;
             }
             else if (band == 1)
             {
@@ -315,6 +318,7 @@ namespace empanada_2
                     elementos.SubItems.Add(filas["tipo_usuario"].ToString());
                     listView2.Items.Add(elementos);
                 }
+                band = 1;
             }
         }
 
@@ -325,7 +329,7 @@ namespace empanada_2
 
         private void pictureBox1_Click(object sender, EventArgs e)
         {
-            BORRAR();
+            BORRAR(band);
         }
 
         private void menuStrip1_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
