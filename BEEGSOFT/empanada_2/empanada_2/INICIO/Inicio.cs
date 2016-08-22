@@ -14,15 +14,16 @@ namespace empanada_2
 {
     public partial class Inicio : Form
     {
-        public Inicio(string ds,int band)
+        public Inicio(string ds,int band,string operador)
         {
             InitializeComponent();
             this.ds = ds;
             this.band = band;
+            this.operador = operador;
         }
         //CONEXION
         int band;
-        string ds;
+        string ds,operador;
         private void button1_Click(object sender, EventArgs e)
         {
             DateTime fechahoy = DateTime.Now;
@@ -54,7 +55,7 @@ namespace empanada_2
 
                 conexion.Close();
                 
-                Pantalla2 form = new Pantalla2(fecha, ds,band);
+                Pantalla2 form = new Pantalla2(fecha, ds,band,operador);
                 form.Show();
                 this.Close();
             }
@@ -64,7 +65,7 @@ namespace empanada_2
                 DialogResult resultado = MessageBox.Show("Ya existe un historial del dia de hoy\n\n      Desea continuar el dia de hoy?", "ADVERTENCIA", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
                 if (resultado == DialogResult.Yes)
                 {
-                    Pantalla2 form = new Pantalla2(fecha, ds,band);
+                    Pantalla2 form = new Pantalla2(fecha, ds,band,operador);
                     form.Show();
                     this.Close();
                 }
@@ -88,7 +89,7 @@ namespace empanada_2
 
                 if (Convert.ToInt32(compro) != 0)
                 {
-                    Pantalla2 form = new Pantalla2(fecha, ds,band);
+                    Pantalla2 form = new Pantalla2(fecha, ds,band,operador);
                     form.Show();
                     this.Close();
                 }

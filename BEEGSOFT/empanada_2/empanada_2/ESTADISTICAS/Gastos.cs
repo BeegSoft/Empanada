@@ -16,8 +16,7 @@ namespace empanada_2
         public Gastos(string ds)
         {
             InitializeComponent();
-            this.ds = ds;
-
+            this.ds = ds;            
             label2.Visible = false;
             label1.Visible = false;
             dateTimePicker1.Visible = false;

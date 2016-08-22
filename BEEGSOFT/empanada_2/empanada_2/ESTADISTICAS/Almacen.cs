@@ -23,7 +23,7 @@ namespace empanada_2
             this.ds = ds;
         }        
 
-        string ds, peso, peso3, descripcion,fecha;
+        string ds, peso, peso3, descripcion;
         double suma,suma2, peso2,cantidad;
         public int P=0,rendimiento;
 

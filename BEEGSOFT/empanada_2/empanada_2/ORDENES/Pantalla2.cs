@@ -13,15 +13,16 @@ namespace empanada_2
 {
     public partial class Pantalla2 : Form, IForm, Terminar_orden, IForm7
     {
-        public Pantalla2(string fecha, string ds,int band)
+        public Pantalla2(string fecha, string ds,int band,string operador)
         {
             InitializeComponent();
             this.ds = ds;
             this.fecha = fecha;
             this.band = band;
+            this.operador = operador;
         }
         
-        string ds, fecha;
+        string ds, fecha,operador;
         int orden_1, orden_2, orden_3, orden_4, orden_5,band;
 
         #region IForm Members
@@ -261,7 +262,7 @@ namespace empanada_2
         {
             if (band == 3)
             {
-                Form1 form = new Form1(fecha, ds);
+                Form1 form = new Form1(fecha, ds,operador);
                 form.estadisticasToolStripMenuItem.Visible = false;
                 form.gastosToolStripMenuItem.Visible = false;
                 form.modificarToolStripMenuItem.Visible = false;              
@@ -270,7 +271,7 @@ namespace empanada_2
             }
             else
             {
-                Form1 form = new Form1(fecha, ds);
+                Form1 form = new Form1(fecha, ds,operador);
                 form.Show(this);
             }
             

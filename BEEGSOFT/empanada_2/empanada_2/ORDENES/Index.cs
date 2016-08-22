@@ -17,18 +17,19 @@ namespace empanada_2
 {
     public partial class Form1 : Form, IForm2, IForm6
     {
-        public Form1(string fecha, string ds)
+        public Form1(string fecha, string ds,string operador)
         {
             InitializeComponent();
             this.fecha = fecha;
             this.ds = ds;
+            this.operador = operador;
         }
 
         //CONEXIONES
         String ds;
 
-        string fecha, total_pagar, platillo,peso;
-        int precio_platillo, total, cantidad,cant_alm,cant_disp;
+        string fecha, total_pagar, platillo,peso,operador;
+        int precio_platillo, total, cantidad,cant_disp;
         double tipo, suma,resta;        
         int id = 0;
 
@@ -999,7 +1000,7 @@ namespace empanada_2
 
                                 if (pagare > 0)
                                 {
-                                    pagar correr = new pagar(id_orden, fecha, ds);
+                                    pagar correr = new pagar(id_orden, fecha, ds,operador);
                                     correr.ShowDialog(this);
                                 }
                                 else

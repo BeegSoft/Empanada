@@ -51,7 +51,8 @@ namespace empanada_2
         }
 
         private void button2_Click(object sender, EventArgs e)
-        {
+        {            
+
             Microsoft.Office.Interop.Excel.Application xla = new Microsoft.Office.Interop.Excel.Application();
             xla.Visible = true;
             Microsoft.Office.Interop.Excel.Workbook wb = xla.Workbooks.Add(Microsoft.Office.Interop.Excel.XlSheetType.xlWorksheet);
@@ -61,8 +62,7 @@ namespace empanada_2
             int j = 1;
 
             foreach (ListViewItem comp in listView_esta.Items)
-            {
-                ws.Cells.Rows.MergeCells();
+            {                
                 ws.Cells[2, 1] = ("FECHA");
                 ws.Cells[2, 2] = ("ID");
                 ws.Cells[2, 3] = ("PLATILLO");

@@ -17,17 +17,18 @@ namespace empanada_2
 {
     public partial class pagar : Form
     {
-        public pagar(int id_orden, string fecha, string ds)
+        public pagar(int id_orden, string fecha, string ds,string operador)
         {
             InitializeComponent();
             this.id_orden = id_orden;
             this.fecha = fecha;
             this.ds = ds;
+            this.operador = operador;
         }
 
 
         int id_orden;
-        string total_pagar, fecha;
+        string total_pagar, fecha,operador;
         String ds;
 
         public void SetDefaultCulture(CultureInfo culture)
@@ -237,7 +238,7 @@ namespace empanada_2
                 ticket.TextoIzquierda("RFC XXXXXX-XXXXXXX-XXXXX");
                 ticket.TextoIzquierda("");
                 ticket.TextoIzquierda("");
-                ticket.TextoIzquierda("ATENDIO: VENDEDOR ");
+                ticket.TextoIzquierda("ATENDIO: "+operador);
                 ticket.TextoExtremos("CLIENTE: ", textBox_descripcion.Text);
                 ticket.TextoIzquierda("");
                 ticket.TextoExtremos("FECHA:" + DateTime.Now.ToShortDateString(), "HORA:" + DateTime.Now.ToShortTimeString());

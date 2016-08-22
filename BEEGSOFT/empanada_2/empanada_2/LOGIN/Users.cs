@@ -14,15 +14,16 @@ namespace empanada_2
 {
     public partial class Users : Form, IForm5
     {
-        public Users(string ds,string ds2, int band)
+        public Users(string ds,string ds2, int band,string operador)
         {
             InitializeComponent();
             this.band = band;
             this.ds = ds;
             this.ds2 = ds2;
+            this.operador = operador;
         }
         int band,banda2,id;        
-        string ds,ds2;
+        string ds,ds2,operador;
 
 
         #region Para Actualizar los datos
@@ -68,7 +69,7 @@ namespace empanada_2
 
         private void AbrirProgramaToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            Inicio corre = new Inicio(ds,band);
+            Inicio corre = new Inicio(ds,band,operador);
             corre.Show();
             this.Close();
         }

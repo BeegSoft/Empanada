@@ -39,7 +39,7 @@ namespace empanada_2
             comboBox1.Text = "SELECCIONAR";
         }
         
-        string ds,ds2;
+        string ds,ds2,operador;
         int band;              
 
         int veces = 0;
@@ -67,6 +67,7 @@ namespace empanada_2
                     while (reader.Read())
                     {                        
                         CHECAR2();
+
                     }
                 }
                 else
@@ -126,15 +127,15 @@ namespace empanada_2
             if (comboBox1.Text == "ROOT")
             {
                 band = 0;
-                Users corre = new Users(ds,ds2, band);
-                corre.Show();
+                Users corre = new Users(ds,ds2, band,operador);
+                corre.Show();                
                 LIMPIAR();
                 this.Hide();
             }
             else if (comboBox1.Text == "ADMINISTRADOR")
             {
                 band = 1;
-                Users corre = new Users(ds,ds2, band);
+                Users corre = new Users(ds,ds2, band,operador);
                 corre.usuariosToolStripMenuItem.Visible = false;                
                 corre.Show();                
                 LIMPIAR();
@@ -142,8 +143,9 @@ namespace empanada_2
             }
             else if(comboBox1.Text=="OPERADOR")
             {
+                operador = textBox1.Text;
                 band = 3;
-                Inicio form = new Inicio(ds,band);                
+                Inicio form = new Inicio(ds,band,operador);                
                 LIMPIAR();
                 form.Show();
                 this.Hide();
