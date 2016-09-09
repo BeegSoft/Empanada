@@ -92,6 +92,7 @@
     <Compile Include="ESTADISTICAS\Almacen.Designer.cs">
       <DependentUpon>Almacen.cs</DependentUpon>
     </Compile>
+    <Compile Include="IForm.cs" />
     <Compile Include="LOGIN\Control_acceso.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -124,7 +125,6 @@
     <Compile Include="ESTADISTICAS\Historial.Designer.cs">
       <DependentUpon>Historial.cs</DependentUpon>
     </Compile>
-    <Compile Include="ORDENES\IForm.cs" />
     <Compile Include="ORDENES\Index.cs">
       <SubType>Form</SubType>
     </Compile>
