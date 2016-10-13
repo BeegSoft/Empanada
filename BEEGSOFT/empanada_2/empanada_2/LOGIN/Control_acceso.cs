@@ -25,7 +25,9 @@ namespace empanada_2
             //---------
             this.ds = ds;
             this.ds2 = ds2;
-        }       
+        }
+
+        string comboBox1 = "SELECCIONAR";
 
         private void splashtart()
         {
@@ -36,7 +38,7 @@ namespace empanada_2
         {
             textBox1.Clear();
             textBox2.Clear();
-            comboBox1.Text = "SELECCIONAR";
+            comboBox1 = "SELECCIONAR";
         }
         
         string ds,ds2,operador;
@@ -56,8 +58,9 @@ namespace empanada_2
 
             OleDbConnection conexion = new OleDbConnection(ds2);
             conexion.Open();
-            string select = "SELECT * FROM USUARIOS where USUARIOS.nombre='" + textBox1.Text + "'and USUARIOS.clave='" + var1 + "'and USUARIOS.tipo_usuario='" + comboBox1.Text + "'";
-            OleDbCommand cmd6 = new OleDbCommand(select, conexion);
+
+            string select2 = "SELECT * FROM USUARIOS where USUARIOS.nombre='" + textBox1.Text + "'and USUARIOS.clave='" + var1 + "'";
+            OleDbCommand cmd6 = new OleDbCommand(select2, conexion);
             try
             {
                 OleDbDataReader reader = cmd6.ExecuteReader();
@@ -65,9 +68,8 @@ namespace empanada_2
                 if (reader.HasRows)
                 {
                     while (reader.Read())
-                    {                        
+                    {
                         CHECAR2();
-
                     }
                 }
                 else
@@ -84,7 +86,7 @@ namespace empanada_2
                         veces = veces + 1;
                         textBox1.Focus();
                     }
-                }               
+                }
                 reader.Close();
             }
             catch (Exception ex)
@@ -100,12 +102,12 @@ namespace empanada_2
 
         private void CHECAR2()
         {
-            if ((comboBox1.Text == "ROOT") || (comboBox1.Text == "ADMINISTRADOR") || (comboBox1.Text == "OPERADOR"))
+            if ((comboBox1 == "ROOT") || (comboBox1 == "ADMINISTRADOR") || (comboBox1 == "OPERADOR"))
             {
                 textBox1.Focus();
-                TIPO();                
+                TIPO();
             }
-            else if ((comboBox1.Text != "ROOT") || (comboBox1.Text != "ADMINISTRADOR") || (comboBox1.Text != "OPERADOR"))
+            else if ((comboBox1 != "ROOT") || (comboBox1 != "ADMINISTRADOR") || (comboBox1 != "OPERADOR"))
             {
                 if (veces == 3)
                 {
@@ -124,7 +126,7 @@ namespace empanada_2
 
         private void TIPO()
         {
-            if (comboBox1.Text == "ROOT")
+            if (comboBox1 == "ROOT")
             {
                 band = 0;
                 Users corre = new Users(ds,ds2, band,operador);
@@ -132,7 +134,7 @@ namespace empanada_2
                 LIMPIAR();
                 this.Hide();
             }
-            else if (comboBox1.Text == "ADMINISTRADOR")
+            else if (comboBox1 == "ADMINISTRADOR")
             {
                 band = 1;
                 Users corre = new Users(ds,ds2, band,operador);
@@ -141,7 +143,7 @@ namespace empanada_2
                 LIMPIAR();
                 this.Hide();
             }
-            else if(comboBox1.Text=="OPERADOR")
+            else if(comboBox1 =="OPERADOR")
             {
                 operador = textBox1.Text;
                 band = 3;
@@ -168,17 +170,16 @@ namespace empanada_2
                     textBox2.Focus();
                     return;
                 }
-                if (comboBox1.Text == "SELECCIONAR")
+                if (comboBox1 == "SELECCIONAR")
                 {
                     MessageBox.Show("Seleccione Tipo para Continuar", "conexion", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                    comboBox1.Focus();
                     return;
                 }
-                if ((textBox1.Text != "") && (textBox2.Text != "") && (comboBox1.Text != "SELECCIONAR"))
+                if ((textBox1.Text != "") && (textBox2.Text != "") && (comboBox1 != "SELECCIONAR"))
                 {
                     CONECTAR();
                     break;
-                }                
+                }
             } while (true);
 
         }
@@ -189,6 +190,36 @@ namespace empanada_2
 
         private void button3_Click(object sender, EventArgs e)
         {
+            OleDbConnection conexion = new OleDbConnection(ds2);
+            conexion.Open();
+
+            //verificar el tipo de usuario-------------------------
+            string select = "SELECT tipo_usuario FROM USUARIOS where USUARIOS.nombre='" + textBox1.Text + "'";
+            OleDbCommand cmd = new OleDbCommand(select, conexion);
+            try
+            {
+                OleDbDataReader reader = cmd.ExecuteReader();
+
+                if (reader.HasRows)
+                {
+                    while (reader.Read())
+                    {
+                        comboBox1 = reader.GetString(0);
+                    }
+                }
+                else
+                {
+                    //MessageBox.Show("No se pudo", "MENSAJE", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+                reader.Close();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error orden" + ex, "MENSAJE", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            conexion.Close();
+            ///----------------------------------------------------
+
             CHECAR();
         }
 
