@@ -170,12 +170,7 @@ namespace empanada_2
                     textBox2.Focus();
                     return;
                 }
-                if (comboBox1 == "SELECCIONAR")
-                {
-                    MessageBox.Show("Seleccione Tipo para Continuar", "conexion", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                    return;
-                }
-                if ((textBox1.Text != "") && (textBox2.Text != "") && (comboBox1 != "SELECCIONAR"))
+                if ((textBox1.Text != "") && (textBox2.Text != ""))
                 {
                     CONECTAR();
                     break;
@@ -215,7 +210,7 @@ namespace empanada_2
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Error orden" + ex, "MENSAJE", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Error carga" + ex, "MENSAJE", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             conexion.Close();
             ///----------------------------------------------------
