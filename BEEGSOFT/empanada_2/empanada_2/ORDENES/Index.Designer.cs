@@ -133,6 +133,18 @@
             this.button13 = new System.Windows.Forms.Button();
             this.button15 = new System.Windows.Forms.Button();
             this.button18 = new System.Windows.Forms.Button();
+            this.button27 = new System.Windows.Forms.Button();
+            this.button28 = new System.Windows.Forms.Button();
+            this.queso_textBox1 = new System.Windows.Forms.TextBox();
+            this.crukiente_textBox2 = new System.Windows.Forms.TextBox();
+            this.label18 = new System.Windows.Forms.Label();
+            this.label19 = new System.Windows.Forms.Label();
+            this.button29 = new System.Windows.Forms.Button();
+            this.crujiente_button30 = new System.Windows.Forms.Button();
+            this.button31_deshe = new System.Windows.Forms.Button();
+            this.textBox3_deshebrada = new System.Windows.Forms.TextBox();
+            this.label20 = new System.Windows.Forms.Label();
+            this.button32_deshebrada = new System.Windows.Forms.Button();
             this.menuStrip1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
@@ -301,6 +313,18 @@
             // 
             // groupBox2
             // 
+            this.groupBox2.Controls.Add(this.button31_deshe);
+            this.groupBox2.Controls.Add(this.textBox3_deshebrada);
+            this.groupBox2.Controls.Add(this.label20);
+            this.groupBox2.Controls.Add(this.button32_deshebrada);
+            this.groupBox2.Controls.Add(this.button27);
+            this.groupBox2.Controls.Add(this.button28);
+            this.groupBox2.Controls.Add(this.queso_textBox1);
+            this.groupBox2.Controls.Add(this.crukiente_textBox2);
+            this.groupBox2.Controls.Add(this.label18);
+            this.groupBox2.Controls.Add(this.label19);
+            this.groupBox2.Controls.Add(this.button29);
+            this.groupBox2.Controls.Add(this.crujiente_button30);
             this.groupBox2.Controls.Add(this.button9);
             this.groupBox2.Controls.Add(this.button8);
             this.groupBox2.Controls.Add(this.button7);
@@ -347,7 +371,7 @@
             // 
             // button9
             // 
-            this.button9.Location = new System.Drawing.Point(365, 160);
+            this.button9.Location = new System.Drawing.Point(304, 160);
             this.button9.Name = "button9";
             this.button9.Size = new System.Drawing.Size(24, 20);
             this.button9.TabIndex = 29;
@@ -356,7 +380,7 @@
             // 
             // button8
             // 
-            this.button8.Location = new System.Drawing.Point(271, 159);
+            this.button8.Location = new System.Drawing.Point(225, 159);
             this.button8.Name = "button8";
             this.button8.Size = new System.Drawing.Size(24, 20);
             this.button8.TabIndex = 33;
@@ -365,7 +389,7 @@
             // 
             // button7
             // 
-            this.button7.Location = new System.Drawing.Point(167, 160);
+            this.button7.Location = new System.Drawing.Point(137, 160);
             this.button7.Name = "button7";
             this.button7.Size = new System.Drawing.Size(24, 20);
             this.button7.TabIndex = 29;
@@ -374,7 +398,7 @@
             // 
             // button6
             // 
-            this.button6.Location = new System.Drawing.Point(70, 159);
+            this.button6.Location = new System.Drawing.Point(51, 159);
             this.button6.Name = "button6";
             this.button6.Size = new System.Drawing.Size(24, 20);
             this.button6.TabIndex = 32;
@@ -383,7 +407,7 @@
             // 
             // button5
             // 
-            this.button5.Location = new System.Drawing.Point(464, 77);
+            this.button5.Location = new System.Drawing.Point(386, 77);
             this.button5.Name = "button5";
             this.button5.Size = new System.Drawing.Size(24, 20);
             this.button5.TabIndex = 31;
@@ -392,7 +416,7 @@
             // 
             // button4
             // 
-            this.button4.Location = new System.Drawing.Point(365, 77);
+            this.button4.Location = new System.Drawing.Point(302, 77);
             this.button4.Name = "button4";
             this.button4.Size = new System.Drawing.Size(24, 20);
             this.button4.TabIndex = 29;
@@ -401,7 +425,7 @@
             // 
             // button3
             // 
-            this.button3.Location = new System.Drawing.Point(271, 77);
+            this.button3.Location = new System.Drawing.Point(219, 77);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(24, 20);
             this.button3.TabIndex = 30;
@@ -410,7 +434,7 @@
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(167, 77);
+            this.button2.Location = new System.Drawing.Point(133, 77);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(24, 20);
             this.button2.TabIndex = 29;
@@ -419,7 +443,7 @@
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(70, 77);
+            this.button1.Location = new System.Drawing.Point(51, 77);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(24, 20);
             this.button1.TabIndex = 28;
@@ -430,7 +454,7 @@
             // 
             this.textBoxpicadillo.Enabled = false;
             this.textBoxpicadillo.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxpicadillo.Location = new System.Drawing.Point(427, 77);
+            this.textBoxpicadillo.Location = new System.Drawing.Point(350, 77);
             this.textBoxpicadillo.Name = "textBoxpicadillo";
             this.textBoxpicadillo.Size = new System.Drawing.Size(30, 20);
             this.textBoxpicadillo.TabIndex = 27;
@@ -439,10 +463,10 @@
             // label14
             // 
             this.label14.AutoSize = true;
-            this.label14.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label14.Location = new System.Drawing.Point(395, 63);
+            this.label14.Font = new System.Drawing.Font("Microsoft Sans Serif", 6.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label14.Location = new System.Drawing.Point(347, 63);
             this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(55, 13);
+            this.label14.Size = new System.Drawing.Size(48, 12);
             this.label14.TabIndex = 26;
             this.label14.Text = "Picadillo";
             // 
@@ -450,9 +474,9 @@
             // 
             this.buttonpicadillo.BackgroundImage = global::empanada_2.Properties.Resources.picadillo;
             this.buttonpicadillo.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.buttonpicadillo.Location = new System.Drawing.Point(399, 19);
+            this.buttonpicadillo.Location = new System.Drawing.Point(342, 19);
             this.buttonpicadillo.Name = "buttonpicadillo";
-            this.buttonpicadillo.Size = new System.Drawing.Size(90, 41);
+            this.buttonpicadillo.Size = new System.Drawing.Size(76, 41);
             this.buttonpicadillo.TabIndex = 25;
             this.buttonpicadillo.UseVisualStyleBackColor = true;
             this.buttonpicadillo.Click += new System.EventHandler(this.buttonpicadillo_Click);
@@ -461,7 +485,7 @@
             // 
             this.textBoxtinga.Enabled = false;
             this.textBoxtinga.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxtinga.Location = new System.Drawing.Point(328, 160);
+            this.textBoxtinga.Location = new System.Drawing.Point(267, 160);
             this.textBoxtinga.Name = "textBoxtinga";
             this.textBoxtinga.Size = new System.Drawing.Size(30, 20);
             this.textBoxtinga.TabIndex = 24;
@@ -471,7 +495,7 @@
             // 
             this.textBoxnopal.Enabled = false;
             this.textBoxnopal.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxnopal.Location = new System.Drawing.Point(233, 160);
+            this.textBoxnopal.Location = new System.Drawing.Point(185, 160);
             this.textBoxnopal.Name = "textBoxnopal";
             this.textBoxnopal.Size = new System.Drawing.Size(30, 20);
             this.textBoxnopal.TabIndex = 23;
@@ -481,7 +505,7 @@
             // 
             this.textBoxchicharronsr.Enabled = false;
             this.textBoxchicharronsr.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxchicharronsr.Location = new System.Drawing.Point(129, 160);
+            this.textBoxchicharronsr.Location = new System.Drawing.Point(99, 160);
             this.textBoxchicharronsr.Name = "textBoxchicharronsr";
             this.textBoxchicharronsr.Size = new System.Drawing.Size(30, 20);
             this.textBoxchicharronsr.TabIndex = 22;
@@ -491,7 +515,7 @@
             // 
             this.textBoxchicharronsv.Enabled = false;
             this.textBoxchicharronsv.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxchicharronsv.Location = new System.Drawing.Point(33, 160);
+            this.textBoxchicharronsv.Location = new System.Drawing.Point(14, 160);
             this.textBoxchicharronsv.Name = "textBoxchicharronsv";
             this.textBoxchicharronsv.Size = new System.Drawing.Size(30, 20);
             this.textBoxchicharronsv.TabIndex = 21;
@@ -501,7 +525,7 @@
             // 
             this.textBoxcochinita.Enabled = false;
             this.textBoxcochinita.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxcochinita.Location = new System.Drawing.Point(328, 77);
+            this.textBoxcochinita.Location = new System.Drawing.Point(265, 77);
             this.textBoxcochinita.Name = "textBoxcochinita";
             this.textBoxcochinita.Size = new System.Drawing.Size(30, 20);
             this.textBoxcochinita.TabIndex = 20;
@@ -511,7 +535,7 @@
             // 
             this.textBoxfrijol.Enabled = false;
             this.textBoxfrijol.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxfrijol.Location = new System.Drawing.Point(233, 77);
+            this.textBoxfrijol.Location = new System.Drawing.Point(181, 77);
             this.textBoxfrijol.Name = "textBoxfrijol";
             this.textBoxfrijol.Size = new System.Drawing.Size(30, 20);
             this.textBoxfrijol.TabIndex = 19;
@@ -521,7 +545,7 @@
             // 
             this.textBoxrajas.Enabled = false;
             this.textBoxrajas.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxrajas.Location = new System.Drawing.Point(129, 77);
+            this.textBoxrajas.Location = new System.Drawing.Point(95, 77);
             this.textBoxrajas.Name = "textBoxrajas";
             this.textBoxrajas.Size = new System.Drawing.Size(30, 20);
             this.textBoxrajas.TabIndex = 18;
@@ -531,7 +555,7 @@
             // 
             this.textBoxcarnec.Enabled = false;
             this.textBoxcarnec.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxcarnec.Location = new System.Drawing.Point(33, 77);
+            this.textBoxcarnec.Location = new System.Drawing.Point(14, 77);
             this.textBoxcarnec.Name = "textBoxcarnec";
             this.textBoxcarnec.Size = new System.Drawing.Size(30, 20);
             this.textBoxcarnec.TabIndex = 17;
@@ -540,80 +564,80 @@
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.Location = new System.Drawing.Point(294, 144);
+            this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 6.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label8.Location = new System.Drawing.Point(256, 144);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(89, 13);
+            this.label8.Size = new System.Drawing.Size(75, 12);
             this.label8.TabIndex = 16;
             this.label8.Text = "Tinga de Pollo";
             // 
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(225, 144);
+            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 6.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label7.Location = new System.Drawing.Point(184, 144);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(40, 13);
+            this.label7.Size = new System.Drawing.Size(34, 12);
             this.label7.TabIndex = 15;
             this.label7.Text = "Nopal";
             // 
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(100, 144);
+            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 6.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.Location = new System.Drawing.Point(92, 144);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(95, 13);
+            this.label6.Size = new System.Drawing.Size(82, 12);
             this.label6.TabIndex = 14;
             this.label6.Text = "Chicharron S/R";
             // 
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 6.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label5.Location = new System.Drawing.Point(3, 144);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(94, 13);
+            this.label5.Size = new System.Drawing.Size(82, 12);
             this.label5.TabIndex = 13;
             this.label5.Text = "Chicharron S/V";
             // 
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(101, 61);
+            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 6.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.Location = new System.Drawing.Point(87, 63);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(106, 13);
+            this.label4.Size = new System.Drawing.Size(92, 12);
             this.label4.TabIndex = 12;
             this.label4.Text = "Rajas con queso.";
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(203, 62);
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 6.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Location = new System.Drawing.Point(177, 62);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(97, 13);
+            this.label3.Size = new System.Drawing.Size(85, 12);
             this.label3.TabIndex = 11;
             this.label3.Text = "Frijol con queso";
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(315, 61);
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 6.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(271, 61);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(60, 13);
+            this.label2.Size = new System.Drawing.Size(53, 12);
             this.label2.TabIndex = 10;
             this.label2.Text = "Cochinita";
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 6.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.Location = new System.Drawing.Point(3, 63);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(97, 13);
+            this.label1.Size = new System.Drawing.Size(85, 12);
             this.label1.TabIndex = 9;
             this.label1.Text = "Carne con Chile";
             // 
@@ -621,9 +645,9 @@
             // 
             this.buttontinga.BackgroundImage = global::empanada_2.Properties.Resources.tinga_de_pollo;
             this.buttontinga.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.buttontinga.Location = new System.Drawing.Point(297, 100);
+            this.buttontinga.Location = new System.Drawing.Point(258, 100);
             this.buttontinga.Name = "buttontinga";
-            this.buttontinga.Size = new System.Drawing.Size(90, 41);
+            this.buttontinga.Size = new System.Drawing.Size(76, 41);
             this.buttontinga.TabIndex = 8;
             this.buttontinga.UseVisualStyleBackColor = true;
             this.buttontinga.Click += new System.EventHandler(this.buttontinga_Click);
@@ -632,9 +656,9 @@
             // 
             this.buttonnopal.BackgroundImage = global::empanada_2.Properties.Resources.nopal;
             this.buttonnopal.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.buttonnopal.Location = new System.Drawing.Point(201, 100);
+            this.buttonnopal.Location = new System.Drawing.Point(175, 100);
             this.buttonnopal.Name = "buttonnopal";
-            this.buttonnopal.Size = new System.Drawing.Size(90, 41);
+            this.buttonnopal.Size = new System.Drawing.Size(76, 41);
             this.buttonnopal.TabIndex = 7;
             this.buttonnopal.UseVisualStyleBackColor = true;
             this.buttonnopal.Click += new System.EventHandler(this.buttonnopal_Click);
@@ -643,9 +667,9 @@
             // 
             this.buttonchicharronsr.BackgroundImage = global::empanada_2.Properties.Resources.chicharron_salsa_roja;
             this.buttonchicharronsr.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.buttonchicharronsr.Location = new System.Drawing.Point(104, 100);
+            this.buttonchicharronsr.Location = new System.Drawing.Point(93, 100);
             this.buttonchicharronsr.Name = "buttonchicharronsr";
-            this.buttonchicharronsr.Size = new System.Drawing.Size(90, 41);
+            this.buttonchicharronsr.Size = new System.Drawing.Size(76, 41);
             this.buttonchicharronsr.TabIndex = 6;
             this.buttonchicharronsr.UseVisualStyleBackColor = true;
             this.buttonchicharronsr.Click += new System.EventHandler(this.buttonchicharronsr_Click);
@@ -656,7 +680,7 @@
             this.buttonchicarronsv.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.buttonchicarronsv.Location = new System.Drawing.Point(7, 100);
             this.buttonchicarronsv.Name = "buttonchicarronsv";
-            this.buttonchicarronsv.Size = new System.Drawing.Size(90, 41);
+            this.buttonchicarronsv.Size = new System.Drawing.Size(76, 41);
             this.buttonchicarronsv.TabIndex = 5;
             this.buttonchicarronsv.UseVisualStyleBackColor = true;
             this.buttonchicarronsv.Click += new System.EventHandler(this.buttonchicarronsv_Click);
@@ -665,9 +689,9 @@
             // 
             this.buttonrajas.BackgroundImage = global::empanada_2.Properties.Resources.queso;
             this.buttonrajas.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.buttonrajas.Location = new System.Drawing.Point(106, 19);
+            this.buttonrajas.Location = new System.Drawing.Point(92, 19);
             this.buttonrajas.Name = "buttonrajas";
-            this.buttonrajas.Size = new System.Drawing.Size(90, 41);
+            this.buttonrajas.Size = new System.Drawing.Size(76, 41);
             this.buttonrajas.TabIndex = 4;
             this.buttonrajas.UseVisualStyleBackColor = true;
             this.buttonrajas.Click += new System.EventHandler(this.button4_Click);
@@ -676,9 +700,9 @@
             // 
             this.buttonfrijol.BackgroundImage = global::empanada_2.Properties.Resources.frijol;
             this.buttonfrijol.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.buttonfrijol.Location = new System.Drawing.Point(204, 19);
+            this.buttonfrijol.Location = new System.Drawing.Point(178, 19);
             this.buttonfrijol.Name = "buttonfrijol";
-            this.buttonfrijol.Size = new System.Drawing.Size(90, 41);
+            this.buttonfrijol.Size = new System.Drawing.Size(76, 41);
             this.buttonfrijol.TabIndex = 3;
             this.buttonfrijol.UseVisualStyleBackColor = true;
             this.buttonfrijol.Click += new System.EventHandler(this.button3_Click);
@@ -687,9 +711,9 @@
             // 
             this.buttoncochinita.BackgroundImage = global::empanada_2.Properties.Resources.cochinita;
             this.buttoncochinita.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.buttoncochinita.Location = new System.Drawing.Point(302, 19);
+            this.buttoncochinita.Location = new System.Drawing.Point(260, 19);
             this.buttoncochinita.Name = "buttoncochinita";
-            this.buttoncochinita.Size = new System.Drawing.Size(90, 41);
+            this.buttoncochinita.Size = new System.Drawing.Size(76, 41);
             this.buttoncochinita.TabIndex = 2;
             this.buttoncochinita.UseVisualStyleBackColor = true;
             this.buttoncochinita.Click += new System.EventHandler(this.button2_Click);
@@ -701,7 +725,7 @@
             this.buttoncarneconchile.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttoncarneconchile.Location = new System.Drawing.Point(7, 19);
             this.buttoncarneconchile.Name = "buttoncarneconchile";
-            this.buttoncarneconchile.Size = new System.Drawing.Size(90, 41);
+            this.buttoncarneconchile.Size = new System.Drawing.Size(76, 41);
             this.buttoncarneconchile.TabIndex = 1;
             this.buttoncarneconchile.UseVisualStyleBackColor = true;
             this.buttoncarneconchile.Click += new System.EventHandler(this.button1_Click);
@@ -808,10 +832,10 @@
             // label15
             // 
             this.label15.AutoSize = true;
-            this.label15.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label15.Font = new System.Drawing.Font("Microsoft Sans Serif", 6.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label15.Location = new System.Drawing.Point(3, 146);
             this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(50, 13);
+            this.label15.Size = new System.Drawing.Size(43, 12);
             this.label15.TabIndex = 32;
             this.label15.Text = "Cebada";
             // 
@@ -821,7 +845,7 @@
             this.buttoncebada.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.buttoncebada.Location = new System.Drawing.Point(9, 102);
             this.buttoncebada.Name = "buttoncebada";
-            this.buttoncebada.Size = new System.Drawing.Size(90, 41);
+            this.buttoncebada.Size = new System.Drawing.Size(76, 41);
             this.buttoncebada.TabIndex = 31;
             this.buttoncebada.UseVisualStyleBackColor = true;
             this.buttoncebada.Click += new System.EventHandler(this.buttoncebada_Click);
@@ -839,10 +863,10 @@
             // v
             // 
             this.v.AutoSize = true;
-            this.v.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.v.Font = new System.Drawing.Font("Microsoft Sans Serif", 6.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.v.Location = new System.Drawing.Point(103, 146);
             this.v.Name = "v";
-            this.v.Size = new System.Drawing.Size(33, 13);
+            this.v.Size = new System.Drawing.Size(29, 12);
             this.v.TabIndex = 29;
             this.v.Text = "Cafe";
             // 
@@ -852,7 +876,7 @@
             this.buttoncafe.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.buttoncafe.Location = new System.Drawing.Point(104, 102);
             this.buttoncafe.Name = "buttoncafe";
-            this.buttoncafe.Size = new System.Drawing.Size(90, 41);
+            this.buttoncafe.Size = new System.Drawing.Size(76, 41);
             this.buttoncafe.TabIndex = 28;
             this.buttoncafe.UseVisualStyleBackColor = true;
             this.buttoncafe.Click += new System.EventHandler(this.button1_Click_1);
@@ -900,40 +924,40 @@
             // label12
             // 
             this.label12.AutoSize = true;
-            this.label12.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label12.Font = new System.Drawing.Font("Microsoft Sans Serif", 6.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label12.Location = new System.Drawing.Point(197, 146);
             this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(36, 13);
+            this.label12.Size = new System.Drawing.Size(30, 12);
             this.label12.TabIndex = 20;
             this.label12.Text = "Soda";
             // 
             // label11
             // 
             this.label11.AutoSize = true;
-            this.label11.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label11.Font = new System.Drawing.Font("Microsoft Sans Serif", 6.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label11.Location = new System.Drawing.Point(197, 63);
             this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(66, 13);
+            this.label11.Size = new System.Drawing.Size(57, 12);
             this.label11.TabIndex = 19;
             this.label11.Text = "Tamarindo";
             // 
             // label10
             // 
             this.label10.AutoSize = true;
-            this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 6.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label10.Location = new System.Drawing.Point(100, 63);
             this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(53, 13);
+            this.label10.Size = new System.Drawing.Size(47, 12);
             this.label10.TabIndex = 18;
             this.label10.Text = "Jamaica";
             // 
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 6.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label9.Location = new System.Drawing.Point(3, 63);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(59, 13);
+            this.label9.Size = new System.Drawing.Size(51, 12);
             this.label9.TabIndex = 17;
             this.label9.Text = "Horchata";
             // 
@@ -943,7 +967,7 @@
             this.button12.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.button12.Location = new System.Drawing.Point(201, 102);
             this.button12.Name = "button12";
-            this.button12.Size = new System.Drawing.Size(90, 41);
+            this.button12.Size = new System.Drawing.Size(76, 41);
             this.button12.TabIndex = 12;
             this.button12.UseVisualStyleBackColor = true;
             this.button12.Click += new System.EventHandler(this.button12_Click);
@@ -954,7 +978,7 @@
             this.buttontamarindo.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.buttontamarindo.Location = new System.Drawing.Point(201, 19);
             this.buttontamarindo.Name = "buttontamarindo";
-            this.buttontamarindo.Size = new System.Drawing.Size(90, 41);
+            this.buttontamarindo.Size = new System.Drawing.Size(76, 41);
             this.buttontamarindo.TabIndex = 11;
             this.buttontamarindo.UseVisualStyleBackColor = true;
             this.buttontamarindo.Click += new System.EventHandler(this.button11_Click);
@@ -965,7 +989,7 @@
             this.buttonjamaica.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.buttonjamaica.Location = new System.Drawing.Point(104, 19);
             this.buttonjamaica.Name = "buttonjamaica";
-            this.buttonjamaica.Size = new System.Drawing.Size(90, 41);
+            this.buttonjamaica.Size = new System.Drawing.Size(76, 41);
             this.buttonjamaica.TabIndex = 10;
             this.buttonjamaica.UseVisualStyleBackColor = true;
             this.buttonjamaica.Click += new System.EventHandler(this.button10_Click);
@@ -976,7 +1000,7 @@
             this.buttonhorchata.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.buttonhorchata.Location = new System.Drawing.Point(7, 19);
             this.buttonhorchata.Name = "buttonhorchata";
-            this.buttonhorchata.Size = new System.Drawing.Size(90, 41);
+            this.buttonhorchata.Size = new System.Drawing.Size(76, 41);
             this.buttonhorchata.TabIndex = 9;
             this.buttonhorchata.UseVisualStyleBackColor = true;
             this.buttonhorchata.Click += new System.EventHandler(this.buttonhorchata_Click);
@@ -1272,6 +1296,123 @@
             this.button18.UseVisualStyleBackColor = false;
             this.button18.Click += new System.EventHandler(this.button18_Click);
             // 
+            // button27
+            // 
+            this.button27.Location = new System.Drawing.Point(472, 160);
+            this.button27.Name = "button27";
+            this.button27.Size = new System.Drawing.Size(24, 20);
+            this.button27.TabIndex = 40;
+            this.button27.UseVisualStyleBackColor = true;
+            this.button27.Click += new System.EventHandler(this.button27_Click);
+            // 
+            // button28
+            // 
+            this.button28.Location = new System.Drawing.Point(393, 159);
+            this.button28.Name = "button28";
+            this.button28.Size = new System.Drawing.Size(24, 20);
+            this.button28.TabIndex = 41;
+            this.button28.UseVisualStyleBackColor = true;
+            this.button28.Click += new System.EventHandler(this.button28_Click);
+            // 
+            // queso_textBox1
+            // 
+            this.queso_textBox1.Enabled = false;
+            this.queso_textBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.queso_textBox1.Location = new System.Drawing.Point(435, 160);
+            this.queso_textBox1.Name = "queso_textBox1";
+            this.queso_textBox1.Size = new System.Drawing.Size(30, 20);
+            this.queso_textBox1.TabIndex = 39;
+            this.queso_textBox1.Text = "0";
+            // 
+            // crukiente_textBox2
+            // 
+            this.crukiente_textBox2.Enabled = false;
+            this.crukiente_textBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.crukiente_textBox2.Location = new System.Drawing.Point(353, 160);
+            this.crukiente_textBox2.Name = "crukiente_textBox2";
+            this.crukiente_textBox2.Size = new System.Drawing.Size(30, 20);
+            this.crukiente_textBox2.TabIndex = 38;
+            this.crukiente_textBox2.Text = "0";
+            // 
+            // label18
+            // 
+            this.label18.AutoSize = true;
+            this.label18.Font = new System.Drawing.Font("Microsoft Sans Serif", 6.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label18.Location = new System.Drawing.Point(449, 144);
+            this.label18.Name = "label18";
+            this.label18.Size = new System.Drawing.Size(37, 12);
+            this.label18.TabIndex = 37;
+            this.label18.Text = "Queso";
+            // 
+            // label19
+            // 
+            this.label19.AutoSize = true;
+            this.label19.Font = new System.Drawing.Font("Microsoft Sans Serif", 6.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label19.Location = new System.Drawing.Point(334, 144);
+            this.label19.Name = "label19";
+            this.label19.Size = new System.Drawing.Size(109, 12);
+            this.label19.TabIndex = 36;
+            this.label19.Text = "Chicharron Crujiente";
+            // 
+            // button29
+            // 
+            this.button29.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.button29.Location = new System.Drawing.Point(426, 100);
+            this.button29.Name = "button29";
+            this.button29.Size = new System.Drawing.Size(76, 41);
+            this.button29.TabIndex = 35;
+            this.button29.UseVisualStyleBackColor = true;
+            this.button29.Click += new System.EventHandler(this.button29_Click);
+            // 
+            // crujiente_button30
+            // 
+            this.crujiente_button30.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.crujiente_button30.Location = new System.Drawing.Point(343, 100);
+            this.crujiente_button30.Name = "crujiente_button30";
+            this.crujiente_button30.Size = new System.Drawing.Size(76, 41);
+            this.crujiente_button30.TabIndex = 34;
+            this.crujiente_button30.UseVisualStyleBackColor = true;
+            this.crujiente_button30.Click += new System.EventHandler(this.crujiente_button30_Click);
+            // 
+            // button31_deshe
+            // 
+            this.button31_deshe.Location = new System.Drawing.Point(470, 79);
+            this.button31_deshe.Name = "button31_deshe";
+            this.button31_deshe.Size = new System.Drawing.Size(24, 20);
+            this.button31_deshe.TabIndex = 45;
+            this.button31_deshe.UseVisualStyleBackColor = true;
+            this.button31_deshe.Click += new System.EventHandler(this.button31_Click);
+            // 
+            // textBox3_deshebrada
+            // 
+            this.textBox3_deshebrada.Enabled = false;
+            this.textBox3_deshebrada.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox3_deshebrada.Location = new System.Drawing.Point(433, 79);
+            this.textBox3_deshebrada.Name = "textBox3_deshebrada";
+            this.textBox3_deshebrada.Size = new System.Drawing.Size(30, 20);
+            this.textBox3_deshebrada.TabIndex = 44;
+            this.textBox3_deshebrada.Text = "0";
+            // 
+            // label20
+            // 
+            this.label20.AutoSize = true;
+            this.label20.Font = new System.Drawing.Font("Microsoft Sans Serif", 6.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label20.Location = new System.Drawing.Point(428, 63);
+            this.label20.Name = "label20";
+            this.label20.Size = new System.Drawing.Size(65, 12);
+            this.label20.TabIndex = 43;
+            this.label20.Text = "Deshebrada";
+            // 
+            // button32_deshebrada
+            // 
+            this.button32_deshebrada.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.button32_deshebrada.Location = new System.Drawing.Point(424, 19);
+            this.button32_deshebrada.Name = "button32_deshebrada";
+            this.button32_deshebrada.Size = new System.Drawing.Size(76, 41);
+            this.button32_deshebrada.TabIndex = 42;
+            this.button32_deshebrada.UseVisualStyleBackColor = true;
+            this.button32_deshebrada.Click += new System.EventHandler(this.button32_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 13F);
@@ -1416,6 +1557,18 @@
         private System.Windows.Forms.Button button24;
         private System.Windows.Forms.Timer timer1;
         private System.Windows.Forms.ToolStripMenuItem cerrarSesiónToolStripMenuItem;
+        private System.Windows.Forms.Button button31_deshe;
+        private System.Windows.Forms.TextBox textBox3_deshebrada;
+        private System.Windows.Forms.Label label20;
+        private System.Windows.Forms.Button button32_deshebrada;
+        private System.Windows.Forms.Button button27;
+        private System.Windows.Forms.Button button28;
+        private System.Windows.Forms.TextBox queso_textBox1;
+        private System.Windows.Forms.TextBox crukiente_textBox2;
+        private System.Windows.Forms.Label label18;
+        private System.Windows.Forms.Label label19;
+        private System.Windows.Forms.Button button29;
+        private System.Windows.Forms.Button crujiente_button30;
     }
 }
 

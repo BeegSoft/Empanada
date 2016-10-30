@@ -35,7 +35,7 @@ namespace empanada_2
 
         //para cada producto falta agregar una variable para que realice la funcion de contar cuanto se esta seleccionando de cada cosa
         //---------------------------------------------------
-        int carnec,rajas,chicharronsv,chicharronsr,nopal,tinga,chinita,frijol,dillo,soda,cebada,chata,jamaica,tamarindo,cafe,otros = 0;
+        int carnec,rajas,chicharronsv,chicharronsr,nopal,tinga,chinita,frijol,dillo,soda,cebada,chata,jamaica,tamarindo,cafe,queso,chi_cru,desebrada,otros = 0;
 
         //---------------------------------------------------
 
@@ -178,9 +178,15 @@ namespace empanada_2
             textBoxcafe.Text = "0";
             textBoxcebada.Text = "0";
             textBox_otros.Text = "0";
+            queso_textBox1.Text = "0";
+            textBox3_deshebrada.Text = "0";
+            crukiente_textBox2.Text = "0";
             
 
             carnec = 0;
+            queso = 0;
+            chi_cru = 0;
+            desebrada = 0;
             rajas = 0;
             chicharronsv = 0;
             chicharronsr = 0;
@@ -566,6 +572,9 @@ namespace empanada_2
                 textBoxtamarindo.Enabled = true;
                 textBoxtinga.Enabled = true;
                 textBox_otros.Enabled = true;
+                queso_textBox1.Enabled = true;
+                textBox3_deshebrada.Enabled = true;
+                crukiente_textBox2.Enabled = true;
             }
             else
             {
@@ -585,6 +594,9 @@ namespace empanada_2
                 textBoxtamarindo.Enabled = false;
                 textBoxtinga.Enabled = false;
                 textBox_otros.Enabled = false;
+                queso_textBox1.Enabled = false;
+                textBox3_deshebrada.Enabled = false;
+                crukiente_textBox2.Enabled = false;
             }
         }
 
@@ -1068,7 +1080,21 @@ namespace empanada_2
             if (descripcion == "chicharron s/r")
             {
                 tipo = 35;
-            }            
+            }
+
+            //lo nuevo que se metio
+            if (descripcion == "chicharron deshebrado")
+            {
+                tipo = 35;
+            }
+            if (descripcion == "chicharron crujiente")
+            {
+                tipo = 35;
+            }
+            if (descripcion == "queso")
+            {
+                tipo = 35;
+            }
         }
 
         private void timer1_Tick(object sender, EventArgs e)
@@ -1127,11 +1153,72 @@ namespace empanada_2
                 buttonchicharronsr.Enabled = true;
                 button7.Enabled = true;
             }
+            //lo nuevo que se metio
+            if (descripcion == "chicharron deshebrado")
+            {
+                button32_deshebrada.Enabled = true;
+                button31_deshe.Enabled = true;
+            }
+            if (descripcion == "chicharron crujiente")
+            {
+                crujiente_button30.Enabled = true;
+                button28.Enabled = true;
+            }
+            if (descripcion == "queso")
+            {
+                button27.Enabled = true;
+                button29.Enabled = true;
+            }
         }
 
         private void groupBox3_Enter(object sender, EventArgs e)
         {
 
+        }
+
+        private void button32_Click(object sender, EventArgs e)
+        {
+            desebrada = desebrada + 1;
+            textBox3_deshebrada.Text = Convert.ToString(desebrada);
+        }
+
+        private void crujiente_button30_Click(object sender, EventArgs e)
+        {
+            chi_cru = chi_cru + 1;
+            crukiente_textBox2.Text = Convert.ToString(chi_cru);
+        }
+
+        private void button29_Click(object sender, EventArgs e)
+        {
+            queso = queso + 1;
+            queso_textBox1.Text = Convert.ToString(queso);
+        }
+
+        private void button31_Click(object sender, EventArgs e)
+        {
+            if (Convert.ToInt32(textBox3_deshebrada.Text) > 0)
+            {
+                desebrada = desebrada - 1;
+                textBox3_deshebrada.Text = Convert.ToString(desebrada);
+            }
+        }
+
+        private void button28_Click(object sender, EventArgs e)
+        {
+            if (Convert.ToInt32(crukiente_textBox2.Text) > 0)
+            {
+                chi_cru = chi_cru - 1;
+                crukiente_textBox2.Text = Convert.ToString(chi_cru);
+            }
+        }
+
+        private void button27_Click(object sender, EventArgs e)
+        {
+            if (Convert.ToInt32(queso_textBox1.Text) > 0)
+            {
+                queso = queso - 1;
+                queso_textBox1.Text = Convert.ToString(queso);
+            }
         }
 
         private void groupBox1_Enter(object sender, EventArgs e)
@@ -1204,6 +1291,22 @@ namespace empanada_2
             {
                 buttonchicharronsr.Enabled = false;
                 button7.Enabled = false;
+            }
+            //lo nuevo que se metio
+            if (descripcion == "chicharron deshebrado")
+            {
+                button32_deshebrada.Enabled = false;
+                button31_deshe.Enabled = false;
+            }
+            if (descripcion == "chicharron crujiente")
+            {
+                crujiente_button30.Enabled = false;
+                button28.Enabled = false;
+            }
+            if (descripcion == "queso")
+            {
+                button27.Enabled = false;
+                button29.Enabled = false;
             }
         }
 
@@ -1572,7 +1675,61 @@ namespace empanada_2
                         Insertar_datos(cantidad, platillo);
                         INSERTAR_VISU(platillo, cantidad);
                     }
+                    //lo nuevo que se metio
+                    if (Convert.ToInt32(textBox3_deshebrada.Text) != 0)
+                    {
+                        cantidad = Convert.ToInt32(textBox3_deshebrada.Text);
+                        platillo = "chicharron deshebrado";
 
+                        CANTIDAD_PLATILLO(platillo, cantidad);
+                        if (cant_disp >= cantidad)
+                        {
+                            Insertar_datos(cantidad, platillo);
+                            INSERTAR_VISU(platillo, cantidad);
+                            ALMACEN(platillo, cantidad);
+                            RESTA_ALMACEN(platillo, cantidad);
+                        }
+                        else
+                        {
+                            MessageBox.Show("No te Alcanza para realizar el pedido, tienes para hacer " + cant_disp + " empanadas de " + platillo, "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                        }
+                    }
+                    if (Convert.ToInt32(crukiente_textBox2.Text) != 0)
+                    {
+                        cantidad = Convert.ToInt32(crukiente_textBox2.Text);
+                        platillo = "chicharron crujiente";
+                        CANTIDAD_PLATILLO(platillo, cantidad);
+
+                        if (cant_disp >= cantidad)
+                        {
+                            Insertar_datos(cantidad, platillo);
+                            INSERTAR_VISU(platillo, cantidad);
+                            ALMACEN(platillo, cantidad);
+                            RESTA_ALMACEN(platillo, cantidad);
+                        }
+                        else
+                        {
+                            MessageBox.Show("No te Alcanza para realizar el pedido, tienes para hacer " + cant_disp + " empanadas de " + platillo, "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                        }
+                    }
+                    if (Convert.ToInt32(queso_textBox1.Text) != 0)
+                    {
+                        cantidad = Convert.ToInt32(queso_textBox1.Text);
+                        platillo = "queso";
+                        CANTIDAD_PLATILLO(platillo, cantidad);
+
+                        if (cant_disp >= cantidad)
+                        {
+                            Insertar_datos(cantidad, platillo);
+                            INSERTAR_VISU(platillo, cantidad);
+                            ALMACEN(platillo, cantidad);
+                            RESTA_ALMACEN(platillo, cantidad);
+                        }
+                        else
+                        {
+                            MessageBox.Show("No te Alcanza para realizar el pedido, tienes para hacer " + cant_disp + " empanadas de " + platillo, "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                        }
+                    }
 
                     //MOSTRAR EL TOTAL A PAGAR DEL PEDIDO
 

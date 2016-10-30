@@ -295,6 +295,23 @@ namespace empanada_2
                 cantidad = 525;
                 rendimiento = 15;
             }
+
+            //lo nuevo que se metio
+            if (descripcion == "chicharron deshebrado")
+            {
+                cantidad = 525;
+                rendimiento = 15;
+            }
+            if (descripcion == "chicharron crujiente")
+            {
+                cantidad = 525;
+                rendimiento = 15;
+            }
+            if (descripcion == "queso")
+            {
+                cantidad = 525;
+                rendimiento = 15;
+            }
         }
 
         private void button5_Click(object sender, EventArgs e)
