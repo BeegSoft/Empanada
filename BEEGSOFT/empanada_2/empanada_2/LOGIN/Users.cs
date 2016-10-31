@@ -42,28 +42,46 @@ namespace empanada_2
 
         private void modificarToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            // 0 para root
             if (band == 0)
             {
                 foreach (ListViewItem lista in listView1.SelectedItems)
                 {
-                    id =Convert.ToInt32(lista.Text);
+                    id = Convert.ToInt32(lista.Text);
+                }
+                if (id == 0)
+                {
+                    MessageBox.Show("No se encuentra seleccionada un id", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+                else
+                {
                     band = 1;
-                    Nuevo_usuario abre = new Nuevo_usuario(ds,ds2, id, band);
+                    Nuevo_usuario abre = new Nuevo_usuario(ds, ds2, id, band);
                     abre.Show();
+
                 }
                 band = 0;
             }
+            // 1 para administrador
             else if (band == 1)
             {
                 foreach (ListViewItem lista in listView2.SelectedItems)
                 {
                     id = Convert.ToInt32(lista.Text);
+                }
+                if (id == 0)
+                {
+                    MessageBox.Show("No se encuentra seleccionado un id", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+                else
+                {
                     band = 1;
-                    Nuevo_usuario abre = new Nuevo_usuario(ds,ds2, id, band);
+                    Nuevo_usuario abre = new Nuevo_usuario(ds, ds2, id, band);
                     abre.Show();
                 }
                 band = 1;
             }
+            id = 0;
         }
         //public event EventHandler<ListViewUpdateEventArgs> ItemUpdating;
 
