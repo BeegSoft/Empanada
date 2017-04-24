@@ -58,7 +58,7 @@ namespace empanada_2
         {
             foreach (ListViewItem lista in listView_menu.SelectedItems)
             {
-                int id = Convert.ToInt32(lista.Text);
+                int id = Convert.ToInt32(lista.Text);                
 
                 this.Hide();
                 Menu_modificar form = new Menu_modificar(id, ds);

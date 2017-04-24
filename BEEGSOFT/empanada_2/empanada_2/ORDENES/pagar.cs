@@ -28,6 +28,7 @@ namespace empanada_2
 
 
         int id_orden;
+        double Num_orden;
         string total_pagar, fecha,operador;
         String ds;
 
@@ -74,7 +75,7 @@ namespace empanada_2
 
             conexion.Open();
 
-            string select = "SELECT descripcion FROM ORDEN WHERE id_orden=" + id_orden;
+            string select = "SELECT descripcion,Num_orden FROM ORDEN WHERE id_orden=" + id_orden;
             OleDbCommand cmd = new OleDbCommand(select, conexion);
             try
             {
@@ -85,6 +86,7 @@ namespace empanada_2
                     while (reader.Read())
                     {
                         textBox_descripcion.Text = reader.GetString(0);
+                        Num_orden = reader.GetDouble(1);
                     }
                 }
                 else
@@ -210,12 +212,16 @@ namespace empanada_2
         {
             //QUITAR LA ORDEN DEL LISTVIEW QUE SIGNIFICA QUE YA HA PAGADO Y NO TIENE PORQUE APARECER AHI
 
-            if (textBox_efectivo == null)
+            if (textBox_efectivo.Text == "")
             {
                 MessageBox.Show("no puedes imprimir", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             else
             {
+                if (operador == null)
+                {
+                    operador = "ADMINISTRADOR";
+                }
                 OleDbConnection conexion4 = new OleDbConnection(ds);
 
                 conexion4.Open();
@@ -228,18 +234,19 @@ namespace empanada_2
 
                 MessageBox.Show("Pago con exito", "MENSAJE", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 conexion4.Close();
-
+                
                 CrearTicket ticket = new CrearTicket();
                 ticket.AbreCajon();
                 ticket.TextoCentro("LAS EMPANADAS DE MI AMA");
-                ticket.TextoIzquierda("EXPEDIDO EN: LOCAL PRINCIPAL");
+                ticket.TextoIzquierda("EXPEDIDO EN: PLAZA LEY SAHUARO");
                 ticket.TextoIzquierda("DIREC: CALLE 16 Y AV TECNOLOGICO");
                 ticket.TextoIzquierda("TELEFONO: 01 662 176 3999 ");
-                ticket.TextoIzquierda("RFC XXXXXX-XXXXXXX-XXXXX");
+                ticket.TextoIzquierda("RFC: DIZK8105317Z7");
                 ticket.TextoIzquierda("");
                 ticket.TextoIzquierda("");
                 ticket.TextoIzquierda("ATENDIO: "+operador);
-                ticket.TextoExtremos("CLIENTE: ", textBox_descripcion.Text);
+                ticket.TextoIzquierda("CLIENTE: "+textBox_descripcion.Text);
+                ticket.TextoIzquierda("# DE ORDEN: " + Num_orden);
                 ticket.TextoIzquierda("");
                 ticket.TextoExtremos("FECHA:" + DateTime.Now.ToShortDateString(), "HORA:" + DateTime.Now.ToShortTimeString());
                 ticket.lineasAsteriscos();
@@ -335,7 +342,7 @@ namespace empanada_2
                 ticket.TextoCentro("¡GRACIAS POR SU COMPRA!");
                 ticket.CortaTicket();
                 //ticket.ImprimirTicket("Microsoft XPS Document Writer");//Nombre de la impresora ticketera
-                ticket.ImprimirTicket("POS-58(copy of 5)");
+                ticket.ImprimirTicket("POS-58");
 
 
                 conexion.Close();
@@ -343,8 +350,6 @@ namespace empanada_2
                 IForm2 formInterface = this.Owner as IForm2;
                 if (formInterface != null)
                     formInterface.Relogear_ordenes();
-
-
                 this.Close();
             }
         }

@@ -93,12 +93,7 @@ namespace empanada_2
             {
                 MessageBox.Show("Error orden" + ex, "MENSAJE", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-        }
-
-        private void button2_Click(object sender, EventArgs e)
-        {
-            CHECAR();
-        }
+        }        
 
         private void CHECAR2()
         {

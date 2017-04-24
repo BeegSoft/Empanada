@@ -122,6 +122,7 @@
             this.textBox_gasto.Name = "textBox_gasto";
             this.textBox_gasto.Size = new System.Drawing.Size(61, 20);
             this.textBox_gasto.TabIndex = 29;
+            this.textBox_gasto.TextChanged += new System.EventHandler(this.textBox_gasto_TextChanged);
             // 
             // label5
             // 
@@ -136,7 +137,7 @@
             // 
             this.label_fecha.AutoSize = true;
             this.label_fecha.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label_fecha.Location = new System.Drawing.Point(348, 70);
+            this.label_fecha.Location = new System.Drawing.Point(381, 65);
             this.label_fecha.Name = "label_fecha";
             this.label_fecha.Size = new System.Drawing.Size(24, 13);
             this.label_fecha.TabIndex = 38;
@@ -146,7 +147,7 @@
             // 
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(203, 70);
+            this.label6.Location = new System.Drawing.Point(209, 65);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(166, 13);
             this.label6.TabIndex = 40;
@@ -415,8 +416,7 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.TextBox textBox_gasto;
-        private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Label label5;        
         private System.Windows.Forms.Label label_fecha;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.ListView listView_gastos;

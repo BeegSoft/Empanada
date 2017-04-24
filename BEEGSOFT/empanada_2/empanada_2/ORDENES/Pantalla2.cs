@@ -23,50 +23,45 @@ namespace empanada_2
         }
         
         string ds, fecha,operador;
-        int orden_1, orden_2, orden_3, orden_4, orden_5,band;
+        int orden_1, orden_2, orden_3, orden_4, orden_5,band,dato;
 
         #region IForm Members
 
-        public void ChangeTextBoxText(string text, int id)
+        public void normal(string text, int id)
         {
-            if (Convert.ToInt32(listView_platillos.Items.Count) == 0)
+            OleDbConnection conexion = new OleDbConnection(ds);
+
+            conexion.Open();
+
+            string maximo1 = "SELECT Num_orden FROM ORDEN WHERE id_orden= " + id + " AND fecha ='" + fecha + "'";
+            OleDbCommand cmd31 = new OleDbCommand(maximo1, conexion);
+            string valor = Convert.ToInt32(cmd31.ExecuteScalar()).ToString();
+
+            string select = "SELECT COUNT(modificado) FROM VISUALIZADO WHERE id_orden=" + id + " AND modificado =1";
+            OleDbCommand cmd = new OleDbCommand(select, conexion);
+            string compro = (cmd.ExecuteScalar()).ToString();
+
+
+            if ((Convert.ToInt32(tabla_1.Items.Count) == 0) || label2.Text == valor)
             {
+
+                tabla_1.Items.Clear();
                 textBox1.Text = text;
                 orden_1 = id;
-                label2.Text = id.ToString();
-                OleDbDataAdapter adaptador = new OleDbDataAdapter("SELECT id_orden, Platillo, Cantidad FROM VISUALIZADO WHERE id_orden = " + id, ds);
-
-                DataSet dataset = new DataSet();
-                DataTable tabla = new DataTable();
-
-                adaptador.Fill(dataset);
-                tabla = dataset.Tables[0];
-                this.listView_platillos.Items.Clear();
-                for (int i = 0; i < tabla.Rows.Count; i++)
+                string maximo = "SELECT Num_orden FROM ORDEN WHERE id_orden= " + id + " AND fecha ='" + fecha + "'";
+                OleDbCommand cmd3 = new OleDbCommand(maximo, conexion);
+                label2.Text = Convert.ToInt32(cmd3.ExecuteScalar()).ToString();
+                
+                if ((Convert.ToInt32(compro) == 0) || label2.Text == valor)
                 {
-                    DataRow filas = tabla.Rows[i];
-                    ListViewItem elemntos = new ListViewItem(filas["id_orden"].ToString());
-                    elemntos.SubItems.Add(filas["Platillo"].ToString());
-                    elemntos.SubItems.Add(filas["Cantidad"].ToString());
-
-                    listView_platillos.Items.Add(elemntos);
-                }
-            }
-            else
-            {
-                if (Convert.ToInt32(listView1.Items.Count) == 0)
-                {
-                    textBox2.Text = text;
-                    orden_2 = id;
-                    label3.Text = id.ToString();
-                    OleDbDataAdapter adaptador = new OleDbDataAdapter("SELECT id_orden, Platillo, Cantidad FROM VISUALIZADO WHERE id_orden = " + id, ds);
+                    OleDbDataAdapter adaptador = new OleDbDataAdapter("SELECT id_orden, Platillo, Cantidad FROM VISUALIZADO WHERE id_orden = " + id + " ORDER BY id ASC", ds);
 
                     DataSet dataset = new DataSet();
                     DataTable tabla = new DataTable();
 
                     adaptador.Fill(dataset);
                     tabla = dataset.Tables[0];
-                    this.listView1.Items.Clear();
+                    this.tabla_1.Items.Clear();
                     for (int i = 0; i < tabla.Rows.Count; i++)
                     {
                         DataRow filas = tabla.Rows[i];
@@ -74,24 +69,63 @@ namespace empanada_2
                         elemntos.SubItems.Add(filas["Platillo"].ToString());
                         elemntos.SubItems.Add(filas["Cantidad"].ToString());
 
-                        listView1.Items.Add(elemntos);
+                        tabla_1.Items.Add(elemntos);
                     }
+
+                    string insertar6 = "UPDATE VISUALIZADO SET modificado = @modificado WHERE id_orden = " + id;
+                    OleDbCommand cmd6 = new OleDbCommand(insertar6, conexion);
+                    cmd6.Parameters.AddWithValue("@modificado", 0);
+
+                    cmd6.ExecuteNonQuery();
                 }
                 else
                 {
-                    if (Convert.ToInt32(listView2.Items.Count) == 0)
+                    OleDbDataAdapter adaptador = new OleDbDataAdapter("SELECT id_orden, Platillo, Cantidad FROM VISUALIZADO WHERE id_orden=" + id + " AND modificado =1 ORDER BY id ASC", ds);
+
+                    DataSet dataset = new DataSet();
+                    DataTable tabla = new DataTable();
+
+                    adaptador.Fill(dataset);
+                    tabla = dataset.Tables[0];
+                    this.tabla_1.Items.Clear();
+                    for (int i = 0; i < tabla.Rows.Count; i++)
                     {
-                        textBox3.Text = text;
-                        orden_3 = id;
-                        label4.Text = id.ToString();
-                        OleDbDataAdapter adaptador = new OleDbDataAdapter("SELECT id_orden, Platillo, Cantidad FROM VISUALIZADO WHERE id_orden = " + id, ds);
+                        DataRow filas = tabla.Rows[i];
+                        ListViewItem elemntos = new ListViewItem(filas["id_orden"].ToString());
+                        elemntos.SubItems.Add(filas["Platillo"].ToString());
+                        elemntos.SubItems.Add(filas["Cantidad"].ToString());
+
+                        tabla_1.Items.Add(elemntos);
+                    }
+
+                    string insertar6 = "UPDATE VISUALIZADO SET modificado = @modificado WHERE id_orden = " + id;
+                    OleDbCommand cmd6 = new OleDbCommand(insertar6, conexion);
+                    cmd6.Parameters.AddWithValue("@modificado", 0);
+
+                    cmd6.ExecuteNonQuery();
+                }
+
+            }
+            else
+            {
+                if ((Convert.ToInt32(tabla_2.Items.Count) == 0) || label3.Text == valor)
+                {
+                    tabla_2.Items.Clear();
+                    textBox2.Text = text;
+                    orden_2 = id;
+                    string maximo = "SELECT Num_orden FROM ORDEN WHERE id_orden= " + id + " AND fecha ='" + fecha + "'";
+                    OleDbCommand cmd3 = new OleDbCommand(maximo, conexion);
+                    label3.Text = Convert.ToInt32(cmd3.ExecuteScalar()).ToString();
+                    if ((Convert.ToInt32(compro) == 0) || label3.Text == valor)
+                    {
+                        OleDbDataAdapter adaptador = new OleDbDataAdapter("SELECT id_orden, Platillo, Cantidad FROM VISUALIZADO WHERE id_orden = " + id + " ORDER BY id ASC", ds);
 
                         DataSet dataset = new DataSet();
                         DataTable tabla = new DataTable();
 
                         adaptador.Fill(dataset);
                         tabla = dataset.Tables[0];
-                        this.listView2.Items.Clear();
+                        this.tabla_2.Items.Clear();
                         for (int i = 0; i < tabla.Rows.Count; i++)
                         {
                             DataRow filas = tabla.Rows[i];
@@ -99,24 +133,62 @@ namespace empanada_2
                             elemntos.SubItems.Add(filas["Platillo"].ToString());
                             elemntos.SubItems.Add(filas["Cantidad"].ToString());
 
-                            listView2.Items.Add(elemntos);
+                            tabla_2.Items.Add(elemntos);
                         }
+                        string insertar6 = "UPDATE VISUALIZADO SET modificado = @modificado WHERE id_orden = " + id;
+                        OleDbCommand cmd6 = new OleDbCommand(insertar6, conexion);
+                        cmd6.Parameters.AddWithValue("@modificado", 0);
+
+                        cmd6.ExecuteNonQuery();
                     }
                     else
                     {
-                        if (Convert.ToInt32(listView3.Items.Count) == 0)
+                        OleDbDataAdapter adaptador = new OleDbDataAdapter("SELECT id_orden, Platillo, Cantidad FROM VISUALIZADO WHERE id_orden=" + id + " AND modificado =1 ORDER BY id ASC", ds);
+
+                        DataSet dataset = new DataSet();
+                        DataTable tabla = new DataTable();
+
+                        adaptador.Fill(dataset);
+                        tabla = dataset.Tables[0];
+                        this.tabla_2.Items.Clear();
+                        for (int i = 0; i < tabla.Rows.Count; i++)
                         {
-                            textBox4.Text = text;
-                            orden_4 = id;
-                            label5.Text = id.ToString();
-                            OleDbDataAdapter adaptador = new OleDbDataAdapter("SELECT id_orden, Platillo, Cantidad FROM VISUALIZADO WHERE id_orden = " + id, ds);
+                            DataRow filas = tabla.Rows[i];
+                            ListViewItem elemntos = new ListViewItem(filas["id_orden"].ToString());
+                            elemntos.SubItems.Add(filas["Platillo"].ToString());
+                            elemntos.SubItems.Add(filas["Cantidad"].ToString());
+
+                            tabla_2.Items.Add(elemntos);
+                        }
+
+                        string insertar6 = "UPDATE VISUALIZADO SET modificado = @modificado WHERE id_orden = " + id;
+                        OleDbCommand cmd6 = new OleDbCommand(insertar6, conexion);
+                        cmd6.Parameters.AddWithValue("@modificado", 0);
+
+                        cmd6.ExecuteNonQuery();
+                    }
+                }
+                else
+                {
+                    if ((Convert.ToInt32(tabla_3.Items.Count) == 0) || label4.Text == valor)
+                    {
+                        tabla_3.Items.Clear();
+                        textBox3.Text = text;
+                        orden_3 = id;
+                        string maximo = "SELECT Num_orden FROM ORDEN WHERE id_orden= " + id + " AND fecha ='" + fecha + "'";
+                        OleDbCommand cmd3 = new OleDbCommand(maximo, conexion);
+                        label4.Text = Convert.ToInt32(cmd3.ExecuteScalar()).ToString();
+
+                        if ((Convert.ToInt32(compro) == 0) || label4.Text == valor)
+                        {
+                            OleDbDataAdapter adaptador = new OleDbDataAdapter("SELECT id_orden, Platillo, Cantidad FROM VISUALIZADO WHERE id_orden = " + id + " ORDER BY id ASC", ds);
 
                             DataSet dataset = new DataSet();
                             DataTable tabla = new DataTable();
 
                             adaptador.Fill(dataset);
                             tabla = dataset.Tables[0];
-                            this.listView3.Items.Clear();
+                            this.tabla_3.Items.Clear();
                             for (int i = 0; i < tabla.Rows.Count; i++)
                             {
                                 DataRow filas = tabla.Rows[i];
@@ -124,24 +196,63 @@ namespace empanada_2
                                 elemntos.SubItems.Add(filas["Platillo"].ToString());
                                 elemntos.SubItems.Add(filas["Cantidad"].ToString());
 
-                                listView3.Items.Add(elemntos);
+                                tabla_3.Items.Add(elemntos);
                             }
+
+                            string insertar6 = "UPDATE VISUALIZADO SET modificado = @modificado WHERE id_orden = " + id;
+                            OleDbCommand cmd6 = new OleDbCommand(insertar6, conexion);
+                            cmd6.Parameters.AddWithValue("@modificado", 0);
+
+                            cmd6.ExecuteNonQuery();
                         }
                         else
                         {
-                            if (Convert.ToInt32(listView4.Items.Count) == 0)
+                            OleDbDataAdapter adaptador = new OleDbDataAdapter("SELECT id_orden, Platillo, Cantidad FROM VISUALIZADO WHERE id_orden=" + id + " AND modificado =1 ORDER BY id ASC", ds);
+
+                            DataSet dataset = new DataSet();
+                            DataTable tabla = new DataTable();
+
+                            adaptador.Fill(dataset);
+                            tabla = dataset.Tables[0];
+                            this.tabla_3.Items.Clear();
+                            for (int i = 0; i < tabla.Rows.Count; i++)
                             {
-                                textBox5.Text = text;
-                                orden_5 = id;
-                                label6.Text = id.ToString();
-                                OleDbDataAdapter adaptador = new OleDbDataAdapter("SELECT id_orden, Platillo, Cantidad FROM VISUALIZADO WHERE id_orden = " + id, ds);
+                                DataRow filas = tabla.Rows[i];
+                                ListViewItem elemntos = new ListViewItem(filas["id_orden"].ToString());
+                                elemntos.SubItems.Add(filas["Platillo"].ToString());
+                                elemntos.SubItems.Add(filas["Cantidad"].ToString());
+
+                                tabla_3.Items.Add(elemntos);
+                            }
+
+                            string insertar6 = "UPDATE VISUALIZADO SET modificado = @modificado WHERE id_orden = " + id;
+                            OleDbCommand cmd6 = new OleDbCommand(insertar6, conexion);
+                            cmd6.Parameters.AddWithValue("@modificado", 0);
+
+                            cmd6.ExecuteNonQuery();
+                        }
+                    }
+                    else
+                    {
+                        if ((Convert.ToInt32(tabla_4.Items.Count) == 0) || label5.Text == valor)
+                        {
+                            tabla_4.Items.Clear();
+                            textBox4.Text = text;
+                            orden_4 = id;
+                            string maximo = "SELECT Num_orden FROM ORDEN WHERE id_orden= " + id + " AND fecha ='" + fecha + "'";
+                            OleDbCommand cmd3 = new OleDbCommand(maximo, conexion);
+                            label5.Text = Convert.ToInt32(cmd3.ExecuteScalar()).ToString();
+
+                            if ((Convert.ToInt32(compro) == 0) || label5.Text == valor)
+                            {
+                                OleDbDataAdapter adaptador = new OleDbDataAdapter("SELECT id_orden, Platillo, Cantidad FROM VISUALIZADO WHERE id_orden = " + id + " ORDER BY id ASC", ds);
 
                                 DataSet dataset = new DataSet();
                                 DataTable tabla = new DataTable();
 
                                 adaptador.Fill(dataset);
                                 tabla = dataset.Tables[0];
-                                this.listView4.Items.Clear();
+                                this.tabla_4.Items.Clear();
                                 for (int i = 0; i < tabla.Rows.Count; i++)
                                 {
                                     DataRow filas = tabla.Rows[i];
@@ -149,7 +260,104 @@ namespace empanada_2
                                     elemntos.SubItems.Add(filas["Platillo"].ToString());
                                     elemntos.SubItems.Add(filas["Cantidad"].ToString());
 
-                                    listView4.Items.Add(elemntos);
+                                    tabla_4.Items.Add(elemntos);
+                                }
+
+                                string insertar6 = "UPDATE VISUALIZADO SET modificado = @modificado WHERE id_orden = " + id;
+                                OleDbCommand cmd6 = new OleDbCommand(insertar6, conexion);
+                                cmd6.Parameters.AddWithValue("@modificado", 0);
+
+                                cmd6.ExecuteNonQuery();
+                            }
+                            else
+                            {
+                                OleDbDataAdapter adaptador = new OleDbDataAdapter("SELECT id_orden, Platillo, Cantidad FROM VISUALIZADO WHERE id_orden=" + id + " AND modificado =1 ORDER BY id ASC", ds);
+
+                                DataSet dataset = new DataSet();
+                                DataTable tabla = new DataTable();
+
+                                adaptador.Fill(dataset);
+                                tabla = dataset.Tables[0];
+                                this.tabla_4.Items.Clear();
+                                for (int i = 0; i < tabla.Rows.Count; i++)
+                                {
+                                    DataRow filas = tabla.Rows[i];
+                                    ListViewItem elemntos = new ListViewItem(filas["id_orden"].ToString());
+                                    elemntos.SubItems.Add(filas["Platillo"].ToString());
+                                    elemntos.SubItems.Add(filas["Cantidad"].ToString());
+
+                                    tabla_4.Items.Add(elemntos);
+                                }
+
+                                string insertar6 = "UPDATE VISUALIZADO SET modificado = @modificado WHERE id_orden = " + id;
+                                OleDbCommand cmd6 = new OleDbCommand(insertar6, conexion);
+                                cmd6.Parameters.AddWithValue("@modificado", 0);
+
+                                cmd6.ExecuteNonQuery();
+                            }
+                        }
+                        else
+                        {
+                            if ((Convert.ToInt32(tabla_5.Items.Count) == 0) || label6.Text == valor)
+                            {
+                                tabla_5.Items.Clear();
+                                textBox5.Text = text;
+                                orden_5 = id;
+                                string maximo = "SELECT Num_orden FROM ORDEN WHERE id_orden= " + id + " AND fecha ='" + fecha + "'";
+                                OleDbCommand cmd3 = new OleDbCommand(maximo, conexion);
+                                label6.Text = Convert.ToInt32(cmd3.ExecuteScalar()).ToString();
+
+                                if ((Convert.ToInt32(compro) == 0) || label6.Text == valor)
+                                {
+                                    OleDbDataAdapter adaptador = new OleDbDataAdapter("SELECT id_orden, Platillo, Cantidad FROM VISUALIZADO WHERE id_orden = " + id + " ORDER BY id ASC", ds);
+
+                                    DataSet dataset = new DataSet();
+                                    DataTable tabla = new DataTable();
+
+                                    adaptador.Fill(dataset);
+                                    tabla = dataset.Tables[0];
+                                    this.tabla_5.Items.Clear();
+                                    for (int i = 0; i < tabla.Rows.Count; i++)
+                                    {
+                                        DataRow filas = tabla.Rows[i];
+                                        ListViewItem elemntos = new ListViewItem(filas["id_orden"].ToString());
+                                        elemntos.SubItems.Add(filas["Platillo"].ToString());
+                                        elemntos.SubItems.Add(filas["Cantidad"].ToString());
+
+                                        tabla_5.Items.Add(elemntos);
+                                    }
+
+                                    string insertar6 = "UPDATE VISUALIZADO SET modificado = @modificado WHERE id_orden = " + id;
+                                    OleDbCommand cmd6 = new OleDbCommand(insertar6, conexion);
+                                    cmd6.Parameters.AddWithValue("@modificado", 0);
+
+                                    cmd6.ExecuteNonQuery();
+                                }
+                                else
+                                {
+                                    OleDbDataAdapter adaptador = new OleDbDataAdapter("SELECT id_orden, Platillo, Cantidad FROM VISUALIZADO WHERE id_orden=" + id + " AND modificado = 1 ORDER BY id ASC", ds);
+
+                                    DataSet dataset = new DataSet();
+                                    DataTable tabla = new DataTable();
+
+                                    adaptador.Fill(dataset);
+                                    tabla = dataset.Tables[0];
+                                    this.tabla_5.Items.Clear();
+                                    for (int i = 0; i < tabla.Rows.Count; i++)
+                                    {
+                                        DataRow filas = tabla.Rows[i];
+                                        ListViewItem elemntos = new ListViewItem(filas["id_orden"].ToString());
+                                        elemntos.SubItems.Add(filas["Platillo"].ToString());
+                                        elemntos.SubItems.Add(filas["Cantidad"].ToString());
+
+                                        tabla_5.Items.Add(elemntos);
+                                    }
+
+                                    string insertar6 = "UPDATE VISUALIZADO SET modificado = @modificado WHERE id_orden = " + id;
+                                    OleDbCommand cmd6 = new OleDbCommand(insertar6, conexion);
+                                    cmd6.Parameters.AddWithValue("@modificado", 0);
+
+                                    cmd6.ExecuteNonQuery();
                                 }
                             }
 
@@ -161,15 +369,388 @@ namespace empanada_2
                     }
                 }
             }
+            conexion.Close();
         }
 
+        public void ChangeTextBoxText(string text, int id)
+        {
+            OleDbConnection conexion = new OleDbConnection(ds);
+
+            conexion.Open();
+
+            string maximo1 = "SELECT Num_orden FROM ORDEN WHERE id_orden= " + id + " AND fecha ='" + fecha + "'";
+            OleDbCommand cmd31 = new OleDbCommand(maximo1, conexion);
+            string valor = Convert.ToInt32(cmd31.ExecuteScalar()).ToString();
+
+            string select = "SELECT COUNT(modificado) FROM VISUALIZADO WHERE id_orden=" + id + " AND modificado =1";
+            OleDbCommand cmd = new OleDbCommand(select, conexion);
+            string compro = (cmd.ExecuteScalar()).ToString();
+
+            if (textBox1.Text == text)
+            {
+                dato = 1;
+            }
+            if (textBox2.Text == text )
+            {
+                dato = 2;
+            }
+            if (textBox3.Text == text)
+            {
+                dato = 3;
+            }
+            if (textBox4.Text == text)
+            {
+                dato = 4;
+            }
+            if (textBox5.Text == text)
+            {
+                dato = 5;
+            }
+            
+            switch (dato)
+            {
+                case 1 :
+                    if ((Convert.ToInt32(tabla_1.Items.Count) == 0) || label2.Text == valor)
+                    {
+
+                        tabla_1.Items.Clear();
+                        textBox1.Text = text;
+                        orden_1 = id;
+                        string maximo = "SELECT Num_orden FROM ORDEN WHERE id_orden= " + id + " AND fecha ='" + fecha + "'";
+                        OleDbCommand cmd3 = new OleDbCommand(maximo, conexion);
+                        label2.Text = Convert.ToInt32(cmd3.ExecuteScalar()).ToString();
+
+                        if ((Convert.ToInt32(compro) == 0) || label2.Text == valor)
+                        {                          
+                            OleDbDataAdapter adaptador = new OleDbDataAdapter("SELECT id_orden, Platillo, Cantidad FROM VISUALIZADO WHERE id_orden = " + id + " ORDER BY id ASC", ds);
+
+                            DataSet dataset = new DataSet();
+                            DataTable tabla = new DataTable();
+
+                            adaptador.Fill(dataset);
+                            tabla = dataset.Tables[0];
+                            this.tabla_1.Items.Clear();
+                            for (int i = 0; i < tabla.Rows.Count; i++)
+                            {
+                                DataRow filas = tabla.Rows[i];
+                                ListViewItem elemntos = new ListViewItem(filas["id_orden"].ToString());
+                                elemntos.SubItems.Add(filas["Platillo"].ToString());
+                                elemntos.SubItems.Add(filas["Cantidad"].ToString());
+
+                                tabla_1.Items.Add(elemntos);
+                            }
+
+                            string insertar6 = "UPDATE VISUALIZADO SET modificado = @modificado WHERE id_orden = " + id;
+                            OleDbCommand cmd6 = new OleDbCommand(insertar6, conexion);
+                            cmd6.Parameters.AddWithValue("@modificado", 0);
+
+                            cmd6.ExecuteNonQuery();
+                        }
+                        else
+                        {
+                            OleDbDataAdapter adaptador = new OleDbDataAdapter("SELECT id_orden, Platillo, Cantidad FROM VISUALIZADO WHERE id_orden=" + id + " AND modificado =1 ORDER BY id ASC", ds);
+
+                            DataSet dataset = new DataSet();
+                            DataTable tabla = new DataTable();
+
+                            adaptador.Fill(dataset);
+                            tabla = dataset.Tables[0];
+                            this.tabla_1.Items.Clear();
+                            for (int i = 0; i < tabla.Rows.Count; i++)
+                            {
+                                DataRow filas = tabla.Rows[i];
+                                ListViewItem elemntos = new ListViewItem(filas["id_orden"].ToString());
+                                elemntos.SubItems.Add(filas["Platillo"].ToString());
+                                elemntos.SubItems.Add(filas["Cantidad"].ToString());
+
+                                tabla_1.Items.Add(elemntos);
+                            }
+
+                            string insertar6 = "UPDATE VISUALIZADO SET modificado = @modificado WHERE id_orden = " + id;
+                            OleDbCommand cmd6 = new OleDbCommand(insertar6, conexion);
+                            cmd6.Parameters.AddWithValue("@modificado", 0);
+
+                            cmd6.ExecuteNonQuery();
+                        }
+
+                    }
+                    break;
+
+                case 2:
+                    if ((Convert.ToInt32(tabla_2.Items.Count) == 0) || label3.Text == valor)
+                    {
+                        tabla_2.Items.Clear();
+                        textBox2.Text = text;
+                        orden_2 = id;
+                        string maximo = "SELECT Num_orden FROM ORDEN WHERE id_orden= " + id + " AND fecha ='" + fecha + "'";
+                        OleDbCommand cmd3 = new OleDbCommand(maximo, conexion);
+                        label3.Text = Convert.ToInt32(cmd3.ExecuteScalar()).ToString();
+                        if ((Convert.ToInt32(compro) == 0) || label3.Text == valor)
+                        {
+                            OleDbDataAdapter adaptador = new OleDbDataAdapter("SELECT id_orden, Platillo, Cantidad FROM VISUALIZADO WHERE id_orden = " + id + " ORDER BY id ASC", ds);
+
+                            DataSet dataset = new DataSet();
+                            DataTable tabla = new DataTable();
+
+                            adaptador.Fill(dataset);
+                            tabla = dataset.Tables[0];
+                            this.tabla_2.Items.Clear();
+                            for (int i = 0; i < tabla.Rows.Count; i++)
+                            {
+                                DataRow filas = tabla.Rows[i];
+                                ListViewItem elemntos = new ListViewItem(filas["id_orden"].ToString());
+                                elemntos.SubItems.Add(filas["Platillo"].ToString());
+                                elemntos.SubItems.Add(filas["Cantidad"].ToString());
+
+                                tabla_2.Items.Add(elemntos);
+                            }
+
+                            string insertar6 = "UPDATE VISUALIZADO SET modificado = @modificado WHERE id_orden = " + id;
+                            OleDbCommand cmd6 = new OleDbCommand(insertar6, conexion);
+                            cmd6.Parameters.AddWithValue("@modificado", 0);
+
+                            cmd6.ExecuteNonQuery();
+                        }
+                        else
+                        {
+                            OleDbDataAdapter adaptador = new OleDbDataAdapter("SELECT id_orden, Platillo, Cantidad FROM VISUALIZADO WHERE id_orden=" + id + " AND modificado =1 ORDER BY id ASC", ds);
+
+                            DataSet dataset = new DataSet();
+                            DataTable tabla = new DataTable();
+
+                            adaptador.Fill(dataset);
+                            tabla = dataset.Tables[0];
+                            this.tabla_2.Items.Clear();
+                            for (int i = 0; i < tabla.Rows.Count; i++)
+                            {
+                                DataRow filas = tabla.Rows[i];
+                                ListViewItem elemntos = new ListViewItem(filas["id_orden"].ToString());
+                                elemntos.SubItems.Add(filas["Platillo"].ToString());
+                                elemntos.SubItems.Add(filas["Cantidad"].ToString());
+
+                                tabla_2.Items.Add(elemntos);
+                            }
+
+                            string insertar6 = "UPDATE VISUALIZADO SET modificado = @modificado WHERE id_orden = " + id;
+                            OleDbCommand cmd6 = new OleDbCommand(insertar6, conexion);
+                            cmd6.Parameters.AddWithValue("@modificado", 0);
+
+                            cmd6.ExecuteNonQuery();
+                        }
+                    }
+                    break;
+
+                case 3:
+                    if ((Convert.ToInt32(tabla_3.Items.Count) == 0) || label4.Text == valor)
+                    {
+                        tabla_3.Items.Clear();
+                        textBox3.Text = text;
+                        orden_3 = id;
+                        string maximo = "SELECT Num_orden FROM ORDEN WHERE id_orden= " + id + " AND fecha ='" + fecha + "'";
+                        OleDbCommand cmd3 = new OleDbCommand(maximo, conexion);
+                        label4.Text = Convert.ToInt32(cmd3.ExecuteScalar()).ToString();
+
+                        if ((Convert.ToInt32(compro) == 0) || label4.Text == valor)
+                        {
+                            OleDbDataAdapter adaptador = new OleDbDataAdapter("SELECT id_orden, Platillo, Cantidad FROM VISUALIZADO WHERE id_orden = " + id + " ORDER BY id ASC", ds);
+
+                            DataSet dataset = new DataSet();
+                            DataTable tabla = new DataTable();
+
+                            adaptador.Fill(dataset);
+                            tabla = dataset.Tables[0];
+                            this.tabla_3.Items.Clear();
+                            for (int i = 0; i < tabla.Rows.Count; i++)
+                            {
+                                DataRow filas = tabla.Rows[i];
+                                ListViewItem elemntos = new ListViewItem(filas["id_orden"].ToString());
+                                elemntos.SubItems.Add(filas["Platillo"].ToString());
+                                elemntos.SubItems.Add(filas["Cantidad"].ToString());
+
+                                tabla_3.Items.Add(elemntos);
+                            }
+
+                            string insertar6 = "UPDATE VISUALIZADO SET modificado = @modificado WHERE id_orden = " + id;
+                            OleDbCommand cmd6 = new OleDbCommand(insertar6, conexion);
+                            cmd6.Parameters.AddWithValue("@modificado", 0);
+
+                            cmd6.ExecuteNonQuery();
+                        }
+                        else
+                        {
+                            OleDbDataAdapter adaptador = new OleDbDataAdapter("SELECT id_orden, Platillo, Cantidad FROM VISUALIZADO WHERE id_orden=" + id + " AND modificado =1 ORDER BY id ASC", ds);
+
+                            DataSet dataset = new DataSet();
+                            DataTable tabla = new DataTable();
+
+                            adaptador.Fill(dataset);
+                            tabla = dataset.Tables[0];
+                            this.tabla_3.Items.Clear();
+                            for (int i = 0; i < tabla.Rows.Count; i++)
+                            {
+                                DataRow filas = tabla.Rows[i];
+                                ListViewItem elemntos = new ListViewItem(filas["id_orden"].ToString());
+                                elemntos.SubItems.Add(filas["Platillo"].ToString());
+                                elemntos.SubItems.Add(filas["Cantidad"].ToString());
+
+                                tabla_3.Items.Add(elemntos);
+                            }
+
+                            string insertar6 = "UPDATE VISUALIZADO SET modificado = @modificado WHERE id_orden = " + id;
+                            OleDbCommand cmd6 = new OleDbCommand(insertar6, conexion);
+                            cmd6.Parameters.AddWithValue("@modificado", 0);
+
+                            cmd6.ExecuteNonQuery();
+                        }
+                    }
+                    break;
+
+                case 4:
+                    if ((Convert.ToInt32(tabla_4.Items.Count) == 0) || label5.Text == valor)
+                    {
+                        tabla_4.Items.Clear();
+                        textBox4.Text = text;
+                        orden_4 = id;
+                        string maximo = "SELECT Num_orden FROM ORDEN WHERE id_orden= " + id + " AND fecha ='" + fecha + "'";
+                        OleDbCommand cmd3 = new OleDbCommand(maximo, conexion);
+                        label5.Text = Convert.ToInt32(cmd3.ExecuteScalar()).ToString();
+
+                        if ((Convert.ToInt32(compro) == 0) || label5.Text == valor)
+                        {
+                            OleDbDataAdapter adaptador = new OleDbDataAdapter("SELECT id_orden, Platillo, Cantidad FROM VISUALIZADO WHERE id_orden = " + id + " ORDER BY id ASC", ds);
+
+                            DataSet dataset = new DataSet();
+                            DataTable tabla = new DataTable();
+
+                            adaptador.Fill(dataset);
+                            tabla = dataset.Tables[0];
+                            this.tabla_4.Items.Clear();
+                            for (int i = 0; i < tabla.Rows.Count; i++)
+                            {
+                                DataRow filas = tabla.Rows[i];
+                                ListViewItem elemntos = new ListViewItem(filas["id_orden"].ToString());
+                                elemntos.SubItems.Add(filas["Platillo"].ToString());
+                                elemntos.SubItems.Add(filas["Cantidad"].ToString());
+
+                                tabla_4.Items.Add(elemntos);
+                            }
+
+                            string insertar6 = "UPDATE VISUALIZADO SET modificado = @modificado WHERE id_orden = " + id;
+                            OleDbCommand cmd6 = new OleDbCommand(insertar6, conexion);
+                            cmd6.Parameters.AddWithValue("@modificado", 0);
+
+                            cmd6.ExecuteNonQuery();
+                        }
+                        else
+                        {
+                            OleDbDataAdapter adaptador = new OleDbDataAdapter("SELECT id_orden, Platillo, Cantidad FROM VISUALIZADO WHERE id_orden=" + id + " AND modificado =1 ORDER BY id ASC", ds);
+
+                            DataSet dataset = new DataSet();
+                            DataTable tabla = new DataTable();
+
+                            adaptador.Fill(dataset);
+                            tabla = dataset.Tables[0];
+                            this.tabla_4.Items.Clear();
+                            for (int i = 0; i < tabla.Rows.Count; i++)
+                            {
+                                DataRow filas = tabla.Rows[i];
+                                ListViewItem elemntos = new ListViewItem(filas["id_orden"].ToString());
+                                elemntos.SubItems.Add(filas["Platillo"].ToString());
+                                elemntos.SubItems.Add(filas["Cantidad"].ToString());
+
+                                tabla_4.Items.Add(elemntos);
+                            }
+
+                            string insertar6 = "UPDATE VISUALIZADO SET modificado = @modificado WHERE id_orden = " + id;
+                            OleDbCommand cmd6 = new OleDbCommand(insertar6, conexion);
+                            cmd6.Parameters.AddWithValue("@modificado", 0);
+
+                            cmd6.ExecuteNonQuery();
+                        }
+                    }
+                    break;
+
+                case 5:
+                    if ((Convert.ToInt32(tabla_5.Items.Count) == 0) || label6.Text == valor)
+                    {
+                        tabla_5.Items.Clear();
+                        textBox5.Text = text;
+                        orden_5 = id;
+                        string maximo = "SELECT Num_orden FROM ORDEN WHERE id_orden= " + id + " AND fecha ='" + fecha + "'";
+                        OleDbCommand cmd3 = new OleDbCommand(maximo, conexion);
+                        label6.Text = Convert.ToInt32(cmd3.ExecuteScalar()).ToString();
+
+                        if ((Convert.ToInt32(compro) == 0) || label6.Text == valor)
+                        {
+                            OleDbDataAdapter adaptador = new OleDbDataAdapter("SELECT id_orden, Platillo, Cantidad FROM VISUALIZADO WHERE id_orden = " + id + " ORDER BY id ASC", ds);
+
+                            DataSet dataset = new DataSet();
+                            DataTable tabla = new DataTable();
+
+                            adaptador.Fill(dataset);
+                            tabla = dataset.Tables[0];
+                            this.tabla_5.Items.Clear();
+                            for (int i = 0; i < tabla.Rows.Count; i++)
+                            {
+                                DataRow filas = tabla.Rows[i];
+                                ListViewItem elemntos = new ListViewItem(filas["id_orden"].ToString());
+                                elemntos.SubItems.Add(filas["Platillo"].ToString());
+                                elemntos.SubItems.Add(filas["Cantidad"].ToString());
+
+                                tabla_5.Items.Add(elemntos);
+                            }
+
+                            string insertar6 = "UPDATE VISUALIZADO SET modificado = @modificado WHERE id_orden = " + id;
+                            OleDbCommand cmd6 = new OleDbCommand(insertar6, conexion);
+                            cmd6.Parameters.AddWithValue("@modificado", 0);
+
+                            cmd6.ExecuteNonQuery();
+                        }
+                        else
+                        {
+                            OleDbDataAdapter adaptador = new OleDbDataAdapter("SELECT id_orden, Platillo, Cantidad FROM VISUALIZADO WHERE id_orden=" + id + " AND modificado = 1 ORDER BY id ASC", ds);
+
+                            DataSet dataset = new DataSet();
+                            DataTable tabla = new DataTable();
+
+                            adaptador.Fill(dataset);
+                            tabla = dataset.Tables[0];
+                            this.tabla_5.Items.Clear();
+                            for (int i = 0; i < tabla.Rows.Count; i++)
+                            {
+                                DataRow filas = tabla.Rows[i];
+                                ListViewItem elemntos = new ListViewItem(filas["id_orden"].ToString());
+                                elemntos.SubItems.Add(filas["Platillo"].ToString());
+                                elemntos.SubItems.Add(filas["Cantidad"].ToString());
+
+                                tabla_5.Items.Add(elemntos);
+                            }
+
+                            string insertar6 = "UPDATE VISUALIZADO SET modificado = @modificado WHERE id_orden = " + id;
+                            OleDbCommand cmd6 = new OleDbCommand(insertar6, conexion);
+                            cmd6.Parameters.AddWithValue("@modificado", 0);
+
+                            cmd6.ExecuteNonQuery();
+                        }
+                    }
+                    break;
+
+                default:
+                    normal(text, id);
+                    break;
+            }
+
+
+            
+            conexion.Close();
+        }
         #endregion
 
         #region Terminar_orden Members
 
         public void orden1()
         {
-            listView_platillos.Items.Clear();
+            tabla_1.Items.Clear();
             textBox1.Text = "";
             label2.Text = "0";
 
@@ -185,7 +766,7 @@ namespace empanada_2
 
         public void orden2()
         {
-            listView1.Items.Clear();
+            tabla_2.Items.Clear();
             textBox2.Text = "";
             label3.Text = "0";
 
@@ -202,7 +783,7 @@ namespace empanada_2
 
         public void orden3()
         {
-            listView2.Items.Clear();
+            tabla_3.Items.Clear();
             textBox3.Text = "";
             label4.Text = "0";
 
@@ -219,7 +800,7 @@ namespace empanada_2
 
         public void orden4()
         {
-            listView3.Items.Clear();
+            tabla_4.Items.Clear();
             textBox4.Text = "";
             label5.Text = "0";
 
@@ -237,7 +818,7 @@ namespace empanada_2
 
         public void orden5()
         {
-            listView4.Items.Clear();
+            tabla_5.Items.Clear();
             textBox5.Text = "";
             label6.Text = "0";
 

@@ -29,9 +29,10 @@ namespace empanada_2
         String ds;
 
         string fecha, total_pagar, platillo,peso,operador;
-        int precio_platillo, total, cantidad,cant_disp;
-        double tipo, suma,resta;        
-        int id = 0;
+        double precio_platillo, total, cantidad,cant_disp;
+        double tipo, suma,resta;
+        int id = 0,modificado=0;
+        double Num_orden=0;
 
         //para cada producto falta agregar una variable para que realice la funcion de contar cuanto se esta seleccionando de cada cosa
         //---------------------------------------------------
@@ -88,7 +89,7 @@ namespace empanada_2
             textBoxcarnec.Enabled = false;
         }
 
-        private void INSERTAR_VISU(string platillo, int cantidad)
+        private void INSERTAR_VISU(string platillo, double cantidad)
         {
             OleDbConnection conexion = new OleDbConnection(ds);
 
@@ -96,13 +97,36 @@ namespace empanada_2
             
             try
             {
-                string insertar = "INSERT INTO VISUALIZADO (id_orden, platillo, cantidad) VALUES (@id_orden, @platillo, @cantidad)";
-                OleDbCommand cmd2 = new OleDbCommand(insertar, conexion);
-                cmd2.Parameters.AddWithValue("@id_orden", id);
-                cmd2.Parameters.AddWithValue("@platillo", platillo);
-                cmd2.Parameters.AddWithValue("@cantidad", cantidad);
+                if (modificado == 0)
+                {
+                    string insertar = "INSERT INTO VISUALIZADO (id_orden, platillo, cantidad,modificado) VALUES (@id_orden, @platillo, @cantidad,@modificado)";
+                    OleDbCommand cmd2 = new OleDbCommand(insertar, conexion);
+                    cmd2.Parameters.AddWithValue("@id_orden", id);
+                    cmd2.Parameters.AddWithValue("@platillo", platillo);
+                    cmd2.Parameters.AddWithValue("@cantidad", cantidad);
+                    cmd2.Parameters.AddWithValue("@modificado", 0);
 
-                cmd2.ExecuteNonQuery();
+                    cmd2.ExecuteNonQuery();
+                    
+                }
+                else
+                {
+                    string insertar = "INSERT INTO VISUALIZADO (id_orden, platillo, cantidad) VALUES (@id_orden, @platillo, @cantidad)";
+                    OleDbCommand cmd2 = new OleDbCommand(insertar, conexion);
+                    cmd2.Parameters.AddWithValue("@id_orden", id);
+                    cmd2.Parameters.AddWithValue("@platillo", platillo);
+                    cmd2.Parameters.AddWithValue("@cantidad", cantidad);                   
+
+                    cmd2.ExecuteNonQuery();
+
+                    string insertar6 = "UPDATE VISUALIZADO SET modificado = @modificado WHERE id_orden = " + id+ " AND Platillo='"+platillo+"'";
+                    OleDbCommand cmd6 = new OleDbCommand(insertar6, conexion);
+                    cmd6.Parameters.AddWithValue("@modificado", 1);
+
+                    cmd6.ExecuteNonQuery();
+                    
+                }
+                
             }
 
             catch (DBConcurrencyException ex)
@@ -141,7 +165,7 @@ namespace empanada_2
 
         private void SELECT_ORDEN()
         {
-            OleDbDataAdapter adaptador5 = new OleDbDataAdapter("SELECT id_orden, descripcion, total_pagar FROM ORDEN WHERE checador = 1 and fecha = '" + fecha + "'", ds);
+            OleDbDataAdapter adaptador5 = new OleDbDataAdapter("SELECT Num_orden, descripcion, total_pagar FROM ORDEN WHERE checador = 1 and fecha = '" + fecha + "'", ds);
 
             DataSet dataset5 = new DataSet();
             DataTable tabla5 = new DataTable();
@@ -152,7 +176,7 @@ namespace empanada_2
             for (int i = 0; i < tabla5.Rows.Count; i++)
             {
                 DataRow filas2 = tabla5.Rows[i];
-                ListViewItem elemntos5 = new ListViewItem(filas2["id_orden"].ToString());
+                ListViewItem elemntos5 = new ListViewItem(filas2["Num_orden"].ToString());
                 elemntos5.SubItems.Add(filas2["descripcion"].ToString());
                 elemntos5.SubItems.Add(filas2["total_pagar"].ToString());
 
@@ -204,7 +228,7 @@ namespace empanada_2
             otros = 0;
         }
 
-        private void Insertar_datos(int cantidad, string platillo)
+        private void Insertar_datos(double cantidad, string platillo)
         {
             OleDbConnection conexion = new OleDbConnection(ds);
 
@@ -220,7 +244,7 @@ namespace empanada_2
                 {
                     while (reader.Read())
                     {
-                        precio_platillo = reader.GetInt32(0);                    }
+                        precio_platillo = reader.GetDouble(0);                    }
                 }
                 reader.Close();
             }
@@ -229,7 +253,7 @@ namespace empanada_2
                 MessageBox.Show("Error orden" + ex, "MENSAJE", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
 
-            total = precio_platillo * Convert.ToInt32(cantidad);
+            total = precio_platillo * cantidad;
 
             try
             {
@@ -293,6 +317,8 @@ namespace empanada_2
         public void Relogear_ordenes()
         {
             SELECT_ORDEN();
+            listView_platillos.Items.Clear();
+            textBox_descripcion.Clear();
         }
 
         #endregion
@@ -305,29 +331,47 @@ namespace empanada_2
             OleDbConnection conexion = new OleDbConnection(ds);
 
             conexion.Open();
-            peso2 = 90;
-            string select = "SELECT Descripcion FROM ALMACEN WHERE Peso <=" + peso2;
+            string select = "SELECT count(Descripcion) FROM ALMACEN WHERE Rendimiento <=" + 3;
             OleDbCommand cmd = new OleDbCommand(select, conexion);
             try
             {
-                OleDbDataReader reader = cmd.ExecuteReader();
+                string bajo = (cmd.ExecuteScalar()).ToString();
 
-                if (reader.HasRows)
+                if (Convert.ToInt32(bajo) != 0)
                 {
-                    while (reader.Read())
+                    DialogResult resultado = MessageBox.Show("Algunos productos se encuentra sobre el limite permitido te sugerimos que agregues mas producto de lo contrario ya no podras realizar ventas de algunos productos", "Alerta", MessageBoxButtons.YesNo, MessageBoxIcon.Error);
+                    if (resultado == DialogResult.Yes)
                     {
-                        descripcion = reader.GetString(0);
+                        Almacen form = new Almacen(ds);
+                        form.P = 1;
+                        form.Show();
+                    }
+                    else if (resultado == DialogResult.No)
+                    {
+                        string select2 = "SELECT Descripcion FROM ALMACEN WHERE Rendimiento <=" + 3;
+                        OleDbCommand cmd2 = new OleDbCommand(select2, conexion);
+                        try
+                        {
+                            OleDbDataReader reader = cmd2.ExecuteReader();
 
-                        DialogResult resultado = MessageBox.Show(descripcion + " se encuentra  agotado ya no podras realizar ventas de este producto a menos que agreges mas en el almacen quieres abrir el almacen para Agregar mas " + descripcion, "ALERTA", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
-                        if (resultado == DialogResult.Yes)
-                        {
-                            Almacen form = new Almacen(ds);
-                            form.P = 1;
-                            form.Show();
+                            if (reader.HasRows)
+                            {
+                                while (reader.Read())
+                                {
+                                    descripcion = reader.GetString(0);
+                                    CANCELADO(descripcion);
+                                }
+                            }
+                            else
+                            {
+
+                            }
+                            reader.Close();
                         }
-                        else if (resultado == DialogResult.No)
+
+                        catch (Exception ex)
                         {
-                            CANCELADO(descripcion);
+                            MessageBox.Show("Error " + ex, "MENSAJE", MessageBoxButtons.OK, MessageBoxIcon.Error);
                         }
                     }
                 }
@@ -335,13 +379,12 @@ namespace empanada_2
                 {
 
                 }
-                reader.Close();
             }
-
             catch (Exception ex)
             {
-                MessageBox.Show("Error " + ex, "MENSAJE", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Error orden" + ex, "MENSAJE", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+
             conexion.Close();
         }
 
@@ -378,7 +421,7 @@ namespace empanada_2
                        
         }
 
-        int ventas, gastos, ganancias;
+        double ventas, gastos, ganancias;
         private void GANANCIAS()
         {
             OleDbConnection conexion = new OleDbConnection(ds);
@@ -395,8 +438,8 @@ namespace empanada_2
                 {
                     while (reader.Read())
                     {
-                        ventas = reader.GetInt32(0);
-                        gastos = reader.GetInt32(1);
+                        ventas = reader.GetDouble(0);
+                        gastos = reader.GetDouble(1);
 
                         ganancias = ventas - gastos;
                     }
@@ -409,7 +452,7 @@ namespace empanada_2
             }
 
             //ACTUALIZAR LAS GANANCIAS
-            string actualizar = "UPDATE FECHA SET Ganancia = @Ganancia WHERE fecha = '" + fecha + "'";
+            string actualizar = "UPDATE FECHA SET Ganancia = @Ganancia WHERE fecha ='" + fecha + "'";
             OleDbCommand cmd3 = new OleDbCommand(actualizar, conexion);
             cmd3.Parameters.AddWithValue("@Ganancia", ganancias);
 
@@ -600,7 +643,7 @@ namespace empanada_2
             }
         }
 
-        public void SUMA_ALMACEN(string descripcion, int total)
+        public void SUMA_ALMACEN(string descripcion, double total)
         {
             OleDbConnection conexion = new OleDbConnection(ds);
 
@@ -701,6 +744,7 @@ namespace empanada_2
                     try
                     {
 
+                        
                         //agregando la cantidad de empanada eliminada
 
                         AGREGAR_ALMACEN(id_platillo);
@@ -710,6 +754,12 @@ namespace empanada_2
                         OleDbConnection conexion = new OleDbConnection(ds);
 
                         conexion.Open();
+
+                        string sql2 = "select id_orden from PLATILLO WHERE id_platillo=" + id_platillo;
+                        OleDbCommand cmd21 = new OleDbCommand(sql2, conexion); //Conexion es tu objeto conexion                                
+
+                        id = Convert.ToInt32(cmd21.ExecuteScalar());
+
                         string insertar = "DELETE FROM PLATILLO WHERE id_platillo = " + id_platillo;
                         OleDbCommand cmd = new OleDbCommand(insertar, conexion);
 
@@ -742,7 +792,7 @@ namespace empanada_2
                         conexion.Close();
 
                         SELECT_ORDEN();
-                        //MessageBox.Show("Borrado", "", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        
 
 
                     }
@@ -763,12 +813,13 @@ namespace empanada_2
             OleDbConnection conexion5 = new OleDbConnection(ds);
 
             conexion5.Open();
+            //string sql5 = "SELECT SUM(total_pagar) FROM ORDEN WHERE fecha = '" + fecha + "'";
 
             string sql5 = "SELECT SUM(ORDEN.total_pagar) FROM FECHA INNER JOIN ORDEN ON FECHA.fecha = ORDEN.fecha WHERE FECHA.fecha = '" + fecha + "'";
 
             OleDbCommand cmd7 = new OleDbCommand(sql5, conexion5); //Conexion es tu objeto conexion                                
 
-            int total_dia = Convert.ToInt32(cmd7.ExecuteScalar());
+            double total_dia = Convert.ToDouble(cmd7.ExecuteScalar());
 
             //-------------------
 
@@ -789,7 +840,16 @@ namespace empanada_2
         {
             foreach (ListViewItem lista in listView_ordenes.SelectedItems)
             {
-                id = Convert.ToInt32(lista.Text);
+                Num_orden = Convert.ToInt32(lista.Text);
+
+                //SACAR el id con el numero de orden
+                OleDbConnection conexion4 = new OleDbConnection(ds);
+                conexion4.Open();
+                string maximo = "SELECT id_orden FROM ORDEN WHERE Num_orden= " + Num_orden + " AND fecha ='" + fecha + "'";
+                OleDbCommand cmd3 = new OleDbCommand(maximo, conexion4);
+                id = Convert.ToInt32(cmd3.ExecuteScalar());
+                conexion4.Close();
+                //---------------------------------   
             }
             if (id == 0)
             {
@@ -799,7 +859,16 @@ namespace empanada_2
             {
                 foreach (ListViewItem lista in listView_ordenes.SelectedItems)
                 {
-                    id = Convert.ToInt32(lista.Text);
+                    Num_orden = Convert.ToInt32(lista.Text);
+
+                    //SACAR el id con el numero de orden
+                    OleDbConnection conexion4 = new OleDbConnection(ds);
+                    conexion4.Open();
+                    string maximo = "SELECT id_orden FROM ORDEN WHERE Num_orden= " + Num_orden + " AND fecha ='" + fecha + "'";
+                    OleDbCommand cmd3 = new OleDbCommand(maximo, conexion4);
+                    id = Convert.ToInt32(cmd3.ExecuteScalar());
+                    conexion4.Close();
+                    //--------------------------------- 
 
                     DialogResult resultado = MessageBox.Show("Esta seguro de borrar la orden?", "ADVERTENCIA", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
                     if (resultado == DialogResult.Yes)
@@ -836,16 +905,16 @@ namespace empanada_2
                 conexion5.Open();
                 try
                 {
-                    string sql5 = "SELECT SUM(ORDEN.total_pagar) FROM FECHA INNER JOIN ORDEN ON FECHA.fecha = ORDEN.fecha WHERE FECHA.fecha = '" + fecha + "'";
+                    string sql5 = "SELECT SUM(ORDEN.total_pagar) FROM FECHA INNER JOIN ORDEN ON FECHA.fecha = ORDEN.fecha WHERE FECHA.fecha ='" + fecha + "'";
 
                     OleDbCommand cmd7 = new OleDbCommand(sql5, conexion5); //Conexion es tu objeto conexion                                
 
-                    int total_dia = Convert.ToInt32(cmd7.ExecuteScalar());
+                    double total_dia = Convert.ToDouble(cmd7.ExecuteScalar());
                     //-------------------
 
                     //INSERTAR EL TOTAL EN LA TABLA ORDEN
 
-                    string insertar6 = "UPDATE FECHA SET Venta_total = @Venta_total WHERE fecha = '" + fecha + "'";
+                    string insertar6 = "UPDATE FECHA SET Venta_total = @Venta_total WHERE fecha = " + fecha;
                     OleDbCommand cmd6 = new OleDbCommand(insertar6, conexion5);
                     cmd6.Parameters.AddWithValue("@Venta_total", total_dia);
 
@@ -859,6 +928,7 @@ namespace empanada_2
                 conexion5.Close();
 
                 GANANCIAS();
+                id = 0;
             }
         }
 
@@ -869,15 +939,72 @@ namespace empanada_2
                 OleDbConnection conexion = new OleDbConnection(ds);
 
                 conexion.Open();
+                string select = "SELECT COUNT(Num_orden) FROM ORDEN WHERE fecha= '" + fecha + "'";
+                OleDbCommand cmd = new OleDbCommand(select, conexion);
+                try
+                {
+                    string compro = (cmd.ExecuteScalar()).ToString();
 
-                string insertar = "INSERT INTO ORDEN (descripcion, total_pagar, fecha, checador) VALUES (@descripcion, @total_pagar, @fecha, @checador)";
-                OleDbCommand cmd = new OleDbCommand(insertar, conexion);
-                cmd.Parameters.AddWithValue("@descripcion", "Descripcion");
-                cmd.Parameters.AddWithValue("@total_pagar", 0);
-                cmd.Parameters.AddWithValue("@fecha", fecha);
-                cmd.Parameters.AddWithValue("@checador", 1);
+                    if (Convert.ToInt32(compro) != 0)
+                    {
+                        string maximo1 = "SELECT MAX(Num_orden) FROM ORDEN  WHERE fecha = '" + fecha + "'";
+                        OleDbCommand cmd13 = new OleDbCommand(maximo1, conexion);
+                        Num_orden = Convert.ToDouble(cmd13.ExecuteScalar());
+                        Num_orden++;
+                    }
+                    else
+                    {
+                        Num_orden = 1;
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Error orden" + ex, "MENSAJE", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
 
-                cmd.ExecuteNonQuery();
+
+                string selectw = "SELECT MAX(id_orden) FROM ORDEN";
+                OleDbCommand cmdw = new OleDbCommand(selectw, conexion);
+
+                try
+                {
+                    OleDbDataReader reader = cmdw.ExecuteReader();
+
+                    if (reader.HasRows)
+                    {
+                        while (reader.Read())
+                        {
+                            id = reader.GetInt32(0) + 1;
+                        }
+                    }
+                    else
+                    {
+                        MessageBox.Show("No se pudo", "MENSAJE", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                    reader.Close();
+
+
+
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Error orden" + ex, "MENSAJE", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+
+
+
+
+                string insertar = "INSERT INTO ORDEN (id_orden,descripcion, total_pagar, fecha, checador,Num_orden) VALUES (@id_orden, @descripcion, @total_pagar, @fecha, @checador,@Num_orden)";
+                OleDbCommand cmd1 = new OleDbCommand(insertar, conexion);
+                cmd1.Parameters.AddWithValue("@id_orden", id);
+                cmd1.Parameters.AddWithValue("@descripcion", "Descripcion");
+                cmd1.Parameters.AddWithValue("@total_pagar", 0);
+                cmd1.Parameters.AddWithValue("@fecha", fecha);
+                cmd1.Parameters.AddWithValue("@checador", 1);
+                cmd1.Parameters.AddWithValue("@Num_orden", Num_orden);
+                
+
+                cmd1.ExecuteNonQuery();
                 MessageBox.Show("Orden creada Correctamente", "MENSAJE", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 conexion.Close();
             }
@@ -909,15 +1036,26 @@ namespace empanada_2
             //---------------------------------
 
             resetear();
-
+            //id = 0;
             this.listView_platillos.Items.Clear();
         }
 
         private void button13_Click(object sender, EventArgs e)
         {
+
+            modificado = 1;
             foreach (ListViewItem lista in listView_ordenes.SelectedItems)
             {
-                id = Convert.ToInt32(lista.Text);
+                Num_orden = Convert.ToInt32(lista.Text);
+                
+                //SACAR el id con el numero de orden
+                OleDbConnection conexion4 = new OleDbConnection(ds);
+                conexion4.Open();
+                string maximo = "SELECT id_orden FROM ORDEN WHERE Num_orden= " + Num_orden + " AND fecha ='" + fecha + "'";
+                OleDbCommand cmd3 = new OleDbCommand(maximo, conexion4);
+                id = Convert.ToInt32(cmd3.ExecuteScalar());
+                conexion4.Close();
+                //---------------------------------                
             }
 
             if (id == 0)
@@ -971,7 +1109,7 @@ namespace empanada_2
 
                 //---------------------------------
                 conexion4.Close();
-                resetear();
+                resetear();                
             }
         }
 
@@ -980,7 +1118,16 @@ namespace empanada_2
             int id_orden = 0;
             foreach (ListViewItem lista in listView_ordenes.SelectedItems)
             {
-                id_orden = Convert.ToInt32(lista.Text);
+                Num_orden = Convert.ToInt32(lista.Text);
+
+                //SACAR el id con el numero de orden
+                OleDbConnection conexion4 = new OleDbConnection(ds);
+                conexion4.Open();
+                string maximo = "SELECT id_orden FROM ORDEN WHERE Num_orden= " + Num_orden + " AND fecha ='" + fecha + "'";
+                OleDbCommand cmd3 = new OleDbCommand(maximo, conexion4);
+                id_orden = Convert.ToInt32(cmd3.ExecuteScalar());
+                conexion4.Close();
+                //--------------------------------- 
             }
             if (id_orden == 0)
             {
@@ -990,8 +1137,17 @@ namespace empanada_2
             {
                 foreach (ListViewItem lista in listView_ordenes.SelectedItems)
                 {
-                    id_orden = Convert.ToInt32(lista.Text);
-                    int pagare;
+                    Num_orden = Convert.ToInt32(lista.Text);
+
+                    //SACAR el id con el numero de orden
+                    OleDbConnection conexion4 = new OleDbConnection(ds);
+                    conexion4.Open();
+                    string maximo = "SELECT id_orden FROM ORDEN WHERE Num_orden= " + Num_orden + " AND fecha ='" + fecha + "'";
+                    OleDbCommand cmd3 = new OleDbCommand(maximo, conexion4);
+                    id_orden = Convert.ToInt32(cmd3.ExecuteScalar());
+                    conexion4.Close();
+                    //--------------------------------- 
+                    double pagare;
 
                     //.....
                     OleDbConnection conexion = new OleDbConnection(ds);
@@ -1008,7 +1164,7 @@ namespace empanada_2
                         {
                             while (reader.Read())
                             {
-                                pagare = reader.GetInt32(0);
+                                pagare = reader.GetDouble(0);
 
                                 if (pagare > 0)
                                 {
@@ -1041,61 +1197,7 @@ namespace empanada_2
             corre.Show(this);
         }
 
-        private void TIPO_RESTA(string descripcion)
-        {
-            SetDefaultCulture(new CultureInfo("es-MX"));
-
-            if (descripcion == "carne c/chile")
-            {
-                tipo = 35;
-            }
-            if (descripcion == "cochinita")
-            {
-                tipo = 30;
-            }
-            if (descripcion == "nopal")
-            {
-                tipo = 45;
-            }
-            if (descripcion == "tinga de pollo")
-            {
-                tipo = 35;
-            }
-            if (descripcion == "frijol c/queso")
-            {
-                tipo = 45;
-            }
-            if (descripcion == "rajas c/queso")
-            {
-                tipo = 45;
-            }
-            if (descripcion == "picadillo")
-            {
-                tipo = 40;
-            }
-            if (descripcion == "chicharron s/v")
-            {
-                tipo = 35;
-            }
-            if (descripcion == "chicharron s/r")
-            {
-                tipo = 35;
-            }
-
-            //lo nuevo que se metio
-            if (descripcion == "chicharron deshebrado")
-            {
-                tipo = 35;
-            }
-            if (descripcion == "chicharron crujiente")
-            {
-                tipo = 35;
-            }
-            if (descripcion == "queso")
-            {
-                tipo = 35;
-            }
-        }
+       
 
         private void timer1_Tick(object sender, EventArgs e)
         {
@@ -1154,12 +1256,12 @@ namespace empanada_2
                 button7.Enabled = true;
             }
             //lo nuevo que se metio
-            if (descripcion == "chicharron deshebrado")
+            if (descripcion == "deshebrada")
             {
                 button32_deshebrada.Enabled = true;
                 button31_deshe.Enabled = true;
             }
-            if (descripcion == "chicharron crujiente")
+            if (descripcion == "chicharron cru")
             {
                 crujiente_button30.Enabled = true;
                 button28.Enabled = true;
@@ -1168,6 +1270,36 @@ namespace empanada_2
             {
                 button27.Enabled = true;
                 button29.Enabled = true;
+            }
+            if (descripcion == "horchata")
+            {
+                buttonhorchata.Enabled = true;
+                button10.Enabled = true;
+            }
+            if (descripcion == "jamaica")
+            {
+                buttonjamaica.Enabled = true;
+                button11.Enabled = true;
+            }
+            if (descripcion == "tamarindo")
+            {
+                buttontamarindo.Enabled = true;
+                button17.Enabled = true;
+            }
+            if (descripcion == "cebada")
+            {
+                buttoncebada.Enabled = true;
+                button19.Enabled = true;
+            }
+            if (descripcion == "cafe")
+            {
+                buttoncafe.Enabled = true;
+                button20.Enabled = true;
+            }
+            if (descripcion == "refresco")
+            {
+                button12.Enabled = true;
+                button21.Enabled = true;
             }
         }
 
@@ -1212,6 +1344,12 @@ namespace empanada_2
             }
         }
 
+        private void corteToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Corte corre = new Corte(ds);
+            corre.Show();
+        }
+
         private void button27_Click(object sender, EventArgs e)
         {
             if (Convert.ToInt32(queso_textBox1.Text) > 0)
@@ -1220,11 +1358,7 @@ namespace empanada_2
                 queso_textBox1.Text = Convert.ToString(queso);
             }
         }
-
-        private void groupBox1_Enter(object sender, EventArgs e)
-        {
-
-        }
+        
 
         private void cerrarSesiónToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -1293,12 +1427,12 @@ namespace empanada_2
                 button7.Enabled = false;
             }
             //lo nuevo que se metio
-            if (descripcion == "chicharron deshebrado")
+            if (descripcion == "deshebrada")
             {
                 button32_deshebrada.Enabled = false;
                 button31_deshe.Enabled = false;
             }
-            if (descripcion == "chicharron crujiente")
+            if (descripcion == "chicharron cru")
             {
                 crujiente_button30.Enabled = false;
                 button28.Enabled = false;
@@ -1308,9 +1442,55 @@ namespace empanada_2
                 button27.Enabled = false;
                 button29.Enabled = false;
             }
+            if (descripcion == "horchata")
+            {
+                buttonhorchata.Enabled = false;
+                button10.Enabled = false;
+            }
+            if (descripcion == "jamaica")
+            {
+                buttonjamaica.Enabled = false;
+                button11.Enabled = false;
+            }
+            if (descripcion == "tamarindo")
+            {
+                buttontamarindo.Enabled = false;
+                button17.Enabled = false;
+            }
+            if (descripcion == "cebada")
+            {
+                buttoncebada.Enabled = false;
+                button19.Enabled = false;
+            }
+            if (descripcion == "cafe")
+            {
+                buttoncafe.Enabled = false;
+                button20.Enabled = false;
+            }
+            if (descripcion == "refresco")
+            {
+                button12.Enabled = false;
+                button21.Enabled = false;
+            }
         }
 
-        private void ALMACEN(string descripcion,int cantidad)
+        private void TIPO_RESTA(string descripcion)
+        {
+            SetDefaultCulture(new CultureInfo("es-MX"));
+
+            OleDbConnection conexion4 = new OleDbConnection(ds);
+
+            conexion4.Open();
+
+            string sql = "select descuento from ALMACEN WHERE Descripcion='" + descripcion + "'";
+            OleDbCommand cmd2 = new OleDbCommand(sql, conexion4); //Conexion es tu objeto conexion
+           
+            tipo = Convert.ToDouble(cmd2.ExecuteScalar());
+            conexion4.Close();            
+        }
+
+        public string date;
+        private void ALMACEN(string descripcion,double cantidad)
         {
             SetDefaultCulture(new CultureInfo("es-MX"));
 
@@ -1323,9 +1503,7 @@ namespace empanada_2
             string sql = "select Peso from ALMACEN WHERE Descripcion='" + descripcion + "'";
             OleDbCommand cmd2 = new OleDbCommand(sql, conexion4); //Conexion es tu objeto conexion
 
-            peso = (cmd2.ExecuteScalar()).ToString();
-
-            conexion4.Close();
+            peso = (cmd2.ExecuteScalar()).ToString();            
 
             resta = tipo * cantidad;
 
@@ -1337,52 +1515,112 @@ namespace empanada_2
                 suma = 0;
             }
 
-            if (suma <= 90)
+            string sql1 = "select tipo from almacen where Descripcion='" + descripcion + "'";
+            OleDbCommand cmd32 = new OleDbCommand(sql1, conexion4);
+            
+            try
             {
-                if (suma <= 0)
+                OleDbDataReader reader = cmd32.ExecuteReader();
+
+                if (reader.HasRows)
                 {
-                    DialogResult resultado = MessageBox.Show(descripcion + " se encuentra  agotado ya no podras realizar ventas de este producto a menos que agreges mas en el almacen quieres abrir el almacen para Agregar mas " + descripcion, "ALERTA", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
-                    if (resultado == DialogResult.Yes)
+                    while (reader.Read())
                     {
-                        Almacen form = new Almacen(ds);
-                        form.P = 1;
-                        form.Show();
-                    }
-                    else if (resultado == DialogResult.No)
-                    {
-                        CANCELADO(descripcion);
+                        date = reader.GetString(0);
                     }
                 }
-                else if (suma <= 90)
+                else
                 {
-                    DialogResult resultado = MessageBox.Show(descripcion + " se encuentra en el limite permitido pronto te quedaras sin este producto quieres abrir el almacen para Agregar mas " + descripcion, "ALERTA", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
-                    if (resultado == DialogResult.Yes)
-                    {
-                        Almacen form = new Almacen(ds);
-                        form.P = 1;
-                        form.Show();
-                    }
                 }
-
+                reader.Close();
             }
-            else
+
+            catch (Exception ex)
             {
-                //ACTIVADO(descripcion);
+                MessageBox.Show("Error " + ex, "MENSAJE", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
 
-            //realizando la consulta
-            OleDbConnection conexion = new OleDbConnection(ds);
 
-            conexion.Open();
+            if (date == "platillo")
+            {
+                if (suma <= 90)
+                {
+                    if (suma <= 0)
+                    {
+                        DialogResult resultado = MessageBox.Show(descripcion + " se encuentra  agotado ya no podras realizar ventas de este producto a menos que agreges mas en el almacen quieres abrir el almacen para Agregar mas " + descripcion, "ALERTA", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+                        if (resultado == DialogResult.Yes)
+                        {
+                            Almacen form = new Almacen(ds);
+                            form.P = 1;
+                            form.Show();
+                        }
+                        else if (resultado == DialogResult.No)
+                        {
+                            CANCELADO(descripcion);
+                        }
+                    }
+                    else if (suma <= 90)
+                    {
+                        DialogResult resultado = MessageBox.Show(descripcion + " se encuentra en el limite permitido pronto te quedaras sin este producto quieres abrir el almacen para Agregar mas " + descripcion, "ALERTA", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+                        if (resultado == DialogResult.Yes)
+                        {
+                            Almacen form = new Almacen(ds);
+                            form.P = 1;
+                            form.Show();
+                        }
+                    }
+
+                }
+                else
+                {
+                    //ACTIVADO(descripcion);
+                }
+            }
+            else if(date=="bebida")
+            {
+                if (suma <= 3)
+                {
+                    if (suma <= 0)
+                    {
+                        DialogResult resultado = MessageBox.Show(descripcion + " se encuentra  agotado ya no podras realizar ventas de este producto a menos que agreges mas en el almacen quieres abrir el almacen para Agregar mas " + descripcion, "ALERTA", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+                        if (resultado == DialogResult.Yes)
+                        {
+                            Almacen form = new Almacen(ds);
+                            form.P = 1;
+                            form.Show();
+                        }
+                        else if (resultado == DialogResult.No)
+                        {
+                            CANCELADO(descripcion);
+                        }
+                    }
+                    else if (suma <= 3)
+                    {
+                        DialogResult resultado = MessageBox.Show(descripcion + " se encuentra en el limite permitido pronto te quedaras sin este producto quieres abrir el almacen para Agregar mas " + descripcion, "ALERTA", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+                        if (resultado == DialogResult.Yes)
+                        {
+                            Almacen form = new Almacen(ds);
+                            form.P = 1;
+                            form.Show();
+                        }
+                    }
+
+                }
+                else
+                {
+                    //ACTIVADO(descripcion);
+                }
+            }            
+            
 
             string insertar = "UPDATE ALMACEN SET Peso = @Peso WHERE Descripcion= '" + descripcion + "'";
-            OleDbCommand cmd3 = new OleDbCommand(insertar, conexion);
+            OleDbCommand cmd3 = new OleDbCommand(insertar, conexion4);
             cmd3.Parameters.AddWithValue("@Peso", suma.ToString());
 
             cmd3.ExecuteNonQuery();
-            conexion.Close();
+            conexion4.Close();
         }
-        public void RESTA_ALMACEN(string descripcion,int total)
+        public void RESTA_ALMACEN(string descripcion,double total)
         {
             OleDbConnection conexion = new OleDbConnection(ds);
 
@@ -1398,7 +1636,7 @@ namespace empanada_2
             conexion.Close();
         }
 
-        public void CANTIDAD_PLATILLO(string descripcion,int total)
+        public void CANTIDAD_PLATILLO(string descripcion,double total)
         {
             //checar cuanto es lo que tiene de peso respecto a la descripcion
             OleDbConnection conexion4 = new OleDbConnection(ds);
@@ -1417,6 +1655,7 @@ namespace empanada_2
             if (id == 0)
             {
                 MessageBox.Show("No se has cargado ninguna orden", "MENSAJE", MessageBoxButtons.OK, MessageBoxIcon.Stop);
+                resetear();
             }
             else
             {
@@ -1627,8 +1866,19 @@ namespace empanada_2
                         cantidad = Convert.ToInt32(textBoxhorchata.Text);
                         platillo = "horchata";
 
-                        Insertar_datos(cantidad, platillo);
-                        INSERTAR_VISU(platillo, cantidad);
+                        CANTIDAD_PLATILLO(platillo, cantidad);
+
+                        if (cant_disp >= cantidad)
+                        {
+                            Insertar_datos(cantidad, platillo);
+                            INSERTAR_VISU(platillo, cantidad);
+                            ALMACEN(platillo, cantidad);
+                            RESTA_ALMACEN(platillo, cantidad);
+                        }
+                        else
+                        {
+                            MessageBox.Show("No te Alcanza para realizar el pedido, tienes para hacer " + cant_disp + " empanadas de " + platillo, "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                        }
                     }
 
                     if (Convert.ToInt32(textBoxjamaica.Text) != 0)
@@ -1636,8 +1886,19 @@ namespace empanada_2
                         cantidad = Convert.ToInt32(textBoxjamaica.Text);
                         platillo = "jamaica";
 
-                        Insertar_datos(cantidad, platillo);
-                        INSERTAR_VISU(platillo, cantidad);
+                        CANTIDAD_PLATILLO(platillo, cantidad);
+
+                        if (cant_disp >= cantidad)
+                        {
+                            Insertar_datos(cantidad, platillo);
+                            INSERTAR_VISU(platillo, cantidad);
+                            ALMACEN(platillo, cantidad);
+                            RESTA_ALMACEN(platillo, cantidad);
+                        }
+                        else
+                        {
+                            MessageBox.Show("No te Alcanza para realizar el pedido, tienes para hacer " + cant_disp + " empanadas de " + platillo, "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                        }
                     }
 
                     if (Convert.ToInt32(textBoxtamarindo.Text) != 0)
@@ -1645,17 +1906,39 @@ namespace empanada_2
                         cantidad = Convert.ToInt32(textBoxtamarindo.Text);
                         platillo = "tamarindo";
 
-                        Insertar_datos(cantidad, platillo);
-                        INSERTAR_VISU(platillo, cantidad);
+                        CANTIDAD_PLATILLO(platillo, cantidad);
+
+                        if (cant_disp >= cantidad)
+                        {
+                            Insertar_datos(cantidad, platillo);
+                            INSERTAR_VISU(platillo, cantidad);
+                            ALMACEN(platillo, cantidad);
+                            RESTA_ALMACEN(platillo, cantidad);
+                        }
+                        else
+                        {
+                            MessageBox.Show("No te Alcanza para realizar el pedido, tienes para hacer " + cant_disp + " empanadas de " + platillo, "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                        }
                     }
 
                     if (Convert.ToInt32(textBoxsoda.Text) != 0)
                     {
                         cantidad = Convert.ToInt32(textBoxsoda.Text);
-                        platillo = "cocacola";
+                        platillo = "refresco";
 
-                        Insertar_datos(cantidad, platillo);
-                        INSERTAR_VISU(platillo, cantidad);
+                        CANTIDAD_PLATILLO(platillo, cantidad);
+
+                        if (cant_disp >= cantidad)
+                        {
+                            Insertar_datos(cantidad, platillo);
+                            INSERTAR_VISU(platillo, cantidad);
+                            ALMACEN(platillo, cantidad);
+                            RESTA_ALMACEN(platillo, cantidad);
+                        }
+                        else
+                        {
+                            MessageBox.Show("No te Alcanza para realizar el pedido, tienes para hacer " + cant_disp + " empanadas de " + platillo, "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                        }
                     }
 
                     if (Convert.ToInt32(textBoxcafe.Text) != 0)
@@ -1663,8 +1946,19 @@ namespace empanada_2
                         cantidad = Convert.ToInt32(textBoxcafe.Text);
                         platillo = "cafe";
 
-                        Insertar_datos(cantidad, platillo);
-                        INSERTAR_VISU(platillo, cantidad);
+                        CANTIDAD_PLATILLO(platillo, cantidad);
+
+                        if (cant_disp >= cantidad)
+                        {
+                            Insertar_datos(cantidad, platillo);
+                            INSERTAR_VISU(platillo, cantidad);
+                            ALMACEN(platillo, cantidad);
+                            RESTA_ALMACEN(platillo, cantidad);
+                        }
+                        else
+                        {
+                            MessageBox.Show("No te Alcanza para realizar el pedido, tienes para hacer " + cant_disp + " empanadas de " + platillo, "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                        }
                     }
 
                     if (Convert.ToInt32(textBoxcebada.Text) != 0)
@@ -1672,14 +1966,25 @@ namespace empanada_2
                         cantidad = Convert.ToInt32(textBoxcebada.Text);
                         platillo = "cebada";
 
-                        Insertar_datos(cantidad, platillo);
-                        INSERTAR_VISU(platillo, cantidad);
+                        CANTIDAD_PLATILLO(platillo, cantidad);
+
+                        if (cant_disp >= cantidad)
+                        {
+                            Insertar_datos(cantidad, platillo);
+                            INSERTAR_VISU(platillo, cantidad);
+                            ALMACEN(platillo, cantidad);
+                            RESTA_ALMACEN(platillo, cantidad);
+                        }
+                        else
+                        {
+                            MessageBox.Show("No te Alcanza para realizar el pedido, tienes para hacer " + cant_disp + " empanadas de " + platillo, "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                        }
                     }
                     //lo nuevo que se metio
                     if (Convert.ToInt32(textBox3_deshebrada.Text) != 0)
                     {
                         cantidad = Convert.ToInt32(textBox3_deshebrada.Text);
-                        platillo = "chicharron deshebrado";
+                        platillo = "deshebrada";
 
                         CANTIDAD_PLATILLO(platillo, cantidad);
                         if (cant_disp >= cantidad)
@@ -1697,7 +2002,7 @@ namespace empanada_2
                     if (Convert.ToInt32(crukiente_textBox2.Text) != 0)
                     {
                         cantidad = Convert.ToInt32(crukiente_textBox2.Text);
-                        platillo = "chicharron crujiente";
+                        platillo = "chicharron cru";
                         CANTIDAD_PLATILLO(platillo, cantidad);
 
                         if (cant_disp >= cantidad)
@@ -1748,13 +2053,16 @@ namespace empanada_2
                     //INSERTAR EL TOTAL EN LA TABLA ORDEN
                     try
                     {
-                        string insertar = "UPDATE ORDEN SET total_pagar = @total_pagar WHERE id_orden=" + id;
+                        //insertar el total y la descripcion en la tabla orden
+
+                        string insertar = "UPDATE ORDEN SET total_pagar = @total_pagar, descripcion = @descripcion  WHERE id_orden=" + id;
                         OleDbCommand cmd3 = new OleDbCommand(insertar, conexion4);
                         cmd3.Parameters.AddWithValue("@total_pagar", textBox_total.Text);
+                        cmd3.Parameters.AddWithValue("@descripcion", textBox_descripcion.Text);
 
                         cmd3.ExecuteNonQuery();
 
-                        // INSERTAR DESCRIPCION A LA TABLA ORDEN
+                        //// INSERTAR DESCRIPCION A LA TABLA ORDEN
 
                         string descripcion = "UPDATE ORDEN SET descripcion = @descripcion WHERE id_orden=" + id;
                         OleDbCommand cmd5 = new OleDbCommand(descripcion, conexion4);
@@ -1765,12 +2073,8 @@ namespace empanada_2
                     catch { }
                     conexion4.Close();
                     //-------------------
-
                     SELECT_PLATILLOS();
-
                     //RELOGEAR EL LISTVIEW ORDENES PARA QUE APARESCA EL TOTAL
-
-
                     SELECT_ORDEN();
                     //--------------------------------
                     //RESETEAR LAS CANTIDADES DE LOS TEXTBOX 
@@ -1822,6 +2126,8 @@ namespace empanada_2
             }
 
             GANANCIAS();
+            modificado = 0;
+            id = 0;
         }
 
         private void button16_Click(object sender, EventArgs e)

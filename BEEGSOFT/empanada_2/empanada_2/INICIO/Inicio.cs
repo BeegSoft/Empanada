@@ -23,12 +23,11 @@ namespace empanada_2
         }
         //CONEXION
         int band;
-        string ds,operador;
+        string ds,operador,fecha;
         private void button1_Click(object sender, EventArgs e)
-        {
-            DateTime fechahoy = DateTime.Now;
-            string fecha = fechahoy.ToString("d");
-
+        {            
+            
+            fecha = DateTime.Now.ToShortDateString();
             string var1 = fecha;
             var1 = var1.Substring(0, 2);
 
@@ -36,52 +35,74 @@ namespace empanada_2
             var2 = var2.Substring(3, 2);
 
             string var3 = fecha;
-            var3 = var3.Substring(6, 4);
+            var3 = var3.Substring(6, 4);            
 
             //juntando las cadenas
             string fechacompleta = string.Concat(var3, var2, var1);
             int fechanum = Convert.ToInt32(fechacompleta);
-            try
-            {
-                OleDbConnection conexion = new OleDbConnection(ds);
-
-                conexion.Open();
-                string insertar = "INSERT INTO FECHA (fecha, id) VALUES (@fecha, @id)";
-                OleDbCommand cmd = new OleDbCommand(insertar, conexion);
-                cmd.Parameters.AddWithValue("@fecha", fecha);
-                cmd.Parameters.AddWithValue("@id", fechanum);
-
-                cmd.ExecuteNonQuery();
-
-                conexion.Close();
-                
-                Pantalla2 form = new Pantalla2(fecha, ds,band,operador);
-                form.Show();
-                this.Close();
-            }
-
-            catch (Exception)
-            {
-                DialogResult resultado = MessageBox.Show("Ya existe un historial del dia de hoy\n\n      Desea continuar el dia de hoy?", "ADVERTENCIA", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
-                if (resultado == DialogResult.Yes)
-                {
-                    Pantalla2 form = new Pantalla2(fecha, ds,band,operador);
-                    form.Show();
-                    this.Close();
-                }
-            }
-        }
-
-        private void button2_Click(object sender, EventArgs e)
-        {
-            DateTime fechahoy = DateTime.Now;
-            string fecha = fechahoy.ToString("d");
 
             OleDbConnection conexion = new OleDbConnection(ds);
 
             conexion.Open();
 
-            string select = "SELECT COUNT(fecha) FROM FECHA WHERE fecha='" + fecha + "'";
+            string select = "SELECT COUNT(fecha) FROM FECHA WHERE fecha= '" + fecha + "'";
+            OleDbCommand cmd = new OleDbCommand(select, conexion);
+            try
+            {
+                string compro = (cmd.ExecuteScalar()).ToString();
+
+                if (Convert.ToInt32(compro) != 0)
+                {
+                    DialogResult resultado = MessageBox.Show("Ya existe un historial del dia de hoy\n\n      Desea continuar el dia de hoy?", "ADVERTENCIA", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+                    if (resultado == DialogResult.Yes)
+                    {
+                        Pantalla2 form = new Pantalla2(fecha, ds, band, operador);
+                        form.Show();
+                        this.Close();
+                    }
+                   
+                }
+                else
+                {
+                    string insertar = "INSERT INTO FECHA (fecha, id) VALUES (@fecha, @id)";
+                    OleDbCommand cmd1 = new OleDbCommand(insertar, conexion);
+                    cmd1.Parameters.AddWithValue("@fecha", fecha);
+                    cmd1.Parameters.AddWithValue("@id", fechanum);
+
+                    cmd1.ExecuteNonQuery();
+                    
+                    Pantalla2 form = new Pantalla2(fecha, ds, band, operador);
+                    form.Show();
+                    this.Close();
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error orden" + ex, "MENSAJE", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            conexion.Close();        
+
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+           
+            fecha = DateTime.Now.ToShortDateString();
+            //string var1 = fecha;
+            //var1 = var1.Substring(0, 2);
+
+            //string var2 = fecha;
+            //var2 = var2.Substring(3, 2);
+
+            //string var3 = fecha;
+            //var3 = var3.Substring(6, 4);
+            
+
+            OleDbConnection conexion = new OleDbConnection(ds);
+
+            conexion.Open();
+
+            string select = "SELECT COUNT(fecha) FROM FECHA WHERE fecha= '" + fecha + "'";
             OleDbCommand cmd = new OleDbCommand(select, conexion);
             try
             {

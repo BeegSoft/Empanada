@@ -1,0 +1,405 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml-stylesheet type="text/xsl" href="c:\program files (x86)\microsoft visual studio 14.0\team tools\static analysis tools\fxcop\Xml\CodeAnalysisReport.xsl"?>
+<FxCopReport Version="14.0">
+ <Targets>
+  <Target Name="C:\Empanada\BEEGSOFT\empanada_2\empanada_2\bin\Debug\empanada_2.exe">
+   <Modules>
+    <Module Name="empanada_2.exe">
+     <Namespaces>
+      <Namespace Name="empanada_2">
+       <Types>
+        <Type Name="Almacen" Kind="Class" Accessibility="Public" ExternallyVisible="True">
+         <Members>
+          <Member Name="#button4_Click(System.Object,System.EventArgs)" Kind="Method" Static="False" Accessibility="Private" ExternallyVisible="False">
+           <Messages>
+            <Message TypeName="Revisar consultas SQL para comprobar si tienen vulnerabilidades de seguridad" Category="Microsoft.Security" CheckId="CA2100" Status="Active" Created="2017-02-04 04:06:49Z" FixCategory="DependsOnFix">
+             <Issue Name="WithNonLiterals" Certainty="75" Level="Warning" Path="C:\Empanada\BEEGSOFT\empanada_2\empanada_2\ESTADISTICAS" File="Almacen.cs" Line="204">La cadena de consulta pasada a 'OleDbCommand.OleDbCommand(string, OleDbConnection)' en 'Almacen.button4_Click(object, EventArgs)' podría contener las siguientes variables: 'this.comboBox_almacen.Text'. Si alguna de estas variables puede proceder de datos proporcionados por el usuario, considere el uso de un procedimiento almacenado o una consulta SQL parametrizada en lugar de compilar la consulta con concatenaciones de cadenas.</Issue>
+             <Issue Name="WithNonLiterals" Certainty="75" Level="Warning" Path="C:\Empanada\BEEGSOFT\empanada_2\empanada_2\ESTADISTICAS" File="Almacen.cs" Line="209">La cadena de consulta pasada a 'OleDbCommand.OleDbCommand(string, OleDbConnection)' en 'Almacen.button4_Click(object, EventArgs)' podría contener las siguientes variables: 'this.comboBox_almacen.Text'. Si alguna de estas variables puede proceder de datos proporcionados por el usuario, considere el uso de un procedimiento almacenado o una consulta SQL parametrizada en lugar de compilar la consulta con concatenaciones de cadenas.</Issue>
+             <Issue Name="WithNonLiterals" Certainty="75" Level="Warning" Path="C:\Empanada\BEEGSOFT\empanada_2\empanada_2\ESTADISTICAS" File="Almacen.cs" Line="241">La cadena de consulta pasada a 'OleDbCommand.OleDbCommand(string, OleDbConnection)' en 'Almacen.button4_Click(object, EventArgs)' podría contener las siguientes variables: 'this.comboBox_almacen.Text'. Si alguna de estas variables puede proceder de datos proporcionados por el usuario, considere el uso de un procedimiento almacenado o una consulta SQL parametrizada en lugar de compilar la consulta con concatenaciones de cadenas.</Issue>
+            </Message>
+           </Messages>
+          </Member>
+          <Member Name="#button5_Click(System.Object,System.EventArgs)" Kind="Method" Static="False" Accessibility="Private" ExternallyVisible="False">
+           <Messages>
+            <Message TypeName="Revisar consultas SQL para comprobar si tienen vulnerabilidades de seguridad" Category="Microsoft.Security" CheckId="CA2100" Status="Active" Created="2017-02-04 04:06:49Z" FixCategory="DependsOnFix">
+             <Issue Name="WithNonLiterals" Certainty="75" Level="Warning" Path="C:\Empanada\BEEGSOFT\empanada_2\empanada_2\ESTADISTICAS" File="Almacen.cs" Line="312">La cadena de consulta pasada a 'OleDbCommand.OleDbCommand(string, OleDbConnection)' en 'Almacen.button5_Click(object, EventArgs)' podría contener las siguientes variables: 'this.comboBox_almacen.Text'. Si alguna de estas variables puede proceder de datos proporcionados por el usuario, considere el uso de un procedimiento almacenado o una consulta SQL parametrizada en lugar de compilar la consulta con concatenaciones de cadenas.</Issue>
+             <Issue Name="WithNonLiterals" Certainty="75" Level="Warning" Path="C:\Empanada\BEEGSOFT\empanada_2\empanada_2\ESTADISTICAS" File="Almacen.cs" Line="317">La cadena de consulta pasada a 'OleDbCommand.OleDbCommand(string, OleDbConnection)' en 'Almacen.button5_Click(object, EventArgs)' podría contener las siguientes variables: 'this.comboBox_almacen.Text'. Si alguna de estas variables puede proceder de datos proporcionados por el usuario, considere el uso de un procedimiento almacenado o una consulta SQL parametrizada en lugar de compilar la consulta con concatenaciones de cadenas.</Issue>
+             <Issue Name="WithNonLiterals" Certainty="75" Level="Warning" Path="C:\Empanada\BEEGSOFT\empanada_2\empanada_2\ESTADISTICAS" File="Almacen.cs" Line="334">La cadena de consulta pasada a 'OleDbCommand.OleDbCommand(string, OleDbConnection)' en 'Almacen.button5_Click(object, EventArgs)' podría contener las siguientes variables: 'this.comboBox_almacen.Text'. Si alguna de estas variables puede proceder de datos proporcionados por el usuario, considere el uso de un procedimiento almacenado o una consulta SQL parametrizada en lugar de compilar la consulta con concatenaciones de cadenas.</Issue>
+            </Message>
+           </Messages>
+          </Member>
+         </Members>
+        </Type>
+        <Type Name="Control_acceso" Kind="Class" Accessibility="Public" ExternallyVisible="True">
+         <Members>
+          <Member Name="#CONECTAR()" Kind="Method" Static="False" Accessibility="Private" ExternallyVisible="False">
+           <Messages>
+            <Message TypeName="Revisar consultas SQL para comprobar si tienen vulnerabilidades de seguridad" Category="Microsoft.Security" CheckId="CA2100" Status="Active" Created="2017-02-04 04:06:49Z" FixCategory="DependsOnFix">
+             <Issue Name="WithNonLiterals" Certainty="75" Level="Warning" Path="C:\Empanada\BEEGSOFT\empanada_2\empanada_2\LOGIN" File="Control_acceso.cs" Line="60">La cadena de consulta pasada a 'OleDbCommand.OleDbCommand(string, OleDbConnection)' en 'Control_acceso.CONECTAR()' podría contener las siguientes variables: 'this.textBox1.Text', 'var1', 'this.comboBox1.Text'. Si alguna de estas variables puede proceder de datos proporcionados por el usuario, considere el uso de un procedimiento almacenado o una consulta SQL parametrizada en lugar de compilar la consulta con concatenaciones de cadenas.</Issue>
+            </Message>
+           </Messages>
+          </Member>
+         </Members>
+        </Type>
+        <Type Name="Exportacion_excel" Kind="Class" Accessibility="Public" ExternallyVisible="True">
+         <Members>
+          <Member Name="#button1_Click(System.Object,System.EventArgs)" Kind="Method" Static="False" Accessibility="Private" ExternallyVisible="False">
+           <Messages>
+            <Message TypeName="Revisar consultas SQL para comprobar si tienen vulnerabilidades de seguridad" Category="Microsoft.Security" CheckId="CA2100" Status="Active" Created="2017-02-04 04:06:49Z" FixCategory="DependsOnFix">
+             <Issue Name="WithNonLiterals" Certainty="75" Level="Warning" Path="C:\Empanada\BEEGSOFT\empanada_2\empanada_2\ESTADISTICAS" File="Exportacion_excel.cs" Line="124">La cadena de consulta pasada a 'OleDbDataAdapter.OleDbDataAdapter(string, string)' en 'Exportacion_excel.button1_Click(object, EventArgs)' podría contener las siguientes variables: 'fecha_menor', 'fecha_mayor'. Si alguna de estas variables puede proceder de datos proporcionados por el usuario, considere el uso de un procedimiento almacenado o una consulta SQL parametrizada en lugar de compilar la consulta con concatenaciones de cadenas.</Issue>
+             <Issue Name="WithNonLiterals" Certainty="75" Level="Warning" Path="C:\Empanada\BEEGSOFT\empanada_2\empanada_2\ESTADISTICAS" File="Exportacion_excel.cs" Line="146">La cadena de consulta pasada a 'OleDbDataAdapter.OleDbDataAdapter(string, string)' en 'Exportacion_excel.button1_Click(object, EventArgs)' podría contener las siguientes variables: 'fecha_menor', 'fecha_mayor'. Si alguna de estas variables puede proceder de datos proporcionados por el usuario, considere el uso de un procedimiento almacenado o una consulta SQL parametrizada en lugar de compilar la consulta con concatenaciones de cadenas.</Issue>
+            </Message>
+           </Messages>
+          </Member>
+          <Member Name="#CARGAR()" Kind="Method" Static="False" Accessibility="Private" ExternallyVisible="False">
+           <Messages>
+            <Message TypeName="Revisar consultas SQL para comprobar si tienen vulnerabilidades de seguridad" Category="Microsoft.Security" CheckId="CA2100" Status="Active" Created="2017-02-04 04:06:49Z" FixCategory="DependsOnFix">
+             <Issue Name="WithNonLiterals" Certainty="75" Level="Warning" Path="C:\Empanada\BEEGSOFT\empanada_2\empanada_2\ESTADISTICAS" File="Exportacion_excel.cs" Line="199">La cadena de consulta pasada a 'OleDbDataAdapter.OleDbDataAdapter(string, string)' en 'Exportacion_excel.CARGAR()' podría contener las siguientes variables: 'this.fechaa', 'this.fechab'. Si alguna de estas variables puede proceder de datos proporcionados por el usuario, considere el uso de un procedimiento almacenado o una consulta SQL parametrizada en lugar de compilar la consulta con concatenaciones de cadenas.</Issue>
+             <Issue Name="WithNonLiterals" Certainty="75" Level="Warning" Path="C:\Empanada\BEEGSOFT\empanada_2\empanada_2\ESTADISTICAS" File="Exportacion_excel.cs" Line="221">La cadena de consulta pasada a 'OleDbDataAdapter.OleDbDataAdapter(string, string)' en 'Exportacion_excel.CARGAR()' podría contener las siguientes variables: 'this.fechaa', 'this.fechab'. Si alguna de estas variables puede proceder de datos proporcionados por el usuario, considere el uso de un procedimiento almacenado o una consulta SQL parametrizada en lugar de compilar la consulta con concatenaciones de cadenas.</Issue>
+            </Message>
+           </Messages>
+          </Member>
+         </Members>
+        </Type>
+        <Type Name="Form1" Kind="Class" Accessibility="Public" ExternallyVisible="True">
+         <Members>
+          <Member Name="#AGREGAR_ALMACEN(System.Int32)" Kind="Method" Static="False" Accessibility="Private" ExternallyVisible="False">
+           <Messages>
+            <Message TypeName="Revisar consultas SQL para comprobar si tienen vulnerabilidades de seguridad" Category="Microsoft.Security" CheckId="CA2100" Status="Active" Created="2017-02-04 04:06:49Z" FixCategory="DependsOnFix">
+             <Issue Name="WithNonLiterals" Certainty="75" Level="Warning" Path="C:\Empanada\BEEGSOFT\empanada_2\empanada_2\ORDENES" File="Index.cs" Line="656">La cadena de consulta pasada a 'OleDbCommand.OleDbCommand(string, OleDbConnection)' en 'Form1.AGREGAR_ALMACEN(int)' podría contener las siguientes variables: 'this.descripcion'. Si alguna de estas variables puede proceder de datos proporcionados por el usuario, considere el uso de un procedimiento almacenado o una consulta SQL parametrizada en lugar de compilar la consulta con concatenaciones de cadenas.</Issue>
+             <Issue Name="WithNonLiterals" Certainty="75" Level="Warning" Path="C:\Empanada\BEEGSOFT\empanada_2\empanada_2\ORDENES" File="Index.cs" Line="667">La cadena de consulta pasada a 'OleDbCommand.OleDbCommand(string, OleDbConnection)' en 'Form1.AGREGAR_ALMACEN(int)' podría contener las siguientes variables: 'this.descripcion'. Si alguna de estas variables puede proceder de datos proporcionados por el usuario, considere el uso de un procedimiento almacenado o una consulta SQL parametrizada en lugar de compilar la consulta con concatenaciones de cadenas.</Issue>
+            </Message>
+           </Messages>
+          </Member>
+          <Member Name="#ALMACEN(System.String,System.Int32)" Kind="Method" Static="False" Accessibility="Private" ExternallyVisible="False">
+           <Messages>
+            <Message TypeName="Revisar consultas SQL para comprobar si tienen vulnerabilidades de seguridad" Category="Microsoft.Security" CheckId="CA2100" Status="Active" Created="2017-02-04 04:06:49Z" FixCategory="DependsOnFix">
+             <Issue Name="WithNonLiterals" Certainty="75" Level="Warning" Path="C:\Empanada\BEEGSOFT\empanada_2\empanada_2\ORDENES" File="Index.cs" Line="1220">La cadena de consulta pasada a 'OleDbCommand.OleDbCommand(string, OleDbConnection)' en 'Form1.ALMACEN(string, int)' podría contener las siguientes variables: 'descripcion'. Si alguna de estas variables puede proceder de datos proporcionados por el usuario, considere el uso de un procedimiento almacenado o una consulta SQL parametrizada en lugar de compilar la consulta con concatenaciones de cadenas.</Issue>
+             <Issue Name="WithNonLiterals" Certainty="75" Level="Warning" Path="C:\Empanada\BEEGSOFT\empanada_2\empanada_2\ORDENES" File="Index.cs" Line="1275">La cadena de consulta pasada a 'OleDbCommand.OleDbCommand(string, OleDbConnection)' en 'Form1.ALMACEN(string, int)' podría contener las siguientes variables: 'descripcion'. Si alguna de estas variables puede proceder de datos proporcionados por el usuario, considere el uso de un procedimiento almacenado o una consulta SQL parametrizada en lugar de compilar la consulta con concatenaciones de cadenas.</Issue>
+            </Message>
+           </Messages>
+          </Member>
+          <Member Name="#button14_Click_1(System.Object,System.EventArgs)" Kind="Method" Static="False" Accessibility="Private" ExternallyVisible="False">
+           <Messages>
+            <Message TypeName="Revisar consultas SQL para comprobar si tienen vulnerabilidades de seguridad" Category="Microsoft.Security" CheckId="CA2100" Status="Active" Created="2017-02-04 04:06:49Z" FixCategory="DependsOnFix">
+             <Issue Name="WithNonLiterals" Certainty="75" Level="Warning" Path="C:\Empanada\BEEGSOFT\empanada_2\empanada_2\ORDENES" File="Index.cs" Line="1645">La cadena de consulta pasada a 'OleDbCommand.OleDbCommand(string, OleDbConnection)' en 'Form1.button14_Click_1(object, EventArgs)' podría contener las siguientes variables: 'this.fecha'. Si alguna de estas variables puede proceder de datos proporcionados por el usuario, considere el uso de un procedimiento almacenado o una consulta SQL parametrizada en lugar de compilar la consulta con concatenaciones de cadenas.</Issue>
+             <Issue Name="WithNonLiterals" Certainty="75" Level="Warning" Path="C:\Empanada\BEEGSOFT\empanada_2\empanada_2\ORDENES" File="Index.cs" Line="1654">La cadena de consulta pasada a 'OleDbCommand.OleDbCommand(string, OleDbConnection)' en 'Form1.button14_Click_1(object, EventArgs)' podría contener las siguientes variables: 'this.fecha'. Si alguna de estas variables puede proceder de datos proporcionados por el usuario, considere el uso de un procedimiento almacenado o una consulta SQL parametrizada en lugar de compilar la consulta con concatenaciones de cadenas.</Issue>
+            </Message>
+           </Messages>
+          </Member>
+          <Member Name="#button18_Click(System.Object,System.EventArgs)" Kind="Method" Static="False" Accessibility="Private" ExternallyVisible="False">
+           <Messages>
+            <Message TypeName="Revisar consultas SQL para comprobar si tienen vulnerabilidades de seguridad" Category="Microsoft.Security" CheckId="CA2100" Status="Active" Created="2017-02-04 04:06:49Z" FixCategory="DependsOnFix">
+             <Issue Name="WithNonLiterals" Certainty="75" Level="Warning" Path="C:\Empanada\BEEGSOFT\empanada_2\empanada_2\ORDENES" File="Index.cs" Line="828">La cadena de consulta pasada a 'OleDbCommand.OleDbCommand(string, OleDbConnection)' en 'Form1.button18_Click(object, EventArgs)' podría contener las siguientes variables: 'this.fecha'. Si alguna de estas variables puede proceder de datos proporcionados por el usuario, considere el uso de un procedimiento almacenado o una consulta SQL parametrizada en lugar de compilar la consulta con concatenaciones de cadenas.</Issue>
+             <Issue Name="WithNonLiterals" Certainty="75" Level="Warning" Path="C:\Empanada\BEEGSOFT\empanada_2\empanada_2\ORDENES" File="Index.cs" Line="836">La cadena de consulta pasada a 'OleDbCommand.OleDbCommand(string, OleDbConnection)' en 'Form1.button18_Click(object, EventArgs)' podría contener las siguientes variables: 'this.fecha'. Si alguna de estas variables puede proceder de datos proporcionados por el usuario, considere el uso de un procedimiento almacenado o una consulta SQL parametrizada en lugar de compilar la consulta con concatenaciones de cadenas.</Issue>
+            </Message>
+           </Messages>
+          </Member>
+          <Member Name="#button25_Click(System.Object,System.EventArgs)" Kind="Method" Static="False" Accessibility="Private" ExternallyVisible="False">
+           <Messages>
+            <Message TypeName="Revisar consultas SQL para comprobar si tienen vulnerabilidades de seguridad" Category="Microsoft.Security" CheckId="CA2100" Status="Active" Created="2017-02-04 04:06:49Z" FixCategory="DependsOnFix">
+             <Issue Name="WithNonLiterals" Certainty="75" Level="Warning" Path="C:\Empanada\BEEGSOFT\empanada_2\empanada_2\ORDENES" File="Index.cs" Line="756">La cadena de consulta pasada a 'OleDbCommand.OleDbCommand(string, OleDbConnection)' en 'Form1.button25_Click(object, EventArgs)' podría contener las siguientes variables: 'this.fecha'. Si alguna de estas variables puede proceder de datos proporcionados por el usuario, considere el uso de un procedimiento almacenado o una consulta SQL parametrizada en lugar de compilar la consulta con concatenaciones de cadenas.</Issue>
+             <Issue Name="WithNonLiterals" Certainty="75" Level="Warning" Path="C:\Empanada\BEEGSOFT\empanada_2\empanada_2\ORDENES" File="Index.cs" Line="765">La cadena de consulta pasada a 'OleDbCommand.OleDbCommand(string, OleDbConnection)' en 'Form1.button25_Click(object, EventArgs)' podría contener las siguientes variables: 'this.fecha'. Si alguna de estas variables puede proceder de datos proporcionados por el usuario, considere el uso de un procedimiento almacenado o una consulta SQL parametrizada en lugar de compilar la consulta con concatenaciones de cadenas.</Issue>
+            </Message>
+           </Messages>
+          </Member>
+          <Member Name="#CANTIDAD_PLATILLO(System.String,System.Int32)" Kind="Method" Static="False" Accessibility="Public" ExternallyVisible="True">
+           <Messages>
+            <Message TypeName="Revisar consultas SQL para comprobar si tienen vulnerabilidades de seguridad" Category="Microsoft.Security" CheckId="CA2100" Status="Active" Created="2017-02-04 04:06:49Z" FixCategory="DependsOnFix">
+             <Issue Name="WithNonLiterals" Certainty="75" Level="Warning" Path="C:\Empanada\BEEGSOFT\empanada_2\empanada_2\ORDENES" File="Index.cs" Line="1305">La cadena de consulta pasada a 'OleDbCommand.OleDbCommand(string, OleDbConnection)' en 'Form1.CANTIDAD_PLATILLO(string, int)' podría contener las siguientes variables: 'descripcion'. Si alguna de estas variables puede proceder de datos proporcionados por el usuario, considere el uso de un procedimiento almacenado o una consulta SQL parametrizada en lugar de compilar la consulta con concatenaciones de cadenas.</Issue>
+            </Message>
+           </Messages>
+          </Member>
+          <Member Name="#GANANCIAS()" Kind="Method" Static="False" Accessibility="Private" ExternallyVisible="False">
+           <Messages>
+            <Message TypeName="Revisar consultas SQL para comprobar si tienen vulnerabilidades de seguridad" Category="Microsoft.Security" CheckId="CA2100" Status="Active" Created="2017-02-04 04:06:49Z" FixCategory="DependsOnFix">
+             <Issue Name="WithNonLiterals" Certainty="75" Level="Warning" Path="C:\Empanada\BEEGSOFT\empanada_2\empanada_2\ORDENES" File="Index.cs" Line="382">La cadena de consulta pasada a 'OleDbCommand.OleDbCommand(string, OleDbConnection)' en 'Form1.GANANCIAS()' podría contener las siguientes variables: 'this.fecha'. Si alguna de estas variables puede proceder de datos proporcionados por el usuario, considere el uso de un procedimiento almacenado o una consulta SQL parametrizada en lugar de compilar la consulta con concatenaciones de cadenas.</Issue>
+             <Issue Name="WithNonLiterals" Certainty="75" Level="Warning" Path="C:\Empanada\BEEGSOFT\empanada_2\empanada_2\ORDENES" File="Index.cs" Line="406">La cadena de consulta pasada a 'OleDbCommand.OleDbCommand(string, OleDbConnection)' en 'Form1.GANANCIAS()' podría contener las siguientes variables: 'this.fecha'. Si alguna de estas variables puede proceder de datos proporcionados por el usuario, considere el uso de un procedimiento almacenado o una consulta SQL parametrizada en lugar de compilar la consulta con concatenaciones de cadenas.</Issue>
+            </Message>
+           </Messages>
+          </Member>
+          <Member Name="#Insertar_datos(System.Int32,System.String)" Kind="Method" Static="False" Accessibility="Private" ExternallyVisible="False">
+           <Messages>
+            <Message TypeName="Revisar consultas SQL para comprobar si tienen vulnerabilidades de seguridad" Category="Microsoft.Security" CheckId="CA2100" Status="Active" Created="2017-02-04 04:06:49Z" FixCategory="DependsOnFix">
+             <Issue Name="WithNonLiterals" Certainty="75" Level="Warning" Path="C:\Empanada\BEEGSOFT\empanada_2\empanada_2\ORDENES" File="Index.cs" Line="207">La cadena de consulta pasada a 'OleDbCommand.OleDbCommand(string, OleDbConnection)' en 'Form1.Insertar_datos(int, string)' podría contener las siguientes variables: 'platillo'. Si alguna de estas variables puede proceder de datos proporcionados por el usuario, considere el uso de un procedimiento almacenado o una consulta SQL parametrizada en lugar de compilar la consulta con concatenaciones de cadenas.</Issue>
+            </Message>
+           </Messages>
+          </Member>
+          <Member Name="#RESTA_ALMACEN(System.String,System.Int32)" Kind="Method" Static="False" Accessibility="Public" ExternallyVisible="True">
+           <Messages>
+            <Message TypeName="Revisar consultas SQL para comprobar si tienen vulnerabilidades de seguridad" Category="Microsoft.Security" CheckId="CA2100" Status="Active" Created="2017-02-04 04:06:49Z" FixCategory="DependsOnFix">
+             <Issue Name="WithNonLiterals" Certainty="75" Level="Warning" Path="C:\Empanada\BEEGSOFT\empanada_2\empanada_2\ORDENES" File="Index.cs" Line="1290">La cadena de consulta pasada a 'OleDbCommand.OleDbCommand(string, OleDbConnection)' en 'Form1.RESTA_ALMACEN(string, int)' podría contener las siguientes variables: 'descripcion'. Si alguna de estas variables puede proceder de datos proporcionados por el usuario, considere el uso de un procedimiento almacenado o una consulta SQL parametrizada en lugar de compilar la consulta con concatenaciones de cadenas.</Issue>
+            </Message>
+           </Messages>
+          </Member>
+          <Member Name="#SELECT_ORDEN()" Kind="Method" Static="False" Accessibility="Private" ExternallyVisible="False">
+           <Messages>
+            <Message TypeName="Revisar consultas SQL para comprobar si tienen vulnerabilidades de seguridad" Category="Microsoft.Security" CheckId="CA2100" Status="Active" Created="2017-02-04 04:06:49Z" FixCategory="DependsOnFix">
+             <Issue Name="WithNonLiterals" Certainty="75" Level="Warning" Path="C:\Empanada\BEEGSOFT\empanada_2\empanada_2\ORDENES" File="Index.cs" Line="143">La cadena de consulta pasada a 'OleDbDataAdapter.OleDbDataAdapter(string, string)' en 'Form1.SELECT_ORDEN()' podría contener las siguientes variables: 'this.fecha'. Si alguna de estas variables puede proceder de datos proporcionados por el usuario, considere el uso de un procedimiento almacenado o una consulta SQL parametrizada en lugar de compilar la consulta con concatenaciones de cadenas.</Issue>
+            </Message>
+           </Messages>
+          </Member>
+          <Member Name="#SUMA_ALMACEN(System.String,System.Int32)" Kind="Method" Static="False" Accessibility="Public" ExternallyVisible="True">
+           <Messages>
+            <Message TypeName="Revisar consultas SQL para comprobar si tienen vulnerabilidades de seguridad" Category="Microsoft.Security" CheckId="CA2100" Status="Active" Created="2017-02-04 04:06:49Z" FixCategory="DependsOnFix">
+             <Issue Name="WithNonLiterals" Certainty="75" Level="Warning" Path="C:\Empanada\BEEGSOFT\empanada_2\empanada_2\ORDENES" File="Index.cs" Line="599">La cadena de consulta pasada a 'OleDbCommand.OleDbCommand(string, OleDbConnection)' en 'Form1.SUMA_ALMACEN(string, int)' podría contener las siguientes variables: 'descripcion'. Si alguna de estas variables puede proceder de datos proporcionados por el usuario, considere el uso de un procedimiento almacenado o una consulta SQL parametrizada en lugar de compilar la consulta con concatenaciones de cadenas.</Issue>
+            </Message>
+           </Messages>
+          </Member>
+         </Members>
+        </Type>
+        <Type Name="Gastos" Kind="Class" Accessibility="Public" ExternallyVisible="True">
+         <Members>
+          <Member Name="#GANANCIAS()" Kind="Method" Static="False" Accessibility="Private" ExternallyVisible="False">
+           <Messages>
+            <Message TypeName="Revisar consultas SQL para comprobar si tienen vulnerabilidades de seguridad" Category="Microsoft.Security" CheckId="CA2100" Status="Active" Created="2017-02-04 04:06:49Z" FixCategory="DependsOnFix">
+             <Issue Name="WithNonLiterals" Certainty="75" Level="Warning" Path="C:\Empanada\BEEGSOFT\empanada_2\empanada_2\ESTADISTICAS" File="Gastos.cs" Line="96">La cadena de consulta pasada a 'OleDbCommand.OleDbCommand(string, OleDbConnection)' en 'Gastos.GANANCIAS()' podría contener las siguientes variables: 'this.fecha'. Si alguna de estas variables puede proceder de datos proporcionados por el usuario, considere el uso de un procedimiento almacenado o una consulta SQL parametrizada en lugar de compilar la consulta con concatenaciones de cadenas.</Issue>
+             <Issue Name="WithNonLiterals" Certainty="75" Level="Warning" Path="C:\Empanada\BEEGSOFT\empanada_2\empanada_2\ESTADISTICAS" File="Gastos.cs" Line="120">La cadena de consulta pasada a 'OleDbCommand.OleDbCommand(string, OleDbConnection)' en 'Gastos.GANANCIAS()' podría contener las siguientes variables: 'this.fecha'. Si alguna de estas variables puede proceder de datos proporcionados por el usuario, considere el uso de un procedimiento almacenado o una consulta SQL parametrizada en lugar de compilar la consulta con concatenaciones de cadenas.</Issue>
+            </Message>
+           </Messages>
+          </Member>
+          <Member Name="#SELECT_GASTOS()" Kind="Method" Static="False" Accessibility="Private" ExternallyVisible="False">
+           <Messages>
+            <Message TypeName="Revisar consultas SQL para comprobar si tienen vulnerabilidades de seguridad" Category="Microsoft.Security" CheckId="CA2100" Status="Active" Created="2017-02-04 04:06:49Z" FixCategory="DependsOnFix">
+             <Issue Name="WithNonLiterals" Certainty="75" Level="Warning" Path="C:\Empanada\BEEGSOFT\empanada_2\empanada_2\ESTADISTICAS" File="Gastos.cs" Line="61">La cadena de consulta pasada a 'OleDbDataAdapter.OleDbDataAdapter(string, string)' en 'Gastos.SELECT_GASTOS()' podría contener las siguientes variables: 'this.fecha'. Si alguna de estas variables puede proceder de datos proporcionados por el usuario, considere el uso de un procedimiento almacenado o una consulta SQL parametrizada en lugar de compilar la consulta con concatenaciones de cadenas.</Issue>
+            </Message>
+           </Messages>
+          </Member>
+          <Member Name="#SUMA_GASTOS()" Kind="Method" Static="False" Accessibility="Private" ExternallyVisible="False">
+           <Messages>
+            <Message TypeName="Revisar consultas SQL para comprobar si tienen vulnerabilidades de seguridad" Category="Microsoft.Security" CheckId="CA2100" Status="Active" Created="2017-02-04 04:06:49Z" FixCategory="DependsOnFix">
+             <Issue Name="WithNonLiterals" Certainty="75" Level="Warning" Path="C:\Empanada\BEEGSOFT\empanada_2\empanada_2\ESTADISTICAS" File="Gastos.cs" Line="283">La cadena de consulta pasada a 'OleDbCommand.OleDbCommand(string, OleDbConnection)' en 'Gastos.SUMA_GASTOS()' podría contener las siguientes variables: 'this.fecha'. Si alguna de estas variables puede proceder de datos proporcionados por el usuario, considere el uso de un procedimiento almacenado o una consulta SQL parametrizada en lugar de compilar la consulta con concatenaciones de cadenas.</Issue>
+             <Issue Name="WithNonLiterals" Certainty="75" Level="Warning" Path="C:\Empanada\BEEGSOFT\empanada_2\empanada_2\ESTADISTICAS" File="Gastos.cs" Line="296">La cadena de consulta pasada a 'OleDbCommand.OleDbCommand(string, OleDbConnection)' en 'Gastos.SUMA_GASTOS()' podría contener las siguientes variables: 'this.fecha'. Si alguna de estas variables puede proceder de datos proporcionados por el usuario, considere el uso de un procedimiento almacenado o una consulta SQL parametrizada en lugar de compilar la consulta con concatenaciones de cadenas.</Issue>
+            </Message>
+           </Messages>
+          </Member>
+         </Members>
+        </Type>
+        <Type Name="Historial" Kind="Class" Accessibility="Public" ExternallyVisible="True">
+         <Members>
+          <Member Name="#button3_Click(System.Object,System.EventArgs)" Kind="Method" Static="False" Accessibility="Private" ExternallyVisible="False">
+           <Messages>
+            <Message TypeName="Revisar consultas SQL para comprobar si tienen vulnerabilidades de seguridad" Category="Microsoft.Security" CheckId="CA2100" Status="Active" Created="2017-02-04 04:06:49Z" FixCategory="DependsOnFix">
+             <Issue Name="WithNonLiterals" Certainty="75" Level="Warning" Path="C:\Empanada\BEEGSOFT\empanada_2\empanada_2\ESTADISTICAS" File="Historial.cs" Line="136">La cadena de consulta pasada a 'OleDbCommand.OleDbCommand(string, OleDbConnection)' en 'Historial.button3_Click(object, EventArgs)' podría contener las siguientes variables: 'this.fechaa', 'this.fechab'. Si alguna de estas variables puede proceder de datos proporcionados por el usuario, considere el uso de un procedimiento almacenado o una consulta SQL parametrizada en lugar de compilar la consulta con concatenaciones de cadenas.</Issue>
+             <Issue Name="WithNonLiterals" Certainty="75" Level="Warning" Path="C:\Empanada\BEEGSOFT\empanada_2\empanada_2\ESTADISTICAS" File="Historial.cs" Line="149">La cadena de consulta pasada a 'OleDbCommand.OleDbCommand(string, OleDbConnection)' en 'Historial.button3_Click(object, EventArgs)' podría contener las siguientes variables: 'this.fechaa', 'this.fechab'. Si alguna de estas variables puede proceder de datos proporcionados por el usuario, considere el uso de un procedimiento almacenado o una consulta SQL parametrizada en lugar de compilar la consulta con concatenaciones de cadenas.</Issue>
+             <Issue Name="WithNonLiterals" Certainty="75" Level="Warning" Path="C:\Empanada\BEEGSOFT\empanada_2\empanada_2\ESTADISTICAS" File="Historial.cs" Line="161">La cadena de consulta pasada a 'OleDbCommand.OleDbCommand(string, OleDbConnection)' en 'Historial.button3_Click(object, EventArgs)' podría contener las siguientes variables: 'this.fechaa', 'this.fechab'. Si alguna de estas variables puede proceder de datos proporcionados por el usuario, considere el uso de un procedimiento almacenado o una consulta SQL parametrizada en lugar de compilar la consulta con concatenaciones de cadenas.</Issue>
+             <Issue Name="WithNonLiterals" Certainty="75" Level="Warning" Path="C:\Empanada\BEEGSOFT\empanada_2\empanada_2\ESTADISTICAS" File="Historial.cs" Line="174">La cadena de consulta pasada a 'OleDbCommand.OleDbCommand(string, OleDbConnection)' en 'Historial.button3_Click(object, EventArgs)' podría contener las siguientes variables: 'this.fechaa', 'this.fechab'. Si alguna de estas variables puede proceder de datos proporcionados por el usuario, considere el uso de un procedimiento almacenado o una consulta SQL parametrizada en lugar de compilar la consulta con concatenaciones de cadenas.</Issue>
+             <Issue Name="WithNonLiterals" Certainty="75" Level="Warning" Path="C:\Empanada\BEEGSOFT\empanada_2\empanada_2\ESTADISTICAS" File="Historial.cs" Line="188">La cadena de consulta pasada a 'OleDbCommand.OleDbCommand(string, OleDbConnection)' en 'Historial.button3_Click(object, EventArgs)' podría contener las siguientes variables: 'this.fechaa', 'this.fechab'. Si alguna de estas variables puede proceder de datos proporcionados por el usuario, considere el uso de un procedimiento almacenado o una consulta SQL parametrizada en lugar de compilar la consulta con concatenaciones de cadenas.</Issue>
+             <Issue Name="WithNonLiterals" Certainty="75" Level="Warning" Path="C:\Empanada\BEEGSOFT\empanada_2\empanada_2\ESTADISTICAS" File="Historial.cs" Line="211">La cadena de consulta pasada a 'OleDbCommand.OleDbCommand(string, OleDbConnection)' en 'Historial.button3_Click(object, EventArgs)' podría contener las siguientes variables: 'this.fechaa', 'this.fechab'. Si alguna de estas variables puede proceder de datos proporcionados por el usuario, considere el uso de un procedimiento almacenado o una consulta SQL parametrizada en lugar de compilar la consulta con concatenaciones de cadenas.</Issue>
+            </Message>
+           </Messages>
+          </Member>
+          <Member Name="#METODOCOMBO()" Kind="Method" Static="False" Accessibility="Private" ExternallyVisible="False">
+           <Messages>
+            <Message TypeName="Revisar consultas SQL para comprobar si tienen vulnerabilidades de seguridad" Category="Microsoft.Security" CheckId="CA2100" Status="Active" Created="2017-02-04 04:06:49Z" FixCategory="DependsOnFix">
+             <Issue Name="WithNonLiterals" Certainty="75" Level="Warning" Path="C:\Empanada\BEEGSOFT\empanada_2\empanada_2\ESTADISTICAS" File="Historial.cs" Line="55">La cadena de consulta pasada a 'OleDbCommand.OleDbCommand(string, OleDbConnection)' en 'Historial.METODOCOMBO()' podría contener las siguientes variables: 'this.comboBox_platillos.Text', 'this.fechaa', 'this.fechab'. Si alguna de estas variables puede proceder de datos proporcionados por el usuario, considere el uso de un procedimiento almacenado o una consulta SQL parametrizada en lugar de compilar la consulta con concatenaciones de cadenas.</Issue>
+             <Issue Name="WithNonLiterals" Certainty="75" Level="Warning" Path="C:\Empanada\BEEGSOFT\empanada_2\empanada_2\ESTADISTICAS" File="Historial.cs" Line="68">La cadena de consulta pasada a 'OleDbCommand.OleDbCommand(string, OleDbConnection)' en 'Historial.METODOCOMBO()' podría contener las siguientes variables: 'this.comboBox_platillos.Text', 'this.fechaa', 'this.fechab'. Si alguna de estas variables puede proceder de datos proporcionados por el usuario, considere el uso de un procedimiento almacenado o una consulta SQL parametrizada en lugar de compilar la consulta con concatenaciones de cadenas.</Issue>
+            </Message>
+           </Messages>
+          </Member>
+         </Members>
+        </Type>
+        <Type Name="Inicio" Kind="Class" Accessibility="Public" ExternallyVisible="True">
+         <Members>
+          <Member Name="#button2_Click(System.Object,System.EventArgs)" Kind="Method" Static="False" Accessibility="Private" ExternallyVisible="False">
+           <Messages>
+            <Message TypeName="Revisar consultas SQL para comprobar si tienen vulnerabilidades de seguridad" Category="Microsoft.Security" CheckId="CA2100" Status="Active" Created="2017-02-04 04:06:49Z" FixCategory="DependsOnFix">
+             <Issue Name="WithNonLiterals" Certainty="75" Level="Warning" Path="C:\Empanada\BEEGSOFT\empanada_2\empanada_2\INICIO" File="Inicio.cs" Line="84">La cadena de consulta pasada a 'OleDbCommand.OleDbCommand(string, OleDbConnection)' en 'Inicio.button2_Click(object, EventArgs)' podría contener las siguientes variables: 'fecha'. Si alguna de estas variables puede proceder de datos proporcionados por el usuario, considere el uso de un procedimiento almacenado o una consulta SQL parametrizada en lugar de compilar la consulta con concatenaciones de cadenas.</Issue>
+            </Message>
+           </Messages>
+          </Member>
+         </Members>
+        </Type>
+        <Type Name="Menu" Kind="Class" Accessibility="Public" ExternallyVisible="True">
+         <Members>
+          <Member Name="#button1_Click_1(System.Object,System.EventArgs)" Kind="Method" Static="False" Accessibility="Private" ExternallyVisible="False">
+           <Messages>
+            <Message TypeName="No usar Dispose varias veces en objetos" Category="Microsoft.Usage" CheckId="CA2202" Status="Active" Created="2017-02-04 04:06:49Z" FixCategory="DependsOnFix">
+             <Issue Certainty="75" Level="Warning" Path="C:\Empanada\BEEGSOFT\empanada_2\empanada_2\MENU" File="Menu.cs" Line="67">El objeto 'this' admite Dispose más de una vez en el método 'Menu.button1_Click_1(object, EventArgs)'. Para evitar generar una excepción System.ObjectDisposedException, no debe llamar a Dispose más de una vez en un objeto.: Lines: 67</Issue>
+            </Message>
+           </Messages>
+          </Member>
+         </Members>
+        </Type>
+        <Type Name="pagar" Kind="Class" Accessibility="Public" ExternallyVisible="True">
+         <Members>
+          <Member Name="#button1_Click(System.Object,System.EventArgs)" Kind="Method" Static="False" Accessibility="Private" ExternallyVisible="False">
+           <Messages>
+            <Message TypeName="No usar Dispose varias veces en objetos" Category="Microsoft.Usage" CheckId="CA2202" Status="Active" Created="2017-02-04 04:06:49Z" FixCategory="DependsOnFix">
+             <Issue Certainty="75" Level="Warning" Path="C:\Empanada\BEEGSOFT\empanada_2\empanada_2\ORDENES" File="pagar.cs" Line="340">El objeto 'conexion' admite Dispose más de una vez en el método 'pagar.button1_Click(object, EventArgs)'. Para evitar generar una excepción System.ObjectDisposedException, no debe llamar a Dispose más de una vez en un objeto.: Lines: 340</Issue>
+            </Message>
+           </Messages>
+          </Member>
+         </Members>
+        </Type>
+        <Type Name="RawPrinterHelper" Kind="Class" Accessibility="Public" ExternallyVisible="True">
+         <Members>
+          <Member Name="#ClosePrinter(System.IntPtr)" Kind="Method" Static="True" Accessibility="Public" ExternallyVisible="True">
+           <Messages>
+            <Message TypeName="MovePInvokesToNativeMethodsClass" Category="Microsoft.Design" CheckId="CA1060" Status="Active" Created="2017-02-04 04:06:49Z" FixCategory="Breaking">
+             <Issue Certainty="95" Level="CriticalWarning">Puesto que es un método P/Invoke, se debe definir 'RawPrinterHelper.ClosePrinter(IntPtr)' en una clase con el nombre NativeMethods, SafeNativeMethods o UnsafeNativeMethods.</Issue>
+            </Message>
+            <Message TypeName="PInvokesShouldNotBeVisible" Category="Microsoft.Interoperability" CheckId="CA1401" Status="Active" Created="2017-02-04 04:06:49Z" FixCategory="Breaking">
+             <Issue Certainty="50" Level="CriticalError">Cambie la accesibilidad del elemento P/Invoke 'RawPrinterHelper.ClosePrinter(IntPtr)' para que no esté visible desde fuera del ensamblado.</Issue>
+            </Message>
+           </Messages>
+          </Member>
+          <Member Name="#EndDocPrinter(System.IntPtr)" Kind="Method" Static="True" Accessibility="Public" ExternallyVisible="True">
+           <Messages>
+            <Message TypeName="MovePInvokesToNativeMethodsClass" Category="Microsoft.Design" CheckId="CA1060" Status="Active" Created="2017-02-04 04:06:49Z" FixCategory="Breaking">
+             <Issue Certainty="95" Level="CriticalWarning">Puesto que es un método P/Invoke, se debe definir 'RawPrinterHelper.EndDocPrinter(IntPtr)' en una clase con el nombre NativeMethods, SafeNativeMethods o UnsafeNativeMethods.</Issue>
+            </Message>
+            <Message TypeName="PInvokesShouldNotBeVisible" Category="Microsoft.Interoperability" CheckId="CA1401" Status="Active" Created="2017-02-04 04:06:49Z" FixCategory="Breaking">
+             <Issue Certainty="50" Level="CriticalError">Cambie la accesibilidad del elemento P/Invoke 'RawPrinterHelper.EndDocPrinter(IntPtr)' para que no esté visible desde fuera del ensamblado.</Issue>
+            </Message>
+           </Messages>
+          </Member>
+          <Member Name="#EndPagePrinter(System.IntPtr)" Kind="Method" Static="True" Accessibility="Public" ExternallyVisible="True">
+           <Messages>
+            <Message TypeName="MovePInvokesToNativeMethodsClass" Category="Microsoft.Design" CheckId="CA1060" Status="Active" Created="2017-02-04 04:06:49Z" FixCategory="Breaking">
+             <Issue Certainty="95" Level="CriticalWarning">Puesto que es un método P/Invoke, se debe definir 'RawPrinterHelper.EndPagePrinter(IntPtr)' en una clase con el nombre NativeMethods, SafeNativeMethods o UnsafeNativeMethods.</Issue>
+            </Message>
+            <Message TypeName="PInvokesShouldNotBeVisible" Category="Microsoft.Interoperability" CheckId="CA1401" Status="Active" Created="2017-02-04 04:06:49Z" FixCategory="Breaking">
+             <Issue Certainty="50" Level="CriticalError">Cambie la accesibilidad del elemento P/Invoke 'RawPrinterHelper.EndPagePrinter(IntPtr)' para que no esté visible desde fuera del ensamblado.</Issue>
+            </Message>
+           </Messages>
+          </Member>
+          <Member Name="#OpenPrinter(System.String,System.IntPtr&amp;,System.IntPtr)" Kind="Method" Static="True" Accessibility="Public" ExternallyVisible="True">
+           <Messages>
+            <Message TypeName="MovePInvokesToNativeMethodsClass" Category="Microsoft.Design" CheckId="CA1060" Status="Active" Created="2017-02-04 04:06:49Z" FixCategory="Breaking">
+             <Issue Certainty="95" Level="CriticalWarning">Puesto que es un método P/Invoke, se debe definir 'RawPrinterHelper.OpenPrinter(string, out IntPtr, IntPtr)' en una clase con el nombre NativeMethods, SafeNativeMethods o UnsafeNativeMethods.</Issue>
+            </Message>
+            <Message TypeName="PInvokesShouldNotBeVisible" Category="Microsoft.Interoperability" CheckId="CA1401" Status="Active" Created="2017-02-04 04:06:49Z" FixCategory="Breaking">
+             <Issue Certainty="50" Level="CriticalError">Cambie la accesibilidad del elemento P/Invoke 'RawPrinterHelper.OpenPrinter(string, out IntPtr, IntPtr)' para que no esté visible desde fuera del ensamblado.</Issue>
+            </Message>
+            <Message Id="0" TypeName="SpecifyMarshalingForPInvokeStringArguments" Category="Microsoft.Globalization" CheckId="CA2101" Status="Active" Created="2017-02-04 04:06:49Z" FixCategory="NonBreaking">
+             <Issue Name="ParameterImplicitAnsi" Certainty="75" Level="Error">Para reducir el riesgo de la seguridad, calcule las referencias del parámetro 'szPrinter' como Unicode, estableciendo DllImport.CharSet en CharSet.Unicode, o bien calculando las referencias del parámetro de forma explícita como UnmanagedType.LPWStr. Si necesita calcular las referencias de esta cadena como ANSI o dependiente del sistema, especifique MarshalAs de forma explícita y establezca BestFitMapping=false. Para mayor seguridad, establezca también ThrowOnUnmappableChar=true.</Issue>
+            </Message>
+           </Messages>
+          </Member>
+          <Member Name="#StartDocPrinter(System.IntPtr,System.Int32,empanada_2.RawPrinterHelper+DOCINFOA)" Kind="Method" Static="True" Accessibility="Public" ExternallyVisible="True">
+           <Messages>
+            <Message TypeName="MovePInvokesToNativeMethodsClass" Category="Microsoft.Design" CheckId="CA1060" Status="Active" Created="2017-02-04 04:06:49Z" FixCategory="Breaking">
+             <Issue Certainty="95" Level="CriticalWarning">Puesto que es un método P/Invoke, se debe definir 'RawPrinterHelper.StartDocPrinter(IntPtr, int, RawPrinterHelper.DOCINFOA)' en una clase con el nombre NativeMethods, SafeNativeMethods o UnsafeNativeMethods.</Issue>
+            </Message>
+            <Message TypeName="PInvokesShouldNotBeVisible" Category="Microsoft.Interoperability" CheckId="CA1401" Status="Active" Created="2017-02-04 04:06:49Z" FixCategory="Breaking">
+             <Issue Certainty="50" Level="CriticalError">Cambie la accesibilidad del elemento P/Invoke 'RawPrinterHelper.StartDocPrinter(IntPtr, int, RawPrinterHelper.DOCINFOA)' para que no esté visible desde fuera del ensamblado.</Issue>
+            </Message>
+            <Message Id="DOCINFOA.pDataType" TypeName="SpecifyMarshalingForPInvokeStringArguments" Category="Microsoft.Globalization" CheckId="CA2101" Status="Active" Created="2017-02-04 04:06:49Z" FixCategory="NonBreaking">
+             <Issue Name="FieldImplicitAnsi" Certainty="75" Level="Error">Para reducir el riesgo de la seguridad, calcule las referencias del campo 'RawPrinterHelper.DOCINFOA.pDataType' como Unicode, estableciendo StructLayout.CharSet de 'RawPrinterHelper.DOCINFOA' en CharSet.Unicode, o bien calculando las referencias del campo de forma explícita como UnmanagedType.LPWStr. Si necesita calcular las referencias de esta cadena como ANSI o dependiente del sistema, especifique MarshalAs de forma explícita, use el atributo BestFitMapping para desactivar la asignación de ajuste perfecto y, para mayor seguridad, active ThrowOnUnmappableChar.</Issue>
+            </Message>
+            <Message Id="DOCINFOA.pDocName" TypeName="SpecifyMarshalingForPInvokeStringArguments" Category="Microsoft.Globalization" CheckId="CA2101" Status="Active" Created="2017-02-04 04:06:49Z" FixCategory="NonBreaking">
+             <Issue Name="FieldImplicitAnsi" Certainty="75" Level="Error">Para reducir el riesgo de la seguridad, calcule las referencias del campo 'RawPrinterHelper.DOCINFOA.pDocName' como Unicode, estableciendo StructLayout.CharSet de 'RawPrinterHelper.DOCINFOA' en CharSet.Unicode, o bien calculando las referencias del campo de forma explícita como UnmanagedType.LPWStr. Si necesita calcular las referencias de esta cadena como ANSI o dependiente del sistema, especifique MarshalAs de forma explícita, use el atributo BestFitMapping para desactivar la asignación de ajuste perfecto y, para mayor seguridad, active ThrowOnUnmappableChar.</Issue>
+            </Message>
+            <Message Id="DOCINFOA.pOutputFile" TypeName="SpecifyMarshalingForPInvokeStringArguments" Category="Microsoft.Globalization" CheckId="CA2101" Status="Active" Created="2017-02-04 04:06:49Z" FixCategory="NonBreaking">
+             <Issue Name="FieldImplicitAnsi" Certainty="75" Level="Error">Para reducir el riesgo de la seguridad, calcule las referencias del campo 'RawPrinterHelper.DOCINFOA.pOutputFile' como Unicode, estableciendo StructLayout.CharSet de 'RawPrinterHelper.DOCINFOA' en CharSet.Unicode, o bien calculando las referencias del campo de forma explícita como UnmanagedType.LPWStr. Si necesita calcular las referencias de esta cadena como ANSI o dependiente del sistema, especifique MarshalAs de forma explícita, use el atributo BestFitMapping para desactivar la asignación de ajuste perfecto y, para mayor seguridad, active ThrowOnUnmappableChar.</Issue>
+            </Message>
+           </Messages>
+          </Member>
+          <Member Name="#StartPagePrinter(System.IntPtr)" Kind="Method" Static="True" Accessibility="Public" ExternallyVisible="True">
+           <Messages>
+            <Message TypeName="MovePInvokesToNativeMethodsClass" Category="Microsoft.Design" CheckId="CA1060" Status="Active" Created="2017-02-04 04:06:49Z" FixCategory="Breaking">
+             <Issue Certainty="95" Level="CriticalWarning">Puesto que es un método P/Invoke, se debe definir 'RawPrinterHelper.StartPagePrinter(IntPtr)' en una clase con el nombre NativeMethods, SafeNativeMethods o UnsafeNativeMethods.</Issue>
+            </Message>
+            <Message TypeName="PInvokesShouldNotBeVisible" Category="Microsoft.Interoperability" CheckId="CA1401" Status="Active" Created="2017-02-04 04:06:49Z" FixCategory="Breaking">
+             <Issue Certainty="50" Level="CriticalError">Cambie la accesibilidad del elemento P/Invoke 'RawPrinterHelper.StartPagePrinter(IntPtr)' para que no esté visible desde fuera del ensamblado.</Issue>
+            </Message>
+           </Messages>
+          </Member>
+          <Member Name="#WritePrinter(System.IntPtr,System.IntPtr,System.Int32,System.Int32&amp;)" Kind="Method" Static="True" Accessibility="Public" ExternallyVisible="True">
+           <Messages>
+            <Message TypeName="MovePInvokesToNativeMethodsClass" Category="Microsoft.Design" CheckId="CA1060" Status="Active" Created="2017-02-04 04:06:49Z" FixCategory="Breaking">
+             <Issue Certainty="95" Level="CriticalWarning">Puesto que es un método P/Invoke, se debe definir 'RawPrinterHelper.WritePrinter(IntPtr, IntPtr, int, out int)' en una clase con el nombre NativeMethods, SafeNativeMethods o UnsafeNativeMethods.</Issue>
+            </Message>
+            <Message TypeName="PInvokesShouldNotBeVisible" Category="Microsoft.Interoperability" CheckId="CA1401" Status="Active" Created="2017-02-04 04:06:49Z" FixCategory="Breaking">
+             <Issue Certainty="50" Level="CriticalError">Cambie la accesibilidad del elemento P/Invoke 'RawPrinterHelper.WritePrinter(IntPtr, IntPtr, int, out int)' para que no esté visible desde fuera del ensamblado.</Issue>
+            </Message>
+           </Messages>
+          </Member>
+         </Members>
+        </Type>
+       </Types>
+      </Namespace>
+     </Namespaces>
+    </Module>
+   </Modules>
+  </Target>
+ </Targets>
+ <Rules>
+  <Rule TypeName="MovePInvokesToNativeMethodsClass" Category="Microsoft.Design" CheckId="CA1060">
+   <Name>Mueva P/Invokes a la clase NativeMethods</Name>
+   <Description>Este tipo contiene miembros con el atributo DllImport. Los miembros con el atributo DllImport deben estar contenidos en clases denominadas NativeMethods, SafeNativeMethods o UnsafeNativeMethods.</Description>
+   <Resolution Name="Default">Puesto que es un método P/Invoke, se debe definir {0} en una clase con el nombre NativeMethods, SafeNativeMethods o UnsafeNativeMethods.</Resolution>
+   <Owner />
+   <Url>http://msdn.microsoft.com/library/ms182161.aspx</Url>
+   <Email>[none]</Email>
+   <MessageLevel Certainty="95">CriticalWarning</MessageLevel>
+   <File Name="designrules.dll" Version="14.0.0.0" />
+  </Rule>
+  <Rule TypeName="No usar Dispose varias veces en objetos" Category="Microsoft.Usage" CheckId="CA2202">
+   <Name>No usar Dispose varias veces en objetos</Name>
+   <Description>Un método Dispose correctamente implementado se puede llamar varias veces sin producir ninguna excepción. Sin embargo, esto no está garantizado y, para evitar generar una excepción System.ObjectDisposedException, no debe llamar al método Dispose más de una vez en un objeto.</Description>
+   <Resolution Name="Default">El objeto {0} admite Dispose más de una vez en el método {1}. Para evitar generar una excepción System.ObjectDisposedException, no debe llamar a Dispose más de una vez en un objeto.: Lines: 340</Resolution>
+   <Owner>RuleOwner</Owner>
+   <Url>http://msdn.microsoft.com/library/ms182334.aspx</Url>
+   <Email />
+   <MessageLevel Certainty="75">Warning</MessageLevel>
+   <File Name="dataflowrules.dll" Version="14.0.0.0" />
+  </Rule>
+  <Rule TypeName="PInvokesShouldNotBeVisible" Category="Microsoft.Interoperability" CheckId="CA1401">
+   <Name>Los elementos P/Invoke no deben estar visibles</Name>
+   <Description>La capa de interoperabilidad no debe ser pública. No debe aplicar el atributo DllImport en miembros accesibles públicamente (public o protected).</Description>
+   <Resolution Name="Default">Cambie la accesibilidad del elemento P/Invoke {0} para que no esté visible desde fuera del ensamblado.</Resolution>
+   <Owner />
+   <Url>http://msdn.microsoft.com/library/ms182209.aspx</Url>
+   <Email>[none]</Email>
+   <MessageLevel Certainty="50">CriticalError</MessageLevel>
+   <File Name="interoperabilityrules.dll" Version="14.0.0.0" />
+  </Rule>
+  <Rule TypeName="Revisar consultas SQL para comprobar si tienen vulnerabilidades de seguridad" Category="Microsoft.Security" CheckId="CA2100">
+   <Name>Revisar consultas SQL para comprobar si tienen vulnerabilidades de seguridad</Name>
+   <Description>Una cadena de comando SQL compilada a partir de datos proporcionados por el usuario es vulnerable a ataques pon inyección de código SQL. Microsoft SQL Server y otros servidores de bases de datos admiten procedimientos almacenados y consultas SQL parametrizadas, que reducen el riesgo de ataques por inyección.</Description>
+   <Resolution Name="WithNonLiterals">La cadena de consulta pasada a {0} en {1} podría contener las siguientes variables: {2}. Si alguna de estas variables puede proceder de datos proporcionados por el usuario, considere el uso de un procedimiento almacenado o una consulta SQL parametrizada en lugar de compilar la consulta con concatenaciones de cadenas.</Resolution>
+   <Owner>RuleOwner</Owner>
+   <Url>http://msdn.microsoft.com/library/ms182310.aspx</Url>
+   <Email />
+   <MessageLevel Certainty="75">Warning</MessageLevel>
+   <File Name="dataflowrules.dll" Version="14.0.0.0" />
+  </Rule>
+  <Rule TypeName="SpecifyMarshalingForPInvokeStringArguments" Category="Microsoft.Globalization" CheckId="CA2101">
+   <Name>Especifique cálculo de referencias para argumentos de cadena P/Invoke</Name>
+   <Description>Cuando se calculan las referencias de cadenas como ANSI (o Auto en Win9x), es posible que cambien algunos caracteres. Si está activada la asignación de ajuste perfecto, en las cadenas que aparecen diferentes en Unicode se calcularán las referencias como cadenas ANSI idénticas, lo que puede dar lugar a decisiones de seguridad incorrectas. Si se desactiva la asignación de ajuste perfecto, se reduce el riesgo, ya que a todos los caracteres sin equivalente se les asigna '?'. Asimismo, tenga en cuenta que CharSet.Ansi es el valor predeterminado para todos los cálculos de referencias de cadenas. El cálculo de referencias Unicode se debe especificar de forma explícita, ya sea con el valor CharSet de DllImport o StructLayout, o bien con el atributo MarshalAs con un tipo Unicode no administrado (o dependiente del sistema).</Description>
+   <Resolution Name="FieldImplicitAnsi">Para reducir el riesgo de la seguridad, calcule las referencias del campo {0} como Unicode, estableciendo StructLayout.CharSet de {1} en CharSet.Unicode, o bien calculando las referencias del campo de forma explícita como UnmanagedType.LPWStr. Si necesita calcular las referencias de esta cadena como ANSI o dependiente del sistema, especifique MarshalAs de forma explícita, use el atributo BestFitMapping para desactivar la asignación de ajuste perfecto y, para mayor seguridad, active ThrowOnUnmappableChar.</Resolution>
+   <Resolution Name="ParameterImplicitAnsi">Para reducir el riesgo de la seguridad, calcule las referencias del parámetro {0} como Unicode, estableciendo DllImport.CharSet en CharSet.Unicode, o bien calculando las referencias del parámetro de forma explícita como UnmanagedType.LPWStr. Si necesita calcular las referencias de esta cadena como ANSI o dependiente del sistema, especifique MarshalAs de forma explícita y establezca BestFitMapping=false. Para mayor seguridad, establezca también ThrowOnUnmappableChar=true.</Resolution>
+   <Owner />
+   <Url>http://msdn.microsoft.com/library/ms182319.aspx</Url>
+   <Email>[none]</Email>
+   <MessageLevel Certainty="75">Error</MessageLevel>
+   <File Name="globalizationrules.dll" Version="14.0.0.0" />
+  </Rule>
+ </Rules>
+ <Localized>
+  <String Key="Category">Categoría</String>
+  <String Key="Certainty">Certeza</String>
+  <String Key="CollapseAll">Contraer todo</String>
+  <String Key="CheckId">Comprobar id.</String>
+  <String Key="Error">Error</String>
+  <String Key="Errors">errores</String>
+  <String Key="ExpandAll">Expandir todo</String>
+  <String Key="Help">Ayuda</String>
+  <String Key="Line">Línea</String>
+  <String Key="Messages">mensajes</String>
+  <String Key="LocationNotStoredInPdb">[Ubicación no almacenada en Pdb]</String>
+  <String Key="Project">Proyecto</String>
+  <String Key="Resolution">Resolución</String>
+  <String Key="Rule">Regla</String>
+  <String Key="RuleFile">Archivo de regla</String>
+  <String Key="RuleDescription">Descripción de la regla</String>
+  <String Key="Source">Origen</String>
+  <String Key="Status">Estado</String>
+  <String Key="Target">Círculos concéntricos</String>
+  <String Key="Warning">Advertencia</String>
+  <String Key="Warnings">advertencias</String>
+  <String Key="ReportTitle">Informe de análisis del código</String>
+ </Localized>
+</FxCopReport>

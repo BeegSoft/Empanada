@@ -360,10 +360,5 @@ namespace empanada_2
         {
 
         }
-
-        private void pictureBox2_Click(object sender, EventArgs e)
-        {
-
-        }
     }
 }

@@ -9,6 +9,10 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Data.OleDb;
 
+using System.Globalization;
+using System.Reflection;
+using System.Threading;
+
 namespace empanada_2
 {
     public partial class Gastos : Form
@@ -26,14 +30,54 @@ namespace empanada_2
         }
 
         string ds, fecha;
+        int id;
+
+        public void SetDefaultCulture(CultureInfo culture)
+        {
+            Type type = typeof(CultureInfo);
+
+            try
+            {
+                type.InvokeMember("s_userDefaultCulture",
+                                    BindingFlags.SetField | BindingFlags.NonPublic | BindingFlags.Static,
+                                    null,
+                                    culture,
+                                    new object[] { culture });
+
+                type.InvokeMember("s_userDefaultUICulture",
+                                    BindingFlags.SetField | BindingFlags.NonPublic | BindingFlags.Static,
+                                    null,
+                                    culture,
+                                    new object[] { culture });
+            }
+            catch { }
+
+            try
+            {
+                type.InvokeMember("m_userDefaultCulture",
+                                    BindingFlags.SetField | BindingFlags.NonPublic | BindingFlags.Static,
+                                    null,
+                                    culture,
+                                    new object[] { culture });
+
+                type.InvokeMember("m_userDefaultUICulture",
+                                    BindingFlags.SetField | BindingFlags.NonPublic | BindingFlags.Static,
+                                    null,
+                                    culture,
+                                    new object[] { culture });
+            }
+            catch { }
+        }
+
         private void Gastos_Load(object sender, EventArgs e)
         {
             textBox_descripcion.Focus();
-            DateTime fechahoy = DateTime.Now;
-            fecha = fechahoy.ToString("d");
 
-            label_fecha.Text = fecha;
-            
+            fecha = DateTime.Now.ToShortDateString();
+
+            label_fecha.Text = DateTime.Now.ToShortDateString();
+
+
 
             OleDbDataAdapter adaptador = new OleDbDataAdapter("SELECT FECHA.fecha FROM FECHA ORDER BY FECHA.id ASC", ds);
 
@@ -81,9 +125,9 @@ namespace empanada_2
         {
             
         }
- 
 
-        int ventas, gastos, ganancias;
+        double ventas, gastos;
+        double ganancias;
 
         private void GANANCIAS()
         {
@@ -91,7 +135,7 @@ namespace empanada_2
 
             conexion.Open();
 
-            string select = "SELECT Venta_total, Gastos FROM FECHA WHERE fecha='" + fecha + "'";
+            string select = "SELECT Venta_total, Gastos FROM FECHA WHERE fecha= '"+fecha+"'";
             OleDbCommand cmd = new OleDbCommand(select, conexion);
             try
             {
@@ -101,10 +145,9 @@ namespace empanada_2
                 {
                     while (reader.Read())
                     {
-                        ventas = reader.GetInt32(0);
-                        gastos = reader.GetInt32(1);
-
-                        ganancias = ventas - gastos;
+                        ventas = reader.GetDouble(0);
+                        gastos = reader.GetDouble(1);
+                        ganancias = ventas - gastos;                      
                     }
                 }
                 reader.Close();
@@ -117,7 +160,7 @@ namespace empanada_2
             //ACTUALIZAR LAS GANANCIAS
             string actualizar = "UPDATE FECHA SET Ganancia = @Ganancia WHERE fecha = '" + fecha + "'";
             OleDbCommand cmd3 = new OleDbCommand(actualizar, conexion);
-            cmd3.Parameters.AddWithValue("@Ganancia", ganancias);
+            cmd3.Parameters.AddWithValue("@Ganancia", ganancias.ToString());
 
             cmd3.ExecuteNonQuery();
 
@@ -126,35 +169,78 @@ namespace empanada_2
 
         private void button5_Click(object sender, EventArgs e)
         {
-            OleDbConnection conexion = new OleDbConnection(ds);
-
-            conexion.Open();
-            if ((textBox_descripcion.Text == "") || (textBox_gasto.Text == ""))
+            try
             {
-                MessageBox.Show("No has introduccido la informacion necesaria", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                textBox_descripcion.Focus();
+                OleDbConnection conexion = new OleDbConnection(ds);
+
+                conexion.Open();
+                if ((textBox_descripcion.Text == "") || (textBox_gasto.Text == ""))
+                {
+                    MessageBox.Show("No has introduccido la informacion necesaria", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    textBox_descripcion.Focus();
+                }
+                else
+                {
+
+                    string select = "SELECT MAX(Id_gastos) FROM GASTOS";
+                    OleDbCommand cmd1 = new OleDbCommand(select, conexion);
+
+                    try
+                    {
+
+
+                        OleDbDataReader reader = cmd1.ExecuteReader();
+
+                        if (reader.HasRows)
+                        {
+                            while (reader.Read())
+                            {
+                                id = reader.GetInt32(0) + 1;
+
+                            }
+                        }
+                        else
+                        {
+                            MessageBox.Show("No se pudo", "MENSAJE", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        }
+                        reader.Close();
+
+
+
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show("Error orden" + ex, "MENSAJE", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+
+
+
+                    string insertar = "INSERT INTO GASTOS (Id_gastos, Fecha, Descripcion, Gasto) VALUES (@Id_gastos, @Fecha, @Descripcion, @Gasto)";
+                    OleDbCommand cmd = new OleDbCommand(insertar, conexion);
+                    cmd.Parameters.AddWithValue("@Id_gastos", id);
+                    cmd.Parameters.AddWithValue("@Fecha", fecha);
+                    cmd.Parameters.AddWithValue("@Descripcion", textBox_descripcion.Text);
+                    cmd.Parameters.AddWithValue("@Gasto", textBox_gasto.Text);
+
+                    cmd.ExecuteNonQuery();
+                    MessageBox.Show("Datos agregados correctamente", "MENSAJE", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    conexion.Close();
+
+                    SELECT_GASTOS();
+
+                    SUMA_GASTOS();
+
+                    GANANCIAS();
+
+                    textBox_descripcion.Clear();
+                    textBox_gasto.Clear();
+                }
             }
-            else
+            catch (FormatException)
             {
-                string insertar = "INSERT INTO GASTOS (Fecha, Descripcion, Gasto) VALUES (@Fecha, @Descripcion, @Gasto)";
-                OleDbCommand cmd = new OleDbCommand(insertar, conexion);
-                cmd.Parameters.AddWithValue("@Fecha", fecha);
-                cmd.Parameters.AddWithValue("@Descripcion", textBox_descripcion.Text);
-                cmd.Parameters.AddWithValue("@Gasto", Convert.ToInt32(textBox_gasto.Text));
-
-                cmd.ExecuteNonQuery();
-                MessageBox.Show("Datos agregados correctamente", "MENSAJE", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                conexion.Close();
-
-                SELECT_GASTOS();
-
-                SUMA_GASTOS();
-
-                GANANCIAS();
-
-                textBox_descripcion.Clear();
-                textBox_gasto.Clear();
-            }
+                MessageBox.Show("Introdujo datos incorrectos", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                textBox_gasto.Focus();
+            }            
         }
 
         private void radioButton1_Click(object sender, EventArgs e)
@@ -267,6 +353,29 @@ namespace empanada_2
             SELECT_GASTOS();
             SUMA_GASTOS();
             GANANCIAS();
+        }
+
+        private void textBox_gasto_TextChanged(object sender, EventArgs e)
+        {
+            SetDefaultCulture(new CultureInfo("es-MX"));
+            double cal;
+            try
+            {
+                if (textBox_gasto.Text == "")
+                {
+                    cal = 0;
+                }
+                else
+                {
+                    cal = double.Parse(textBox_gasto.Text, Thread.CurrentThread.CurrentCulture);
+                }                          
+            }
+            catch(FormatException)
+            {
+                MessageBox.Show("Introdujo datos incorrectos", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                textBox_gasto.Text="";                
+                textBox_gasto.Focus();
+            }
         }
 
         private void SUMA_GASTOS()

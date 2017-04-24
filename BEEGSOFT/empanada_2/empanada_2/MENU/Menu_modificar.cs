@@ -8,6 +8,9 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Data.OleDb;
+using System.Globalization;
+using System.Reflection;
+using System.Threading;
 
 namespace empanada_2
 {
@@ -18,14 +21,14 @@ namespace empanada_2
             InitializeComponent();
             this.id = id;
             this.ds = ds;
+            
         }
         int id;
         string nombre_platillo;
-        int precio_platillo;
+        double precio_platillo;
         String ds;
         private void Menu_modificar_Load(object sender, EventArgs e)
-        {
-            
+        {            
 
             OleDbConnection conexion = new OleDbConnection(ds);
 
@@ -44,7 +47,7 @@ namespace empanada_2
                     while (reader.Read())
                     {
                         nombre_platillo = reader.GetString(0);
-                        precio_platillo = reader.GetInt32(1);
+                        precio_platillo = reader.GetDouble(1);
 
                     }
                 }
@@ -66,17 +69,53 @@ namespace empanada_2
             textBox_precio.Text = precio_platillo.ToString();
             conexion.Close();
         }
+        public void SetDefaultCulture(CultureInfo culture)
+        {
+            Type type = typeof(CultureInfo);
+
+            try
+            {
+                type.InvokeMember("s_userDefaultCulture",
+                                    BindingFlags.SetField | BindingFlags.NonPublic | BindingFlags.Static,
+                                    null,
+                                    culture,
+                                    new object[] { culture });
+
+                type.InvokeMember("s_userDefaultUICulture",
+                                    BindingFlags.SetField | BindingFlags.NonPublic | BindingFlags.Static,
+                                    null,
+                                    culture,
+                                    new object[] { culture });
+            }
+            catch { }
+
+            try
+            {
+                type.InvokeMember("m_userDefaultCulture",
+                                    BindingFlags.SetField | BindingFlags.NonPublic | BindingFlags.Static,
+                                    null,
+                                    culture,
+                                    new object[] { culture });
+
+                type.InvokeMember("m_userDefaultUICulture",
+                                    BindingFlags.SetField | BindingFlags.NonPublic | BindingFlags.Static,
+                                    null,
+                                    culture,
+                                    new object[] { culture });
+            }
+            catch { }
+        }
 
         private void UPDATE_MENU()
         {
             OleDbConnection conexion = new OleDbConnection(ds);
-
+            SetDefaultCulture(new CultureInfo("es-MX"));
             conexion.Open();
 
             string insertar = "UPDATE MENU SET nombre_platillo= @nombre_platillo, precio_platillo = @precio_platillo WHERE id_platillo=" + id;
             OleDbCommand cmd = new OleDbCommand(insertar, conexion);
             cmd.Parameters.AddWithValue("@nombre_platillo", textBox_nombre.Text);
-            cmd.Parameters.AddWithValue("@precio_platillo", textBox_precio.Text);
+            cmd.Parameters.AddWithValue("@precio_platillo", double.Parse(textBox_precio.Text, Thread.CurrentThread.CurrentCulture));
 
             cmd.ExecuteNonQuery();
             MessageBox.Show("Datos modificados correctamente", "MENSAJE", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -129,6 +168,29 @@ namespace empanada_2
             form.Show();
 
             this.Hide();
+        }
+
+        private void textBox_precio_TextChanged(object sender, EventArgs e)
+        {
+            SetDefaultCulture(new CultureInfo("es-MX"));
+            double cal;
+            try
+            {
+                if (textBox_precio.Text == "")
+                {
+                    cal = 0;
+                }
+                else
+                {
+                    cal= double.Parse(textBox_precio.Text, Thread.CurrentThread.CurrentCulture);
+                }
+            }
+            catch (FormatException)
+            {
+                MessageBox.Show("Introdujo datos incorrectos", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                textBox_precio.Text = "";
+                textBox_precio.Focus();
+            }
         }
     }
 }

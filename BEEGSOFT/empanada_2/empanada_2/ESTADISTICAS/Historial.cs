@@ -21,11 +21,12 @@ namespace empanada_2
 
         //CONEXIONES
         String ds;
+        string fecha;
         int fechaa, fechab;
 
         private void SELECT_FECHA()
         {
-            OleDbDataAdapter adaptador = new OleDbDataAdapter("SELECT FECHA.fecha FROM FECHA ORDER BY FECHA.id ASC", ds);
+            OleDbDataAdapter adaptador = new OleDbDataAdapter("SELECT fecha FROM FECHA ORDER BY FECHA.id ASC", ds);
 
             DataSet dataset = new DataSet();
             DataTable tabla = new DataTable();
@@ -36,7 +37,7 @@ namespace empanada_2
             for (int i = 0; i < tabla.Rows.Count; i++)
             {
                 DataRow filas = tabla.Rows[i];
-                ListViewItem elementos = new ListViewItem(filas["fecha"].ToString());
+                ListViewItem elementos = new ListViewItem(filas["fecha"].ToString());                
                 listView_fechas.Items.Add(elementos);
             }
             
@@ -49,8 +50,8 @@ namespace empanada_2
 
             conexion.Open();                        
             
-
-            string select = "SELECT SUM(PLATILLO.pagar) FROM(FECHA INNER JOIN ORDEN ON FECHA.fecha = ORDEN.fecha) INNER JOIN PLATILLO ON ORDEN.id_orden = PLATILLO.id_orden WHERE PLATILLO.nombre_platillo = '" + comboBox_platillos.Text + "'" + "AND FECHA.id >= " + fechaa + "AND FECHA.id <= " + fechab;
+            //string select1="SELECT SUM(pagar) FROM PLATILLO WHERE nombre_platillo = '"+comboBox_platillos.Text+"' AND fecha"
+            string select = "SELECT SUM(PLATILLO.pagar) FROM(FECHA INNER JOIN ORDEN ON FECHA.fecha = ORDEN.fecha) INNER JOIN PLATILLO ON ORDEN.id_orden = PLATILLO.id_orden WHERE PLATILLO.nombre_platillo = '" + comboBox_platillos.Text + "'" + "AND FECHA.id >= " + fechaa + " AND FECHA.id <= " + fechab;
 
             OleDbCommand cmd2 = new OleDbCommand(select, conexion); //Conexion es tu objeto conexion                                
 
@@ -77,8 +78,7 @@ namespace empanada_2
         }
 
         private void comboBox_platillos_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            //PLATILLOS DEL COMBO
+        {            
             METODOCOMBO();                        
         }                
 
@@ -265,13 +265,15 @@ namespace empanada_2
             textBox_gastos.Text = "0";
             textBox_ganancias.Text = "0";
             textBox_ventas.Text = "0";
+
+            fecha = DateTime.Now.ToShortDateString();            
+
             //-------------------------------
             SELECT_FECHA();
             //------------------------------
             
-            //separacion del contenido del calendario
-            DateTime fechahoy = DateTime.Now;
-            string fechas = fechahoy.ToString("d");            
+            //separacion del contenido del calendario          
+            
 
             DataSet dss = new DataSet();
             //indicamos la consulta en SQL

@@ -23,7 +23,7 @@ namespace empanada_2
         }
         
         string ds,ds2;
-        int band,id;
+        int band,id,id_usuario;
 
         private void groupBox1_Enter(object sender, EventArgs e)
         {
@@ -68,13 +68,49 @@ namespace empanada_2
 
                     OleDbConnection conexion = new OleDbConnection(ds2);
                     conexion.Open();
+
+                    string select = "SELECT MAX(id) FROM USUARIOS";
+                    OleDbCommand cmd = new OleDbCommand(select, conexion);
+
                     try
                     {
-                        string insertar = "INSERT INTO USUARIOS (nombre, clave, tipo_usuario) VALUES (@NOMBRE, @CLAVE, @TIPO)";
+
+
+                        OleDbDataReader reader = cmd.ExecuteReader();
+
+                        if (reader.HasRows)
+                        {
+                            while (reader.Read())
+                            {
+                                id_usuario = reader.GetInt32(0) + 1;
+
+                            }
+                        }
+                        else
+                        {
+                            MessageBox.Show("No se pudo", "MENSAJE", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        }
+                        reader.Close();
+
+
+
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show("Error orden" + ex, "MENSAJE", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+
+
+
+
+                    try
+                    {
+                        string insertar = "INSERT INTO USUARIOS (id, nombre, clave, tipo_usuario) VALUES (@id, @nombre, @clave, @tipo_usuario)";
                         OleDbCommand cmd2 = new OleDbCommand(insertar, conexion);
-                        cmd2.Parameters.AddWithValue("@NOMBRE", txtnombre.Text);
-                        cmd2.Parameters.AddWithValue("@CLAVE", var1);
-                        cmd2.Parameters.AddWithValue("@TIPO", cbotipo.Text);
+                        cmd2.Parameters.AddWithValue("@id", id_usuario);
+                        cmd2.Parameters.AddWithValue("@nombre", txtnombre.Text);
+                        cmd2.Parameters.AddWithValue("@clave", var1);
+                        cmd2.Parameters.AddWithValue("@tipo_usuario", cbotipo.Text);
 
                         cmd2.ExecuteNonQuery();
                         MessageBox.Show("Usuario Agregado", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -127,11 +163,11 @@ namespace empanada_2
                         string var1 = Encriptado.Encriptar(txtclave.Text);
 
 
-                        string insertar2 = "UPDATE USUARIOS SET nombre = @NOMBRE, clave = @CLAVE,tipo_usuario = @TIPO WHERE id =" + id;
+                        string insertar2 = "UPDATE USUARIOS SET nombre = @nombre, clave = @clave,tipo_usuario = @tipo_usuario WHERE id =" + id;
                         OleDbCommand cmd3 = new OleDbCommand(insertar2, conexion);
-                        cmd3.Parameters.AddWithValue("@NOMBRE", txtnombre.Text);
-                        cmd3.Parameters.AddWithValue("@CLAVE", var1);
-                        cmd3.Parameters.AddWithValue("@TIPO", cbotipo.Text);
+                        cmd3.Parameters.AddWithValue("@nombre", txtnombre.Text);
+                        cmd3.Parameters.AddWithValue("@clave", var1);
+                        cmd3.Parameters.AddWithValue("@tipo_usuario", cbotipo.Text);
                         cmd3.ExecuteNonQuery();
 
                         MessageBox.Show("Usuario modificado", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Information);
